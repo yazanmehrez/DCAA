@@ -1,14 +1,12 @@
-<head>
-    <title>{{'_Title' | translate}}</title>
-</head>
 <header id="header">
     <div class="main-header">
         <nav class="main-menu" [style.z-index]="collapsed ? '1000' : ''">
-            <div class="box-container" [ngClass]="collapsed ? 'nav-collapsed-active' : ''">
+            <div class="box-container" (click)="collapsed = !collapsed"
+                 [ngClass]="collapsed ? 'nav-collapsed-active' : ''">
                 <div class="navbar-menu">
                     <div class="navbar"
                          [ngClass]="collapsed ? 'nav-collapsed-active' : ''">
-                        <a id="nav-toggle" [ngClass]="collapsed ? 'active' : ''" (click)="collapsed = !collapsed">
+                        <a id="nav-toggle" [ngClass]="collapsed ? 'active' : ''">
                             <span [style.color]="collapsed ? '#fff' : ''"></span>
                         </a>
                     </div>

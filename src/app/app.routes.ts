@@ -4,7 +4,10 @@ import {HomeComponent} from './views/home/home.component';
 export const rootRouterConfig: Routes = [
     {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        data: {
+            title: '_Title'
+        }
     },
     {
         path: '**',

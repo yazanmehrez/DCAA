@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AppService} from './app.service';
+import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
+import {Title} from '@angular/platform-browser';
 
 @Component({
     selector: 'app-root',
@@ -10,7 +12,9 @@ import {AppService} from './app.service';
 })
 export class AppComponent implements OnInit {
 
-    constructor(private _appService: AppService) {
+    constructor(private _appService: AppService,
+                private translate: TranslateService,
+                private titleService: Title) {
     }
 
     ngOnInit() {
@@ -24,6 +28,17 @@ export class AppComponent implements OnInit {
                     document.documentElement.setAttribute('lang', 'ar');
                     break;
             }
+
+            this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+                this.translate.get('_Title').subscribe((res: string) => {
+                    this.titleService.setTitle(res);
+                });
+            });
+            this.translate.onDefaultLangChange.subscribe((event: LangChangeEvent) => {
+                this.translate.get('_Title').subscribe((res: string) => {
+                    this.titleService.setTitle(res);
+                });
+            });
         });
     }
 
