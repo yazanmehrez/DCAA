@@ -1,0 +1,35 @@
+<header id="header">
+    <div class="main-header">
+        <nav class="main-menu">
+            <div class="box-container">
+                <div class="navbar-menu">
+                    <div class="navbar"
+                         [style.z-index]="collapsed ? '550' : ''"
+                         [style.background-color]="collapsed ? '#fff' : ''">
+                        <a id="nav-toggle" [ngClass]="collapsed ? 'active' : ''" (click)="collapsed = !collapsed">
+                            <span [style.color]="collapsed ? '#1b2850' : ''"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </nav>
+        <div class="main-title">
+            <div class="title">
+                <h1>crios</h1>
+                <p>free psd template</p>
+            </div>
+        </div>
+        <div class="main-search">
+            <div class="box-container">
+                <div class="search"></div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,34 @@
+// Colors
+$primary-color: #43a9ff;
+$secondary-color: #e4e6e8;
+
+$primary-background: #fff;
+$secondary-background: #f7f8fb;
+
+$primary-shadow: #dae5ef;
+
+$black-color: #000;
+$red-color: #fe3254;
+
+// Typography
+$font-family-base: 'MontserratRegular', sans-serif !default;
+$font-weight-base: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-bold: 600 !default;
+
+$font-size-h1: 48px !default;
+$font-size-h2: 40px !default;
+$font-size-h3: 35px !default;
+$font-size-h4: 30px !default;
+$font-size-h5: 28px !default;
+$font-size-h6: 25px !default;
+
+$paragraph-size: 18px !default;
+$paragraph-medium-size: 16px !default;
+$paragraph-small-size: 14px !default;
+
+$primary-btn-size: 14px !default;
+
+/* Functions */
+$grid-columns: 12;
+$margin-rem: 20;

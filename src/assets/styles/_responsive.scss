@@ -1,0 +1,39 @@
+$wide-screen: 1600px;
+$laptopL-screen: 1440px;
+$laptop-screen: 1024px;
+$tablet-screen: 768px;
+$mobileL-screen: 425px;
+$mobileM-screen: 375px;
+$mobileS-screen: 320px;
+
+@mixin respond-to($media) {
+  @if $media == wide-screen {
+    @media (min-width: $wide-screen) {
+      @content;
+    }
+  } @else if $media == laptopL-screen {
+    @media only screen and (min-width: $laptopL-screen) and (max-width: $wide-screen - 1) {
+      @content;
+    }
+  } @else if $media == laptop-screen {
+    @media only screen and (min-width: $laptop-screen) and (max-width: $laptopL-screen - 1) {
+      @content;
+    }
+  } @else if $media == tablet-screen {
+    @media only screen and (min-width: $tablet-screen) and (max-width: $laptop-screen - 1) {
+      @content;
+    }
+  } @else if $media == mobileL-screen {
+    @media only screen and (min-width: $mobileL-screen) and (max-width: $tablet-screen - 1) {
+      @content;
+    }
+  } @else if $media == mobileM-screen {
+    @media only screen and (min-width: $mobileM-screen) and (max-width: $mobileL-screen - 1) {
+      @content;
+    }
+  } @else if $media == mobileS-screen {
+    @media only screen and (min-width: $mobileS-screen) and (max-width: $mobileM-screen - 1) {
+      @content;
+    }
+  }
+}

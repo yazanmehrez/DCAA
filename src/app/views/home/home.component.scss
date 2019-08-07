@@ -1,0 +1,88 @@
+@import '../../../assets/styles/variables';
+
+.landing {
+  height: 1000px;
+  background: url("../../../assets/images/landing-bg.png") no-repeat;
+}
+
+.cards {
+  .c-item {
+    width: 345px;
+    height: 345px;
+    margin: 0 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .cards-intro {
+    margin-bottom: 100px;
+  }
+}
+
+.image-cross {
+  .ic-container {
+    background-color: $secondary-background;
+  }
+
+  .ic-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.applications {
+  .app-right {
+    padding: 45px;
+    margin-right: 10rem;
+    margin-top: 10rem;
+  }
+
+  .app-left {
+    padding: 45px;
+    margin-left: 10rem;
+    margin-bottom: 10rem;
+  }
+}
+
+.quotes {
+  .quotes-container {
+    background: $secondary-background;
+    height: 630px;
+    overflow: hidden;
+  }
+
+  .quotes-image {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .quotes-desctiption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .q-d {
+      text-align: left;
+      padding: 10px;
+      margin: 0 7rem;
+    }
+  }
+
+  .quotes-image {
+    img:first-child {
+      position: absolute;
+      padding: 35px;
+    }
+
+    img:last-child {
+      margin-top: 5rem;
+      height: 100%;
+    }
+  }
+}
