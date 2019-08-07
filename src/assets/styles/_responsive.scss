@@ -1,10 +1,18 @@
-$wide-screen: 1600px;
+@import '../styles/variables';
+@import '../styles/aos';
+
+$wide-screen: 2000px;
 $laptopL-screen: 1440px;
 $laptop-screen: 1024px;
 $tablet-screen: 768px;
 $mobileL-screen: 425px;
 $mobileM-screen: 375px;
 $mobileS-screen: 320px;
+
+$margin-width-lg: 0 265px;
+$margin-width-md: 0 100px;
+$margin-width-sm: 0 75px;
+$margin-width-xsm: 0 25px;
 
 @mixin respond-to($media) {
   @if $media == wide-screen {
@@ -32,7 +40,7 @@ $mobileS-screen: 320px;
       @content;
     }
   } @else if $media == mobileS-screen {
-    @media only screen and (min-width: $mobileS-screen) and (max-width: $mobileM-screen - 1) {
+    @media (max-width: $mobileM-screen - 1) {
       @content;
     }
   }

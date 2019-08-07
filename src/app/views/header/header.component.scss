@@ -1,4 +1,4 @@
-@import '../../../assets/styles/variables';
+@import '../../../assets/styles/responsive';
 
 .navbar-menu {
   #nav-toggle {
@@ -46,6 +46,10 @@
     &.active span:after {
       transform: rotate(45deg);
     }
+
+    @include respond-to(mobileS-screen) {
+      padding: 15px;
+    }
   }
 
   .navbar i {
@@ -61,26 +65,78 @@
   }
 }
 
+.nav-collapsed-active {
+  z-index: 550;
+  background-color: $primary-color;
+
+  #nav-toggle.active {
+    span:before {
+      background: #fff;
+    }
+
+    span:after {
+      background: #fff;
+    }
+  }
+}
+
+
 .nav-collapsed {
   height: 100%;
-  color: #fff;
+  color: $primary-color;
   display: flex;
   width: 100%;
-  background-color: #1b2850;
+  background-color: $primary-background;
   position: absolute;
-  z-index: 500;
+  z-index: 10;
+  top: 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  a {
+    margin: 15px 0;
+    cursor: pointer;
+  }
 }
 
 header {
   margin-bottom: 175px;
+  @include respond-to(laptop-screen) {
+    margin-bottom: 75px;
+  }
+  @include respond-to(tablet-screen) {
+    margin-bottom: 50px;
+  }
+  @include respond-to(mobileL-screen) {
+    margin-bottom: 40px;
+  }
+  @include respond-to(mobileM-screen) {
+    margin-bottom: 30px;
+  }
+  @include respond-to(mobileS-screen) {
+    margin-bottom: 30px;
+  }
 
   .main-header {
     display: flex;
     justify-content: space-between;
-    margin: 0 265px;
+    margin: $margin-width-lg;
+    @include respond-to(laptop-screen) {
+      margin: $margin-width-md;
+    }
+    @include respond-to(tablet-screen) {
+      margin: $margin-width-sm;
+    }
+    @include respond-to(mobileL-screen) {
+      margin: $margin-width-xsm;
+    }
+    @include respond-to(mobileM-screen) {
+      margin: $margin-width-xsm;
+    }
+    @include respond-to(mobileS-screen) {
+      margin: $margin-width-xsm;
+    }
 
     .main-title {
       display: flex;
@@ -98,13 +154,37 @@ header {
         margin-top: -208px;
         align-items: center;
         flex-direction: column;
+        @include respond-to(mobileL-screen) {
+          width: 200px;
+          height: 200px;
+          margin-top: -100px;
+        }
+        @include respond-to(mobileM-screen) {
+          width: 200px;
+          height: 200px;
+          margin-top: -100px;
+        }
+        @include respond-to(mobileS-screen) {
+          width: 165px;
+          height: 165px;
+          margin-top: -100px;
+        }
       }
 
       & h1 {
         text-transform: uppercase;
         font-weight: $font-weight-medium;
         color: $primary-color;
-        margin-bottom: -30px;
+        margin-bottom: -20px;
+        @include respond-to(mobileL-screen) {
+          margin: 0;
+        }
+        @include respond-to(mobileM-screen) {
+          margin: 0;
+        }
+        @include respond-to(mobileS-screen) {
+          margin: 0;
+        }
       }
 
       & p {
@@ -113,6 +193,18 @@ header {
         font-weight: $font-weight-bold;
         text-transform: uppercase;
         margin-bottom: 80px;
+        @include respond-to(mobileL-screen) {
+          font-size: 9px;
+          margin-bottom: 35px;
+        }
+        @include respond-to(mobileM-screen) {
+          font-size: 9px;
+          margin-bottom: 35px;
+        }
+        @include respond-to(mobileS-screen) {
+          font-size: 9px;
+          margin-bottom: 25px;
+        }
       }
 
     }
@@ -136,6 +228,7 @@ header {
 }
 
 .box-container {
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -143,7 +236,20 @@ header {
   box-shadow: 0 0 65px 0 $primary-shadow;
   height: 60px;
   width: 60px;
+
+  &:hover {
+    background: $primary-color;
+    cursor: pointer;
+  }
+
+
+  @include respond-to(mobileS-screen) {
+    height: 45px;
+    width: 45px;
+  }
 }
+
+
 
 
 

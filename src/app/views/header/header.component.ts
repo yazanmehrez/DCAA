@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AppService} from '../../app.service';
 
 
 @Component({
@@ -8,7 +9,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
     collapsed = false;
-    constructor() {
+    constructor(public _appService: AppService) {
     }
 
     ngOnInit() {

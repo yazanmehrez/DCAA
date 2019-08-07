@@ -21,13 +21,22 @@ $font-size-h2: 40px !default;
 $font-size-h3: 35px !default;
 $font-size-h4: 30px !default;
 $font-size-h5: 28px !default;
-$font-size-h6: 25px !default;
+$font-size-h6: 20px !default;
+
+$font-xlg-a: 65px !default;
+$font-lg-a: 50px !default;
+$font-md-a: 40px !default;
+$font-sm-a: 30px !default;
+$font-xsm-a: 28px !default;
+$font-tn-a: 15px !default;
 
 $paragraph-size: 18px !default;
 $paragraph-medium-size: 16px !default;
-$paragraph-small-size: 14px !default;
+$paragraph-small-size: 12px !default;
+$paragraph-xsmall-size: 9px !default;
 
 $primary-btn-size: 14px !default;
+$primary-btn-size-sm: 11px !default;
 
 /* Functions */
 $grid-columns: 12;

@@ -1,4 +1,4 @@
-<div class="landing">
+<div class="landing" data-aos="fade-up" data-aos-duration="600">
     <div class="landing-intro text-center">
         <h1 class="black-color">Simple PSD template with cool stuff</h1>
         <p class="mt-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<div class="cards">
+<div class="cards" data-aos="fade-up" data-aos-duration="600">
     <div class="cards-intro text-center mt-4 mb-0">
         <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <h1 class="black-color">Lorem ipsum dolor sit amet.</h1>
@@ -26,14 +26,14 @@
     </div>
 </div>
 
-<div class="image-cross">
+<div class="image-cross" data-aos="fade-up" data-aos-duration="600">
     <div class="ic-container" *ngFor="let ic of imageCross; let odd = odd">
-        <div class="cross d-flex" [style.flex-direction]="odd ? 'row-reverse' : 'row'">
+        <div class="cross d-flex col" [style.flex-direction]="odd ? 'row-reverse' : 'row'">
             <div class="ic-image col-6">
                 <img [src]="ic.image" width="100%">
             </div>
             <div class="ic-description col-6">
-                <div class="ic-d" [style.text-align]="odd ? 'center' : 'left'" [ngClass]="odd ? '' : 'mr-10'">
+                <div class="ic-d" [ngClass]="odd ? 'text-center' : 'text-left mr-10'">
                     <h1 class="black-color">{{ic.title}}</h1>
                     <p class="p-md" [innerHTML]="ic.description"></p>
                 </div>
@@ -42,15 +42,15 @@
     </div>
 </div>
 
-<div class="applications">
+<div class="applications" data-aos="fade-up" data-aos-duration="600">
     <div class="app-container" *ngFor="let app of application; let odd = odd">
-        <div class="apps d-flex" [style.flex-direction]="odd ? 'row-reverse' : 'row'">
+        <div class="apps d-flex col" [style.flex-direction]="odd ? 'row-reverse' : 'row'">
             <div class="app-image col-6"
                  [style.background]="odd ? 'url(assets/images/sn2-bg.png)' :'url(assets/images/sn1-bg.png)'"
                  [style.background-repeat]="'no-repeat'"
                  [style.background-position]="odd ? 'right' :'40px -35px'"
                  [style.background-size]="'65%'"
-                 [style.text-align]="odd ? 'left' : 'right'"
+                 [ngClass]="odd ? 'text-left' : 'text-right'"
             >
                 <img [src]="app.image" width="375px" [ngClass]="odd ? 'app-left' : 'app-right'">
             </div>
@@ -65,8 +65,8 @@
     </div>
 </div>
 
-<div class="quotes mb-8">
-    <div class="quotes-container d-flex">
+<div class="quotes mb-8" data-aos="fade-up" data-aos-duration="600">
+    <div class="quotes-container d-flex col">
         <div class="quotes-image col-6 ">
             <div class="user d-flex justify-content-center">
                 <img src="/assets/images/user-photo.png" alt="">

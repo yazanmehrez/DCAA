@@ -1,3 +1,9 @@
+[lang="ar"] {
+  * {
+    direction: rtl;
+  }
+}
+
 html,
 body {
   margin: 0;
@@ -12,6 +18,28 @@ body a {
 
 a:hover {
   text-decoration: none;
+}
+
+a {
+  font-size: $font-xlg-a;
+  @include respond-to(laptopL-screen) {
+    font-size: $font-lg-a;
+  }
+  @include respond-to(laptop-screen) {
+    font-size: $font-md-a;
+  }
+  @include respond-to(tablet-screen) {
+    font-size: $font-sm-a;
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $font-sm-a;
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $font-xsm-a;
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $font-tn-a;
+  }
 }
 
 input[type="button"],
@@ -35,6 +63,25 @@ h6 {
 
 h1 {
   font-size: $font-size-h1;
+  @include respond-to(laptopL-screen) {
+    font-size: $font-size-h2
+  }
+  @include respond-to(laptop-screen) {
+    font-size: $font-size-h3
+  }
+  @include respond-to(tablet-screen) {
+    font-size: $font-size-h5
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $font-size-h6
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $font-size-h6
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $font-size-h6
+  }
+
 }
 
 li {
@@ -46,6 +93,21 @@ p {
   line-height: 1.9em;
   font-size: $paragraph-size;
   color: $secondary-color;
+  @include respond-to(laptop-screen) {
+    font-size: $paragraph-medium-size;
+  }
+  @include respond-to(tablet-screen) {
+    font-size: $paragraph-small-size;
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $paragraph-small-size;
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $paragraph-small-size;
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $paragraph-small-size;
+  }
 }
 
 ul {
@@ -63,178 +125,203 @@ label {
 
 /* Flex */
 .d-flex {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .d-inline-flex {
-  display: -webkit-inline-box !important;
-  display: -ms-inline-flexbox !important;
-  display: inline-flex !important;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
-
 .flex-row {
-  -webkit-box-orient: horizontal !important;
-  -webkit-box-direction: normal !important;
-  -ms-flex-direction: row !important;
-  flex-direction: row !important;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .flex-column {
-  -webkit-box-orient: vertical !important;
-  -webkit-box-direction: normal !important;
-  -ms-flex-direction: column !important;
-  flex-direction: column !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .flex-row-reverse {
-  -webkit-box-orient: horizontal !important;
-  -webkit-box-direction: reverse !important;
-  -ms-flex-direction: row-reverse !important;
-  flex-direction: row-reverse !important;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .flex-column-reverse {
-  -webkit-box-orient: vertical !important;
-  -webkit-box-direction: reverse !important;
-  -ms-flex-direction: column-reverse !important;
-  flex-direction: column-reverse !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
 }
 
 .flex-wrap {
-  -ms-flex-wrap: wrap !important;
-  flex-wrap: wrap !important;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .flex-nowrap {
-  -ms-flex-wrap: nowrap !important;
-  flex-wrap: nowrap !important;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
 }
 
 .flex-wrap-reverse {
-  -ms-flex-wrap: wrap-reverse !important;
-  flex-wrap: wrap-reverse !important;
+  -ms-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
 }
 
 .justify-content-start {
-  -webkit-box-pack: start !important;
-  -ms-flex-pack: start !important;
-  justify-content: flex-start !important;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+
+  [lang="ar"] {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
 }
 
 .justify-content-end {
-  -webkit-box-pack: end !important;
-  -ms-flex-pack: end !important;
-  justify-content: flex-end !important;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+
+  [lang="ar"] {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
 }
 
 .justify-content-center {
-  -webkit-box-pack: center !important;
-  -ms-flex-pack: center !important;
-  justify-content: center !important;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .justify-content-between {
-  -webkit-box-pack: justify !important;
-  -ms-flex-pack: justify !important;
-  justify-content: space-between !important;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .justify-content-around {
-  -ms-flex-pack: distribute !important;
-  justify-content: space-around !important;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
 }
 
 .align-items-start {
-  -webkit-box-align: start !important;
-  -ms-flex-align: start !important;
-  align-items: flex-start !important;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+
+
+  [lang="ar"] {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+  }
 }
 
 .align-items-end {
-  -webkit-box-align: end !important;
-  -ms-flex-align: end !important;
-  align-items: flex-end !important;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+
+
+  [lang="ar"] {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
 }
 
 .align-items-center {
-  -webkit-box-align: center !important;
-  -ms-flex-align: center !important;
-  align-items: center !important;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .align-items-baseline {
-  -webkit-box-align: baseline !important;
-  -ms-flex-align: baseline !important;
-  align-items: baseline !important;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
 }
 
 .align-items-stretch {
-  -webkit-box-align: stretch !important;
-  -ms-flex-align: stretch !important;
-  align-items: stretch !important;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
 }
 
 .align-content-start {
-  -ms-flex-line-pack: start !important;
-  align-content: flex-start !important;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
 }
 
 .align-content-end {
-  -ms-flex-line-pack: end !important;
-  align-content: flex-end !important;
+  -ms-flex-line-pack: end;
+  align-content: flex-end;
 }
 
 .align-content-center {
-  -ms-flex-line-pack: center !important;
-  align-content: center !important;
+  -ms-flex-line-pack: center;
+  align-content: center;
 }
 
 .align-content-between {
-  -ms-flex-line-pack: justify !important;
-  align-content: space-between !important;
+  -ms-flex-line-pack: justify;
+  align-content: space-between;
 }
 
 .align-content-around {
-  -ms-flex-line-pack: distribute !important;
-  align-content: space-around !important;
+  -ms-flex-line-pack: distribute;
+  align-content: space-around;
 }
 
 .align-content-stretch {
-  -ms-flex-line-pack: stretch !important;
-  align-content: stretch !important;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
 }
 
 .align-self-auto {
-  -ms-flex-item-align: auto !important;
-  align-self: auto !important;
+  -ms-flex-item-align: auto;
+  align-self: auto;
 }
 
 .align-self-start {
-  -ms-flex-item-align: start !important;
-  align-self: flex-start !important;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
 }
 
 .align-self-end {
-  -ms-flex-item-align: end !important;
-  align-self: flex-end !important;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
 }
 
 .align-self-center {
-  -ms-flex-item-align: center !important;
-  align-self: center !important;
+  -ms-flex-item-align: center;
+  align-self: center;
 }
 
 .align-self-baseline {
-  -ms-flex-item-align: baseline !important;
-  align-self: baseline !important;
+  -ms-flex-item-align: baseline;
+  align-self: baseline;
 }
 
 .align-self-stretch {
-  -ms-flex-item-align: stretch !important;
-  align-self: stretch !important;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
 }
 
 
@@ -255,11 +342,11 @@ label {
 /* Text Aligns */
 
 .text-justify {
-  text-align: justify !important;
+  text-align: justify;
 }
 
 .text-nowrap {
-  white-space: nowrap !important;
+  white-space: nowrap;
 }
 
 .text-truncate {
@@ -269,19 +356,19 @@ label {
 }
 
 .text-left {
-  text-align: left !important;
+  text-align: left;
 }
 
 .text-right {
-  text-align: right !important;
+  text-align: right;
 }
 
 .text-center {
-  text-align: center !important;
+  text-align: center;
 }
 
 .lh-1 {
-  line-height: 1.5 !important;
+  line-height: 1.5;
 }
 
 /* Buttons */
@@ -296,6 +383,26 @@ label {
   border-radius: 35px;
   border: none;
   padding: 0;
+  @include respond-to(tablet-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
 }
 
 .primary-btn:hover {
@@ -305,11 +412,33 @@ label {
 }
 
 .p-sm {
-  font-size: $paragraph-small-size !important;
+  font-size: $paragraph-small-size;
 }
 
 .p-md {
-  font-size: $paragraph-medium-size !important;
+  font-size: $paragraph-medium-size;
+  @include respond-to(laptop-screen) {
+    font-size: $paragraph-small-size;
+  }
+  @include respond-to(tablet-screen) {
+    font-size: $paragraph-small-size;
+    padding: 0 10px;
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $paragraph-xsmall-size;
+    padding: 0 10px;
+    margin: 2rem;
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $paragraph-xsmall-size;
+    padding: 0 10px;
+    margin: 2rem;
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $paragraph-xsmall-size;
+    padding: 0 10px;
+    margin: 2rem;
+  }
 }
 
 /* Margins */
@@ -317,25 +446,127 @@ label {
 /** Top **/
 @for $i from 0 through $margin-rem {
   .mt-#{$i} {
-    margin-top: $i+rem !important;
+    margin-top: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        margin-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        margin-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        margin-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        margin-top: ($i - 4) +rem;
+      }
+    }
   }
 }
 
 @for $i from 0 through $margin-rem {
   .mb-#{$i} {
-    margin-bottom: $i+rem !important;
+    margin-bottom: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        margin-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        margin-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        margin-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        margin-bottom: ($i - 4) +rem;
+      }
+    }
   }
 }
 
 @for $i from 0 through $margin-rem {
   .ml-#{$i} {
-    margin-left: $i+rem !important;
+    margin-left: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        margin-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        margin-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        margin-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        margin-left: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+
+[lang="ar"] {
+  @for $i from 0 through $margin-rem {
+    .ml-#{$i} {
+      margin-right: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          margin-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          margin-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          margin-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          margin-right: ($i - 4) +rem;
+        }
+      }
+    }
   }
 }
 
 @for $i from 0 through $margin-rem {
   .mr-#{$i} {
-    margin-right: $i+rem !important;
+    margin-right: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        margin-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        margin-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        margin-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        margin-right: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+
+[lang="ar"] {
+  @for $i from 0 through $margin-rem {
+    .mr-#{$i} {
+      margin-left: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          margin-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          margin-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          margin-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          margin-left: ($i - 4) +rem;
+        }
+      }
+    }
   }
 }
 
@@ -350,5 +581,32 @@ label {
 @for $i from 1 through $grid-columns {
   .col-#{$i} {
     width: 100% / $grid-columns * $i;
+  }
+}
+
+.col {
+  @include respond-to(mobileL-screen) {
+    flex-direction: column !important;
+    @for $i from 1 through $grid-columns {
+      .col-#{$i} {
+        width: 100%;
+      }
+    }
+  }
+  @include respond-to(mobileM-screen) {
+    flex-direction: column !important;
+    @for $i from 1 through $grid-columns {
+      .col-#{$i} {
+        width: 100%;
+      }
+    }
+  }
+  @include respond-to(mobileS-screen) {
+    flex-direction: column !important;
+    @for $i from 1 through $grid-columns {
+      .col-#{$i} {
+        width: 100%;
+      }
+    }
   }
 }

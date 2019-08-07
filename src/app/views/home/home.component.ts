@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {MatDialog, MatDialogRef} from '@angular/material';
+import {WelcomeComponent} from '../../modals/welcome/welcome.component';
 
 @Component({
     selector: 'app-home',
@@ -54,10 +56,15 @@ export class HomeComponent implements OnInit {
         }
     ];
 
-    constructor() {
+    constructor(private dialog: MatDialog) {
     }
 
     ngOnInit() {
+        setTimeout(() => {
+            const dialogRef: MatDialogRef<WelcomeComponent> = this.dialog.open(WelcomeComponent,
+                {panelClass: 'welcome-modal'}
+            );
+        }, 1000);
     }
 
 }

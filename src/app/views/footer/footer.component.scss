@@ -1,8 +1,21 @@
-@import '../../../assets/styles/variables';
+@import '../../../assets/styles/responsive';
 
 .footer {
   height: 1390px;
   background-position-y: 10rem;
-  background-image: url('/assets/images/footer-bg.png');
+  background-size: cover;
   background-repeat: no-repeat;
+  background-image: url('/assets/images/footer-bg.png');
+  @include respond-to(tablet-screen) {
+    height: 750px;
+  }
+  @include respond-to(mobileL-screen) {
+    height: 700px;
+  }
+  @include respond-to(mobileM-screen) {
+    height: 650px;
+  }
+  @include respond-to(mobileS-screen) {
+    height: 600px;
+  }
 }
