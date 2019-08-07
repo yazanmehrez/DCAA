@@ -12,47 +12,47 @@ export class HomeComponent implements OnInit {
     cards = [
         {
             image: '/assets/images/c1.png',
-            title: 'Lorem ipsum dolor sit amet.',
-            description: 'Suspendisse vel leo efficitur, <br> venenatis est ut tincidunt nibh.'
+            title: '_ShortLoremTitle',
+            description: '_CardDescription'
         },
         {
             image: '/assets/images/c2.png',
-            title: 'Lorem ipsum dolor sit amet.',
-            description: 'Suspendisse vel leo efficitur, <br> venenatis est ut tincidunt nibh.'
+            title: '_ShortLoremTitle',
+            description: '_CardDescription'
         },
         {
             image: '/assets/images/c3.png',
-            title: 'Lorem ipsum dolor sit amet.',
-            description: 'Suspendisse vel leo efficitur, <br> venenatis est ut tincidunt nibh.'
+            title: '_ShortLoremTitle',
+            description: '_CardDescription'
         },
         {
             image: '/assets/images/c4.png',
-            title: 'Lorem ipsum dolor sit amet.',
+            title: '_ShortLoremTitle',
             description: 'Suspendisse vel leo efficitur, venenatis est ut tincidunt nibh.'
         }
     ];
     imageCross = [
         {
             image: '/assets/images/ic1.png',
-            title: 'Lorem ipsum dolor',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit., <br> Suspendisse vel leo efficitur, venenatis est ut, tincidunt nibh. <br> Suspendisse lobortis lectus vel imperdiet ullamcorper.'
+            title: '_MiniLorem',
+            description: '_LongLorem'
         },
         {
             image: '/assets/images/ic2.png',
-            title: 'Lorem ipsum dolor',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit., <br> Suspendisse vel leo efficitur, venenatis est ut, tincidunt nibh. <br> Suspendisse lobortis lectus vel imperdiet ullamcorper.'
+            title: '_MiniLorem',
+            description: '_LongLorem'
         }
     ];
     application = [
         {
             image: '/assets/images/app1.png',
-            title: 'Lorem ipsum dolor',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit., <br> Suspendisse vel leo efficitur, venenatis est ut, tincidunt nibh. <br> Suspendisse lobortis lectus vel imperdiet ullamcorper.'
+            title: '_MiniLorem',
+            description: '_LongLorem'
         },
         {
             image: '/assets/images/app2.png',
-            title: 'Lorem ipsum dolor',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit., <br> Suspendisse vel leo efficitur, venenatis est ut, tincidunt nibh. <br> Suspendisse lobortis lectus vel imperdiet ullamcorper.'
+            title: '_MiniLorem',
+            description: '_LongLorem'
         }
     ];
 
@@ -60,11 +60,17 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        setTimeout(() => {
-            const dialogRef: MatDialogRef<WelcomeComponent> = this.dialog.open(WelcomeComponent,
-                {panelClass: 'welcome-modal'}
-            );
-        }, 1000);
+        if (!localStorage.getItem('firstVisit')) {
+            localStorage.setItem('firstVisit', '1');
+        }
+        if (localStorage.getItem('firstVisit') == '1') {
+            setTimeout(() => {
+                const dialogRef: MatDialogRef<WelcomeComponent> = this.dialog.open(WelcomeComponent,
+                    {panelClass: 'welcome-modal'}
+                );
+                localStorage.setItem('firstVisit', '0');
+            }, 1000);
+        }
     }
 
 }

@@ -1,0 +1,207 @@
+@import '../../../assets/styles/responsive';
+
+.body-modal {
+  button {
+    width: 285px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: 80px auto;
+    border: 0;
+    font-size: 24px;
+    background: $red-color;
+    color: $secondary-color;
+    @include respond-to(laptopL-screen) {
+      margin: 60px auto;
+    }
+    @include respond-to(laptop-screen) {
+      margin: 25px auto;
+      width: 215px;
+      height: 60px;
+      font-size: 20px;
+    }
+    @include respond-to(tablet-screen) {
+      margin: 15px auto;
+      width: 120px;
+      height: 30px;
+      font-size: 12px;
+    }
+    @include respond-to(mobileL-screen) {
+      margin: 10px auto;
+      width: 75px;
+      height: 30px;
+      font-size: 10px;
+    }
+    @include respond-to(mobileM-screen) {
+      margin: 10px auto;
+      width: 75px;
+      height: 30px;
+      font-size: 10px;
+    }
+    @include respond-to(mobileS-screen) {
+      margin: 10px auto;
+      width: 75px;
+      height: 30px;
+      font-size: 10px;
+    }
+  }
+}
+
+.circle-logo {
+  width: 380px;
+  height: 380px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -12em;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 60px #8d96b9;
+  @include respond-to(laptopL-screen) {
+    width: 280px;
+    height: 280px;
+    top: -9em;
+    img {
+      width: 55%;
+    }
+  }
+  @include respond-to(laptop-screen) {
+    width: 200px;
+    height: 200px;
+    top: -7em;
+    img {
+      width: 45%;
+    }
+  }
+  @include respond-to(tablet-screen) {
+    width: 150px;
+    height: 150px;
+    top: -4em;
+    img {
+      width: 40%;
+    }
+  }
+  @include respond-to(mobileL-screen) {
+    width: 100px;
+    height: 100px;
+    top: -3em;
+    img {
+      width: 40%;
+    }
+  }
+  @include respond-to(mobileM-screen) {
+    width: 100px;
+    height: 100px;
+    top: -3em;
+    img {
+      width: 40%;
+    }
+  }
+  @include respond-to(mobileS-screen) {
+    width: 100px;
+    height: 100px;
+    top: -3em;
+    img {
+      width: 40%;
+    }
+  }
+}
+
+.welcome-modal {
+  width: 70rem;
+  margin-top: 10rem;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding: 0 45px;
+  @include respond-to(laptopL-screen) {
+    width: 50rem;
+    margin-top: 3rem;
+  }
+  @include respond-to(laptop-screen) {
+    width: 35rem;
+    margin-top: 3rem;
+    h1 {
+      font-size: 25px;
+      margin-top: 4rem;
+    }
+  }
+  @include respond-to(tablet-screen) {
+    width: 21rem;
+    margin-top: 3rem;
+    padding: 0 15px;
+    h1 {
+      font-size: 18px;
+      margin-top: 3rem;
+    }
+  }
+  @include respond-to(mobileL-screen) {
+    width: 15rem;
+    margin-top: 3rem;
+    padding: 0 5px;
+    h1 {
+      font-size: 12px;
+      margin-top: 1rem;
+    }
+    p {
+      font-size: 9px;
+    }
+  }
+  @include respond-to(mobileM-screen) {
+    width: 15rem;
+    margin-top: 3rem;
+    padding: 0 5px;
+    h1 {
+      font-size: 12px;
+      margin-top: 1rem;
+    }
+    p {
+      font-size: 9px;
+    }
+  }
+  @include respond-to(mobileS-screen) {
+    width: 15rem;
+    margin-top: 3rem;
+    padding: 0 5px;
+    h1 {
+      font-size: 12px;
+      margin-top: 1rem;
+    }
+    p {
+      font-size: 9px;
+    }
+  }
+}
+
+::ng-deep app-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .mat-dialog-container {
+  position: relative;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  @include respond-to(laptopL-screen) {
+    margin-top: 20rem;
+  }
+  @include respond-to(laptop-screen) {
+    margin-top: 10rem;
+  }
+  @include respond-to(tablet-screen) {
+    margin-top: 8rem;
+  }
+}

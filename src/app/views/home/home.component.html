@@ -1,28 +1,28 @@
 <div class="landing" data-aos="fade-up" data-aos-duration="600">
     <div class="landing-intro text-center">
-        <h1 class="black-color">Simple PSD template with cool stuff</h1>
-        <p class="mt-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+        <h1 class="black-color">{{'_LandingTitle' | translate}}</h1>
+        <p class="mt-0">{{'_ShortLorem' | translate}}</p>
 
-        <button class="primary-btn mt-3">explore template</button>
+        <button class="primary-btn mt-3">{{'_ExploreTemplate' | translate}}</button>
     </div>
 </div>
 
 <div class="cards" data-aos="fade-up" data-aos-duration="600">
     <div class="cards-intro text-center mt-4 mb-0">
-        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <h1 class="black-color">Lorem ipsum dolor sit amet.</h1>
+        <p class="mb-0">{{'_ShortLorem' | translate}}</p>
+        <h1 class="black-color">{{'_ShortLoremTitle' | translate}}</h1>
     </div>
     <div class="cards-item d-flex justify-content-center flex-wrap align-items-center">
         <div class="c-item text-center" *ngFor="let card of cards">
             <img [src]="card.image">
-            <p class="black-color">{{card.title}}</p>
+            <p class="black-color">{{card.title | translate}}</p>
             <div class="description">
-                <p class="mt-2 lh-1 p-sm" [innerHTML]="card.description"></p>
+                <p class="mt-2 lh-1 p-sm" [innerHTML]="card.description | translate"></p>
             </div>
         </div>
     </div>
     <div class="controls text-center">
-        <button class="primary-btn mt-3 mb-7">check our offer</button>
+        <button class="primary-btn mt-3 mb-7">{{'_CheckOffer' | translate}}</button>
     </div>
 </div>
 
@@ -34,8 +34,8 @@
             </div>
             <div class="ic-description col-6">
                 <div class="ic-d" [ngClass]="odd ? 'text-center' : 'text-left mr-10'">
-                    <h1 class="black-color">{{ic.title}}</h1>
-                    <p class="p-md" [innerHTML]="ic.description"></p>
+                    <h1 class="black-color">{{ic.title | translate}}</h1>
+                    <p class="p-md" [innerHTML]="ic.description | translate"></p>
                 </div>
             </div>
         </div>
@@ -57,8 +57,8 @@
             <div class="app-description col-6 d-flex align-items-center"
                  [style.justify-content]="odd? 'flex-end' : 'flex-start'">
                 <div class="app-d" [ngClass]="odd ? '' : 'mr-10'">
-                    <h1>{{app.title}}</h1>
-                    <p class="p-md" [innerHTML]="app.description"></p>
+                    <h1>{{app.title | translate}}</h1>
+                    <p class="p-md" [innerHTML]="app.description | translate"></p>
                 </div>
             </div>
         </div>
@@ -74,16 +74,13 @@
             </div>
         </div>
         <div class="quotes-desctiption col-6">
-           <div class="q-d">
-               <h1 class="red-color">Template is awesome</h1>
-               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                   Suspendisse vel leo efficitur, venenatis est ut, tincidunt nibh.
-                   Suspendisse lobortis lectus vel imperdiet ullamcorper.
-               </p>
+            <div class="q-d">
+                <h1 class="red-color">{{'_TemplateAwesome' | translate}}</h1>
+                <p>{{'_LongLorem' | translate}}</p>
 
-               <p class="black-color mt-4 mb-0">John Doe</p>
-               <p class="mt-0">CEO at Crios.com</p>
-           </div>
+                <p class="black-color mt-4 mb-0">{{'_Username' | translate}}</p>
+                <p class="mt-0">{{'_UserRole' | translate}}</p>
+            </div>
         </div>
     </div>
 </div>

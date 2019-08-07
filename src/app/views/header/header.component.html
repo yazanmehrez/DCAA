@@ -1,3 +1,6 @@
+<head>
+    <title>{{'_Title' | translate}}</title>
+</head>
 <header id="header">
     <div class="main-header">
         <nav class="main-menu" [style.z-index]="collapsed ? '1000' : ''">
@@ -14,8 +17,8 @@
         </nav>
         <div class="main-title">
             <div class="title">
-                <h1>crios</h1>
-                <p>free psd template</p>
+                <h1>{{'_SiteName' | translate}}</h1>
+                <p>{{'_SiteDescription' | translate}}</p>
             </div>
         </div>
         <div class="main-search">
@@ -24,14 +27,14 @@
             </div>
         </div>
     </div>
-    <div class="nav-collapsed" *ngIf="collapsed">
-        <a *ngIf="_appService.currentLanguage == 'en'" (click)="_appService.switchLanguage('ar')">عربي</a>
-        <a *ngIf="_appService.currentLanguage == 'ar'" (click)="_appService.switchLanguage('en')">English</a>
-        <a>Home Page</a>
-        <a>Home Page</a>
-        <a>Home Page</a>
-        <a>Home Page</a>
-        <a>Home Page</a>
-        <a>Home Page</a>
+    <div class="nav-collapsed" *ngIf="collapsed" data-aos="fade-down" data-aos-duration="600">
+        <a *ngIf="_appService.currentLanguage == 'en'"
+           (click)="_appService.switchLanguage('ar'); collapsed = false">{{'_Navbar._LanguageSwitch' | translate}}</a>
+        <a *ngIf="_appService.currentLanguage == 'ar'"
+           (click)="_appService.switchLanguage('en'); collapsed = false">{{'_Navbar._LanguageSwitch' | translate}}</a>
+        <a (click)="collapsed = false">{{'_Navbar._HomePage' | translate}}</a>
+        <a (click)="collapsed = false">{{'_Navbar._Offers' | translate}}</a>
+        <a (click)="collapsed = false">{{'_Navbar._Products' | translate}}</a>
+        <a (click)="collapsed = false">{{'_Navbar._Applications' | translate}}</a>
     </div>
 </header>
