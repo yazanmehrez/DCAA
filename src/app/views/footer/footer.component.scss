@@ -5,7 +5,7 @@
   background-position-y: 10rem;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('/assets/images/footer-bg.png');
+  background-image: url('../../../assets/images/footer-bg.png');
   @include respond-to(tablet-screen) {
     height: 750px;
   }

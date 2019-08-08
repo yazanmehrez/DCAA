@@ -11,46 +11,46 @@ export class HomeComponent implements OnInit {
 
     cards = [
         {
-            image: '/assets/images/c1.png',
+            image: 'assets/images/c1.png',
             title: '_ShortLoremTitle',
             description: '_CardDescription'
         },
         {
-            image: '/assets/images/c2.png',
+            image: 'assets/images/c2.png',
             title: '_ShortLoremTitle',
             description: '_CardDescription'
         },
         {
-            image: '/assets/images/c3.png',
+            image: 'assets/images/c3.png',
             title: '_ShortLoremTitle',
             description: '_CardDescription'
         },
         {
-            image: '/assets/images/c4.png',
+            image: 'assets/images/c4.png',
             title: '_ShortLoremTitle',
             description: 'Suspendisse vel leo efficitur, venenatis est ut tincidunt nibh.'
         }
     ];
     imageCross = [
         {
-            image: '/assets/images/ic1.png',
+            image: 'assets/images/ic1.png',
             title: '_MiniLorem',
             description: '_LongLorem'
         },
         {
-            image: '/assets/images/ic2.png',
+            image: 'assets/images/ic2.png',
             title: '_MiniLorem',
             description: '_LongLorem'
         }
     ];
     application = [
         {
-            image: '/assets/images/app1.png',
+            image: 'assets/images/app1.png',
             title: '_MiniLorem',
             description: '_LongLorem'
         },
         {
-            image: '/assets/images/app2.png',
+            image: 'assets/images/app2.png',
             title: '_MiniLorem',
             description: '_LongLorem'
         }

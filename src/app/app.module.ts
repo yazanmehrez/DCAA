@@ -32,7 +32,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
                 deps: [HttpClient]
             },
         }),
-        RouterModule.forRoot(rootRouterConfig, {useHash: false})
+        RouterModule.forRoot(rootRouterConfig, {useHash: true})
     ],
     declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent],
     providers: [],
