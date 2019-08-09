@@ -6,16 +6,16 @@ import {Title} from '@angular/platform-browser';
 @Component({
     selector: 'app-root',
     template: `
-        <div dir="ltr">
+        <div [dir]="_appService.currentLanguage == 'en' ? 'ltr' : 'rtl'">
             <app-header></app-header>
             <router-outlet></router-outlet>
             <app-footer></app-footer>
         </div>
-        `
+    `
 })
 export class AppComponent implements OnInit {
 
-    constructor(private _appService: AppService,
+    constructor(public _appService: AppService,
                 private translate: TranslateService,
                 private titleService: Title) {
     }

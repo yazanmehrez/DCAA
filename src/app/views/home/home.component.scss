@@ -40,6 +40,27 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding: 10px;
+
+    &:hover {
+      background: #e2ebf3;
+      transform: scale(1.07);
+      transition: all 0.5s;
+      cursor: pointer;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+
+      .black-color {
+        color: $primary-color;
+        font-weight: $font-weight-bold;
+      }
+
+      .description p {
+        color: $black-color;
+      }
+
+    }
 
     @include respond-to(laptopL-screen) {
       width: 200px;

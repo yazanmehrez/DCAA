@@ -68,6 +68,7 @@
 .nav-collapsed-active {
   z-index: 550;
   background-color: $primary-color;
+  transition: all 0.5s;
 
   #nav-toggle.active {
     span:before {
@@ -240,6 +241,12 @@ header {
   &:hover {
     background: $primary-color;
     cursor: pointer;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
+    transition: all 0.5s;
   }
 
 
