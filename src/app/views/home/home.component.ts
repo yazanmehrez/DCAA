@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {WelcomeComponent} from '../../modals/welcome/welcome.component';
+import {ApiService} from '../../../services/api.service';
+import {AuthenticationService} from '../../../services/authentication.service';
 
 @Component({
     selector: 'app-home',
@@ -56,10 +58,18 @@ export class HomeComponent implements OnInit {
         }
     ];
 
-    constructor(private dialog: MatDialog) {
+    constructor(private dialog: MatDialog, private api: ApiService, private auth: AuthenticationService) {
+    }
+
+    getAllUsers() {
+        this.api.getGenericPage('get_users', {page: 10, size: 10}).subscribe(response => {
+            // console.log(response);
+        });
     }
 
     ngOnInit() {
+        this.getAllUsers();
+
         if (!localStorage.getItem('firstVisit')) {
             localStorage.setItem('firstVisit', '1');
         }

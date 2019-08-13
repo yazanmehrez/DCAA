@@ -1,0 +1,7 @@
+{
+  "/src/api/": {
+    "target": "http://localhost/Crios Test/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxyconfig.json",
     "serveProd": "ng serve --environment=prod",
     "build": "ng build",
     "test": "ng test",

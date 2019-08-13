@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import Speech from 'speak-tts';
+// import Speech from 'speak-tts';
 
-const speech = new Speech();
+// const speech = new Speech();
 
 
 @Component({
@@ -54,9 +54,9 @@ export class CaptchaComponent implements OnInit {
     }
 
     speak() {
-        speech.speak({
-            text: this.toSpeak,
-        });
+        // speech.speak({
+        //     text: this.toSpeak,
+        // });
     }
 
     ngOnInit() {

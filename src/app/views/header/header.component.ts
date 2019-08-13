@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AppService} from '../../app.service';
+import {AuthenticationService} from '../../../services/authentication.service';
+import {User} from '../../../classes/user';
 
 
 @Component({
@@ -9,10 +11,16 @@ import {AppService} from '../../app.service';
 })
 export class HeaderComponent implements OnInit {
     collapsed = false;
-    constructor(public _appService: AppService) {
+    member: User;
+
+    constructor(public _appService: AppService,
+                private authenticationService: AuthenticationService) {
     }
 
     ngOnInit() {
+        this.authenticationService.currentUser.subscribe(member => {
+            this.member = member;
+        });
     }
 
 }
