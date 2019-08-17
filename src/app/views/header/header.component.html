@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-    <div  class="nav-collapsed" *ngIf="collapsed" data-aos="fade-down" data-aos-duration="600">
+    <div class="nav-collapsed" *ngIf="collapsed" data-aos="fade-down" data-aos-duration="600">
         <a *ngIf="_appService.currentLanguage == 'en'"
            (click)="_appService.switchLanguage('ar'); collapsed = false">{{'_Navbar._LanguageSwitch' | translate}}</a>
         <a *ngIf="_appService.currentLanguage == 'ar'"
@@ -34,5 +34,6 @@
         <a (click)="collapsed = false" routerLink="offers">{{'_Navbar._Offers' | translate}}</a>
         <a (click)="collapsed = false">{{'_Navbar._Products' | translate}}</a>
         <a (click)="collapsed = false">{{'_Navbar._Applications' | translate}}</a>
+        <a (click)="logout(); collapsed = false">{{'_Navbar._Logout' | translate}}</a>
     </div>
 </header>

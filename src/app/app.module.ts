@@ -17,7 +17,7 @@ import {JwtInterceptor} from '../helpers/jwt.interceptor';
 import {ErrorInterceptor} from '../helpers/error.interceptor';
 import {fakeBackendProvider} from '../helpers/fake-backend';
 import {ReactiveFormsModule} from '@angular/forms';
-import { OffersComponent } from './views/offers/offers.component';
+import {OffersComponent} from './views/offers/offers.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new MultiTranslateHttpLoader(httpClient, [

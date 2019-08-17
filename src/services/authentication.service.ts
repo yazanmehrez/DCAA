@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {User} from '../classes/user';
+import {Router} from '@angular/router';
 
 
 @Injectable({providedIn: 'root'})
@@ -10,7 +11,7 @@ export class AuthenticationService {
     public currentUser: Observable<User>;
     public currentUserSubject: BehaviorSubject<User>;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private router: Router) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
@@ -33,11 +34,14 @@ export class AuthenticationService {
                 headers: headers
             }).pipe(map(user => {
             // login successful if there's a jwt token in the response
-            if (user.data.token) {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                this.currentUserSubject.next(user);
+            if (user.data) {
+                if (user.data.token) {
+                    // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    this.currentUserSubject.next(user);
+                }
             }
+
             return user;
         }));
     }
@@ -46,5 +50,6 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
+        this.router.navigate(['/login']);
     }
 }

@@ -388,6 +388,53 @@ label {
   }
 }
 
+.secondary-btn {
+  color: $primary-background;
+  background-color: $primary-color;
+  box-shadow: 0 0 65px $primary-shadow;
+  font-size: $primary-btn-size;
+  text-transform: uppercase;
+  width: 225px;
+  height: 55px;
+  border-radius: 35px;
+  border: none;
+  padding: 0;
+  @include respond-to(tablet-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    -ms-transition: all 0.7s;
+    -o-transition: all 0.7s;
+    transition: all 0.7s;
+    color: $primary-color;
+    background: $primary-background;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
 
 .p-sm {
   font-size: $paragraph-small-size;
