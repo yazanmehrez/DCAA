@@ -81,16 +81,18 @@
   }
 }
 
-
 .nav-collapsed {
   height: 100%;
-  color: $primary-color;
+  color: #43a9ff;
   display: flex;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
   width: 100%;
-  background-color: $primary-background;
-  position: absolute;
-  z-index: 10;
+  background-color: #fff;
+  position: relative;
+  z-index: 1000;
   top: 0;
+  margin: 25px 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -98,6 +100,8 @@
   a {
     margin: 15px 0;
     cursor: pointer;
+    width: 100%;
+    display: flex;
   }
 }
 

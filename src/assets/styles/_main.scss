@@ -635,3 +635,51 @@ label {
     }
   }
 }
+
+.lock-collapsed {
+  @include respond-to(to-tablet-screen) {
+    height: 100%;
+    top: 0;
+    width: 100%;
+    overflow: auto;
+    z-index: 10;
+    overflow-x: hidden;
+    position: fixed;
+    background: $primary-background;
+  }
+}
+
+.animate {
+  .rotate-up {
+    transform: rotate(-180deg);
+    transition: all 0.1s ease-out;
+  }
+
+  .rotate-down {
+    transform: rotate(0deg);
+    transition: all 0.1s ease-out;
+  }
+
+  .hide-items {
+    max-height: 0rem;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+  }
+
+  .show-items {
+    max-height: 40rem;
+    transition: all 0.5s ease-in;
+    overflow: hidden;
+  }
+
+  .slide-out-items {
+    left: 100%;
+    transition: all 0.5s ease-in;
+  }
+
+  .slide-in-items {
+    left: 0;
+    transition: all 0.5s ease-in;
+  }
+}
+

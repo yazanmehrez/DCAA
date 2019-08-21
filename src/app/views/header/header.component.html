@@ -1,7 +1,7 @@
 <header id="header" *ngIf="member">
     <div class="main-header">
         <nav class="main-menu" [style.z-index]="collapsed ? '1000' : ''">
-            <div class="box-container" (click)="collapsed = !collapsed"
+            <div class="box-container" (click)="collapsed = !collapsed; lockCollapsed()"
                  [ngClass]="collapsed ? 'nav-collapsed-active' : ''">
                 <div class="navbar-menu">
                     <div class="navbar"
@@ -25,15 +25,5 @@
             </div>
         </div>
     </div>
-    <div class="nav-collapsed" *ngIf="collapsed" data-aos="fade-down" data-aos-duration="600">
-        <a *ngIf="_appService.currentLanguage == 'en'"
-           (click)="_appService.switchLanguage('ar'); collapsed = false">{{'_Navbar._LanguageSwitch' | translate}}</a>
-        <a *ngIf="_appService.currentLanguage == 'ar'"
-           (click)="_appService.switchLanguage('en'); collapsed = false">{{'_Navbar._LanguageSwitch' | translate}}</a>
-        <a (click)="collapsed = false" routerLink="home">{{'_Navbar._HomePage' | translate}}</a>
-        <a (click)="collapsed = false" routerLink="offers">{{'_Navbar._Offers' | translate}}</a>
-        <a (click)="collapsed = false">{{'_Navbar._Products' | translate}}</a>
-        <a (click)="collapsed = false">{{'_Navbar._Applications' | translate}}</a>
-        <a (click)="logout(); collapsed = false">{{'_Navbar._Logout' | translate}}</a>
-    </div>
+   <app-navbar [collapsed]="collapsed" (collapseChanged)="collapseChange($event)"></app-navbar>
 </header>

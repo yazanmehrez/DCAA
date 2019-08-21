@@ -18,6 +18,7 @@ import {ErrorInterceptor} from '../helpers/error.interceptor';
 import {fakeBackendProvider} from '../helpers/fake-backend';
 import {ReactiveFormsModule} from '@angular/forms';
 import {OffersComponent} from './views/offers/offers.component';
+import { NavbarComponent } from './libraries/navbar/navbar.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new MultiTranslateHttpLoader(httpClient, [
@@ -42,7 +43,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         }),
         RouterModule.forRoot(rootRouterConfig, {useHash: true})
     ],
-    declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, LoginComponent, OffersComponent],
+    declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, LoginComponent, OffersComponent, NavbarComponent],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
         {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},

@@ -1,14 +1,13 @@
 // Main Variables File
 @import "assets/styles/variables";
-
 // Main Fonts File
 @import "assets/styles/fonts";
-
 // Responsive Rules
 @import "assets/styles/responsive";
-
 // Main Site Styles
 @import "assets/styles/main";
-
 // Main Material Styles
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";

@@ -15,6 +15,7 @@ $margin-width-sm: 0 75px;
 $margin-width-xsm: 0 25px;
 
 @mixin respond-to($media) {
+  // between two sizes
   @if $media == wide-screen {
     @media (min-width: $wide-screen) {
       @content;
@@ -41,6 +42,13 @@ $margin-width-xsm: 0 25px;
     }
   } @else if $media == mobileS-screen {
     @media (max-width: $mobileM-screen - 1) {
+      @content;
+    }
+  }
+
+  // one size
+  @if $media == to-tablet-screen {
+    @media (max-width : $tablet-screen) {
       @content;
     }
   }

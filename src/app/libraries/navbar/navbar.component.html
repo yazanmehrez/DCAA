@@ -1,0 +1,215 @@
+<ul class="nav-collapsed animate" *ngIf="collapsed" [@slideInOut] data-aos="fade-down" data-aos-duration="600">
+    <li *ngIf="_appService.currentLanguage == 'en'">
+        <a
+                (click)="_appService.switchLanguage('ar'); closeCollapse(false)">
+            {{'_Navbar._LanguageSwitch' | translate}}
+        </a>
+    </li>
+    <li *ngIf="_appService.currentLanguage == 'ar'">
+        <a
+                (click)="_appService.switchLanguage('en'); closeCollapse(false)">
+            {{'_Navbar._LanguageSwitch' | translate}}
+        </a>
+    </li>
+    <li>
+        <div class="main-item">
+            <a (click)="closeCollapse(false)" routerLink="home">{{'_Navbar._HomePage' | translate}}</a>
+            <i class="fa fa-chevron-down" [ngClass]=" subCollapsed == 'homepage' ? 'rotate-up' : 'rotate-down'"
+               (click)="openSubCollapsed('homepage')"></i>
+        </div>
+        <div class="sub-item">
+            <ul class="sub-collapsed" [ngClass]="subCollapsed == 'homepage' ? 'show-items':'hide-items'">
+                <li>
+                    <a (click)="closeCollapse(false)" routerLink="offers">{{'_Navbar._Offers' | translate}}</a>
+                </li>
+                <li>
+                    <div class="sub-head">
+                        <a (click)="closeCollapse(false)">{{'_Navbar._Products' | translate}}</a>
+                        <i class="fa fa-chevron-right" (click)="subMenu = 'products'"></i>
+                    </div>
+                    <div class="second-menu" [ngClass]="subMenu == 'products' ? 'slide-in-items':'slide-out-items'">
+                        <div class="title">
+                            <i class="fa fa-chevron-left" (click)="subMenu = ''"></i>
+                            <h3>Products</h3>
+                        </div>
+                        <div class="list">
+                            <div class="l-item">
+                                <span>Parent</span>
+                                <ul class="children">
+                                    <li (click)="closeCollapse(false)">child1</li>
+                                    <li>child2</li>
+                                    <li>child3</li>
+                                    <li>child4</li>
+                                </ul>
+                            </div>
+                            <div class="l-item">
+                                <span>Parent</span>
+                                <ul class="children">
+                                    <li>child1</li>
+                                    <li>child2</li>
+                                    <li>child3</li>
+                                    <li>child4</li>
+                                </ul>
+                            </div>
+                            <div class="l-item">
+                                <span>Parent</span>
+                                <ul class="children">
+                                    <li>child1</li>
+                                    <li>child2</li>
+                                    <li>child3</li>
+                                    <li>child4</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sub-head">
+                        <a (click)="closeCollapse(false)">{{'_Navbar._Applications' | translate}}</a>
+                        <i class="fa fa-chevron-right" (click)="subMenu = 'applications'"></i>
+                    </div>
+                    <div class="second-menu" [ngClass]="subMenu == 'applications' ? 'slide-in-items':'slide-out-items'">
+                        <div class="title">
+                            <i class="fa fa-chevron-left" (click)="subMenu = ''"></i>
+                            <h3>Applications</h3>
+                        </div>
+                        <div class="list">
+                            <div class="l-item">
+                                <span>Parent</span>
+                                <ul class="children">
+                                    <li (click)="closeCollapse(false)">child1</li>
+                                    <li>child2</li>
+                                    <li>child3</li>
+                                    <li>child4</li>
+                                </ul>
+                            </div>
+                            <div class="l-item">
+                                <span>Parent</span>
+                                <ul class="children">
+                                    <li>child1</li>
+                                    <li>child2</li>
+                                    <li>child3</li>
+                                    <li>child4</li>
+                                </ul>
+                            </div>
+                            <div class="l-item">
+                                <span>Parent</span>
+                                <ul class="children">
+                                    <li>child1</li>
+                                    <li>child2</li>
+                                    <li>child3</li>
+                                    <li>child4</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li>
+        <div class="main-item">
+            <a (click)="closeCollapse(false)" routerLink="home">{{'_Navbar._Offers' | translate}}</a>
+            <i class="fa fa-chevron-down" [ngClass]=" subCollapsed == 'offers' ? 'rotate-up' : 'rotate-down'"
+               (click)="openSubCollapsed('offers')"></i>
+        </div>
+        <div class="sub-item">
+            <ul class="sub-collapsed" [ngClass]="subCollapsed == 'offers' ? 'show-items':'hide-items'">
+                <li>
+                    <a (click)="closeCollapse(false)" routerLink="offers">{{'_Navbar._Offers' | translate}}</a>
+                </li>
+                <li>
+                    <div class="sub-head">
+                        <a (click)="closeCollapse(false)">{{'_Navbar._Products' | translate}}</a>
+                        <i class="fa fa-chevron-right" (click)="subMenu = 'sproducts'"></i>
+                    </div>
+                    <div class="second-menu" [ngClass]="subMenu == 'sproducts' ? 'slide-in-items':'slide-out-items'">
+                        <div class="title">
+                            <i class="fa fa-chevron-left" (click)="subMenu = ''"></i>
+                            <h3>Products</h3>
+                        </div>
+                        <div class="list">
+                            <div class="l-item">
+                                <span>Parent</span>
+                                <ul class="children">
+                                    <li (click)="closeCollapse(false)">child1</li>
+                                    <li>child2</li>
+                                    <li>child3</li>
+                                    <li>child4</li>
+                                </ul>
+                            </div>
+                            <div class="l-item">
+                                <span>Parent</span>
+                                <ul class="children">
+                                    <li>child1</li>
+                                    <li>child2</li>
+                                    <li>child3</li>
+                                    <li>child4</li>
+                                </ul>
+                            </div>
+                            <div class="l-item">
+                                <span>Parent</span>
+                                <ul class="children">
+                                    <li>child1</li>
+                                    <li>child2</li>
+                                    <li>child3</li>
+                                    <li>child4</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="sub-head">
+                        <a (click)="closeCollapse(false)">{{'_Navbar._Applications' | translate}}</a>
+                        <i class="fa fa-chevron-right" (click)="subMenu = 'applications'"></i>
+                    </div>
+                    <div class="second-menu" [ngClass]="subMenu == 'applications' ? 'slide-in-items':'slide-out-items'">
+                        <div class="title">
+                            <i class="fa fa-chevron-left" (click)="subMenu = ''"></i>
+                            <h3>Applications</h3>
+                        </div>
+                        <div class="list">
+                            <div class="l-item">
+                                <span>Parent</span>
+                                <ul class="children">
+                                    <li (click)="closeCollapse(false)">child1</li>
+                                    <li>child2</li>
+                                    <li>child3</li>
+                                    <li>child4</li>
+                                </ul>
+                            </div>
+                            <div class="l-item">
+                                <span>Parent</span>
+                                <ul class="children">
+                                    <li>child1</li>
+                                    <li>child2</li>
+                                    <li>child3</li>
+                                    <li>child4</li>
+                                </ul>
+                            </div>
+                            <div class="l-item">
+                                <span>Parent</span>
+                                <ul class="children">
+                                    <li>child1</li>
+                                    <li>child2</li>
+                                    <li>child3</li>
+                                    <li>child4</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li>
+        <a (click)="closeCollapse(false)">{{'_Navbar._Products' | translate}}</a>
+    </li>
+    <li>
+        <a (click)="closeCollapse(false)">{{'_Navbar._Applications' | translate}}</a>
+    </li>
+    <li>
+        <a (click)="logout(); closeCollapse(false)">{{'_Navbar._Logout' | translate}}</a>
+    </li>
+</ul>
