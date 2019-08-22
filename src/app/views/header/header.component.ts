@@ -1,16 +1,19 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../../services/authentication.service';
 import {User} from '../../../classes/user';
+import {slideInOut} from '../../../animations/slideInOut';
 
 
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss']
+    styleUrls: ['./header.component.scss'],
+    animations: [slideInOut]
 })
 export class HeaderComponent implements OnInit {
     collapsed = false;
     member: User;
+    search = false;
 
     constructor(private authenticationService: AuthenticationService) {
     }

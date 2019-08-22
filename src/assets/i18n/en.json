@@ -11,7 +11,7 @@
   "_SiteName": "Crios",
   "_SiteDescription": "FREE PSD TEMPLATE",
   "_LandingTitle": "Simple PSD template with cool stuff",
-  "_MiniLorem": "Lorem ipsum dolor",
+  "_MiniLorem": " Lorem ipsum dolor",
   "_ShortLoremTitle": "Lorem ipsum dolor sit amet.",
   "_ShortLorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   "_LongLorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit., <br> Suspendisse vel leo efficitur, venenatis est ut, tincidunt nibh. <br> Suspendisse lobortis lectus vel imperdiet ullamcorper.",
@@ -20,5 +20,7 @@
   "_CheckOffer": "check our offer",
   "_TemplateAwesome": "Template is awesome",
   "_Username": "John Doe",
-  "_UserRole": "CEO at Crios.com"
+  "_UserRole": "CEO at Crios.com",
+  "_Search": "Search",
+  "_Cancel": "Cancel"
 }

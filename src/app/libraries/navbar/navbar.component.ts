@@ -2,17 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '
 import {AppService} from '../../app.service';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {LogoutConfirmationComponent} from '../../modals/logout-confirmation/logout-confirmation.component';
-import {animate, style, transition, trigger} from '@angular/animations';
-
-export const slideInOut = trigger('slideInOut', [
-    transition(':enter', [
-        style({transform: 'translateX(-100%)'}),
-        animate('200ms ease-in', style({transform: 'translateX(0%)'}))
-    ]),
-    transition(':leave', [
-        animate('200ms ease-in', style({transform: 'translateX(-100%)'}))
-    ])
-]);
+import {slideInOut} from '../../../animations/slideInOut';
 
 @Component({
     selector: 'app-navbar',

@@ -260,4 +260,40 @@ header {
   }
 }
 
+.search-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #fff;
+  margin-top: 20px;
+
+  .search-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-section {
+    padding: 15px;
+  }
+
+  input {
+    width: 230px;
+    height: 35px;
+    border: 1px solid #cdcdcd;
+    padding: 5px 15px;
+    box-shadow: 0 0 65px #dae5ef;
+    border-radius: 20px;
+  }
+
+  .search-controls {
+    padding: 15px;
+
+    button {
+      margin: 0 5px;
+    }
+  }
+
+}
 
