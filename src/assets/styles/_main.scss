@@ -307,6 +307,10 @@ label {
   color: $red-color;
 }
 
+.white-color {
+  color: $white-color;
+}
+
 /* Text Aligns */
 
 .text-justify {
@@ -341,63 +345,13 @@ label {
 
 /* Buttons */
 .primary-btn {
-  color: $primary-color;
-  background-color: $primary-background;
-  box-shadow: 0 0 65px $primary-shadow;
+  color: $white-color;
+  background: #736f6f12;
   font-size: $primary-btn-size;
-  text-transform: uppercase;
   width: 225px;
   height: 55px;
   border-radius: 35px;
-  border: none;
-  padding: 0;
-  @include respond-to(tablet-screen) {
-    font-size: $primary-btn-size-sm;
-    width: 185px;
-    height: 40px;
-  }
-  @include respond-to(mobileL-screen) {
-    font-size: $primary-btn-size-sm;
-    width: 185px;
-    height: 40px;
-  }
-  @include respond-to(mobileM-screen) {
-    font-size: $primary-btn-size-sm;
-    width: 185px;
-    height: 40px;
-  }
-  @include respond-to(mobileS-screen) {
-    font-size: $primary-btn-size-sm;
-    width: 185px;
-    height: 40px;
-  }
-
-  &:hover {
-    cursor: pointer;
-    -webkit-transition: all 0.7s;
-    -moz-transition: all 0.7s;
-    -ms-transition: all 0.7s;
-    -o-transition: all 0.7s;
-    transition: all 0.7s;
-    color: $primary-background;
-    background: $primary-color;
-  }
-
-  &:active {
-    transform: scale(0.9);
-  }
-}
-
-.secondary-btn {
-  color: $primary-background;
-  background-color: $primary-color;
-  box-shadow: 0 0 65px $primary-shadow;
-  font-size: $primary-btn-size;
-  text-transform: uppercase;
-  width: 225px;
-  height: 55px;
-  border-radius: 35px;
-  border: none;
+  border: 1px solid $white-color;
   padding: 0;
   @include respond-to(tablet-screen) {
     font-size: $primary-btn-size-sm;
@@ -428,105 +382,7 @@ label {
     -o-transition: all 0.7s;
     transition: all 0.7s;
     color: $primary-color;
-    background: $primary-background;
-  }
-
-  &:active {
-    transform: scale(0.9);
-  }
-}
-
-.red-cancel-btn {
-  color: $primary-background;
-  background-color: $red-color;
-  box-shadow: 0 0 65px $primary-shadow;
-  font-size: $primary-btn-size;
-  text-transform: uppercase;
-  width: 175px;
-  height: 35px;
-  border-radius: 35px;
-  border: none;
-  padding: 0;
-  @include respond-to(tablet-screen) {
-    font-size: $primary-btn-size-sm;
-    width: 145px;
-    height: 40px;
-  }
-  @include respond-to(mobileL-screen) {
-    font-size: $primary-btn-size-sm;
-    width: 145px;
-    height: 40px;
-  }
-  @include respond-to(mobileM-screen) {
-    font-size: $primary-btn-size-sm;
-    width: 145px;
-    height: 40px;
-  }
-  @include respond-to(mobileS-screen) {
-    font-size: $primary-btn-size-sm;
-    width: 100px;
-    height: 40px;
-  }
-
-  &:hover {
-    cursor: pointer;
-    -webkit-transition: all 0.7s;
-    -moz-transition: all 0.7s;
-    -ms-transition: all 0.7s;
-    -o-transition: all 0.7s;
-    transition: all 0.7s;
-    color: $primary-color;
-    background: $secondary-background;
-    border: 1px solid $secondary-color;
-  }
-
-  &:active {
-    transform: scale(0.9);
-  }
-}
-
-.search-blue-btn {
-  color: $primary-background;
-  background-color: $primary-color;
-  box-shadow: 0 0 65px $primary-shadow;
-  font-size: $primary-btn-size;
-  text-transform: uppercase;
-  width: 175px;
-  height: 35px;
-  border-radius: 35px;
-  border: none;
-  padding: 0;
-  @include respond-to(tablet-screen) {
-    font-size: $primary-btn-size-sm;
-    width: 145px;
-    height: 40px;
-  }
-  @include respond-to(mobileL-screen) {
-    font-size: $primary-btn-size-sm;
-    width: 145px;
-    height: 40px;
-  }
-  @include respond-to(mobileM-screen) {
-    font-size: $primary-btn-size-sm;
-    width: 145px;
-    height: 40px;
-  }
-  @include respond-to(mobileS-screen) {
-    font-size: $primary-btn-size-sm;
-    width: 100px;
-    height: 40px;
-  }
-
-  &:hover {
-    cursor: pointer;
-    -webkit-transition: all 0.7s;
-    -moz-transition: all 0.7s;
-    -ms-transition: all 0.7s;
-    -o-transition: all 0.7s;
-    transition: all 0.7s;
-    color: $primary-color;
-    background: $secondary-background;
-    border: 1px solid $secondary-color;
+    background: $white-color;
   }
 
   &:active {
@@ -734,50 +590,16 @@ label {
   }
 }
 
-.lock-collapsed {
-  @include respond-to(to-tablet-screen) {
-    height: 100%;
-    top: 0;
-    width: 100%;
-    overflow: auto;
-    z-index: 10;
-    overflow-x: hidden;
-    position: fixed;
-    background: $primary-background;
-  }
+
+/** Animations **/
+
+@-moz-keyframes swing{
+  0%{-moz-transform:rotate(-3deg)}
+  50%{-moz-transform:rotate(3deg)}
+  100%{-moz-transform:rotate(-3deg)}
 }
-
-.animate {
-  .rotate-up {
-    transform: rotate(-180deg);
-    transition: all 0.1s ease-out;
-  }
-
-  .rotate-down {
-    transform: rotate(0deg);
-    transition: all 0.1s ease-out;
-  }
-
-  .hide-items {
-    max-height: 0rem;
-    overflow: hidden;
-    transition: all 0.3s ease-out;
-  }
-
-  .show-items {
-    max-height: 40rem;
-    transition: all 0.5s ease-in;
-    overflow: hidden;
-  }
-
-  .slide-out-items {
-    left: 100%;
-    transition: all 0.5s ease-in;
-  }
-
-  .slide-in-items {
-    left: 0;
-    transition: all 0.5s ease-in;
-  }
+@-webkit-keyframes swing{
+  0%{-webkit-transform:rotate(-3deg)}
+  50%{-webkit-transform:rotate(3deg)}
+  100%{-webkit-transform:rotate(-3deg)}
 }
-

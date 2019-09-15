@@ -1,38 +1,8 @@
-<header id="header" *ngIf="member">
-    <div class="main-header">
-        <nav class="main-menu" [style.z-index]="collapsed ? '1000' : ''" *ngIf="!search">
-            <div class="box-container" (click)="collapsed = !collapsed; lockCollapsed()"
-                 [ngClass]="collapsed ? 'nav-collapsed-active' : ''">
-                <div class="navbar-menu">
-                    <div class="navbar"
-                         [ngClass]="collapsed ? 'nav-collapsed-active' : ''">
-                        <a id="nav-toggle" [ngClass]="collapsed ? 'active' : ''">
-                            <span [style.color]="collapsed ? '#fff' : ''"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <div class="main-title">
-            <div class="title">
-                <h1>{{'_SiteName' | translate}}</h1>
-                <p>{{'_SiteDescription' | translate}}</p>
-            </div>
-        </div>
-        <div class="main-search" *ngIf="!collapsed" (click)="search = !search">
-            <div class="box-container">
-                <div class="search"></div>
-            </div>
-        </div>
+<div class="top-header">
+    <div class="logo-right">
+        <img src="assets/images/dcaa-logo.png" title="{{'_logoTitleRight' | translate}}">
     </div>
-    <div class="search-group" *ngIf="search" [@slideInOut]>
-        <div class="search-section">
-            <input type="text" placeholder="{{'_Search' | translate}}">
-        </div>
-        <div class="search-controls">
-            <button class="red-cancel-btn" (click)="search = false">{{'_Cancel' | translate}}</button>
-            <button class="search-blue-btn">{{'_Search' | translate}}</button>
-        </div>
+    <div class="logo-left">
+        <img src="assets/images/gov-logo.png" title="{{'_logoTitleRight' | translate}}">
     </div>
-    <app-navbar [collapsed]="collapsed" (collapseChanged)="collapseChange($event)"></app-navbar>
-</header>
+</div>

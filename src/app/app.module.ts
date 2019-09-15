@@ -4,7 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {rootRouterConfig} from './app.routes';
 import {AppComponent} from './app.component';
-import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {HomeComponent} from './views/home/home.component';
 import {HeaderComponent} from './views/header/header.component';
 import {FooterComponent} from './views/footer/footer.component';
@@ -12,13 +12,12 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
 import {DialogModule} from '../modules/dialog.module';
 import {SharedModule} from '../modules/shared.module';
-import {LoginComponent} from './views/login/login.component';
-import {JwtInterceptor} from '../helpers/jwt.interceptor';
-import {ErrorInterceptor} from '../helpers/error.interceptor';
-import {fakeBackendProvider} from '../helpers/fake-backend';
 import {ReactiveFormsModule} from '@angular/forms';
-import {OffersComponent} from './views/offers/offers.component';
-import { NavbarComponent } from './libraries/navbar/navbar.component';
+import {StartingComponent} from './views/home/starting/starting.component';
+import { NavbarComponent } from './views/header/navbar/navbar.component';
+import { LatestNewsComponent } from './views/home/latest-news/latest-news.component';
+import { ServicesComponent } from './views/home/services/services.component';
+
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
     return new MultiTranslateHttpLoader(httpClient, [
@@ -43,13 +42,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         }),
         RouterModule.forRoot(rootRouterConfig, {useHash: true})
     ],
-    declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, LoginComponent, OffersComponent, NavbarComponent],
-    providers: [
-        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-        {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-
-        // provider used to create fake backend
-        fakeBackendProvider],
+    declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, StartingComponent, NavbarComponent, LatestNewsComponent, ServicesComponent],
+    providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {

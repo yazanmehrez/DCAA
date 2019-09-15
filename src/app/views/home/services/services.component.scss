@@ -1,0 +1,11 @@
+.services-cards {
+  .service-item {
+    img:hover {
+      animation: swing 3s infinite ease-in-out;
+      -moz-animation: 3s ease 0s normal none infinite swing;
+      -moz-transform-origin: center top;
+      -webkit-animation: swing 3s infinite ease-in-out;
+      -webkit-transform-origin: top;
+    }
+  }
+}

@@ -120,11 +120,11 @@
   "defaultProject": "egret",
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "app",
+      "prefix": "dcaa",
       "styleext": "scss"
     },
     "@schematics/angular:directive": {
-      "prefix": "app"
+      "prefix": "dcaa"
     }
   }
 }

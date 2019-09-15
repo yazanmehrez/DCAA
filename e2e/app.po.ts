@@ -6,6 +6,6 @@ export class NgEgretPage {
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('dcaa-root h1')).getText();
   }
 }

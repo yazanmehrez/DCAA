@@ -1,26 +1,3 @@
 {
-  "_Title": "Crios Test",
-  "_Navbar": {
-    "_HomePage": "Home Page",
-    "_Offers": "Offers",
-    "_Products": "Products",
-    "_Applications": "Applications",
-    "_LanguageSwitch": "عربي",
-    "_Logout": "Logout"
-  },
-  "_SiteName": "Crios",
-  "_SiteDescription": "FREE PSD TEMPLATE",
-  "_LandingTitle": "Simple PSD template with cool stuff",
-  "_MiniLorem": " Lorem ipsum dolor",
-  "_ShortLoremTitle": "Lorem ipsum dolor sit amet.",
-  "_ShortLorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "_LongLorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit., <br> Suspendisse vel leo efficitur, venenatis est ut, tincidunt nibh. <br> Suspendisse lobortis lectus vel imperdiet ullamcorper.",
-  "_CardDescription": "Suspendisse vel leo efficitur, <br> venenatis est ut tincidunt nibh.",
-  "_ExploreTemplate": "explore template",
-  "_CheckOffer": "check our offer",
-  "_TemplateAwesome": "Template is awesome",
-  "_Username": "John Doe",
-  "_UserRole": "CEO at Crios.com",
-  "_Search": "Search",
-  "_Cancel": "Cancel"
+  "_Title": "DCAA Dubai Civil Aviation Authority"
 }

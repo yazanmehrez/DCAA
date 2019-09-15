@@ -4,12 +4,12 @@ import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
 import {Title} from '@angular/platform-browser';
 
 @Component({
-    selector: 'app-root',
+    selector: 'dcaa-root',
     template: `
         <div [dir]="_appService.currentLanguage == 'en' ? 'ltr' : 'rtl'">
-            <app-header></app-header>
+            <dcaa-header></dcaa-header>
             <router-outlet></router-outlet>
-            <app-footer></app-footer>
+            <dcaa-footer></dcaa-footer>
         </div>
     `
 })
