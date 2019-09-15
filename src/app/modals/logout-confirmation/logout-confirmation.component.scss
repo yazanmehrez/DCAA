@@ -1,0 +1,13 @@
+@import '../welcome/welcome.component.scss';
+
+.controls {
+  display: flex;
+
+  button {
+    cursor: pointer;
+  }
+
+  span {
+    width: 15px;
+  }
+}

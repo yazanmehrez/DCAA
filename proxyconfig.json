@@ -1,0 +1,7 @@
+{
+  "/src/api/": {
+    "target": "http://localhost/DCAA/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

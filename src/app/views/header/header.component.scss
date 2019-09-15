@@ -1,0 +1,20 @@
+@import '../../../assets/styles/responsive';
+
+.dcaa-header{
+  position: relative;
+}
+
+.top-header {
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-right, .logo-left {
+  margin: 20px 160px;
+}
+
+
+
+

@@ -1,0 +1,632 @@
+html,
+body {
+  margin: 0;
+  font-size: 100%;
+  background: $primary-background;
+  font-family: $font-family-base;
+}
+
+body a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a {
+  font-size: $font-xlg-a;
+  @include respond-to(laptopL-screen) {
+    font-size: $font-lg-a;
+  }
+  @include respond-to(laptop-screen) {
+    font-size: $font-md-a;
+  }
+  @include respond-to(tablet-screen) {
+    font-size: $font-sm-a;
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $font-sm-a;
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $font-xsm-a;
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $font-tn-a;
+  }
+}
+
+input[type="button"],
+input[type="submit"] {
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $primary-color;
+  margin: 25px 0;
+}
+
+h1 {
+  font-size: $font-size-h1;
+  @include respond-to(laptopL-screen) {
+    font-size: $font-size-h2
+  }
+  @include respond-to(laptop-screen) {
+    font-size: $font-size-h3
+  }
+  @include respond-to(tablet-screen) {
+    font-size: $font-size-h5
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $font-size-h6
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $font-size-h6
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $font-size-h6
+  }
+
+}
+
+li {
+  list-style-type: none;
+  color: $secondary-color;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+p {
+  letter-spacing: 1px;
+  line-height: 1.9em;
+  font-size: $paragraph-size;
+  color: $secondary-color;
+  @include respond-to(laptop-screen) {
+    font-size: $paragraph-medium-size;
+  }
+  @include respond-to(tablet-screen) {
+    font-size: $paragraph-small-size;
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $paragraph-small-size;
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $paragraph-small-size;
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $paragraph-small-size;
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  margin: 0;
+}
+
+*, *:visited, *:focus {
+  outline: 0;
+}
+
+/* Flex */
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.d-inline-flex {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.flex-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.flex-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flex-row-reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.flex-column-reverse {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+
+.flex-wrap {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+
+.flex-wrap-reverse {
+  -ms-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+}
+
+.justify-content-start {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.justify-content-end {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.justify-content-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.justify-content-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.justify-content-around {
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.align-items-start {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.align-items-end {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.align-items-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.align-items-baseline {
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.align-items-stretch {
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.align-content-start {
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+}
+
+.align-content-end {
+  -ms-flex-line-pack: end;
+  align-content: flex-end;
+}
+
+.align-content-center {
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+
+.align-content-between {
+  -ms-flex-line-pack: justify;
+  align-content: space-between;
+}
+
+.align-content-around {
+  -ms-flex-line-pack: distribute;
+  align-content: space-around;
+}
+
+.align-content-stretch {
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+}
+
+.align-self-auto {
+  -ms-flex-item-align: auto;
+  align-self: auto;
+}
+
+.align-self-start {
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.align-self-end {
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+}
+
+.align-self-center {
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.align-self-baseline {
+  -ms-flex-item-align: baseline;
+  align-self: baseline;
+}
+
+.align-self-stretch {
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}
+
+
+.space-between {
+  justify-content: space-between;
+}
+
+
+/* Colors */
+.black-color {
+  color: $black-color;
+}
+
+.red-color {
+  color: $red-color;
+}
+
+.white-color {
+  fill: $white-color;
+  color: $white-color;
+}
+
+/* Text Aligns */
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.lh-1 {
+  line-height: 1.5;
+}
+
+/* Buttons */
+.primary-btn {
+  color: $white-color;
+  background: #736f6f12;
+  font-size: $primary-btn-size;
+  width: 225px;
+  height: 55px;
+  border-radius: 35px;
+  border: 1px solid $white-color;
+  padding: 0;
+  @include respond-to(tablet-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    -ms-transition: all 0.7s;
+    -o-transition: all 0.7s;
+    transition: all 0.7s;
+    border: none;
+    background: $primary-color;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.p-sm {
+  font-size: $paragraph-small-size;
+}
+
+.p-md {
+  font-size: $paragraph-medium-size;
+  @include respond-to(laptop-screen) {
+    font-size: $paragraph-small-size;
+  }
+  @include respond-to(tablet-screen) {
+    font-size: $paragraph-small-size;
+    padding: 0 10px;
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $paragraph-xsmall-size;
+    padding: 0 10px;
+    margin: 2rem;
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $paragraph-xsmall-size;
+    padding: 0 10px;
+    margin: 2rem;
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $paragraph-xsmall-size;
+    padding: 0 10px;
+    margin: 2rem;
+  }
+}
+
+/* Margins */
+
+/** Top **/
+@for $i from 0 through $margin-rem {
+  .mt-#{$i} {
+    margin-top: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        margin-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        margin-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        margin-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        margin-top: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+@for $i from 0 through $margin-rem {
+  .mb-#{$i} {
+    margin-bottom: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        margin-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        margin-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        margin-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        margin-bottom: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+@for $i from 0 through $margin-rem {
+  .ml-#{$i} {
+    margin-left: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        margin-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        margin-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        margin-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        margin-left: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+
+[lang="ar"] {
+  @for $i from 0 through $margin-rem {
+    .ml-#{$i} {
+      margin-right: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          margin-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          margin-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          margin-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          margin-right: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+}
+
+@for $i from 0 through $margin-rem {
+  .mr-#{$i} {
+    margin-right: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        margin-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        margin-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        margin-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        margin-right: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+
+[lang="ar"] {
+  @for $i from 0 through $margin-rem {
+    .mr-#{$i} {
+      margin-left: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          margin-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          margin-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          margin-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          margin-left: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+}
+
+/* Columns */
+
+%clearfix:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    width: 100% / $grid-columns * $i;
+  }
+}
+
+.col {
+  @include respond-to(mobileL-screen) {
+    flex-direction: column !important;
+    @for $i from 1 through $grid-columns {
+      .col-#{$i} {
+        width: 100%;
+      }
+    }
+  }
+  @include respond-to(mobileM-screen) {
+    flex-direction: column !important;
+    @for $i from 1 through $grid-columns {
+      .col-#{$i} {
+        width: 100%;
+      }
+    }
+  }
+  @include respond-to(mobileS-screen) {
+    flex-direction: column !important;
+    @for $i from 1 through $grid-columns {
+      .col-#{$i} {
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+/** Animations **/
+
+@-moz-keyframes swing {
+  0% {
+    -moz-transform: rotate(-3deg)
+  }
+  50% {
+    -moz-transform: rotate(3deg)
+  }
+  100% {
+    -moz-transform: rotate(-3deg)
+  }
+}
+
+@-webkit-keyframes swing {
+  0% {
+    -webkit-transform: rotate(-3deg)
+  }
+  50% {
+    -webkit-transform: rotate(3deg)
+  }
+  100% {
+    -webkit-transform: rotate(-3deg)
+  }
+}
+
+/** SVG's **/
+
+svg-icon.colored {
+  canvas, circle, ellipse, iframe, image, line, path, polygon, polyline, rect, text, tspan, video {
+    fill: $primary-color;
+  }
+}

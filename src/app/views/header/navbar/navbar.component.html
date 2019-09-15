@@ -1,0 +1,49 @@
+<div class="dcaa-navbar">
+
+  <div class="list">
+    <div class="navbar">
+      <nav>
+        <ng-container *ngFor="let nav of navbar; let i = index">
+          <a *ngIf="nav.childs.length == 0; else dropdown">
+            {{nav.name}}
+          </a>
+          <ng-template #dropdown>
+            <div class="dropdown">
+              <a class="dropbtn">
+                {{nav.name}}
+              </a>
+              <div class="dropdown-content">
+                <a *ngFor="let snav of nav.childs">
+                  {{snav.name}}
+                </a>
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+      </nav>
+    </div>
+    <div class="nav-control">
+      <div class="language">
+        <span class="selected">ENG</span>
+        <div> /</div>
+        <span>العربية</span>
+      </div>
+      <div class="search">
+        <input type="text" [placeholder]="'_Search' | translate">
+      </div>
+      <div class="login">
+        <button>Login</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="news">
+    <dcaa-latest-news></dcaa-latest-news>
+    <div class="accessibility">
+      adafdfadf
+      adfadfad
+    </div>
+  </div>
+
+</div>
+
