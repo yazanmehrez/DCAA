@@ -78,6 +78,30 @@ h1 {
 
 }
 
+h2 {
+  font-size: $font-size-h2;
+  @include respond-to(laptopL-screen) {
+    font-size: $font-size-h3
+  }
+  @include respond-to(laptop-screen) {
+    font-size: $font-size-h5
+  }
+  @include respond-to(tablet-screen) {
+    font-size: $font-size-h6
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $font-size-h6
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $font-size-h6
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $font-size-h6
+  }
+
+}
+
+
 li {
   list-style-type: none;
   color: $secondary-color;
@@ -91,7 +115,7 @@ p {
   letter-spacing: 1px;
   line-height: 1.9em;
   font-size: $paragraph-size;
-  color: $secondary-color;
+  color: $black-color;
   @include respond-to(laptop-screen) {
     font-size: $paragraph-medium-size;
   }
@@ -120,6 +144,14 @@ label {
 
 *, *:visited, *:focus {
   outline: 0;
+}
+
+.bolder-text {
+  font-weight: 800;
+}
+
+.bold-text {
+  font-weight: 700;
 }
 
 /* Flex */
@@ -396,6 +428,53 @@ label {
   }
 }
 
+.secondary-btn {
+  color: $primary-color;
+  background: transparent;
+  font-size: $primary-btn-size;
+  width: 225px;
+  height: 55px;
+  border-radius: 35px;
+  border: 1px solid $primary-color;
+  padding: 0;
+  @include respond-to(tablet-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $primary-btn-size-sm;
+    width: 185px;
+    height: 40px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    -ms-transition: all 0.7s;
+    -o-transition: all 0.7s;
+    transition: all 0.7s;
+    border: none;
+    background: $primary-color;
+    color: $white-color;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
 .p-sm {
   font-size: $paragraph-small-size;
 }
@@ -449,6 +528,7 @@ label {
   }
 }
 
+/** Bottom **/
 @for $i from 0 through $margin-rem {
   .mb-#{$i} {
     margin-bottom: $i+rem;
@@ -469,6 +549,7 @@ label {
   }
 }
 
+/** Left **/
 @for $i from 0 through $margin-rem {
   .ml-#{$i} {
     margin-left: $i+rem;
@@ -489,29 +570,7 @@ label {
   }
 }
 
-
-[lang="ar"] {
-  @for $i from 0 through $margin-rem {
-    .ml-#{$i} {
-      margin-right: $i+rem;
-      @if ($i > 6) {
-        @include respond-to(tablet-screen) {
-          margin-right: ($i - 2) +rem;
-        }
-        @include respond-to(mobileL-screen) {
-          margin-right: ($i - 2) +rem;
-        }
-        @include respond-to(mobileM-screen) {
-          margin-right: ($i - 2) +rem;
-        }
-        @include respond-to(mobileS-screen) {
-          margin-right: ($i - 4) +rem;
-        }
-      }
-    }
-  }
-}
-
+/** Right **/
 @for $i from 0 through $margin-rem {
   .mr-#{$i} {
     margin-right: $i+rem;
@@ -532,8 +591,51 @@ label {
   }
 }
 
-
 [lang="ar"] {
+
+  /** Top **/
+  @for $i from 0 through $margin-rem {
+    .mt-#{$i} {
+      margin-top: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          margin-top: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          margin-top: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          margin-top: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          margin-top: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+
+  /** Bottom **/
+  @for $i from 0 through $margin-rem {
+    .mb-#{$i} {
+      margin-bottom: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          margin-bottom: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          margin-bottom: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          margin-bottom: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          margin-bottom: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+
+  /** Left **/
   @for $i from 0 through $margin-rem {
     .mr-#{$i} {
       margin-left: $i+rem;
@@ -553,7 +655,203 @@ label {
       }
     }
   }
+
+  /** Right **/
+  @for $i from 0 through $margin-rem {
+    .mr-#{$i} {
+      margin-right: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          margin-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          margin-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          margin-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          margin-right: ($i - 4) +rem;
+        }
+      }
+    }
+  }
 }
+
+
+/* Padding */
+
+/** Top **/
+@for $i from 0 through $padding-rem {
+  .pt-#{$i} {
+    padding-top: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        padding-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        padding-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        padding-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        padding-top: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+/** Bottom **/
+@for $i from 0 through $padding-rem {
+  .pb-#{$i} {
+    padding-bottom: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        padding-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        padding-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        padding-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        padding-bottom: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+/** Left **/
+@for $i from 0 through $padding-rem {
+  .pl-#{$i} {
+    padding-left: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        padding-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        padding-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        padding-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        padding-left: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+/** Right **/
+@for $i from 0 through $padding-rem {
+  .pr-#{$i} {
+    padding-right: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        padding-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        padding-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        padding-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        padding-right: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+[lang="ar"] {
+
+  /** Top **/
+  @for $i from 0 through $padding-rem {
+    .pt-#{$i} {
+      margin-top: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          margin-top: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          margin-top: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          margin-top: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          margin-top: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+
+  /** Bottom **/
+  @for $i from 0 through $padding-rem {
+    .pb-#{$i} {
+      padding-bottom: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          padding-bottom: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          padding-bottom: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          padding-bottom: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          padding-bottom: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+
+  /** Left **/
+  @for $i from 0 through $padding-rem {
+    .pl-#{$i} {
+      padding-left: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          padding-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          padding-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          padding-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          padding-left: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+
+  /** Right **/
+  @for $i from 0 through $padding-rem {
+    .pr-#{$i} {
+      padding-right: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          padding-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          padding-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          padding-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          padding-right: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+}
+
 
 /* Columns */
 
@@ -620,13 +918,5 @@ label {
   }
   100% {
     -webkit-transform: rotate(-3deg)
-  }
-}
-
-/** SVG's **/
-
-svg-icon.colored {
-  canvas, circle, ellipse, iframe, image, line, path, polygon, polyline, rect, text, tspan, video {
-    fill: $primary-color;
   }
 }

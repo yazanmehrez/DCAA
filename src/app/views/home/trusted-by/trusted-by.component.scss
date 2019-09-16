@@ -1,0 +1,34 @@
+@import "../../../../assets/styles/responsive";
+
+.dcaa-trusted-by {
+  margin: 100px 160px 0 160px;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .item {
+    width: 25%;
+
+    .message {
+      padding: 15px;
+
+      .thumb {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        img {
+          margin-right: 15px;
+        }
+      }
+
+      .desc-body {
+        height: 120px;
+        text-align: justify;
+      }
+    }
+  }
+}

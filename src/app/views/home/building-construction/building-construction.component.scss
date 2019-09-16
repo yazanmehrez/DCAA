@@ -3,31 +3,73 @@
 .dcaa-building-construction {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin: 0 160px;
+  position: relative;
+  background: #f7f6f5;
 }
 
 .services-categories {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+
+  .categories {
+    padding: 100px 0;
+  }
+
+  .item {
+    border-left: 5px solid $black-color;
+    display: flex;
+    color: $black-color;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 160px;
+
+    &:not(:last-child) {
+      padding-bottom: 20px;
+    }
+
+    p, svg-icon {
+      display: flex;
+      align-items: center;
+      margin-left: 15px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    &:hover {
+      color: $primary-color;
+      fill: $primary-color;
+      border-color: $primary-color;
+      cursor: pointer;
+      background: $white-color;
+
+      p {
+        color: $primary-color;
+      }
+    }
+  }
 }
 
 .services-control {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  padding: 0 160px;
   width: 50%;
 
   .intro-box {
     background: #333333;
+    position: relative;
+    top: -50px;
     width: 50%;
 
     .content {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       margin-right: 20px;
-      border-right: 5px solid #fff;
+      border-right: 5px solid $white-color;
     }
   }
 }

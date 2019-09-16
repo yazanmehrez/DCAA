@@ -1,0 +1,45 @@
+@import "../../../../assets/styles/responsive";
+
+.dcaa-more-about {
+  margin: 0 160px;
+}
+
+.photos {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25%;
+
+    .aligns {
+      padding: 10px;
+    }
+
+    img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .description {
+      border-bottom: 2px solid $primary-color;
+      padding-bottom: 15px;
+
+      .desc-head {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-weight: 800;
+      }
+
+      .desc-body {
+        height: 100px;
+      }
+    }
+
+  }
+}

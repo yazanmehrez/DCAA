@@ -16,6 +16,7 @@
   flex-wrap: wrap;
   background: #f7f6f5;
   margin-top: 15px;
+  padding: 15px 0;
 
   .item {
     text-align: center;
@@ -33,6 +34,15 @@
       cursor: pointer;
       transform: scale(1.1);
       transition: 0.3s all;
+      fill: $primary-color;
+
+      svg-icon {
+        animation: swing 3s infinite ease-in-out;
+        -moz-animation: 3s ease 0s normal none infinite swing;
+        -moz-transform-origin: center top;
+        -webkit-animation: swing 3s infinite ease-in-out;
+        -webkit-transform-origin: top;
+      }
 
       p {
         color: $primary-color;
@@ -44,14 +54,6 @@
   svg-icon {
     justify-content: center;
     display: inline-flex;
-  }
-
-  .swing {
-    animation: swing 3s infinite ease-in-out;
-    -moz-animation: 3s ease 0s normal none infinite swing;
-    -moz-transform-origin: center top;
-    -webkit-animation: swing 3s infinite ease-in-out;
-    -webkit-transform-origin: top;
   }
 }
 

@@ -18,6 +18,10 @@ import { NavbarComponent } from './views/header/navbar/navbar.component';
 import { LatestNewsComponent } from './views/home/latest-news/latest-news.component';
 import { ServicesComponent } from './views/home/services/services.component';
 import { BuildingConstructionComponent } from './views/home/building-construction/building-construction.component';
+import { MoreAboutDcaaComponent } from './views/home/more-about-dcaa/more-about-dcaa.component';
+import { TrustedByComponent } from './views/home/trusted-by/trusted-by.component';
+import { PartnersComponent } from './views/home/partners/partners.component';
+import { XgalleryComponent } from './views/footer/xgallery/xgallery.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -43,7 +47,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         }),
         RouterModule.forRoot(rootRouterConfig, {useHash: true})
     ],
-    declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, StartingComponent, NavbarComponent, LatestNewsComponent, ServicesComponent, BuildingConstructionComponent],
+    declarations: [AppComponent, HomeComponent, HeaderComponent, FooterComponent, StartingComponent, NavbarComponent, LatestNewsComponent, ServicesComponent, BuildingConstructionComponent, MoreAboutDcaaComponent, TrustedByComponent, PartnersComponent, XgalleryComponent],
     providers: [],
     bootstrap: [AppComponent]
 })
