@@ -1,22 +1,21 @@
 @import "../../../../assets/styles/responsive";
 
 .dcaa-services {
-  margin: 75px 160px;
+  margin: 160px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
 .services-control {
-  width: 30%;
+  width: 100%;
 }
 
 .services-categories {
-  width: 70%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   background: #f7f6f5;
+  margin-top: 15px;
 
   .item {
     text-align: center;

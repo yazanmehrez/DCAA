@@ -19,14 +19,14 @@
     nav {
       display: flex;
       align-items: center;
-      height: 70px;
+      height: 80px;
     }
 
     a {
-      font-size: 15px;
+      font-size: 18px;
       color: $secondary-color;
       text-align: center;
-      margin-right: 50px;
+      margin-right: 75px;
       display: flex;
       align-items: center;
       height: 100%;
@@ -144,7 +144,7 @@
 
 .dcaa-navbar .news {
   position: absolute;
-  top: 70px;
+  top: 80px;
   left: 0;
   right: 0;
   z-index: 1000;
