@@ -1,6 +1,28 @@
 @font-face {
-  font-family: 'bree-thin';
-  src: url('/assets/fonts/Montserrat-Regular.otf');
-  src: url('/assets/fonts/Montserrat-Regular.otf') format('woff2'),
-  url('/assets/fonts/Montserrat-Regular.otf') format('woff')
+  font-family: 'Dubai Light';
+  src: url('/assets/fonts/DubaiW23-Light.otf');
+  src: url('/assets/fonts/DubaiW23-Light.otf') format('woff2'),
+  url('/assets/fonts/DubaiW23-Light.otf') format('woff')
 }
+
+@font-face {
+  font-family: 'Dubai Regular';
+  src: url('/assets/fonts/DubaiW23-Regular.otf');
+  src: url('/assets/fonts/DubaiW23-Regular.otf') format('woff2'),
+  url('/assets/fonts/DubaiW23-Regular.otf') format('woff')
+}
+
+@font-face {
+  font-family: 'Dubai Medium';
+  src: url('/assets/fonts/DubaiW23-Medium.otf');
+  src: url('/assets/fonts/DubaiW23-Medium.otf') format('woff2'),
+  url('/assets/fonts/DubaiW23-Medium.otf') format('woff')
+}
+
+@font-face {
+  font-family: 'Dubai Bold';
+  src: url('/assets/fonts/DubaiW23-Bold.otf');
+  src: url('/assets/fonts/DubaiW23-Bold.otf') format('woff2'),
+  url('/assets/fonts/DubaiW23-Bold.otf') format('woff')
+}
+
