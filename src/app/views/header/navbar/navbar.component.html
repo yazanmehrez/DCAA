@@ -7,7 +7,7 @@
             {{nav.name}}
           </a>
           <ng-template #dropdown>
-            <div class="dropdown">
+            <div class="dropdown-list">
               <a class="dropbtn">
                 {{nav.name}}
               </a>
@@ -29,20 +29,49 @@
       </div>
       <div class="search">
         <input type="text" [placeholder]="'_Search' | translate">
+        <svg-icon src="assets/images/icons/search.svg" [stretch]="true"
+                  [applyCss]="true" class="search-icon "></svg-icon>
       </div>
       <div class="login">
-        <button>Login</button>
+        <button>
+          <svg-icon src="assets/images/icons/login.svg" [stretch]="true"
+                    [applyCss]="true" class="login-icon"></svg-icon>
+          Login
+        </button>
       </div>
     </div>
   </div>
 
-<!--  <div class="news">-->
-<!--    <dcaa-latest-news></dcaa-latest-news>-->
-<!--    <div class="accessibility">-->
-<!--      adafdfadf-->
-<!--      adfadfad-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="accessibility">
+    <div class="access-control">
+
+      <svg-icon src="assets/images/icons/settings.svg" [stretch]="true"
+                [applyCss]="true" class="settings-icon"></svg-icon>
+
+      <svg-icon src="assets/images/icons/sep.svg" [stretch]="true" [svgStyle]="{'height.px':'25'}"
+                [applyCss]="true" class="line-separate"></svg-icon>
+
+      <div class="live-chat">
+        <p>Live Chat</p>
+        <svg-icon src="assets/images/icons/chat.svg" [stretch]="true"
+                  [applyCss]="true" class="chat-icon ml-0"></svg-icon>
+      </div>
+
+
+      <svg-icon src="assets/images/icons/sounds.svg" [stretch]="true"
+                [applyCss]="true" class="sounds-icon"></svg-icon>
+
+
+      <div class="notification">
+        <div class="notifier">
+          1
+        </div>
+        <svg-icon src="assets/images/icons/notification.svg" [stretch]="true"
+                  [applyCss]="true" class="notification-icon"></svg-icon>
+      </div>
+
+    </div>
+  </div>
 
 </div>
 

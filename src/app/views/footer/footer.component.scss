@@ -125,3 +125,27 @@
     }
   }
 }
+
+.social-media {
+  display: flex;
+  margin-top: 10px;
+
+  .social {
+    justify-content: center;
+    align-items: center;
+    fill: $white-color;
+  }
+
+  .outline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-color;
+    width: 40px;
+    height: 40px;
+
+    &:not(:first-child) {
+      margin-left: 5px;
+    }
+  }
+}

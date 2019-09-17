@@ -16,6 +16,20 @@
     justify-content: space-between;
     width: 25%;
 
+    .thumb {
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        cursor: pointer;
+
+        img {
+          transform: scale(1.2);
+          transition: 0.3s all;
+        }
+      }
+    }
+
     .aligns {
       padding: 10px;
     }
@@ -41,5 +55,23 @@
       }
     }
 
+
+  }
+}
+
+.zoom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  z-index: 1;
+
+  .zoom-icon {
+    width: 20px;
   }
 }

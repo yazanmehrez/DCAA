@@ -1,46 +1,35 @@
 import {AfterViewInit, Component} from '@angular/core';
-import {tns} from 'tiny-slider/src/tiny-slider';
 
 @Component({
-    selector: 'dcaa-partners',
-    templateUrl: './partners.component.html',
-    styleUrls: ['./partners.component.scss']
+  selector: 'dcaa-partners',
+  templateUrl: './partners.component.html',
+  styleUrls: ['./partners.component.scss']
 })
 export class PartnersComponent implements AfterViewInit {
+  slideConfig = {
+    'slidesToShow': 7,
+    'slidesToScroll': 1,
+    'dots': false,
+    'infinite': false,
+    'autoplay': true,
+    'arrows': false,
+    'autoplaySpeed': 1500
+  };
+  partners = [
+    'assets/images/footer/al ameen.png',
+    'assets/images/footer/ask.png',
+    'assets/images/footer/complain.png',
+    'assets/images/footer/dubai career.png',
+    'assets/images/footer/e-suggest-logo.png',
+    'assets/images/footer/expo 2020.png',
+    'assets/images/footer/gov ae.png',
+    'assets/images/footer/mmrz.png',
+    'assets/images/footer/smart dubai.png',
+  ];
 
-    partners = [
-        'assets/images/partners/al ameen.png',
-        'assets/images/partners/ask.png',
-        'assets/images/partners/complain.png',
-        'assets/images/partners/dubai career.png',
-        'assets/images/partners/e-suggest-logo.png',
-        'assets/images/partners/expo 2020.png',
-        'assets/images/partners/gov ae.png',
-        'assets/images/partners/mmrz.png',
-        'assets/images/partners/smart dubai.png',
-    ];
+  constructor() {
+  }
 
-    constructor() {
-    }
-
-    ngAfterViewInit() {
-        tns({
-            container: '.partners',
-            items: 7,
-            mode: 'carousel',
-            controls: false,
-            slideBy: 1,
-            controlsContainer: false,
-            nav: false,
-            mouseDrag: true,
-            autoplayButtonOutput: false,
-            autoplay: true,
-            loop: false,
-            rewind: true
-        });
-
-        const live_pagination = document.getElementsByClassName('tns-liveregion');
-        live_pagination[0].remove();
-    }
-
+  ngAfterViewInit() {
+  }
 }

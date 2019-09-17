@@ -4,6 +4,7 @@ import {MatCardModule} from '@angular/material';
 import {MatCarouselModule} from '../lib/material-carousel';
 import {DropdownModule} from 'ngx-dropdown';
 import {AngularSvgIconModule} from 'angular-svg-icon';
+import {SlickCarouselModule} from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [],
@@ -12,9 +13,10 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
     MatCardModule,
     MatCarouselModule,
     AngularSvgIconModule,
-    DropdownModule
+    DropdownModule,
+    SlickCarouselModule
   ],
-  exports: [MatCarouselModule, AngularSvgIconModule]
+  exports: [MatCarouselModule, AngularSvgIconModule, SlickCarouselModule]
 })
 export class SharedModule {
 }

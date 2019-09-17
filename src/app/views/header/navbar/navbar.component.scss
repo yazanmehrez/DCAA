@@ -38,7 +38,7 @@
       }
     }
 
-    .dropdown {
+    .dropdown-list {
       height: 100%;
 
       &:hover {
@@ -114,20 +114,38 @@
     }
 
     .search {
+      position: relative;
       margin: 0 10px;
+
+      .search-icon {
+        fill: $text-color;
+        position: absolute;
+        right: 10px;
+        bottom: 3px;
+        width: 15px;
+      }
 
       input {
         border-radius: 25px;
         padding: 6px 10px;
         width: 150px;
         background: transparent;
-        border: 1px solid #868585;
+        border: 1px solid $text-color;
         caret-color: $secondary-color;
         color: $secondary-color;
       }
     }
 
     .login {
+      position: relative;
+      display: flex;
+
+      .login-icon {
+        width: 12px;
+        margin-right: 5px;
+        fill: $white-color;
+      }
+
       button {
         border-radius: 25px;
         padding: 5px 10px;
@@ -136,22 +154,96 @@
         color: $secondary-color;
         border: none;
         cursor: pointer;
+        display: flex;
+        justify-content: center;
       }
     }
   }
 
 }
 
-.dcaa-navbar .news {
+.dcaa-navbar .accessibility {
   position: absolute;
   top: 80px;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 160px;
+
+  .access-control {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 15px;
+    align-items: center;
+    margin-right: 15px;
+  }
+
+  .line-separate {
+    pointer-events: none;
+  }
+
+  .live-chat {
+    display: flex;
+    align-items: center;
+
+    .chat-icon {
+      width: 25px;
+      fill: $text-color;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      p, .chat-icon {
+        color: $white-color;
+        fill: $white-color;
+        transition: 0.2s all;
+      }
+    }
+
+    p {
+      margin: 0 5px 0 0;
+      font-size: $paragraph-medium-size;
+      color: $text-color;
+    }
+  }
+
+  .notification {
+    display: flex;
+    position: relative;
+
+    .notifier {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: $primary-color;
+      right: -10px;
+      top: -10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 10px;
+      color: $white-color;
+    }
+  }
+
+  .settings-icon, .notification-icon, .sounds-icon, .line-separate {
+    width: 20px;
+    fill: $text-color;
+    margin-left: 20px;
+
+    &:hover {
+      cursor: pointer;
+      color: $white-color;
+      fill: $white-color;
+      transition: 0.2s all;
+    }
+  }
 }
 
 
