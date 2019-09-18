@@ -39,6 +39,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include respond-to(max-to-tablet) {
+    left: 47%;
+    bottom: 25px;
+  }
+
 
   &:hover {
     cursor: pointer;
@@ -69,5 +74,15 @@
   }
   to {
     transform: scale(1.1);
+  }
+}
+
+::ng-deep .carousel-indicators {
+  @include respond-to(max-to-tablet) {
+    flex-direction: row;
+    width: 100%;
+    margin: 20px auto;
+    justify-content: center;
+    padding: 0;
   }
 }
