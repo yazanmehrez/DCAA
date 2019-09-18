@@ -10,6 +10,7 @@ $third-background: #f8f8f8;
 $primary-shadow: #dae5ef;
 
 $black-color: #000;
+$gray-color: #282828;
 $red-color: #d85251;
 $white-color: #fff;
 
@@ -19,24 +20,24 @@ $font-weight-base: 400 !default;
 $font-weight-medium: 500 !default;
 $font-weight-bold: 600 !default;
 
-$font-size-h1: 93px !default;
-$font-size-h2: 70px !default;
-$font-size-h3: 60px !default;
-$font-size-h4: 50px !default;
-$font-size-h5: 40px !default;
-$font-size-h6: 30px !default;
+$font-size-h1: 80px !default;
+$font-size-h2: 45px !default;
+$font-size-h3: 40px !default;
+$font-size-h4: 35px !default;
+$font-size-h5: 28px !default;
+$font-size-h6: 20px !default;
 
-$font-xlg-a: 65px !default;
-$font-lg-a: 50px !default;
-$font-md-a: 40px !default;
-$font-sm-a: 30px !default;
-$font-xsm-a: 28px !default;
-$font-tn-a: 15px !default;
+$font-xlg-a: 24px !default;
+$font-lg-a: 22px !default;
+$font-md-a: 20px !default;
+$font-sm-a: 16px !default;
+$font-xsm-a: 14px !default;
+$font-tn-a: 12px !default;
 
 $paragraph-size: 18px !default;
 $paragraph-medium-size: 16px !default;
-$paragraph-small-size: 12px !default;
-$paragraph-xsmall-size: 9px !default;
+$paragraph-small-size: 14px !default;
+$paragraph-xsmall-size: 10px !default;
 
 $primary-btn-size: 14px !default;
 $primary-btn-size-sm: 11px !default;
@@ -45,3 +46,12 @@ $primary-btn-size-sm: 11px !default;
 $grid-columns: 12;
 $margin-rem: 20;
 $padding-rem: 20;
+
+/* Headings Differences */
+$pixel-10: 10px;
+$pixel-15: 15px;
+$pixel-20: 20px;
+$pixel-25: 25px;
+$pixel-30: 30px;
+$pixel-40: 40px;
+

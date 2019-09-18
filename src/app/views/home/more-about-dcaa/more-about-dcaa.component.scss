@@ -1,9 +1,5 @@
 @import "../../../../assets/styles/responsive";
 
-.dcaa-more-about {
-  margin: 0 160px;
-}
-
 .photos {
   display: flex;
   justify-content: flex-start;
@@ -11,10 +7,6 @@
   flex-wrap: wrap;
 
   .item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 25%;
 
     .thumb {
       position: relative;
@@ -48,10 +40,6 @@
         margin-top: 15px;
         margin-bottom: 5px;
         font-weight: 800;
-      }
-
-      .desc-body {
-        height: 100px;
       }
     }
 

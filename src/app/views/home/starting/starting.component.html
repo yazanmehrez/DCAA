@@ -1,7 +1,7 @@
-<div style="height: 900px">
+<div class="dcaa-carousel">
     <mat-carousel
             timings="250ms ease-in"
-            [autoplay]="true"
+            [autoplay]="false"
             interval="4000"
             color="warn"
             maxWidth="auto"
@@ -21,10 +21,10 @@
                 [hideOverlay]="false"
         >
             <div class="carousel-slide-content d-flex align-items-center justify-content-start">
-                <div class="item">
+                <div class="container">
                     <div [innerHTML]="slide.description"></div>
                     <div class="text-justify">
-                        <span class="white-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab at, beatae blanditiis cumque doloremque dolorum eveniet expedita id, impedit ipsum natus odio officiis provident repellat sequi sit soluta temporibus voluptatibus?</span>
+                        <span class="white-color p-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab at, beatae blanditiis cumque doloremque dolorum eveniet expedita id, impedit ipsum natus odio officiis provident repellat sequi sit soluta temporibus voluptatibus?</span>
                     </div>
                     <button class="primary-btn mt-2">Read More</button>
                 </div>

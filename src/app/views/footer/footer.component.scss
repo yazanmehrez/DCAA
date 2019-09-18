@@ -2,10 +2,18 @@
 
 .dcaa-footer {
   position: relative;
-  padding: 115px 160px 0 160px;
+  padding-top: 115px;
+  padding-bottom: 0;
   background-color: #333333;
   background-repeat: no-repeat;
   background-size: cover;
+  @include respond-to(max-to-laptopL) {
+    padding-top: 80px;
+    ::ng-deep .dcaa-xgallery {
+      padding: 0;
+    }
+  }
+
 
   p, a, span {
     color: $white-color;
@@ -24,20 +32,22 @@
 
     &:hover {
       cursor: pointer;
-      //right: 20px;
       transition: 0.2s all;
     }
   }
 }
 
-.services {
-  display: flex;
-  justify-content: center;
-
-  .quick-links, .apps, .subscribe, .contact-general {
-    width: 25%;
+.social-media {
+  svg-icon {
+    display: flex;
   }
 
+  svg {
+    width: 18px;
+  }
+}
+
+.services {
   .quick-links {
     .links {
       display: flex;
@@ -61,7 +71,6 @@
       width: auto;
       height: 150px;
       object-fit: cover;
-      padding-right: 100px;
     }
   }
 
@@ -92,14 +101,31 @@
     }
 
   }
+
+  @include respond-to(max-to-laptop) {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-wrap: wrap;
+
+    .submit {
+      .send {
+        margin: 15px auto;
+      }
+    }
+
+    .social-media {
+      justify-content: center;
+    }
+  }
 }
 
 .copyright {
   margin-top: 30px;
 
   .footer-container {
-    display: flex;
-    justify-content: space-between;
     padding: 40px 0;
     border-top: 2px solid white;
 
@@ -143,6 +169,10 @@
     background-color: $primary-color;
     width: 40px;
     height: 40px;
+
+    &:hover {
+      cursor: pointer;
+    }
 
     &:not(:first-child) {
       margin-left: 5px;

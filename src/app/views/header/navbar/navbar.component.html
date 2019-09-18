@@ -1,6 +1,6 @@
 <div class="dcaa-navbar">
-  <div class="list">
-    <div class="navbar">
+  <div class="list full d-flex justify-content-between align-items-center">
+    <div class="navbar col-6">
       <nav>
         <ng-container *ngFor="let nav of navbar; let i = index">
           <a *ngIf="nav.childs.length == 0; else dropdown">
@@ -21,7 +21,7 @@
         </ng-container>
       </nav>
     </div>
-    <div class="nav-control">
+    <div class="nav-control col-6">
       <div class="language">
         <span class="selected">ENG</span>
         <div> /</div>
@@ -42,7 +42,7 @@
     </div>
   </div>
 
-  <div class="accessibility">
+  <div class="accessibility full d-flex justify-content-between align-items-center">
     <div class="access-control">
 
       <svg-icon src="assets/images/icons/settings.svg" [stretch]="true"

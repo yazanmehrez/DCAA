@@ -17,11 +17,19 @@ export class XgalleryComponent implements OnInit {
   }
 
   next() {
-    this.index = this.index + 1;
+    if (this.index == (this.imageUrls.length - 1)) {
+      this.index = 0;
+    } else {
+      this.index += 1;
+    }
   }
 
   prev() {
-    this.index = this.index - 1;
+    if (this.index == 0) {
+      this.index = (this.imageUrls.length - 1);
+    } else {
+      this.index -= 1;
+    }
   }
 
   ngOnInit() {

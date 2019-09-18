@@ -1,3 +1,32 @@
+@import "../../../../assets/styles/responsive";
+
+.dcaa-carousel {
+  height: 900px;
+  @include respond-to(laptopL-screen) {
+    height: 800px;
+  }
+
+  @include respond-to(laptop-screen) {
+    height: 750px;
+  }
+
+  @include respond-to(tablet-screen) {
+    height: 750px;
+  }
+
+  @include respond-to(mobileL-screen) {
+    height: 700px;
+  }
+
+  @include respond-to(mobileM-screen) {
+    height: 650px;
+  }
+
+  @include respond-to(mobileS-screen) {
+    height: 600px;
+  }
+}
+
 .read-more {
   position: absolute;
   left: 50%;

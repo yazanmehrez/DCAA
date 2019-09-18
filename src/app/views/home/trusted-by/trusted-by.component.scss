@@ -2,16 +2,16 @@
 
 .dcaa-trusted-by {
   margin: 100px 160px 0 160px;
+
+
+  @include respond-to(max-to-tablet) {
+    margin: 75px 60px 0 60px;
+  }
+
 }
 
 .items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
   .item {
-    width: 25%;
-
     .message {
       padding: 15px;
 
@@ -23,11 +23,6 @@
         img {
           margin-right: 15px;
         }
-      }
-
-      .desc-body {
-        height: 120px;
-        text-align: justify;
       }
     }
   }

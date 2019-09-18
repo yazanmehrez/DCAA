@@ -1,11 +1,7 @@
+@import "../../../../assets/styles/responsive";
+
 .dcaa-xgallery {
   padding-right: 50px;
-}
-
-.controllers {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .controls img {
@@ -19,4 +15,14 @@
   object-fit: cover;
 }
 
+svg-icon {
+  width: 25px;
+  fill: $text-color;
 
+  &:hover{
+    cursor: pointer;
+    color: $white-color;
+    fill: $white-color;
+    transition: 0.2s all;
+  }
+}

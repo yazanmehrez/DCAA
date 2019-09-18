@@ -22,23 +22,23 @@ $margin-width-xsm: 0 25px;
       @content;
     }
   } @else if $media == laptopL-screen {
-    @media only screen and (min-width: $laptopL-screen) and (max-width: $wide-screen - 1) {
+    @media only screen and (min-width: $laptopL-screen + 1) and (max-width: $wide-screen - 1) {
       @content;
     }
   } @else if $media == laptop-screen {
-    @media only screen and (min-width: $laptop-screen) and (max-width: $laptopL-screen - 1) {
+    @media only screen and (min-width: $laptop-screen + 1) and (max-width: $laptopL-screen) {
       @content;
     }
   } @else if $media == tablet-screen {
-    @media only screen and (min-width: $tablet-screen) and (max-width: $laptop-screen - 1) {
+    @media only screen and (min-width: $tablet-screen + 1) and (max-width: $laptop-screen) {
       @content;
     }
   } @else if $media == mobileL-screen {
-    @media only screen and (min-width: $mobileL-screen) and (max-width: $tablet-screen - 1) {
+    @media only screen and (min-width: $mobileL-screen + 1) and (max-width: $tablet-screen) {
       @content;
     }
   } @else if $media == mobileM-screen {
-    @media only screen and (min-width: $mobileM-screen) and (max-width: $mobileL-screen - 1) {
+    @media only screen and (min-width: $mobileM-screen + 1) and (max-width: $mobileL-screen) {
       @content;
     }
   } @else if $media == mobileS-screen {
@@ -46,10 +46,22 @@ $margin-width-xsm: 0 25px;
       @content;
     }
   }
-
-  // one size
-  @if $media == to-tablet-screen {
-    @media (max-width : $tablet-screen) {
+    /* Max To*/
+  @else if $media == max-to-laptopL {
+    @media (max-width: $laptopL-screen) {
+      @content;
+    }
+  }
+  @else if $media == max-to-laptop {
+    @media (max-width: $laptop-screen) {
+      @content;
+    }
+  } @else if $media == max-to-tablet {
+    @media (max-width: $tablet-screen) {
+      @content;
+    }
+  } @else if $media == max-to-mobile {
+    @media (max-width: $mobileL-screen) {
       @content;
     }
   }

@@ -5,15 +5,21 @@
 }
 
 .dcaa-navbar .list {
-  padding: 0 160px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: absolute;
   z-index: 1000;
   left: 0;
   right: 0;
   border-bottom: 1px solid #9e9e9e;
+  @include respond-to(max-to-laptop) {
+    flex-direction: column-reverse;
+    .nav-control {
+      margin: 25px 0;
+    }
+    nav {
+      height: 50px !important;
+    }
+  }
+
 
   .navbar {
     nav {
@@ -23,13 +29,30 @@
     }
 
     a {
-      font-size: 18px;
       color: $secondary-color;
       text-align: center;
       margin-right: 75px;
       display: flex;
       align-items: center;
       height: 100%;
+      @include respond-to(laptopL-screen) {
+        margin-right: 40px;
+      }
+      @include respond-to(laptop-screen) {
+        margin-right: 30px;
+      }
+      @include respond-to(tablet-screen) {
+        margin-right: 30px;
+      }
+      @include respond-to(mobileL-screen) {
+        margin-right: 25px;
+      }
+      @include respond-to(mobileM-screen) {
+        margin-right: 25px;
+      }
+      @include respond-to(mobileS-screen) {
+        margin-right: 20px;
+      }
 
       &:hover {
         cursor: pointer;
@@ -87,6 +110,7 @@
   .nav-control {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 
     .language {
       display: flex;
@@ -121,7 +145,7 @@
         fill: $text-color;
         position: absolute;
         right: 10px;
-        bottom: 3px;
+        bottom: 0;
         width: 15px;
       }
 
@@ -145,18 +169,6 @@
         margin-right: 5px;
         fill: $white-color;
       }
-
-      button {
-        border-radius: 25px;
-        padding: 5px 10px;
-        width: 105px;
-        background: $primary-color;
-        color: $secondary-color;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-      }
     }
   }
 
@@ -168,10 +180,9 @@
   left: 0;
   right: 0;
   z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 160px;
+  @include respond-to(max-to-laptop) {
+    top: 130px;
+  }
 
   .access-control {
     display: flex;
