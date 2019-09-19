@@ -1,49 +1,122 @@
-@import "../../../../assets/styles/responsive";
+//@import '~bootstrap/scss/bootstrap';
+//
+//.dcaa-carousel {
+//  height: 900px;
+//  @include respond-to(laptopL-screen) {
+//    height: 800px;
+//  }
+//
+//  @include respond-to(laptop-screen) {
+//    height: 750px;
+//  }
+//
+//  @include respond-to(tablet-screen) {
+//    height: 750px;
+//  }
+//
+//  @include respond-to(mobileL-screen) {
+//    height: 700px;
+//  }
+//
+//  @include respond-to(mobileM-screen) {
+//    height: 650px;
+//  }
+//
+//  @include respond-to(mobileS-screen) {
+//    height: 600px;
+//  }
+//}
+//
+//.read-more {
+//  position: absolute;
+//  left: 50%;
+//  bottom: 0;
+//  margin-bottom: 30px;
+//  border: 2px solid #fff;
+//  width: 45px;
+//  height: 70px;
+//  border-radius: 35px;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  @include respond-to(max-to-tablet) {
+//    left: 47%;
+//    bottom: 25px;
+//  }
+//
+//
+//  &:hover {
+//    cursor: pointer;
+//    animation: scaling 1s infinite;
+//  }
+//
+//  div:first-child {
+//    background: #fff;
+//    border-radius: 100%;
+//    width: 8px;
+//    height: 9px;
+//    margin-top: 15px;
+//  }
+//}
+//
+//@-webkit-keyframes scaling {
+//  from {
+//    transform: scale(1);
+//  }
+//  to {
+//    transform: scale(1.1);
+//  }
+//}
+//
+//@keyframes scaling {
+//  from {
+//    transform: scale(1);
+//  }
+//  to {
+//  to {
+//    transform: scale(1.1);
+//  }
+//}
+//
+//::ng-deep .carousel-indicators {
+//  @include respond-to(max-to-tablet) {
+//    flex-direction: row;
+//    width: 100%;
+//    margin: 20px auto;
+//    justify-content: center;
+//    padding: 0;
+//  }
+//}
+@import "~assets/styles/variables";
 
-.dcaa-carousel {
-  height: 900px;
-  @include respond-to(laptopL-screen) {
-    height: 800px;
-  }
+.carousel-caption {
+  top: 25%;
+  right: 0;
+  left: 0;
+  bottom: 20px;
+  width: 100%;
+}
 
-  @include respond-to(laptop-screen) {
-    height: 750px;
-  }
-
-  @include respond-to(tablet-screen) {
-    height: 750px;
-  }
-
-  @include respond-to(mobileL-screen) {
-    height: 700px;
-  }
-
-  @include respond-to(mobileM-screen) {
-    height: 650px;
-  }
-
-  @include respond-to(mobileS-screen) {
-    height: 600px;
+.carousel-indicators {
+  li {
+    width: 8px;
+    height: 8px;
+    margin: 0 15px;
+    border-radius: 15%;
   }
 }
 
 .read-more {
   position: absolute;
   left: 50%;
-  bottom: 0;
-  margin-bottom: 30px;
-  border: 2px solid #fff;
-  width: 45px;
-  height: 70px;
+  bottom: 1em;
+  border: 1px solid #fff;
+  width: 2.5em;
+  height: 3.5em;
   border-radius: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
-  @include respond-to(max-to-tablet) {
-    left: 47%;
-    bottom: 25px;
-  }
-
 
   &:hover {
     cursor: pointer;
@@ -59,30 +132,3 @@
   }
 }
 
-@-webkit-keyframes scaling {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.1);
-  }
-}
-
-@keyframes scaling {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.1);
-  }
-}
-
-::ng-deep .carousel-indicators {
-  @include respond-to(max-to-tablet) {
-    flex-direction: row;
-    width: 100%;
-    margin: 20px auto;
-    justify-content: center;
-    padding: 0;
-  }
-}

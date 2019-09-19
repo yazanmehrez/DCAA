@@ -1,77 +1,77 @@
-@import "../../../../assets/styles/responsive";
-
-.dcaa-building-construction {
-  position: relative;
-  background: #f7f6f5;
-}
-
-.services-categories {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  flex-direction: column;
-
-  .categories {
-    padding: 100px 0;
-  }
-
-  .item {
-    border-left: 5px solid $black-color;
-    display: flex;
-    color: $black-color;
-    padding-top: 20px;
-    padding-left: 40px;
-    padding-right: 160px;
-    @include respond-to(max-to-tablet) {
-      padding-right: 0;
-    }
-    @include respond-to(max-to-mobile) {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-    }
-
-    &:not(:last-child) {
-      padding-bottom: 20px;
-    }
-
-    p, svg-icon {
-      display: flex;
-      align-items: center;
-      margin-left: 15px;
-      line-height: 1.5;
-      text-align: justify;
-    }
-
-    &:hover {
-      color: $primary-color;
-      fill: $primary-color;
-      border-color: $primary-color;
-      cursor: pointer;
-      background: $white-color;
-
-      p {
-        color: $primary-color;
-      }
-    }
-  }
-}
-
-.services-control {
-  display: flex;
-  flex-direction: column;
-
-  .intro-box {
-    background: #333333;
-    position: relative;
-    top: -50px;
-    width: 50%;
-
-    .content {
-      margin-right: 20px;
-      border-right: 5px solid $white-color;
-    }
-  }
-}
-
+//@import '~bootstrap/scss/bootstrap';
+//
+//.dcaa-building-construction {
+//  position: relative;
+//  background: #f7f6f5;
+//}
+//
+//.services-categories {
+//  display: flex;
+//  align-items: baseline;
+//  justify-content: center;
+//  flex-direction: column;
+//
+//  .categories {
+//    padding: 100px 0;
+//  }
+//
+//  .item {
+//    border-left: 5px solid $black;
+//    display: flex;
+//    color: $black;
+//    padding-top: 20px;
+//    padding-left: 40px;
+//    padding-right: 160px;
+//    @include respond-to(max-to-tablet) {
+//      padding-right: 0;
+//    }
+//    @include respond-to(max-to-mobile) {
+//      flex-direction: column;
+//      justify-content: center;
+//      align-items: center;
+//      padding: 0;
+//    }
+//
+//    &:not(:last-child) {
+//      padding-bottom: 20px;
+//    }
+//
+//    p, svg-icon {
+//      display: flex;
+//      align-items: center;
+//      margin-left: 15px;
+//      line-height: 1.5;
+//      text-align: justify;
+//    }
+//
+//    &:hover {
+//      color: $primary;
+//      fill: $primary;
+//      border-color: $primary;
+//      cursor: pointer;
+//      background: $white;
+//
+//      p {
+//        color: $primary;
+//      }
+//    }
+//  }
+//}
+//
+//.services-control {
+//  display: flex;
+//  flex-direction: column;
+//
+//  .intro-box {
+//    background: #333333;
+//    position: relative;
+//    top: -50px;
+//    width: 50%;
+//
+//    .content {
+//      margin-right: 20px;
+//      border-right: 5px solid $white;
+//    }
+//  }
+//}
+//

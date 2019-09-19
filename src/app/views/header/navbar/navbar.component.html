@@ -1,77 +1,160 @@
-<div class="dcaa-navbar">
-  <div class="list full d-flex justify-content-between align-items-center">
-    <div class="navbar col-6">
-      <nav>
-        <ng-container *ngFor="let nav of navbar; let i = index">
-          <a *ngIf="nav.childs.length == 0; else dropdown">
-            {{nav.name}}
-          </a>
-          <ng-template #dropdown>
-            <div class="dropdown-list">
-              <a class="dropbtn">
-                {{nav.name}}
-              </a>
-              <div class="dropdown-content">
-                <a *ngFor="let snav of nav.childs">
-                  {{snav.name}}
-                </a>
-              </div>
-            </div>
-          </ng-template>
-        </ng-container>
-      </nav>
-    </div>
-    <div class="nav-control col-6">
-      <div class="language">
-        <span class="selected">ENG</span>
-        <div> /</div>
-        <span>العربية</span>
+<!--<div class="dcaa-navbar">-->
+<!--  <div class="list full d-flex justify-content-between align-items-center">-->
+<!--    <div class="navbar col-6">-->
+<!--      <nav>-->
+<!--        <ng-container *ngFor="let nav of navbar; let i = index">-->
+<!--          <a *ngIf="nav.childs.length == 0; else dropdown">-->
+<!--            {{nav.name}}-->
+<!--          </a>-->
+<!--          <ng-template #dropdown>-->
+<!--            <div class="dropdown-list">-->
+<!--              <a class="dropbtn">-->
+<!--                {{nav.name}}-->
+<!--              </a>-->
+<!--              <div class="dropdown-content">-->
+<!--                <a *ngFor="let snav of nav.childs">-->
+<!--                  {{snav.name}}-->
+<!--                </a>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </ng-template>-->
+<!--        </ng-container>-->
+<!--      </nav>-->
+<!--    </div>-->
+<!--    <div class="nav-control col-6">-->
+<!--      <div class="language">-->
+<!--        <span class="selected">ENG</span>-->
+<!--        <div> /</div>-->
+<!--        <span>العربية</span>-->
+<!--      </div>-->
+<!--      <div class="search">-->
+<!--        <input type="text" [placeholder]="'_Search' | translate">-->
+<!--        <svg-icon src="assets/images/icons/search.svg" [stretch]="true"-->
+<!--                  [applyCss]="true" class="search-icon "></svg-icon>-->
+<!--      </div>-->
+<!--      <div class="login">-->
+<!--        <button>-->
+<!--          <svg-icon src="assets/images/icons/login.svg" [stretch]="true"-->
+<!--                    [applyCss]="true" class="login-icon"></svg-icon>-->
+<!--          Login-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="accessibility full d-flex justify-content-between align-items-center">-->
+<!--    <div class="access-control">-->
+
+<!--      <svg-icon src="assets/images/icons/settings.svg" [stretch]="true"-->
+<!--                [applyCss]="true" class="settings-icon"></svg-icon>-->
+
+<!--      <svg-icon src="assets/images/icons/sep.svg" [stretch]="true" [svgStyle]="{'height.px':'25'}"-->
+<!--                [applyCss]="true" class="line-separate"></svg-icon>-->
+
+<!--      <div class="live-chat">-->
+<!--        <p>Live Chat</p>-->
+<!--        <svg-icon src="assets/images/icons/chat.svg" [stretch]="true"-->
+<!--                  [applyCss]="true" class="chat-icon ml-0"></svg-icon>-->
+<!--      </div>-->
+
+
+<!--      <svg-icon src="assets/images/icons/sounds.svg" [stretch]="true"-->
+<!--                [applyCss]="true" class="sounds-icon"></svg-icon>-->
+
+
+<!--      <div class="notification">-->
+<!--        <div class="notifier">-->
+<!--          1-->
+<!--        </div>-->
+<!--        <svg-icon src="assets/images/icons/notification.svg" [stretch]="true"-->
+<!--                  [applyCss]="true" class="notification-icon"></svg-icon>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+
+<!--</div>-->
+
+<div class="container">
+  <div class="main-nav border-bottom">
+    <nav class="navbar navbar-expand-md navbar-light container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown" data-hover="dropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link p-3" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link p-3" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link p-3" href="#">Pricing</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link p-3" href="https://bootstrapthemes.co" id="navbarDropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+            <ul class="dropdown-menu ml-3 text-left" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Submenu</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Submenu action</a></li>
+                  <li><a class="dropdown-item" href="#">Another submenu action</a></li>
+
+
+                  <li><a class="dropdown-item" href="#">Subsubmenu</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Subsubmenu action aa</a></li>
+                      <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="dropdown-item" href="#">Second subsubmenu</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Subsubmenu action bb</a></li>
+                      <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item" href="#">Submenu 2</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Submenu action 2</a></li>
+                  <li><a class="dropdown-item" href="#">Another submenu action 2</a></li>
+
+
+                  <li><a class="dropdown-item" href="#">Subsubmenu</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Subsubmenu action 1 3</a></li>
+                      <li><a class="dropdown-item" href="#">Another subsubmenu action 2 3</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="dropdown-item" href="#">Second subsubmenu 3</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Subsubmenu action 3 </a></li>
+                      <li><a class="dropdown-item" href="#">Another subsubmenu action 3</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <div class="language d-flex justify-content-between align-items-center">
+            <span class="selected">ENG</span>
+            <div> /</div>
+            <span>العربية</span>
+          </div>
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-primary my-2 my-sm-0" type="submit">
+            <span class=""></span>Login</button>
+        </form>
       </div>
-      <div class="search">
-        <input type="text" [placeholder]="'_Search' | translate">
-        <svg-icon src="assets/images/icons/search.svg" [stretch]="true"
-                  [applyCss]="true" class="search-icon "></svg-icon>
-      </div>
-      <div class="login">
-        <button>
-          <svg-icon src="assets/images/icons/login.svg" [stretch]="true"
-                    [applyCss]="true" class="login-icon"></svg-icon>
-          Login
-        </button>
-      </div>
-    </div>
+    </nav>
   </div>
-
-  <div class="accessibility full d-flex justify-content-between align-items-center">
-    <div class="access-control">
-
-      <svg-icon src="assets/images/icons/settings.svg" [stretch]="true"
-                [applyCss]="true" class="settings-icon"></svg-icon>
-
-      <svg-icon src="assets/images/icons/sep.svg" [stretch]="true" [svgStyle]="{'height.px':'25'}"
-                [applyCss]="true" class="line-separate"></svg-icon>
-
-      <div class="live-chat">
-        <p>Live Chat</p>
-        <svg-icon src="assets/images/icons/chat.svg" [stretch]="true"
-                  [applyCss]="true" class="chat-icon ml-0"></svg-icon>
-      </div>
-
-
-      <svg-icon src="assets/images/icons/sounds.svg" [stretch]="true"
-                [applyCss]="true" class="sounds-icon"></svg-icon>
-
-
-      <div class="notification">
-        <div class="notifier">
-          1
-        </div>
-        <svg-icon src="assets/images/icons/notification.svg" [stretch]="true"
-                  [applyCss]="true" class="notification-icon"></svg-icon>
-      </div>
-
-    </div>
-  </div>
-
 </div>
-

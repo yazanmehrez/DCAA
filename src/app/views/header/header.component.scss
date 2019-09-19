@@ -1,42 +1,42 @@
-@import '../../../assets/styles/responsive';
-
-.dcaa-header {
-  position: relative;
-
-  @include respond-to(max-to-tablet) {
-    .logo-left {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-
-      img {
-        width: 30%;
-      }
-    }
-    .logo-right {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-
-      img {
-        width: 75%;
-      }
-    }
-  }
-}
-
-.top-header {
-  height: 120px;
-
-  @include respond-to(max-to-tablet) {
-    height: 80px;
-  }
-}
-
-.logo-right, .logo-left {
-  margin: 20px 0;
-}
-
-
-
-
+//@import '../../../assets/styles/responsive';
+//
+//.dcaa-header {
+//  position: relative;
+//
+//  @include respond-to(max-to-tablet) {
+//    .logo-left {
+//      display: flex;
+//      align-items: center;
+//      justify-content: flex-start;
+//
+//      img {
+//        width: 30%;
+//      }
+//    }
+//    .logo-right {
+//      display: flex;
+//      align-items: center;
+//      justify-content: flex-end;
+//
+//      img {
+//        width: 75%;
+//      }
+//    }
+//  }
+//}
+//
+//.top-header {
+//  height: 120px;
+//
+//  @include respond-to(max-to-tablet) {
+//    height: 80px;
+//  }
+//}
+//
+//.logo-right, .logo-left {
+//  margin: 20px 0;
+//}
+//
+//
+//
+//

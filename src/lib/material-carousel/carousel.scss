@@ -68,10 +68,10 @@
     height: 10px;
     margin: 0 20px;
     border-radius: 0;
-    background-color: $white-color !important;
+    background-color: $white !important;
 
     &[disabled] {
-      background-color: $primary-color !important;
+      background-color: $primary !important;
     }
   }
 }

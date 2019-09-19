@@ -13,8 +13,8 @@
     margin: 80px auto;
     border: 0;
     font-size: 24px;
-    background: $primary-color;
-    color: $secondary-color;
+    background: $primary;
+    color: $secondary;
     @include respond-to(laptopL-screen) {
       margin: 60px auto;
     }

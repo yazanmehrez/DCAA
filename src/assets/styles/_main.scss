@@ -1,120 +1,45 @@
-@import "flex";
-@import "spacing";
-@import "text-align";
 @import "animations";
-@import "buttons";
-@import "icons";
 
-html,
-body {
-  margin: 0;
-  font-size: 100%;
-  background: $primary-background;
-  font-family: $font-family-base;
-}
-
-body a {
-  text-decoration: none;
-  line-height: 1;
-  color: $text-color;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-a {
-  font-size: $font-xlg-a;
-  @include respond-to(laptopL-screen) {
-    font-size: $font-lg-a;
-  }
-  @include respond-to(laptop-screen) {
-    font-size: $font-md-a;
-  }
-  @include respond-to(tablet-screen) {
-    font-size: $font-sm-a;
-  }
-  @include respond-to(mobileL-screen) {
-    font-size: $font-sm-a;
-  }
-  @include respond-to(mobileM-screen) {
-    font-size: $font-xsm-a;
-  }
-  @include respond-to(mobileS-screen) {
-    font-size: $font-tn-a;
-  }
-}
-
-input[type="button"],
-input[type="submit"] {
-  transition: 0.5s all;
-  -webkit-transition: 0.5s all;
-  -moz-transition: 0.5s all;
-  -o-transition: 0.5s all;
-  -ms-transition: 0.5s all;
-}
-
-h1 {
-  color: $primary-color;
-  font-family: 'Dubai Bold', sans-serif;
-  margin: 25px 0;
-  line-height: 1;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: $gray-color;
-  margin: 25px 0;
-  line-height: 1;
-}
-
-
-li {
-  list-style-type: none;
-  color: $secondary-color;
+.btn-primary {
+  border: 1px solid #fff;
+  border-radius: 35px;
+  background-color: $primary;
 
   &:hover {
-    color: $primary-color;
+    cursor: pointer;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    -ms-transition: all 0.7s;
+    -o-transition: all 0.7s;
+    transition: all 0.7s;
+    background-color: $primary;
+  }
+
+  &:active {
+    transform: scale(0.9);
   }
 }
 
+.btn-secondary {
+  border: 1px solid #fff;
+  border-radius: 35px;
+  background-color: $secondary;
 
-ul {
-  margin: 0;
-  padding: 0;
+  &:hover {
+    cursor: pointer;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    -ms-transition: all 0.7s;
+    -o-transition: all 0.7s;
+    transition: all 0.7s;
+    background-color: $secondary;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
-label {
-  margin: 0;
+.collapse .navbar-nav .nav-link {
+  color: $white;
 }
-
-*, *:visited, *:focus {
-  outline: 0;
-}
-
-.bolder-text {
-  font-weight: 800;
-}
-
-.bold-text {
-  font-weight: 700;
-}
-
-
-/* Colors */
-.black-color {
-  color: $black-color;
-}
-
-.red-color {
-  color: $red-color;
-}
-
-.white-color {
-  fill: $white-color;
-  color: $white-color;
-}
-

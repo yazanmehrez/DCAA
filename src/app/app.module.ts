@@ -12,7 +12,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
 import {DialogModule} from '../modules/dialog.module';
 import {SharedModule} from '../modules/shared.module';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StartingComponent} from './views/home/starting/starting.component';
 import {NavbarComponent} from './views/header/navbar/navbar.component';
 import {LatestNewsComponent} from './views/home/latest-news/latest-news.component';
@@ -36,6 +36,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     DialogModule,
     SharedModule,

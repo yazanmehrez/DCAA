@@ -1,4 +1,4 @@
-@import "../../../../assets/styles/responsive";
+@import '~bootstrap/scss/bootstrap';
 
 .dcaa-xgallery {
   padding-right: 50px;
@@ -17,12 +17,12 @@
 
 svg-icon {
   width: 25px;
-  fill: $text-color;
+  fill: $primary;
 
   &:hover{
     cursor: pointer;
-    color: $white-color;
-    fill: $white-color;
+    color: $white;
+    fill: $white;
     transition: 0.2s all;
   }
 }
