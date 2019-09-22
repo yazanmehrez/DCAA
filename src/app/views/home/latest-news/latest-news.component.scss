@@ -1,23 +1,23 @@
-//@import '~bootstrap/scss/bootstrap';
-//
-//.latest-news {
-//  background: $primary;
-//  border: 1px solid #a74345;
-//  color: $white;
-//  height: 70px;
-//  display: flex;
-//  justify-content: flex-start;
-//  align-items: center;
-//  position: relative;
-//  overflow: hidden;
-//
-//  &:after {
-//    content: '';
-//    height: 100%;
-//    width: 32px;
-//    background-color: #ad2724;
-//    position: absolute;
-//    right: 0;
-//    top: 0;
-//  }
-//}
+@import '../../../../assets/styles/variables';
+
+.latest-news {
+  background: $primary;
+  border: 1px solid #a74345;
+  color: $white;
+  height: 4rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    height: 100%;
+    width: 32px;
+    background-color: #ad2724;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

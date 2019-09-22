@@ -1,4 +1,6 @@
-@import "animations";
+//@import "animations";
+@import "icons";
+@import "fonts";
 
 .btn-primary {
   border: 1px solid #fff;
@@ -42,4 +44,9 @@
 
 .collapse .navbar-nav .nav-link {
   color: $white;
+}
+
+section {
+  padding: 2em;
+  background: $secondary-background;
 }

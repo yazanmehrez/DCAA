@@ -22,7 +22,7 @@ import {MoreAboutDcaaComponent} from './views/home/more-about-dcaa/more-about-dc
 import {TrustedByComponent} from './views/home/trusted-by/trusted-by.component';
 import {PartnersComponent} from './views/home/partners/partners.component';
 import {XgalleryComponent} from './views/footer/xgallery/xgallery.component';
-import {NavbarResponsiveComponent} from '../lib/navbar/navbar.component';
+// import {NavbarResponsiveComponent} from '../lib/navbar/navbar.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -63,7 +63,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     TrustedByComponent,
     PartnersComponent,
     XgalleryComponent,
-    NavbarResponsiveComponent
+    // NavbarResponsiveComponent
   ],
 
   providers: [],

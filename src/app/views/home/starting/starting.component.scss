@@ -87,7 +87,7 @@
 //    padding: 0;
 //  }
 //}
-@import "~assets/styles/variables";
+@import "../../../../assets/styles/variables";
 
 .carousel-caption {
   top: 25%;
@@ -98,6 +98,8 @@
 }
 
 .carousel-indicators {
+  right: -6em;
+
   li {
     width: 8px;
     height: 8px;
