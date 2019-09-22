@@ -5,22 +5,18 @@
     </ng-container>
   </div>
 
-  <div class="controllers d-flex justify-content-between align-items-center">
+  <div class="controllers d-flex justify-content-between align-items-center mt-2">
     <div class="gallery-app controls d-flex">
-      <svg-icon src="assets/images/icons/android.svg" [stretch]="true"
-                [applyCss]="true" class="android-icon"></svg-icon>
-      <svg-icon src="assets/images/icons/apple.svg" [stretch]="true"
-                [applyCss]="true" class="apple-icon ml-1"></svg-icon>
+      <span class="icon-android mr-3"></span>
+      <span class="icon-apple"></span>
     </div>
     <div class="controls d-flex">
-      <svg-icon src="assets/images/icons/left.svg" [stretch]="true" (click)="prev()"
-                [applyCss]="true" class="arrow-icon svg-s"></svg-icon>
-      <svg-icon src="assets/images/icons/right.svg" [stretch]="true" (click)="next()"
-                [applyCss]="true" class="arrow-icon ml-1 svg-s"></svg-icon>
+      <span class="icon-left mr-3"></span>
+      <span class="icon-right"></span>
     </div>
   </div>
 
-  <div class="img-today mt-1">
+  <div class="img-today mt-3">
     <img src="assets/images/SLIDER MAIN.png">
   </div>
 

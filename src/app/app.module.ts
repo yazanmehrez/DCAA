@@ -17,13 +17,11 @@ import {StartingComponent} from './views/home/starting/starting.component';
 import {NavbarComponent} from './views/header/navbar/navbar.component';
 import {LatestNewsComponent} from './views/home/latest-news/latest-news.component';
 import {ServicesComponent} from './views/home/services/services.component';
-import {BuildingConstructionComponent} from './views/home/building-construction/building-construction.component';
 import {MoreAboutDcaaComponent} from './views/home/more-about-dcaa/more-about-dcaa.component';
 import {TrustedByComponent} from './views/home/trusted-by/trusted-by.component';
 import {PartnersComponent} from './views/home/partners/partners.component';
 import {XgalleryComponent} from './views/footer/xgallery/xgallery.component';
-// import {NavbarResponsiveComponent} from '../lib/navbar/navbar.component';
-
+import {ServiceCategoriesComponent} from './views/home/services/service-categories/service-categories.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new MultiTranslateHttpLoader(httpClient, [
@@ -58,12 +56,11 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     NavbarComponent,
     LatestNewsComponent,
     ServicesComponent,
-    BuildingConstructionComponent,
+    ServiceCategoriesComponent,
     MoreAboutDcaaComponent,
     TrustedByComponent,
     PartnersComponent,
     XgalleryComponent,
-    // NavbarResponsiveComponent
   ],
 
   providers: [],

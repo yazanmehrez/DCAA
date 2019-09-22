@@ -1,62 +1,34 @@
 <div class="dcaa-services mt-lg-5 mb-lg-5">
-    <div class="container">
-        <div class="row">
-            <div class="services-control col-md-5">
-                <div class="card border-0" style="width: 18rem;">
-                    <div class="card-body">
-                        <h2 class="card-title">Services</h2>
-                        <h5 class="card-subtitle mb-5 text-muted">All Services provided by dcaa.gov.ae are as following</h5>
+  <div class="container">
+    <div class="row">
+      <div class="services-control col-md-5">
+        <div class="card border-0" style="width: 18rem;">
+          <div class="card-body">
+            <h2 class="card-title">Services</h2>
+            <h5 class="card-subtitle mb-5 text-muted">All Services provided by dcaa.gov.ae are as following</h5>
 
-                        <p class="card-text">Explore All Services</p>
-                        <a class="card-link">
-                            <span class="icon-pencil2"></span>
-                        </a>
-                        <a class="card-link">
-                            <span class="icon-pencil2"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="services-categories col-md-7">
-                <div class="card-columns">
-                    <div class="card">
-                        <span class="icon-pencil2"></span>
-                        <div class="card-body">
-                            <p class="card-text">Premits for Aviation related Activites</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <span class="icon-pencil2"></span>
-                        <div class="card-body">
-                            <p class="card-text">Premits for Aviation related Activites</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <span class="icon-pencil2"></span>
-                        <div class="card-body">
-                            <p class="card-text">Premits for Aviation related Activites</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <span class="icon-pencil2"></span>
-                        <div class="card-body">
-                            <p class="card-text">Premits for Aviation related Activites</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <span class="icon-pencil2"></span>
-                        <div class="card-body">
-                            <p class="card-text">Premits for Aviation related Activites</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <span class="icon-pencil2"></span>
-                        <div class="card-body">
-                            <p class="card-text">Premits for Aviation related Activites</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <p class="card-text">Explore All Services</p>
+            <a class="card-link">
+              <span class="icon-arrow-left"></span>
+            </a>
+            <a class="card-link ml-1">
+              <span class="icon-arrow-right"></span>
+            </a>
+          </div>
         </div>
+      </div>
+      <div class="services-categories col-md-7">
+        <div class="card-columns row d-flex">
+          <div class="card col-xs-6 col-md-4" *ngFor="let service of services" (click)="selectCategory(service.categories)">
+            <span class="icon-{{service.icon}}"></span>
+            <div class="card-body">
+              <p class="card-text">{{service.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
+
+<dcaa-service-categories [categories]="categories"></dcaa-service-categories>

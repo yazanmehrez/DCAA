@@ -1,105 +1,133 @@
 <div class="dcaa-footer" [style.background-image]="'url(assets/images/footer/footer.png)'">
   <div class="container">
-    <div class="happiness-meter">
-      <svg-icon src="assets/images/social media/smiley-meter.svg" [stretch]="true"
-                [applyCss]="true" class="white-color" [svgStyle]="{ 'width.px':50, 'fill': '#fff' }">
-      </svg-icon>
-    </div>
-    <div class="services col d-flex justify-content-center">
-      <div class="quick-links pr-1 col-3">
-        <p>Quick Links</p>
-        <div class="links">
-          <a>Smart Employee APP - IOS</a>
-          <a>Smart Employee APP - IOS</a>
-          <a>Smart Employee APP - IOS</a>
-          <a>Smart Employee APP - IOS</a>
-          <a>Smart Employee APP - IOS</a>
-          <a>Smart Employee APP - IOS</a>
-          <a>Smart Employee APP - IOS</a>
-          <a>Smart Employee APP - IOS</a>
-          <a>Smart Employee APP - IOS</a>
-          <a>Smart Employee APP - IOS</a>
-        </div>
-      </div>
-      <div class="apps pr-1 col-3">
-        <p>Apps</p>
-        <dcaa-xgallery [imageUrls]="imageArray"></dcaa-xgallery>
-      </div>
-      <div class="subscribe pr-1  col-3">
-        <p>Subscribe</p>
-        <span>Subscribe to our magazine</span>
+    <footer class="page-footer font-small indigo">
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left">
+        <div class="row">
+          <div class="col-md-3 mx-auto">
+            <h6 class="font-weight-bold text-uppercase mt-3 mb-4">Quick Links</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a>Smart Employee APP - IOS</a>
+              </li>
+              <li>
+                <a>Smart Employee APP - IOS</a>
+              </li>
+              <li>
+                <a>Smart Employee APP - IOS</a>
+              </li>
+              <li>
+                <a>Smart Employee APP - IOS</a>
+              </li>
+              <li>
+                <a>Smart Employee APP - IOS</a>
+              </li>
+              <li>
+                <a>Smart Employee APP - IOS</a>
+              </li>
+              <li>
+                <a>Smart Employee APP - IOS</a>
+              </li>
+            </ul>
+          </div>
 
-        <div class="submit mb-5">
-          <div class="send mt-2">
-            <input type="text" placeholder="Email Address">
-            <button>Submit</button>
+          <hr class="clearfix w-100 d-md-none">
+
+          <div class="col-md-3 mx-auto">
+            <h6 class="font-weight-bold text-uppercase mt-3 mb-4">Apps</h6>
+            <dcaa-xgallery [imageUrls]="imageArray"></dcaa-xgallery>
+          </div>
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <div class="col-md-3 mx-auto">
+            <h6 class="font-weight-bold text-uppercase mt-3 mb-4">Subscribe</h6>
+            <p>Subscribe</p>
+            <span>Subscribe to our magazine</span>
+
+            <div class="input-group mb-5 subscribe-group">
+              <input type="text" class="form-control" placeholder="Recipient's username"
+                     aria-label="Subscribe" aria-describedby="button-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary subscribe-btn shadow-none" type="button" id="button-addon2">Button</button>
+              </div>
+            </div>
+
+            <p class="mt-4">Follow Us</p>
+            <span>Join our online communities</span>
+            <div class="social d-flex mt-2">
+              <div class="social-item d-flex justify-content-center align-items-center">
+                <span class="icon-facebook"></span>
+              </div>
+              <div class="social-item d-flex justify-content-center align-items-center">
+                <span class="icon-twitter"></span>
+              </div>
+              <div class="social-item d-flex justify-content-center align-items-center">
+                <span class="icon-instagram"></span>
+              </div>
+              <div class="social-item d-flex justify-content-center align-items-center">
+                <span class="icon-youtube"></span>
+              </div>
+              <div class="social-item d-flex justify-content-center align-items-center">
+                <span class="icon-linkedin"></span>
+              </div>
+            </div>
+          </div>
+          <hr class="clearfix w-100 d-md-none">
+
+          <div class="col-md-3 mx-auto">
+            <h6 class="font-weight-bold text-uppercase mt-3 mb-4">Contact Director General</h6>
+            <div class="contact-general">
+              <img src="assets/images/SLIDER MAIN.png" width="100%">
+              <p class="mt-4">Contact Info</p>
+              <div class="info">
+                <div class="section mb-3 d-flex flex-column">
+                  <span>Overseas: +9714777000</span>
+                  <span>Enter email: info@dcaa.gov.ae</span>
+                </div>
+                <div class="section mb-3 d-flex flex-column">
+                  <span>Overseas: +9714777000</span>
+                  <span>Enter email: info@dcaa.gov.ae</span>
+                </div>
+                <div class="section mb-3 d-flex flex-column">
+                  <span>Overseas: +9714777000</span>
+                  <span>Enter email: info@dcaa.gov.ae</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <p>Follow Us</p>
-        <span>Join our online communities</span>
-
-        <div class="social-media">
-          <div class="outline">
-            <svg-icon src="assets/images/social media/facebook.svg" [stretch]="true"
-
-                      [applyCss]="true" class="social svg-m"></svg-icon>
-          </div>
-          <div class="outline">
-            <svg-icon src="assets/images/social media/twitter.svg" [stretch]="true"
-
-                      [applyCss]="true" class="social svg-m"></svg-icon>
-          </div>
-
-          <div class="outline">
-            <svg-icon src="assets/images/social media/instagram.svg" [stretch]="true"
-
-                      [applyCss]="true" class="social svg-m"></svg-icon>
-          </div>
-
-          <div class="outline">
-            <svg-icon src="assets/images/social media/youtube.svg" [stretch]="true"
-
-                      [applyCss]="true" class="social svg-m"></svg-icon>
-          </div>
-
-          <div class="outline">
-            <svg-icon src="assets/images/social media/linkedin.svg" [stretch]="true"
-
-                      [applyCss]="true" class="social svg-m"></svg-icon>
+      </div>
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">
+        <div class="copyright">
+          <div class="footer-container d-flex justify-content-between">
+            <div class="rights">
+              <span>Copyright © 2018 DCAA All Rights Reserved.</span>
+            </div>
+            <div class="access-links">
+              <a>Customer Happiness</a>
+              |
+              <a>Center Terms & Conditions</a>
+              |
+              <a>Careers</a>
+              |
+              <a>Accessibility</a>
+              |
+              <a>Contact Us</a>
+              |
+              <a>Privacy Policy</a>
+              |
+              <a>Disclaimer</a>
+              |
+              <a>FAQ</a>
+              |
+              <a>Sitemap</a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="contact-general col-3">
-        <p>Contact Director General</p>
-        <img src="assets/images/SLIDER MAIN.png">
-      </div>
-    </div>
-    <div class="copyright">
-      <div class="footer-container d-flex justify-content-between">
-        <div class="rights">
-          <span>Copyright © 2018 DCAA All Rights Reserved.</span>
-        </div>
-        <div class="access-links">
-          <a>Customer Happiness</a>
-          |
-          <a>Center Terms & Conditions</a>
-          |
-          <a>Careers</a>
-          |
-          <a>Accessibility</a>
-          |
-          <a>Contact Us</a>
-          |
-          <a>Privacy Policy</a>
-          |
-          <a>Disclaimer</a>
-          |
-          <a>FAQ</a>
-          |
-          <a>Sitemap</a>
-        </div>
-      </div>
-    </div>
+      <!-- Copyright -->
+    </footer>
   </div>
 </div>

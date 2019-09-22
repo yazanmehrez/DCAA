@@ -1,0 +1,308 @@
+/* Text Aligns */
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.lh-1 {
+  line-height: 1.5;
+}
+
+p {
+  letter-spacing: 1px;
+  line-height: 1.9em;
+  font-size: $paragraph-size;
+  color: $black;
+  @include respond-to(laptopL-screen) {
+    font-size: $paragraph-size;
+    line-height: 1.5em;
+  }
+  @include respond-to(laptop-screen) {
+    font-size: $paragraph-medium-size;
+    line-height: 1.5em;
+  }
+  @include respond-to(tablet-screen) {
+    font-size: $paragraph-small-size;
+    line-height: 1.3em;
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $paragraph-small-size;
+    line-height: 1.3em;
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $paragraph-small-size;
+    line-height: 1.3em;
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $paragraph-small-size;
+    line-height: 1.3em;
+  }
+}
+
+.p-sm {
+  font-size: $paragraph-small-size;
+}
+
+.p-md {
+  font-size: $paragraph-medium-size;
+  @include respond-to(laptop-screen) {
+    font-size: $paragraph-small-size;
+  }
+  @include respond-to(tablet-screen) {
+    font-size: $paragraph-small-size;
+    padding: 0 10px;
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $paragraph-xsmall-size;
+    padding: 0 10px;
+    margin: 2rem;
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $paragraph-xsmall-size;
+    padding: 0 10px;
+    margin: 2rem;
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $paragraph-xsmall-size;
+    padding: 0 10px;
+    margin: 2rem;
+  }
+}
+
+.p-lg {
+  font-size: $paragraph-size;
+  @include respond-to(laptop-screen) {
+    font-size: $paragraph-medium-size;
+  }
+  @include respond-to(tablet-screen) {
+    font-size: $paragraph-small-size;
+    padding: 0 10px;
+  }
+  @include respond-to(mobileL-screen) {
+    font-size: $paragraph-xsmall-size;
+    padding: 0 10px;
+    margin: 2rem;
+  }
+  @include respond-to(mobileM-screen) {
+    font-size: $paragraph-xsmall-size;
+    padding: 0 10px;
+    margin: 2rem;
+  }
+  @include respond-to(mobileS-screen) {
+    font-size: $paragraph-xsmall-size;
+    padding: 0 10px;
+    margin: 2rem;
+  }
+  @include respond-to(max-to-tablet) {
+    margin: 0;
+    padding: 0;
+  }
+
+}
+
+.desc-body {
+  height: 160px;
+  overflow: hidden;
+
+  @include respond-to(laptopL-screen) {
+    height: 100px;
+    overflow: hidden;
+  }
+
+  @include respond-to(laptop-screen) {
+    height: 100px;
+    overflow: hidden;
+  }
+
+  @include respond-to(tablet-screen) {
+    height: 170px;
+    overflow: hidden;
+  }
+
+  @include respond-to(mobileL-screen) {
+    height: 80px;
+    overflow: hidden;
+  }
+
+  @include respond-to(mobileM-screen) {
+    height: 80px;
+    overflow: hidden;
+  }
+
+  @include respond-to(mobileS-screen) {
+    height: 80px;
+    overflow: hidden;
+  }
+}
+
+/* Headings Aligns */
+
+@include respond-to(wide-screen) {
+  h1 {
+    font-size: $font-size-h1;
+  }
+  h2 {
+    font-size: $font-size-h2;
+  }
+  h3 {
+    font-size: $font-size-h3;
+  }
+  h4 {
+    font-size: $font-size-h4;
+  }
+  h5 {
+    font-size: $font-size-h5;
+  }
+  h6 {
+    font-size: $font-size-h6;
+  }
+}
+
+@include respond-to(laptopL-screen) {
+  h1 {
+    font-size: $font-size-h1 - $pixel-30;
+  }
+  h2 {
+    font-size: $font-size-h2 - $pixel-10;
+  }
+  h3 {
+    font-size: $font-size-h3 - $pixel-10;
+  }
+  h4 {
+    font-size: $font-size-h4 - $pixel-10;
+  }
+  h5 {
+    font-size: $font-size-h5 - $pixel-10;
+  }
+  h6 {
+    font-size: $font-size-h6 - $pixel-10;
+  }
+}
+
+@include respond-to(laptop-screen) {
+  h1 {
+    font-size: $font-size-h1 - $pixel-30;
+  }
+  h2 {
+    font-size: $font-size-h2 - $pixel-10;
+  }
+  h3 {
+    font-size: $font-size-h3 - $pixel-10;
+  }
+  h4 {
+    font-size: $font-size-h4 - $pixel-10;
+  }
+  h5 {
+    font-size: $font-size-h5 - $pixel-10;
+  }
+  h6 {
+    font-size: $font-size-h6 - $pixel-10;
+  }
+}
+
+@include respond-to(tablet-screen) {
+  h1 {
+    font-size: $font-size-h1 - $pixel-40;
+  }
+  h2 {
+    font-size: $font-size-h2 - $pixel-15;
+  }
+  h3 {
+    font-size: $font-size-h3 - $pixel-15;
+  }
+  h4 {
+    font-size: $font-size-h4 - $pixel-15;
+  }
+  h5 {
+    font-size: $font-size-h5 - $pixel-15;
+  }
+  h6 {
+    font-size: $font-size-h6 - $pixel-15;
+  }
+}
+
+@include respond-to(mobileL-screen) {
+  h1 {
+    font-size: $font-size-h1 - $pixel-40;
+  }
+  h2 {
+    font-size: $font-size-h2 - $pixel-15;
+  }
+  h3 {
+    font-size: $font-size-h3 - $pixel-15;
+  }
+  h4 {
+    font-size: $font-size-h4 - $pixel-15;
+  }
+  h5 {
+    font-size: $font-size-h5 - $pixel-15;
+  }
+  h6 {
+    font-size: $font-size-h6 - $pixel-15;
+  }
+}
+
+@include respond-to(mobileM-screen) {
+  h1 {
+    font-size: $font-size-h1 - $pixel-40;
+  }
+  h2 {
+    font-size: $font-size-h2 - $pixel-15;
+  }
+  h3 {
+    font-size: $font-size-h3 - $pixel-15;
+  }
+  h4 {
+    font-size: $font-size-h4 - $pixel-15;
+  }
+  h5 {
+    font-size: $font-size-h5 - $pixel-15;
+  }
+  h6 {
+    font-size: $font-size-h6 - $pixel-15;
+  }
+}
+
+@include respond-to(mobileS-screen) {
+  h1 {
+    font-size: $font-size-h1 - $pixel-30;
+  }
+  h2 {
+    font-size: $font-size-h2 - $pixel-15;
+  }
+  h3 {
+    font-size: $font-size-h3 - $pixel-15;
+  }
+  h4 {
+    font-size: $font-size-h4 - $pixel-15;
+  }
+  h5 {
+    font-size: $font-size-h5 - $pixel-15;
+  }
+  h6 {
+    font-size: $font-size-h6 - $pixel-15;
+  }
+}
+

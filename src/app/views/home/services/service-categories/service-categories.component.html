@@ -1,0 +1,33 @@
+<div class="dcaa-service-categories mt-lg-5 mb-lg-5">
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="services-control col-md-6">
+          <div class="media">
+            <span class="icon-Building-Constructions align-self-center mr-3"></span>
+            <div class="media-body">
+              <h2 class="mt-0 mb-0">Building Construction or Elevation permits</h2>
+            </div>
+          </div>
+          <div class="card border-0 bg-transparent">
+            <div class="card-body">
+              <h5 class="card-subtitle mb-5 text-muted">Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Accusamus adipisci amet autem ea eius eos facilis, fugiat incidunt
+                labore, molestias non porro quaerat rem rerum sapiente sequi tempora veritatis
+                voluptatibus!</h5>
+              <button class="btn btn-lg btn-primary"> View All Services</button>
+            </div>
+          </div>
+        </div>
+        <div class="services-categories col-md-6">
+          <div class="list-group">
+            <a class="list-group-item d-flex align-items-center" *ngFor="let category of categories">
+              <span class="icon-{{category.icon}} mr-3"></span>
+              {{category.description}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

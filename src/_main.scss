@@ -1,0 +1,21 @@
+@import "animations";
+@import "icons";
+@import "bootstrap-overrides";
+
+.btn-primary.reverse {
+  background-color: $primary;
+  color: $white;
+}
+
+section {
+  padding: 2em;
+  background: $secondary-background;
+}
+
+.primary-color, .selected {
+  color: $primary;
+}
+
+.border-radius {
+  border-radius: 50%;
+}

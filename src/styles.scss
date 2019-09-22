@@ -1,15 +1,7 @@
-//// Main Variables File
-//@import "assets/styles/variables";
-//// Main Fonts File
-//@import "assets/styles/fonts";
-//// Responsive Rules
-//@import "assets/styles/responsive";
-//// Main Site Styles
-
-@import "assets/styles/variables";
+@import "fonts";
+@import "variables";
 @import "~bootstrap/scss/bootstrap";
-@import "assets/styles/main";
-
+@import "main";
 
 // Main Material Styles
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";

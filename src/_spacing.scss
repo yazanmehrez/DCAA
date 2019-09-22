@@ -1,0 +1,346 @@
+/* Margins */
+
+/** Top **/
+@for $i from 0 through $margin-rem {
+  .mt-#{$i} {
+    margin-top: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        margin-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        margin-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        margin-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        margin-top: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+/** Bottom **/
+@for $i from 0 through $margin-rem {
+  .mb-#{$i} {
+    margin-bottom: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        margin-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        margin-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        margin-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        margin-bottom: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+/** Left **/
+@for $i from 0 through $margin-rem {
+  .ml-#{$i} {
+    margin-left: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        margin-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        margin-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        margin-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        margin-left: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+/** Right **/
+@for $i from 0 through $margin-rem {
+  .mr-#{$i} {
+    margin-right: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        margin-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        margin-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        margin-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        margin-right: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+[lang="ar"] {
+
+  /** Top **/
+  @for $i from 0 through $margin-rem {
+    .mt-#{$i} {
+      margin-top: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          margin-top: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          margin-top: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          margin-top: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          margin-top: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+
+  /** Bottom **/
+  @for $i from 0 through $margin-rem {
+    .mb-#{$i} {
+      margin-bottom: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          margin-bottom: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          margin-bottom: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          margin-bottom: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          margin-bottom: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+
+  /** Left **/
+  @for $i from 0 through $margin-rem {
+    .mr-#{$i} {
+      margin-left: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          margin-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          margin-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          margin-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          margin-left: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+
+  /** Right **/
+  @for $i from 0 through $margin-rem {
+    .mr-#{$i} {
+      margin-right: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          margin-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          margin-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          margin-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          margin-right: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+}
+
+
+/* Padding */
+
+/** Top **/
+@for $i from 0 through $padding-rem {
+  .pt-#{$i} {
+    padding-top: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        padding-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        padding-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        padding-top: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        padding-top: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+/** Bottom **/
+@for $i from 0 through $padding-rem {
+  .pb-#{$i} {
+    padding-bottom: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        padding-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        padding-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        padding-bottom: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        padding-bottom: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+/** Left **/
+@for $i from 0 through $padding-rem {
+  .pl-#{$i} {
+    padding-left: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        padding-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        padding-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        padding-left: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        padding-left: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+/** Right **/
+@for $i from 0 through $padding-rem {
+  .pr-#{$i} {
+    padding-right: $i+rem;
+    @if ($i > 6) {
+      @include respond-to(tablet-screen) {
+        padding-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileL-screen) {
+        padding-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileM-screen) {
+        padding-right: ($i - 2) +rem;
+      }
+      @include respond-to(mobileS-screen) {
+        padding-right: ($i - 4) +rem;
+      }
+    }
+  }
+}
+
+[lang="ar"] {
+
+  /** Top **/
+  @for $i from 0 through $padding-rem {
+    .pt-#{$i} {
+      margin-top: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          margin-top: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          margin-top: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          margin-top: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          margin-top: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+
+  /** Bottom **/
+  @for $i from 0 through $padding-rem {
+    .pb-#{$i} {
+      padding-bottom: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          padding-bottom: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          padding-bottom: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          padding-bottom: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          padding-bottom: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+
+  /** Left **/
+  @for $i from 0 through $padding-rem {
+    .pl-#{$i} {
+      padding-left: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          padding-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          padding-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          padding-left: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          padding-left: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+
+  /** Right **/
+  @for $i from 0 through $padding-rem {
+    .pr-#{$i} {
+      padding-right: $i+rem;
+      @if ($i > 6) {
+        @include respond-to(tablet-screen) {
+          padding-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileL-screen) {
+          padding-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileM-screen) {
+          padding-right: ($i - 2) +rem;
+        }
+        @include respond-to(mobileS-screen) {
+          padding-right: ($i - 4) +rem;
+        }
+      }
+    }
+  }
+}

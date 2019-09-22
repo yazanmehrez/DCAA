@@ -1,181 +1,64 @@
-//@import '../../../assets/styles/responsive';
-//
-//.dcaa-footer {
-//  position: relative;
-//  padding-top: 115px;
-//  padding-bottom: 0;
-//  background-color: #333333;
-//  background-repeat: no-repeat;
-//  background-size: cover;
-//  @include respond-to(max-to-laptopL) {
-//    padding-top: 80px;
-//    ::ng-deep .dcaa-xgallery {
-//      padding: 0;
-//    }
-//  }
-//
-//
-//  p, a, span {
-//    color: $white;
-//  }
-//
-//  .happiness-meter {
-//    background: $primary;
-//    width: 100px;
-//    height: 75px;
-//    position: absolute;
-//    right: 0;
-//    bottom: 125px;
-//    display: flex;
-//    justify-content: center;
-//    align-items: center;
-//
-//    &:hover {
-//      cursor: pointer;
-//      transition: 0.2s all;
-//    }
-//  }
-//}
-//
-//.social-media {
-//  svg-icon {
-//    display: flex;
-//  }
-//
-//  svg {
-//    width: 18px;
-//  }
-//}
-//
-//.services {
-//  .quick-links {
-//    .links {
-//      display: flex;
-//      flex-direction: column;
-//
-//      a {
-//        font-size: 15px;
-//        margin: 5px 0;
-//
-//        &:hover {
-//          color: $primary;
-//          transition: all 0.2s;
-//          cursor: pointer;
-//        }
-//      }
-//    }
-//  }
-//
-//  .contact-general {
-//    img {
-//      width: auto;
-//      height: 150px;
-//      object-fit: cover;
-//    }
-//  }
-//
-//  .subscribe {
-//    .send {
-//      width: fit-content;
-//      position: relative;
-//      overflow: hidden;
-//      border: 1px solid $primary;
-//
-//      input {
-//        padding: 10px;
-//      }
-//
-//      button {
-//        padding: 10px;
-//        position: absolute;
-//        right: 0;
-//        background: $primary;
-//        border: none;
-//        height: 100%;
-//        color: $white;
-//
-//        &:hover {
-//          cursor: pointer;
-//        }
-//      }
-//    }
-//
-//  }
-//
-//  @include respond-to(max-to-laptop) {
-//    text-align: center;
-//    display: flex;
-//    justify-content: center;
-//    align-items: center;
-//    margin: auto;
-//    flex-wrap: wrap;
-//
-//    .submit {
-//      .send {
-//        margin: 15px auto;
-//      }
-//    }
-//
-//    .social-media {
-//      justify-content: center;
-//    }
-//  }
-//}
-//
-//.copyright {
-//  margin-top: 30px;
-//
-//  .footer-container {
-//    padding: 40px 0;
-//    border-top: 2px solid white;
-//
-//    .access-links {
-//      color: $white;
-//
-//      a {
-//        font-size: 15px;
-//        margin: 5px 0;
-//
-//        &:hover {
-//          color: $primary;
-//          transition: all 0.2s;
-//          cursor: pointer;
-//        }
-//      }
-//
-//      .rights {
-//        a {
-//          color: $white;
-//        }
-//      }
-//    }
-//  }
-//}
-//
-//.social-media {
-//  display: flex;
-//  margin-top: 10px;
-//
-//  .social {
-//    justify-content: center;
-//    align-items: center;
-//    fill: $white;
-//  }
-//
-//  .outline {
-//    display: flex;
-//    justify-content: center;
-//    align-items: center;
-//    background-color: $primary;
-//    width: 40px;
-//    height: 40px;
-//
-//    &:hover {
-//      cursor: pointer;
-//    }
-//
-//    &:not(:first-child) {
-//      margin-left: 5px;
-//    }
-//  }
-//}
+@import "../../../variables";
+
+.dcaa-footer {
+  color: $white;
+  padding-top: 5em;
+}
+
+.copyright {
+  margin-top: 30px;
+
+  .footer-container {
+    font-size: 0.850em;
+    padding: 30px 0;
+    border-top: 2px solid white;
+
+    .access-links {
+      a {
+        margin: 5px 0;
+
+        &:hover {
+          color: $primary;
+          transition: all 0.2s;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.social {
+
+  .social-item {
+    cursor: pointer;
+    width: 25px;
+    background: #d85251;
+    height: 25px;
+
+    &:not(:first-child) {
+      margin-left: 5px;
+    }
+  }
+
+
+  span {
+    font-size: 0.750em;
+  }
+}
+
+.subscribe-group {
+
+  input {
+    border-radius: 0;
+  }
+
+  .subscribe-btn {
+    border-radius: 0;
+    background: $primary;
+    border: 0;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}

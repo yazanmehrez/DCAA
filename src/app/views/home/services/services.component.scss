@@ -1,4 +1,4 @@
-@import '../../../../assets/styles/variables';
+@import '../../../../variables';
 
 .services-categories {
   .card-columns {
@@ -29,7 +29,11 @@
 
 .services-control {
   [class^="icon-"], [class*=" icon-"] {
-    font-size: 4em;
+    font-size: 2em;
     color: $primary;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

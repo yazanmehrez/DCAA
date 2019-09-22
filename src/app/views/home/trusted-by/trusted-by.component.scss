@@ -1,29 +1,7 @@
-//@import '~bootstrap/scss/bootstrap';
-//
-//.dcaa-trusted-by {
-//  margin: 100px 160px 0 160px;
-//
-//
-//  @include respond-to(max-to-tablet) {
-//    margin: 75px 60px 0 60px;
-//  }
-//
-//}
-//
-//.items {
-//  .item {
-//    .message {
-//      padding: 15px;
-//
-//      .thumb {
-//        display: flex;
-//        justify-content: flex-start;
-//        align-items: center;
-//
-//        img {
-//          margin-right: 15px;
-//        }
-//      }
-//    }
-//  }
-//}
+.dcaa-trusted-by {
+  margin-top: 5em;
+
+  .card {
+    margin: 0;
+  }
+}

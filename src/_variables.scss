@@ -1,20 +1,22 @@
 // Colors
 $primary: #d85251;
 $secondary: #e4e6e8;
-
 $primary-background: #181818;
-$secondary-background: #fcfcff;
-$third-background: #f8f8f8;
-
+$secondary-background: #f4f4fb;
+$third-background: #ffffff0d;
 $primary-shadow: #dae5ef;
-
+$transparent: #ffffff3b;
 $black: #000;
 $gray: #333333;
 $red: #d85251;
 $white: #fff;
 
+// Shadows
+$gray-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.25);
+
 // Typography
 $font-family-base: 'Dubai Regular', sans-serif !default;
+$headings-font-family: 'Dubai Bold', sans-serif !default;
 $font-weight-base: 400 !default;
 $font-weight-medium: 500 !default;
 $font-weight-bold: 600 !default;
