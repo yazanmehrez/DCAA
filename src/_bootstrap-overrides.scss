@@ -1,3 +1,8 @@
+.container {
+  width: 90%;
+  max-width: 1920px;
+}
+
 .btn-primary {
   border: 1px solid $primary;
   background-color: transparent;
@@ -38,5 +43,58 @@
 }
 
 .collapse .navbar-nav .nav-link {
+  color: $light-gray;
+}
+
+.btn-secondary:hover {
   color: $white;
+  background-color: $primary;
+}
+
+h1, .h1 {
+  font-size: $h1-font-size +1;
+}
+
+h2, .h2 {
+  font-size: $h2-font-size - 0.5;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $separate-line !important;
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.625em;
+  background: $overlay;
+  color: $white;
+
+  p:after {
+    content: '';
+    width: 0;
+    display: flex;
+    border-bottom: 2px solid $primary;
+    -webkit-transition: 1s ease;
+    transition: 1s ease;
+  }
+}
+
+.nav-link {
+  padding: 0.5rem 0.750rem;
+}
+
+.nav-pills .nav-link {
+  color: $primary;
+  border-radius: 0;
+  padding: 1.5em 2.25em;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background-color: $white;
+  color: $primary !important;
+  border-top: $border-size solid $primary !important;
 }

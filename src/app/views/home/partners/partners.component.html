@@ -1,13 +1,9 @@
-<div class="dcaa-partners d-flex align-items-center justify-content-center">
-<!--  <ngx-slick-carousel class="carousel"-->
-<!--                      #slickModal="slick-carousel"-->
-<!--                      [config]="slideConfig">-->
-<!--    <div ngxSlickItem *ngFor="let partner of partners" class="slide">-->
-<!--      <img [src]="partner" alt="" width="100%">-->
-<!--    </div>-->
-<!--  </ngx-slick-carousel>-->
-<!--  <div class="partners">-->
-<!--    <img *ngFor="let partner of partners" [src]="partner">-->
-<!--  </div>-->
-
+<div class="dcaa-partners">
+    <swiper class="swiper-container container d-flex align-items-center justify-content-center" [config]="config">
+      <div *ngFor="let partner of partners;" class="swiper-slide">
+        <div class="card-content">
+          <img [src]="partner">
+        </div>
+      </div>
+    </swiper>
 </div>

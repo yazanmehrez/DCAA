@@ -1,21 +1,15 @@
-//@import '~bootstrap/scss/bootstrap';
-//
-//.dcaa-partners {
-//  margin: 45px 160px;
-//}
-//
-//::ng-deep .slick-track {
-//  display: flex;
-//  align-items: center;
-//}
-//
-//::ng-deep {
-//  .slick-slide {
-//    padding: 0 30px;
-//  }
-//
-//  .slick-list {
-//    padding: 0 -30px;
-//  }
-//
-//}
+.dcaa-partners {
+  margin-top: 4em;
+  margin-bottom: 2em;
+}
+
+.swiper-slide img {
+  width: 100%;
+}
+
+::ng-deep .swiper-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}

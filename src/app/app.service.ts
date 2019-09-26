@@ -9,6 +9,7 @@ import * as AOS from 'aos';
 export class AppService {
     public language = new BehaviorSubject<string>(null);
     currentLanguage: string;
+    isHome = false;
 
     constructor(private translate: TranslateService) {
 

@@ -1,23 +1,77 @@
 @import '../../../../variables';
 
 .latest-news {
-  background: $primary;
-  border: 1px solid #a74345;
-  color: $white;
-  height: 4rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
+  background: transparent;
+  border: 0;
+  height: auto;
 
-  &:after {
-    content: '';
-    height: 100%;
-    width: 32px;
-    background-color: #ad2724;
-    position: absolute;
-    right: 0;
-    top: 0;
+  .container {
+    padding-right: 0;
+  }
+
+  .news-item {
+    padding: 5px 15px;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-color: $transparent;
+  }
+
+  marquee a:hover {
+    cursor: pointer;
+  }
+
+  .icon-pointer {
+    margin: 0 10px;
+    font-size: 0.3em;
+    position: relative;
+    bottom: 1px;
+
+    .path1:before, .path2:before {
+      color: $primary;
+    }
   }
 }
+
+::ng-deep .dcaa-home {
+  .latest-news {
+    background: $primary;
+    border: 1px solid #a74345;
+    color: $white;
+    height: 2.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+      content: '';
+      height: 100%;
+      width: 32px;
+      background-color: #ad2724;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .news-item {
+      border-color: transparent !important;
+
+      a:hover {
+        cursor: pointer;
+      }
+    }
+
+    .icon-pointer {
+      margin: 0 10px;
+      font-size: 0.3em;
+      position: relative;
+      bottom: 1px;
+
+      .path1:before, .path2:before {
+        color: $white !important;
+      }
+    }
+  }
+}
+

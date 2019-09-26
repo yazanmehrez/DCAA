@@ -1,16 +1,24 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-    selector: 'dcaa-starting',
-    templateUrl: './starting.component.html',
-    styleUrls: ['./starting.component.scss']
+  selector: 'dcaa-starting',
+  templateUrl: './starting.component.html',
+  styleUrls: ['./starting.component.scss']
 })
 export class StartingComponent implements OnInit {
 
-    constructor() {
-    }
+  constructor() {
+  }
 
-    ngOnInit() {
-    }
+  scrollToWebsite() {
+    window.scrollBy({
+      top: 400,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  ngOnInit() {
+  }
 
 }

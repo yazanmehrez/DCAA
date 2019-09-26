@@ -1,6 +1,6 @@
 {
   "/src/api/": {
-    "target": "http://localhost/DCAA/",
+    "target": "https://172.24.155.60/api/",
     "secure": false,
     "changeOrigin": true
   }

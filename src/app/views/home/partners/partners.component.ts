@@ -1,4 +1,5 @@
 import {AfterViewInit, Component} from '@angular/core';
+import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
 
 @Component({
   selector: 'dcaa-partners',
@@ -6,15 +7,15 @@ import {AfterViewInit, Component} from '@angular/core';
   styleUrls: ['./partners.component.scss']
 })
 export class PartnersComponent implements AfterViewInit {
-  slideConfig = {
-    'slidesToShow': 7,
-    'slidesToScroll': 1,
-    'dots': false,
-    'infinite': false,
-    'autoplay': true,
-    'arrows': false,
-    'autoplaySpeed': 1500
+  public config: SwiperConfigInterface = {
+    direction: 'horizontal',
+    centeredSlides: true,
+    slidesPerView: 7,
+    autoplay: true,
+    spaceBetween: 30,
+    loop: true
   };
+
   partners = [
     'assets/images/footer/al ameen.png',
     'assets/images/footer/ask.png',

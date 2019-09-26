@@ -19,29 +19,32 @@
   }
 }
 
-.read-more {
+.scroll-down {
   position: absolute;
-  left: 50%;
-  bottom: 1em;
+  z-index: 15;
+  left: 48.8%;
+  bottom: 2em;
   border: 1px solid #fff;
-  width: 2.5em;
-  height: 3.5em;
+  width: 2em;
+  height: 3em;
   border-radius: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  &:hover {
-    cursor: pointer;
-    animation: scaling 1s infinite;
-  }
+  cursor: pointer;
 
   div:first-child {
     background: #fff;
     border-radius: 100%;
     width: 8px;
     height: 9px;
-    margin-top: 15px;
+    margin-top: -10px;
+    -webkit-animation: carousel-scrollbar 1.5s infinite;
+    animation: carousel-scrollbar 1.5s infinite;
   }
 }
 
+.btn-lg {
+  font-size: 0.750em;
+  padding: 0.5em 1.750em;
+}

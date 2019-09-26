@@ -1,8 +1,9 @@
 @import "../../../variables";
 
 .dcaa-footer {
-  color: $white;
+  color: $light-gray;
   padding-top: 5em;
+  position: relative;
 }
 
 .copyright {
@@ -11,7 +12,7 @@
   .footer-container {
     font-size: 0.850em;
     padding: 30px 0;
-    border-top: 2px solid white;
+    border-top: 2px solid $light-gray;
 
     .access-links {
       a {
@@ -50,6 +51,11 @@
 
   input {
     border-radius: 0;
+    border: 0;
+
+    &:focus {
+      box-shadow: none;
+    }
   }
 
   .subscribe-btn {
@@ -60,5 +66,25 @@
     &:hover {
       color: $white;
     }
+  }
+}
+
+.happiness-meter {
+  background: $primary;
+  color: $white;
+  font-size: 2.5em;
+  width: 1.5em;
+  height: 1.5em;
+  position: absolute;
+  right: 0;
+  bottom: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    width: 2em;
+    transition: 0.2s all;
   }
 }

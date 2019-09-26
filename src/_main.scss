@@ -1,15 +1,61 @@
 @import "animations";
 @import "icons";
 @import "bootstrap-overrides";
+@import "responsive";
+
+$padding-extra: 100px;
 
 .btn-primary.reverse {
   background-color: $primary;
   color: $white;
 }
 
+.bg-banner {
+  background-color: $banner-background;
+}
+
+
+button {
+  font-family: $font-family-base;
+}
+
 section {
   padding: 2em;
   background: $secondary-background;
+}
+
+.dark-border {
+  border-left: $border-size solid transparent;
+
+  &:hover {
+    color: $white;
+    cursor: pointer;
+    background-color: $primary-background;
+    border-left: $border-size solid $primary;
+  }
+}
+
+.border-transparent {
+  border-color: $separate-line !important;
+}
+
+.light-border {
+  border-left: $border-size solid transparent;
+
+  &:hover {
+    color: $black;
+    cursor: pointer;
+    background-color: $lighter-gray;
+    border-left: $border-size solid $primary;
+  }
+}
+
+.with-separator a {
+  border-bottom: 1px solid $separate-light;
+}
+
+.b-extra {
+  padding: 0 $padding-extra;
 }
 
 .primary-color, .selected {
@@ -18,4 +64,118 @@ section {
 
 .border-radius {
   border-radius: 50%;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: #080d15;
+  opacity: .5;
+}
+
+.mobile {
+  display: none;
+}
+
+.main-nav {
+  background-color: $primary-background;
+  color: $white;
+  border-color: $white;
+
+  li a, span, input {
+    color: $white;
+    border-color: $white;
+  }
+
+  .collapse .navbar-nav .nav-link {
+    color: $white;
+    border-color: $white;
+  }
+
+  .nav-link.active {
+    color: $primary !important;
+  }
+}
+
+.home-nav {
+  background-color: transparent;
+  color: $light-gray;
+  border-color: $separate-line;
+
+  li a, span, input {
+    color: $light-gray;
+    border-color: $light-gray;
+  }
+
+  .collapse .navbar-nav .nav-link {
+    color: $light-gray;
+    border-color: $light-gray;
+  }
+
+  .nav-link.active {
+    color: $primary !important;
+  }
+
+  .icon-login {
+    color: $white;
+  }
+
+  .bg-banner {
+    background-color: transparent;
+  }
+
+}
+
+.accessibility {
+  color: $white;
+  align-items: center;
+  top: 3.5em;
+
+  .access-control {
+    margin: 0 10px;
+    background: #ffffff14;
+  }
+}
+
+.home-accessibility {
+  color: $light-gray;
+  position: absolute;
+  top: 4em;
+  padding: 0;
+
+  .access-control {
+    margin: 0;
+    background: transparent;
+    padding: 8px 25px;
+  }
+}
+
+.dcaa-home {
+  .border-transparent {
+    border-color: transparent !important;
+  }
+}
+
+.border-up-box {
+  border-top: $border-size solid !important;
+  border-color: transparent !important;
+  color: $black;
+
+  &:hover {
+    background: $white !important;
+    border-color: $primary !important;
+    cursor: pointer;
+    transition: 0.3s all;
+    color: $primary;
+  }
+}
+
+.dcaa-login-register {
+  min-width: 30vW;
+}
+
+.text-primary {
+  color: $primary;
 }

@@ -5,14 +5,17 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  color: $white;
+  color: $light-gray;
 
   .dropdown-menu {
     position: absolute;
     background-color: $gray;
     border-radius: 0;
     top: 4em;
-    border-left: 5px solid $primary;
+    margin-top: -8px;
+    padding: 0;
+    border: 0;
+    border-left: $border-size solid $primary;
 
     .dropdown-item {
       color: $white;
@@ -27,12 +30,17 @@
   .navbar-light .navbar-nav .nav-link {
     padding: 1em;
   }
+
+  .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 
 input[aria-label="Search"] {
   border-radius: 25px;
   background: transparent;
-  border: 1px solid $white;
+  border: 1px solid $light-gray;
   caret-color: $white;
   color: $white;
 
@@ -51,15 +59,94 @@ input[aria-label="Search"] {
     z-index: 2;
     right: 1.25em;
     pointer-events: none;
-    color: $white;
+    color: $light-gray;
+  }
+
+  .form-control {
+    height: calc(1.25em + 0.625rem);
   }
 }
 
 .login {
-  padding: 0.25em 1.25em;
+  padding: 0.10em 1.25em;
 
   span {
     font-size: 0.75em;
   }
 }
 
+.language span {
+  cursor: pointer;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.accessibility {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  .controllers {
+    padding-right: 1.5em;
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    margin: 0 5px;
+
+    &:hover {
+      cursor: pointer;
+      color: $white;
+    }
+  }
+
+  .access-control {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    align-items: center;
+  }
+
+  .live-chat {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+      color: $white;
+
+      p {
+        color: $white;
+      }
+    }
+
+    p {
+      font-size: $paragraph-small-size;
+      color: $light-gray;
+    }
+  }
+
+}
+
+.notification {
+  position: relative;
+
+  .notifier {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: $primary;
+    right: -10px;
+    top: -6px;
+    display: flex;
+    justify-content: center;
+    font-size: 0.625em;
+  }
+
+  &.mobile span {
+    font-size: 1.5em;
+  }
+}

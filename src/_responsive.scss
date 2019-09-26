@@ -1,68 +1,80 @@
-@import 'variables';
-@import 'aos';
-@import 'lib/material-carousel/carousel';
+@include media-breakpoint-down(md) {
+  h1 {
+    font-size: $h1-font-size - 1;
+  }
+  .dcaa-header {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 
-$wide-screen: 1900px;
-$laptopL-screen: 1440px;
-$laptop-screen: 1024px;
-$tablet-screen: 768px;
-$mobileL-screen: 425px;
-$mobileM-screen: 375px;
-$mobileS-screen: 320px;
+  .main-nav {
+    position: initial !important;
+    padding: 5px;
+  }
 
-$margin-width-lg: 0 265px;
-$margin-width-md: 0 100px;
-$margin-width-sm: 0 75px;
-$margin-width-xsm: 0 25px;
+  .accessibility {
+    display: none;
+  }
 
-@mixin respond-to($media) {
-  // between two sizes
-  @if $media == wide-screen {
-    @media (min-width: $wide-screen) {
-      @content;
+  .top-header {
+    .gov-logo {
+      width: 35%;
     }
-  } @else if $media == laptopL-screen {
-    @media only screen and (min-width: $laptopL-screen + 1) and (max-width: $wide-screen - 1) {
-      @content;
-    }
-  } @else if $media == laptop-screen {
-    @media only screen and (min-width: $laptop-screen + 1) and (max-width: $laptopL-screen) {
-      @content;
-    }
-  } @else if $media == tablet-screen {
-    @media only screen and (min-width: $tablet-screen + 1) and (max-width: $laptop-screen) {
-      @content;
-    }
-  } @else if $media == mobileL-screen {
-    @media only screen and (min-width: $mobileL-screen + 1) and (max-width: $tablet-screen) {
-      @content;
-    }
-  } @else if $media == mobileM-screen {
-    @media only screen and (min-width: $mobileM-screen + 1) and (max-width: $mobileL-screen) {
-      @content;
-    }
-  } @else if $media == mobileS-screen {
-    @media (max-width: $mobileM-screen - 1) {
-      @content;
+
+    .dcaa-logo {
+      width: 60%;
     }
   }
-    /* Max To*/
-  @else if $media == max-to-laptopL {
-    @media (max-width: $laptopL-screen) {
-      @content;
+
+  .carousel-caption {
+    top: 0 !important;
+  }
+
+  .carousel-indicators {
+    text-align: center;
+    justify-content: center !important;
+    right: -15em !important;
+    bottom: 1.5em;
+  }
+
+  .scroll-down {
+    left: 45%;
+    bottom: 1em;
+  }
+
+  .card {
+    margin: auto !important;
+    text-align: center;
+  }
+
+  .dcaa-xgallery {
+    padding: initial !important;
+  }
+
+  .page-footer .social {
+    justify-content: center;
+  }
+  .mobile {
+    display: block !important;
+  }
+
+  .latest-news {
+    .news-head {
+      width: 25%;
+      padding: 0 10px !important;
+    }
+
+    .news-item {
+      padding: 0 !important;
+      width: 70%;
     }
   }
-  @else if $media == max-to-laptop {
-    @media (max-width: $laptop-screen) {
-      @content;
-    }
-  } @else if $media == max-to-tablet {
-    @media (max-width: $tablet-screen) {
-      @content;
-    }
-  } @else if $media == max-to-mobile {
-    @media (max-width: $mobileL-screen) {
-      @content;
-    }
-  }
+}
+
+@include media-breakpoint-down(md) {
+
+}
+
+@include media-breakpoint-down(lg) {
+
 }
