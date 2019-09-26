@@ -1,0 +1,16 @@
+@import "../../../../../variables";
+
+$fix-number: 95px;
+
+.p-fix {
+  margin-top: $fix-number;
+  height: calc(100% - #{$fix-number});
+}
+
+.head-title {
+  color: $white;
+  background: $banner;
+  text-align: center;
+  padding: 1em;
+
+}

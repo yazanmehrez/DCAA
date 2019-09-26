@@ -1,0 +1,96 @@
+<div class="main-wrapper-section">
+    <div *ngIf="fetchinginProgress" class="m-t-20 display-flex flex-halign-center">
+        <div class="spinner-border spinner-border-sm prelative top-3" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+  <div *ngIf="profileForm" class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="font-weight-light m-b-20 text-center m-t-20" i18n="@@profile">Profile</h2>
+        <form class="p-b-20" [formGroup]="profileForm" (ngSubmit)="updateProfile(formDirective)" #formDirective="ngForm">
+            <div class="form-group">
+              <app-file-uploader [uploadType]="'profilePhoto'" #imageFileUploadCrl [filesysteminit]="profileForm.value.pictureUrl" (result)="setImage($event)"></app-file-uploader>
+              <input #imageInput formControlName="pictureUrl" [ngClass]="{ 'is-invalid': profileSubmitted && l.pictureUrl.errors }" type="hidden" class="form-control" id="pictureUrl" placeholder="What image?">
+            </div>
+            <div class="row">
+              <div class="col-sm-4 col-md-3">
+                  <div class="form-group">
+                    <label i18n="@@firstName" for="firstName" class="font-weight-bold text-primary clientApp-label">First Name</label>
+                    <input i18n-placeholder="@@firstName" formControlName="firstName" [ngClass]="{ 'is-invalid': profileSubmitted && l.firstName.errors }" type="text" class="form-control clientApp-input" id="firstName" placeholder="First Name">
+                  </div>
+                  <div *ngIf="profileSubmitted && l.firstName.errors" class="invalid-feedback always-block text-center">
+                      <div i18n="@@required" *ngIf="l.firstName.errors.required">Field is required</div>
+                  </div>
+              </div>
+              <div class="col-sm-4 col-md-3">
+                  <div class="form-group">
+                      <label i18n="@@lastName" for="lastName" class="font-weight-bold text-primary clientApp-label">Last Name</label>
+                      <input i18n-placeholder="@@lastName" formControlName="lastName" [ngClass]="{ 'is-invalid': profileSubmitted && l.lastName.errors }" type="text" class="form-control clientApp-input" id="lastName" placeholder="Last Name">
+                  </div>
+                  <div *ngIf="profileSubmitted && l.lastName.errors" class="invalid-feedback always-block text-center">
+                      <div i18n="@@required" *ngIf="l.lastName.errors.required">Field is required</div>
+                  </div>
+              </div>
+              <div class="col-sm-4 col-md-3">
+                  <div class="form-group">
+                      <label i18n="@@city" for="localeId" class="font-weight-bold text-primary clientApp-label">City</label>
+                      <div class="custom-material-select clientApp-input white-back">
+                          <mat-select placeholder="City" formControlName="localeId" id="localeId">
+                              <mat-option [value]="item.localeId" *ngFor="let item of locales">{{item.city}}</mat-option>
+                          </mat-select>
+                      </div>
+        
+                  </div>
+                  <div *ngIf="profileSubmitted && l.localeId.errors" class="invalid-feedback always-block text-center">
+                      <div i18n="@@required" *ngIf="l.localeId.errors.required">Field is required</div>
+                  </div>
+              </div> 
+              <div class="col-sm-4 col-md-3">
+                  <div class="form-group">
+                      <label i18n="@@dob" for="dob" class="font-weight-bold text-primary clientApp-label">Date of birth</label>
+                      <div class="display-flex custom-datepicker clientApp-input">
+                          <input [matDatepicker]="picker" formControlName="dob" [ngClass]="{ 'is-invalid': profileSubmitted && l.dob.errors }" class="bigger date-inputbox" type="text" id="dob" placeholder="Date of birth">
+                          <mat-datepicker-toggle matSuffix [for]="picker">
+                              <mat-icon matDatepickerToggleIcon><i class="icon-calendar"></i></mat-icon>
+                          </mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+                      </div>
+
+                  </div>
+                  <div *ngIf="l.dob.errors" class="invalid-feedback always-block text-center">
+                      <div i18n="@@required" *ngIf="profileSubmitted && l.dob.errors.required">Field is required</div>
+                      <div i18n="@@invalidDate" *ngIf="l.dob.errors.validDate">Invalid date</div>
+                      <div i18n="@@cannotBeFuture" *ngIf="l.dob.errors.todayAndPast">DOB cannot be in the future</div>
+                  </div>
+              </div>                         
+            </div>
+            <hr>
+
+            <div class="display-flex no-wrap flex-valign-center flex-halign-center m-t-10">
+                <button type="submit" [disabled]="this.inProgress" class="btn btn-primary clientApp-style">
+                    <div class="display-flex">
+                        <div *ngIf="inProgress" class="spinner-border spinner-border-sm prelative top-3 right-10" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                        <div class="m-lr-5" i18n="@@update">Update</div>
+                    </div>
+                </button>
+                
+            </div>
+            <p class="p-t-20" *ngIf="profileErrors.length > 0">
+              <ngb-alert #alert type="danger" (close)="profileErrors = []">
+                <span *ngFor="let text of profileErrors">{{text}}</span>
+              </ngb-alert>
+            </p>
+          </form>        
+      </div>
+    </div>
+  </div>
+</div>
+
+<swal
+#swalComp 
+type="success">
+</swal>

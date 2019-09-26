@@ -1,0 +1,21 @@
+@import '../../../scss/appvariables';
+.unstyled-list{
+    padding: 0px;
+    li{
+        list-style: none;
+        padding: 10px 0px;
+
+        a{
+            color: $nativeColor;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        &:hover {
+            border-bottom: thin solid $gray;
+            a {
+                font-weight: bold;
+            }
+        }
+    }
+}

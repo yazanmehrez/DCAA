@@ -1,0 +1,49 @@
+@import "../../../../variables";
+
+.login-icon {
+  font-size: 1.3rem;
+}
+
+.fbcolor {
+  color: #3b5998;
+}
+
+.googlecolor {
+  color: #dc4e41;
+}
+
+.nav-pills .nav-link {
+  padding: 1em 3.25em;
+  background-color: $secondary-background;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background-color: $white;
+}
+
+.form-group input {
+  border-radius: 0;
+  border-left: $border-size solid $primary;
+
+  &:focus {
+    outline: 0;
+    box-shadow: none;
+  }
+}
+
+.forget-pass {
+  cursor: pointer;
+}
+
+.mat-checkbox-checked .mat-checkbox-checkmark-path {
+  stroke: #d85251 !important;
+  stroke-width: 5px;
+}
+
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  border: 2px solid #d85251;
+}
+
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #fff;
+}

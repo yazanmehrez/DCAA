@@ -1,0 +1,25 @@
+<main role="main" class="col-xs-12 shape-back">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-lg-2">
+          <ul class="unstyled-list m-t-30">
+            <li class="display-flex flex-valign-center">
+                <div class="icon-chevron-right primary-text"></div>
+              <a [routerLink]="['/account/profile']" routerLinkActive="router-link-active"  class="cursor-pointer bigger m-lr-10">View Profile</a>
+            </li>
+            <li class="display-flex flex-valign-center">
+                <div class="icon-chevron-right primary-text"></div>
+                <a [routerLink]="['/account/changeemail']" routerLinkActive="router-link-active"  class="cursor-pointer bigger m-lr-10">Change Email</a>
+            </li>
+            <li class="display-flex flex-valign-center">
+                <div class="icon-chevron-right primary-text"></div>
+              <a [routerLink]="['/account/changepassword']" routerLinkActive="router-link-active"  class="cursor-pointer bigger m-lr-10">Change Password</a>
+            </li>            
+          </ul>
+        </div>
+        <div class="col-sm-9 col-lg-10">
+          <router-outlet></router-outlet>
+        </div>
+    </div>
+  </div>
+</main>

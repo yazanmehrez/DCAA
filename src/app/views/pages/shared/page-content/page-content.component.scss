@@ -1,0 +1,41 @@
+@import "../../../../../variables";
+
+.list-group {
+  background: $secondary-background;
+}
+
+.nav-item {
+  background: $secondary-background;
+  border-right: 1px solid $white;
+
+  a {
+    color: $black;
+  }
+}
+
+.card {
+  border-radius: 0;
+  border: 0;
+
+  .card-img {
+    border: 0;
+  }
+
+  a {
+    font-size: 0.900em;
+  }
+
+  p {
+    font-size: 0.850em;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    p:after {
+      width: 100%;
+    }
+  }
+}
+
+

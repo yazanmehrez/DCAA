@@ -1,0 +1,56 @@
+<div class="p-lr-20 p-tb-5 gray-back gray-color gray-border">
+    <div *ngIf="headertitle" class="display-flex flex-valign-center">
+        <div class="bigger font-weight-bolder">{{headertitle}}</div>
+        <div><mat-slide-toggle (change)="changeToggle($event)" [(ngModel)]="mode3d" color="primary">{{this.mode3d ? '3D' : '2D'}}</mat-slide-toggle></div>
+        <div ngbDropdown class="d-inline-block m-l-20">
+            <button class="btn btn-light big-icon" id="dropdownBasic1" ngbDropdownToggle><i class="icon-bar-chart"></i></button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="ng-l-113">
+                <button *ngFor="let item of chartTypes" (click)="changeType($event,item.name)" ngbDropdownItem><span class="font-weight-bolder">{{item.caption}}</span></button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="this.mode3d">
+        <hr>
+        <div class="display-flex flex-valign-center">
+            <div class="alpha">
+                <h6 class="font-weight-bolder m-t-0 m-b-0">Alpha</h6>
+                <mat-slider (change)="change3D($event, 'alpha')"
+                    class="example-margin"
+                    [max]="45"
+                    [min]="0"
+                    [step]="1"
+                    [thumbLabel]="true"
+                    [tickInterval]="tickInterval"
+                    [(ngModel)]="alpha">
+                </mat-slider>
+            </div>
+            <div class="beta m-lr-20">
+                <h6 class="font-weight-bolder m-t-0 m-b-0">Beta</h6>
+                <mat-slider (change)="change3D($event, 'beta')"
+                    class="example-margin"
+                    [max]="45"
+                    [min]="-45"
+                    [step]="1"
+                    [thumbLabel]="true"
+                    [tickInterval]="tickInterval"
+                    [(ngModel)]="beta">
+                </mat-slider>
+            </div>
+            <div class="depth">
+                <h6 class="font-weight-bolder m-t-0 m-b-0">Depth</h6>
+                <mat-slider (change)="change3D($event, 'depth')"
+                    class="example-margin"
+                    [max]="100"
+                    [min]="20"
+                    [step]="1"
+                    [thumbLabel]="true"
+                    [tickInterval]="tickInterval"
+                    [(ngModel)]="depth">
+                </mat-slider>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="chart-container" [chart]="chart"></div>

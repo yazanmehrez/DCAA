@@ -1,0 +1,27 @@
+<div class="dcaa-about-us">
+  <dcaa-page-banner
+    [Title]="'About Us'"
+    [Section]="'Our Vision & Mission'"
+    [Image]="'assets/images/HEADER-IMAGE.png'"
+  >
+  </dcaa-page-banner>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 b-extra">
+        <div class="row">
+          <div class="col-md-2">
+            <ul class="list-group with-separator nav pt-5" id="list-tab" role="tablist">
+              <li *ngFor="let nav of NavListData" class="nav-link light-border">{{nav.name}}</li>
+            </ul>
+          </div>
+          <div class="col-md-10 pt-5">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

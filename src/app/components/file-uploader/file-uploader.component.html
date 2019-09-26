@@ -1,0 +1,147 @@
+<ngx-gallery style="position: absolute" #ngxGalleryComp [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+<div class="progress-bar" *ngIf="(progress > 0 && progress < 100)" [style.width]="progress + '%'">{{progress + '%'}}</div>
+<div *ngIf="uploadType == 'default'" class="file-upload-wrapper {{classNames}}">
+
+    <input type="hidden" [name]="inputname" [value]="finalResultString | helper:'clearundefined'">
+    <div *ngIf="!previewFs" class="avatar-if-noselection">
+        <img src="../../assets/images/Screenshot_7.png" alt="">
+    </div>
+    <div #previewDiv id="previewDiv" [class.floating-preview]="floatingPreview" class="preview-upload" [class.show]="previewFs">
+        <div class="display-flex flex-halign-center" [ngSwitch]="whatFileType(previewFs)">
+            <div *ngSwitchCase="'image'" class="">
+                <img style="max-width: 100%;border-radius:15px;" [src]="previewFs?.fileLocation | helper:'rewriteUrlThumb'">
+            </div> 
+            <div *ngSwitchCase="'video'" class="preview-object-fit">
+                <video style="max-width: 100%;border-radius:5px;" controls="true" [poster]="previewFs?.videoThumbnail | helper:'rewriteUrl'" [src]="previewFs?.fileLocation | helper:'rewriteUrl'"></video>
+            </div> 
+            <div *ngSwitchCase="'pdf'" class="preview-object-fit">
+                <iframe style="max-width: 100%;border-radius:5px;" [src]="previewFs?.fileLocation | helper:'rewriteUrl' | helper:'sanitize'" frameborder="0"></iframe>
+                <!-- <img [src]="previewFs?.pdfImage | helper:'rewriteUrl'"> -->
+            </div>
+            <div *ngSwitchCase="'othervalid'" class="preview-object-fit">
+                
+            </div> 
+            <div *ngSwitchDefault class="others">
+                
+            </div>
+        </div>
+        <div class="floated display-flex">
+            <div (click)="openGallery()" ngbTooltip="Preview Fullscreen" placement="left" class="preview-gallery-image display-flex flex-valign-center flex-halign-center"><i class="icon-maximize"></i></div>
+            <div (click)="hidePreview($event)" ngbTooltip="Minimize" placement="left" class="m-lr-10 preview-gallery-image more display-flex flex-valign-center flex-halign-center"><i class="icon-minimize-2"></i></div>
+        </div>
+
+        <div *ngIf="!isStatic" class="display-flex flex-halign-center flex-valign-center absolute-center options-bag">
+            <button type="button" (click)="hidePreview($event)" ngbTooltip="Minimize" placement="bottom" class="btn btn-secondary m-lr-10"><i class="icon-minimize-2"></i></button>
+            <button type="button" (click)="deletefile($event)" ngbTooltip="Delete" placement="bottom" class="btn btn-danger m-lr-10"><i class="icon-close"></i></button>
+        </div>
+    </div>
+
+ 
+    <div class="display-flex flex-valign-center">
+        <div *ngIf="(!previewmode && !isStatic) && fileSystems.length < maximumUpload" class="add-file display-flex flex-valign-center flex-halign-center">
+            <div class="file-container cursor-pointer">
+                <i [class.smallerAdd]="smallerAdd" [class.icon-image]="accept == 'image/*'" [class.icon-plus]="accept != 'image/*'" class="big-font-icon prelative top-2"></i>
+                <input type="file" [accept]="accept" (change)="onFileSelectChange($event)" name="" class="absolute-center link-pointer cursor-pointer" id="">
+            </div>        
+        </div>
+    
+        <div cdkDropList cdkDropListOrientation="horizontal" class="drag-list display-flex flex-valign-center" (cdkDropListDropped)="drop($event)">
+            <div [cdkDragDisabled]="fileSystems.length < 2" cdkDrag cdkDragLockAxis="x" cdkDragBoundary=".drag-list" *ngFor="let fs of fileSystems; let i = index" class="uploaded-file-container drag-box" [class.no-margin-left-me]="previewmode || isStatic || fileSystems.length >= maximumUpload">
+                <div [ngSwitch]="whatFileType(fs)">
+                    <div (click)="moreOption(fs, i)" *ngSwitchCase="'image'" class="object-fit">
+                        <img [src]="fs.fileLocation | helper:'rewriteUrlsmall'">
+                    </div> 
+                    <div (click)="moreOption(fs, i)" *ngSwitchCase="'video'" class="object-fit">
+                        <img [src]="fs.videoThumbnail | helper:'rewriteUrl'">
+                    </div> 
+                    <div (click)="moreOption(fs, i)" *ngSwitchCase="'pdf'" [class.others]="!fs.pdfImage" class="object-fit">
+                        <img *ngIf="fs.pdfImage" [src]="fs.pdfImage | helper:'rewriteUrl'">
+                        <div *ngIf="!fs.pdfImage" class="file-ext display-flex flex-valign-center flex-halign-center">{{fs.fileExtension | helper:'fileExt'}}</div>
+                    </div> 
+                    <div (click)="moreOption(fs, i)" *ngSwitchCase="'othervalid'" class="object-fit">
+                        <img [src]="fs.otherFileThumbnail | helper:'rewriteUrl'">
+                    </div> 
+                    <div (click)="moreOption(fs, i)" *ngSwitchDefault class="others">
+                        <div class="file-ext display-flex flex-valign-center flex-halign-center">{{fs.fileExtension | helper:'fileExt'}}</div>
+                    </div>           
+                </div>                                     
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="uploadType == 'profilePhoto'" class="profile_photo_wrapper">
+    <input type="hidden" [name]="inputname" [value]="finalResultString | helper:'clearundefined'">
+    <div class="display-flex flex-halign-center">
+        <div class="profile-rim p-tb-10 p-lr-10">
+            <div class="profile-wrapper prelative">
+                <img *ngIf="fileSystems.length == 0" src="../../assets/images/nophoto.svg" class="dummy m-t-neg5" alt="">
+                <img *ngIf="fileSystems.length > 0" [src]="fileSystems[0].fileLocation | helper:'rewriteUrlThumb':'medium'" alt="">
+                <div class="absolute-center display-flex flex-valign-center flex-halign-center wall-paper">
+                    <i class="icon-image font-30 text-primary"></i>
+                    <input type="file" accept="images/*" (change)="onFileSelectChange($event, true)" title="" name="" class="absolute-center link-pointer no-opacity full-width" id="">
+                </div>
+    
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="uploadType == 'wallpaper'" class="wallpaper_photo_wrapper">
+    <input type="hidden" [name]="inputname" [value]="finalResultString | helper:'clearundefined'">
+    <div class="display-flex flex-halign-center">
+        <div class="wallpaper-wrapper">
+            <div class="wallpaper-wrapper prelative">
+                <img *ngIf="fileSystems.length == 0" src="../../assets/images/wallpaper.png" class="dummy m-t-neg5" alt="">
+                <img *ngIf="fileSystems.length > 0" [src]="fileSystems[0].fileLocation | helper:'rewriteUrlmax':'medium'" alt="">
+                <div *ngIf="!isStatic" class="absolute-center display-flex flex-valign-center flex-halign-center wall-paper">
+                    <i *ngIf="!inProgress" class="icon-image font-30 text-primary"></i>
+                    <div *ngIf="inProgress" class="spinner-border primary-color spinner-border-md" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <input type="file" accept="images/*" (change)="onFileSelectChange($event, true)" title="" name="" class="absolute-center link-pointer no-opacity full-width" id="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="uploadType == 'videowallpaper'" class="wallpaper_photo_wrapper">
+    <input type="hidden" [name]="inputname" [value]="finalResultString | helper:'clearundefined'">
+    <div class="display-flex flex-halign-center">
+        <div class="wallpaper-wrapper video-type">
+            <div class="wallpaper-wrapper prelative">
+                <img *ngIf="fileSystems.length == 0" src="../../assets/images/wallpaper.png" class="dummy m-t-neg5" alt="">
+                <video *ngIf="fileSystems.length > 0" style="max-width: 100%;border-radius:20px;" controls="true" [poster]="fileSystems[0].videoThumbnail | helper:'rewriteUrl'" [src]="fileSystems[0].fileLocation | helper:'rewriteUrl'"></video>
+                <div *ngIf="!isStatic" class="absolute-center display-flex flex-valign-center flex-halign-center wall-paper">
+                    <i *ngIf="!inProgress" class="icon-paperclip font-30 text-primary"></i>
+                    <div *ngIf="inProgress" class="spinner-border primary-color spinner-border-md" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <input type="file" accept="video/*" (change)="onFileSelectChange($event, true)" title="" name="" class="absolute-center link-pointer no-opacity full-width" id="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="uploadType == 'default_inline'" class="normal_fileupload_wrapper" [class.clientApp-button]="defaultInlineType">
+    <input type="hidden" [name]="inputname" [value]="finalResultString | helper:'clearundefined'">
+    <input type="file" [accept]="accept" (change)="onFileSelectChange($event, true)" title="" name="" class="absolute-center link-pointer no-opacity full-width" id="default-input">
+    <div class="display-flex">
+        <div *ngIf="inProgress" class="spinner-border primary-color spinner-border-md" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <label class="display-flex bigger" *ngIf="fileSystems.length == 0" for="default-input"><i class="icon-paperclip"></i><span class="text-ellipsis">{{defaultInlineCaption}}</span></label>
+        <label class="display-flex bigger" *ngIf="fileSystems.length > 0" for="default-input"><i class="icon-paperclip"></i><span class="text-ellipsis">{{fileSystems[0].fileName}}</span></label>        
+    </div>
+    <button type="button" *ngIf="fileSystems.length > 0" (click)="deleteFileEvent(fileSystems[0])" ngbTooltip="Delete" placement="bottom" class="btn btn-danger delete-file-icon"><i class="icon-close"></i></button>
+</div>
+
+<swal
+#swalComp 
+type="success">
+</swal>

@@ -1,0 +1,10 @@
+@import "../../../../../variables";
+
+.nav-item {
+  background: $secondary-background;
+  border-right: 1px solid $white;
+
+  a {
+    color: $black;
+  }
+}
