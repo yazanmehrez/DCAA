@@ -1,201 +1,278 @@
-<ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link border-up-box active text-uppercase" id="pills-login-tab" data-toggle="pill"
-       (click)="formId = 1" role="tab" aria-controls="pills-login" aria-selected="true">LOGIN</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link border-up-box text-uppercase" id="pills-register-tab" data-toggle="pill"
-       (click)="formId = 2" role="tab" aria-controls="pills-register" aria-selected="false">SIGN UP</a>
-  </li>
+<ul class="nav nav-pills mb-2 justify-content-center" id="pills-tab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link border-up-box active text-uppercase" id="pills-login-tab" data-toggle="pill"
+           (click)="formId = 1" role="tab" aria-controls="pills-login" aria-selected="true">LOGIN</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link border-up-box text-uppercase" id="pills-register-tab" data-toggle="pill"
+           (click)="formId = 2" role="tab" aria-controls="pills-register" aria-selected="false">SIGN UP</a>
+    </li>
 </ul>
 
 <div *ngIf="formId == 1" class="login-form">
-  <form [formGroup]="loginForm" (ngSubmit)="login()" class="px-4 py-3">
-    <h6 class="text-primary font-weight-bold m-b-15 text-uppercase" i18n="@@registeredmember">Customer Login</h6>
-    <div class="form-group">
-      <span>Username <span class="text-primary">*</span></span>
-      <input formControlName="userName" [ngClass]="{ 'is-invalid': loginSubmitted && l.userName.errors }" type="text"
-             class="form-control round-border" id="username" i18n-placeholder="@@usernameOrEmail"
-             placeholder="Username / Email">
-      <div *ngIf="loginSubmitted && l.userName.errors" class="invalid-feedback">
-        <div *ngIf="l.userName.errors.required" i18n="@@usernameEmailrequired">Username or email is required</div>
-        <div *ngIf="l.userName.errors.cannotContainSpace" i18n="@@usernameEmailNoSpace">UserName or email cannot contain
-          space
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="px-4 py-3">
+        <h6 class="text-primary font-weight-bold m-b-15 text-uppercase" i18n="@@registeredmember">Customer Login</h6>
+        <div class="form-group">
+            <span>Username <span class="text-primary">*</span></span>
+            <input formControlName="userName" [ngClass]="{ 'is-invalid': loginSubmitted && l.userName.errors }"
+                   type="text"
+                   class="form-control round-border" id="username" i18n-placeholder="@@usernameOrEmail"
+                   placeholder="Username / Email">
+            <div *ngIf="loginSubmitted && l.userName.errors" class="invalid-feedback">
+                <div *ngIf="l.userName.errors.required" i18n="@@usernameEmailrequired">Username or email is required
+                </div>
+                <div *ngIf="l.userName.errors.cannotContainSpace" i18n="@@usernameEmailNoSpace">UserName or email cannot
+                    contain
+                    space
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <span>Password <span class="text-primary">*</span></span>
-      <input formControlName="password" [ngClass]="{ 'is-invalid': loginSubmitted && l.password.errors }"
-             type="password" class="form-control round-border" id="exampleDropdownFormPassword1"
-             i18n-placeholder="@@password" placeholder="Password">
-      <div *ngIf="loginSubmitted && l.password.errors" class="invalid-feedback">
-        <div *ngIf="l.password.errors.required" i18n="@@passwordrequired">Password is required</div>
-        <div *ngIf="l.password.errors.cannotContainSpace" i18n="@@passwordNoSpace">Password cannot contain space</div>
-      </div>
-    </div>
-    <div class="d-flex justify-content-between">
-      <mat-checkbox color="accent" i18n="@@rememberme">Keep me logged in</mat-checkbox>
-      <span class="forget-pass" (click)="formId = 3" i18n="@@forgotpasswordAsk">Forgot Password</span>
-    </div>
-    <div class="form-group captcha-wrapper">
-      <re-captcha formControlName="captchaResponse"></re-captcha>
-    </div>
-    <div class="display-flex no-wrap flex-valign-center m-t-10">
-      <div class="d-flex">
-        <div class="d-flex">
-          <div class="mr-2" i18n="@@signin">
-            <button type="submit" [disabled]="this.inProgress"
-                    class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
-              <div *ngIf="inProgress" class="spinner-border spinner-border-sm mr-2" role="status">
-                <span class="sr-only">Loading...</span>
-              </div>
-              Login
-            </button>
-          </div>
-          <div i18n="@@cancel">
-            <button class="btn btn-lg btn-primary py-1 pl-4 pr-4">Cancel</button>
-          </div>
+        <div class="form-group">
+            <span>Password <span class="text-primary">*</span></span>
+            <input formControlName="password" [ngClass]="{ 'is-invalid': loginSubmitted && l.password.errors }"
+                   type="password" class="form-control round-border" id="exampleDropdownFormPassword1"
+                   i18n-placeholder="@@password" placeholder="Password">
+            <div *ngIf="loginSubmitted && l.password.errors" class="invalid-feedback">
+                <div *ngIf="l.password.errors.required" i18n="@@passwordrequired">Password is required</div>
+                <div *ngIf="l.password.errors.cannotContainSpace" i18n="@@passwordNoSpace">Password cannot contain
+                    space
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="display-flex">
-        <a (click)="signInWithFB()" class="cursor-pointer btn-icon m-lr-5">
-          <i class="icon-facebook1 login-icon fbcolor"></i>
-        </a>
-        <a (click)="signInWithGoogle()" class="cursor-pointer btn-icon m-lr-5">
-          <i class="icon-googlelogo login-icon googlecolor"></i>
-        </a>
-      </div>
-    </div>
+        <div class="social-login d-flex justify-content-between mt-2 mb-2">
+            <a class="btn btn-primary border-0 mr-2 d-flex align-items-center justify-content-center py-1 pl-3 pr-4 uae-pass">
+                <span class="icon-facebook mr-2"></span>
+                <div class="d-flex flex-column text-left">
+                    <span>Login With</span>
+                    <a>UAE Pass</a>
+                </div>
+            </a>
+            <a class="btn btn-primary border-0 mr-2 d-flex align-items-center justify-content-center py-1 pl-3 pr-4 facebook">
+                <span class="icon-facebook mr-2"></span>
+                <div class="d-flex flex-column text-left">
+                    <span>Login With</span>
+                    <a>Facebook</a>
+                </div>
+            </a>
+            <a class="btn btn-primary border-0 d-flex align-items-center justify-content-center py-1 pl-3 pr-4 google">
+                <span class="icon-facebook mr-2"></span>
+                <div class="d-flex flex-column text-left">
+                    <span>Login With</span>
+                    <a>Google</a>
+                </div>
+            </a>
+        </div>
+        <div class="d-flex justify-content-between">
+            <mat-checkbox color="accent" i18n="@@rememberme">Keep me logged in</mat-checkbox>
+            <span class="forget-pass" (click)="formId = 3" i18n="@@forgotpasswordAsk">Forgot Password</span>
+        </div>
+        <div class="form-group captcha-wrapper">
+            <re-captcha formControlName="captchaResponse"></re-captcha>
+        </div>
+        <div class="display-flex no-wrap m-t-10">
+            <div class="d-flex">
+                <div class="d-flex">
+                    <div class="mr-2" i18n="@@signin">
+                        <button type="submit" [disabled]="this.inProgress"
+                                class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
+                            <div *ngIf="inProgress" class="spinner-border spinner-border-sm mr-2" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            Login
+                        </button>
+                    </div>
+                    <div i18n="@@cancel">
+                        <button type="button" class="btn btn-lg btn-primary py-1 pl-4 pr-4" (click)="dialog.closeAll()">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="display-flex">
+                <a (click)="signInWithFB()" class="cursor-pointer btn-icon m-lr-5">
+                    <i class="icon-facebook1 login-icon fbcolor"></i>
+                </a>
+                <a (click)="signInWithGoogle()" class="cursor-pointer btn-icon m-lr-5">
+                    <i class="icon-googlelogo login-icon googlecolor"></i>
+                </a>
+            </div>
+        </div>
 
-  </form>
-  <p class="p-lr-20" *ngIf="loginErrors.length > 0">
-    <ngb-alert #alert type="danger" (close)="loginErrors = []">
-      <span *ngFor="let text of loginErrors">{{text}}</span>
-    </ngb-alert>
-  </p>
-  <!--  <div class="dropdown-divider"></div>-->
-  <!--  <button ngbDropdownItem (click)="formId = 2" i18n="@@signUpAsk">New around here? Sign up</button>-->
-  <!--  <button ngbDropdownItem (click)="formId = 3" i18n="@@forgotpasswordAsk">Forgot password?</button>-->
+    </form>
+    <p class="p-lr-20" *ngIf="loginErrors.length > 0">
+        <ngb-alert #alert type="danger" (close)="loginErrors = []">
+            <span *ngFor="let text of loginErrors">{{text}}</span>
+        </ngb-alert>
+    </p>
+    <!--  <div class="dropdown-divider"></div>-->
+    <!--  <button ngbDropdownItem (click)="formId = 2" i18n="@@signUpAsk">New around here? Sign up</button>-->
+    <!--  <button ngbDropdownItem (click)="formId = 3" i18n="@@forgotpasswordAsk">Forgot password?</button>-->
 </div>
 
 <div *ngIf="formId == 2" class="registration-form">
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="px-4 py-3">
+        <h6 class="text-primary font-weight-bold m-b-15 text-uppercase" i18n="@@regWithUs">Customer Signup</h6>
 
-  <form [formGroup]="registerForm" (ngSubmit)="register()" class="px-4 py-3">
-    <h5 class="text-secondary font-weight-bold m-b-15" i18n="@@regWithUs">Register with us</h5>
-    <div class="form-group">
-      <input autocomplete="new-nothing" type="text" i18n-placeholder="@@selectLocale" placeholder="Select your city"
-             formControlName="localeId" [matAutocomplete]="auto" (blur)="smallAssignBox = true"
-             class="form-control round-border">
-      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-        <mat-option (onSelectionChange)="localeSelected(locale)" *ngFor="let locale of filteredLocale | async"
-                    [value]="locale.localeId">
-          <i class="icon-map"></i>
-          <span class="small-text m-lr-7 font-weight-bold">{{locale.city}}, {{locale.country}}</span>
-        </mat-option>
-      </mat-autocomplete>
-    </div>
-    <div class="form-group">
-      <input formControlName="firstName" [ngClass]="{ 'is-invalid': regSubmitted && r.firstName.errors }" type="text"
-             class="form-control round-border" id="firstname" i18n-placeholder="@@firstname" placeholder="Firstname">
-      <div *ngIf="regSubmitted && r.firstName.errors" class="invalid-feedback">
-        <div *ngIf="r.firstName.errors.required" i18n="@@firstnameRequired">Firstname is required</div>
-      </div>
-    </div>
-    <div class="form-group">
-      <input formControlName="lastName" [ngClass]="{ 'is-invalid': regSubmitted && r.lastName.errors }" type="text"
-             class="form-control round-border" id="lastname" i18n-placeholder="@@lastname" placeholder="Lastname">
-      <div *ngIf="regSubmitted && r.lastName.errors" class="invalid-feedback">
-        <div *ngIf="r.lastName.errors.required" i18n="@@lastnamerequired">Lastname is required</div>
-      </div>
-    </div>
-    <div class="form-group">
-      <input formControlName="userName" [ngClass]="{ 'is-invalid': regSubmitted && r.userName.errors }" type="text"
-             class="form-control round-border" id="username" i18n-placeholder="@@username" placeholder="Username">
-      <div *ngIf="regSubmitted && r.userName.errors" class="invalid-feedback">
-        <div *ngIf="r.userName.errors.required" i18n="@@usernamerequired">Username is required</div>
-        <div *ngIf="r.userName.errors.cannotContainSpace" i18n="@@usernameNoSpace">Username cannot contain space</div>
-      </div>
-    </div>
-    <div class="form-group">
-      <input formControlName="email" [ngClass]="{ 'is-invalid': regSubmitted && r.email.errors }" type="email"
-             class="form-control round-border" id="email" i18n-placeholder="@@email" placeholder="Email address">
-      <div *ngIf="regSubmitted && r.email.errors" class="invalid-feedback">
-        <div *ngIf="r.email.errors.required" i18n="@@emailrequired">Email is required</div>
-        <div *ngIf="r.email.errors.cannotContainSpace" i18n="@@emailNoSpace">Email cannot contain space</div>
-        <div *ngIf="r.email.errors.email" i18n="@@invalidEmail">Invalid email address</div>
-      </div>
-    </div>
-    <div class="form-group">
-      <input formControlName="password" [ngClass]="{ 'is-invalid': regSubmitted && r.password.errors }" type="password"
-             class="form-control round-border" id="password" i18n-placeholder="@@password" placeholder="Password">
-      <div *ngIf="regSubmitted && r.password.errors" class="invalid-feedback">
-        <div *ngIf="r.password.errors.required" i18n="@@passwordrequired">Password is required</div>
-        <div *ngIf="r.password.errors.minlength" i18n="@@passwordMinLength">Password must be at least 6 characters</div>
-        <div *ngIf="r.password.errors.cannotContainSpace" i18n="@@passwordNoSpace">Password cannot contain space</div>
-      </div>
-    </div>
-    <div class="form-group">
-      <input formControlName="confirmPassword" [ngClass]="{ 'is-invalid': regSubmitted && r.confirmPassword.errors }"
-             type="password" class="form-control round-border" id="confirmpassword" i18n-placeholder="@@confirmpass"
-             placeholder="Confirm password">
-      <div *ngIf="regSubmitted && r.confirmPassword.errors" class="invalid-feedback">
-        <div *ngIf="r.confirmPassword.errors.required" i18n="@@confirmpasswordRequired">Confirm Password is required
+        <div class="form-group">
+            <input autocomplete="new-nothing" type="text" i18n-placeholder="@@selectLocale"
+                   placeholder="Select your city"
+                   formControlName="localeId" [matAutocomplete]="auto" (blur)="smallAssignBox = true"
+                   class="form-control round-border">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option (onSelectionChange)="localeSelected(locale)" *ngFor="let locale of filteredLocale | async"
+                            [value]="locale.localeId">
+                    <i class="icon-map"></i>
+                    <span class="small-text m-lr-7 font-weight-bold">{{locale.city}}, {{locale.country}}</span>
+                </mat-option>
+            </mat-autocomplete>
         </div>
-        <div *ngIf="r.confirmPassword.errors.mustMatch" i18n="@@passwordMatch">Passwords must match</div>
-      </div>
-    </div>
-    <button type="submit" [disabled]="this.inProgress" class="btn btn-secondary clientApp-style kno m-t-10">
-      <div class="display-flex">
-        <div *ngIf="inProgress" class="spinner-border spinner-border-sm prelative top-3 right-10" role="status">
-          <span class="sr-only" i18n-placeholder="@@loading">Loading...</span>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <span>First Name <span class="text-primary">*</span></span>
+                <input formControlName="firstName" [ngClass]="{ 'is-invalid': regSubmitted && r.firstName.errors }"
+                       type="text"
+                       class="form-control round-border" id="firstname" i18n-placeholder="@@firstname"
+                       placeholder="Firstname">
+                <div *ngIf="regSubmitted && r.firstName.errors" class="invalid-feedback">
+                    <div *ngIf="r.firstName.errors.required" i18n="@@firstnameRequired">Firstname is required</div>
+                </div>
+            </div>
+            <div class="col-md-6 form-group">
+                <span>Last Name <span class="text-primary">*</span></span>
+                <input formControlName="lastName" [ngClass]="{ 'is-invalid': regSubmitted && r.lastName.errors }"
+                       type="text"
+                       class="form-control round-border" id="lastname" i18n-placeholder="@@lastname"
+                       placeholder="Lastname">
+                <div *ngIf="regSubmitted && r.lastName.errors" class="invalid-feedback">
+                    <div *ngIf="r.lastName.errors.required" i18n="@@lastnamerequired">Lastname is required</div>
+                </div>
+            </div>
         </div>
-        <div class="m-lr-5" i18n="@@register">Register</div>
-      </div>
-    </button>
-  </form>
-  <p class="p-lr-20" *ngIf="regErrors.length > 0">
-    <ngb-alert #alert type="danger" (close)="regErrors = []">
-      <span *ngFor="let text of regErrors">{{text}}</span>
-    </ngb-alert>
-  </p>
-  <div class="dropdown-divider"></div>
-  <button ngbDropdownItem (click)="formId = 1" i18n="@@signinAsk">Already have an account? Sign in</button>
-  <button ngbDropdownItem (click)="formId = 3" i18n="@@forgotpasswordAsk">Forgot password?</button>
+        <div class="form-group">
+            <span>Userame <span class="text-primary">*</span></span>
+
+            <input formControlName="userName" [ngClass]="{ 'is-invalid': regSubmitted && r.userName.errors }"
+                   type="text"
+                   class="form-control round-border" id="username" i18n-placeholder="@@username" placeholder="Username">
+            <div *ngIf="regSubmitted && r.userName.errors" class="invalid-feedback">
+                <div *ngIf="r.userName.errors.required" i18n="@@usernamerequired">Username is required</div>
+                <div *ngIf="r.userName.errors.cannotContainSpace" i18n="@@usernameNoSpace">Username cannot contain
+                    space
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <span>Email <span class="text-primary">*</span></span>
+            <input formControlName="email" [ngClass]="{ 'is-invalid': regSubmitted && r.email.errors }" type="email"
+                   class="form-control round-border" id="email" i18n-placeholder="@@email" placeholder="Email address">
+            <div *ngIf="regSubmitted && r.email.errors" class="invalid-feedback">
+                <div *ngIf="r.email.errors.required" i18n="@@emailrequired">Email is required</div>
+                <div *ngIf="r.email.errors.cannotContainSpace" i18n="@@emailNoSpace">Email cannot contain space</div>
+                <div *ngIf="r.email.errors.email" i18n="@@invalidEmail">Invalid email address</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <span>Password <span class="text-primary">*</span></span>
+                <input formControlName="password" [ngClass]="{ 'is-invalid': regSubmitted && r.password.errors }"
+                       type="password"
+                       class="form-control round-border" id="password" i18n-placeholder="@@password"
+                       placeholder="Password">
+                <div *ngIf="regSubmitted && r.password.errors" class="invalid-feedback">
+                    <div *ngIf="r.password.errors.required" i18n="@@passwordrequired">Password is required</div>
+                    <div *ngIf="r.password.errors.minlength" i18n="@@passwordMinLength">Password must be at least 6
+                        characters
+                    </div>
+                    <div *ngIf="r.password.errors.cannotContainSpace" i18n="@@passwordNoSpace">Password cannot contain
+                        space
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 form-group">
+                <span>Confirm Password <span class="text-primary">*</span></span>
+                <input formControlName="confirmPassword"
+                       [ngClass]="{ 'is-invalid': regSubmitted && r.confirmPassword.errors }"
+                       type="password" class="form-control round-border" id="confirmpassword"
+                       i18n-placeholder="@@confirmpass"
+                       placeholder="Confirm password">
+                <div *ngIf="regSubmitted && r.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="r.confirmPassword.errors.required" i18n="@@confirmpasswordRequired">Confirm Password is
+                        required
+                    </div>
+                    <div *ngIf="r.confirmPassword.errors.mustMatch" i18n="@@passwordMatch">Passwords must match</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div class="d-flex">
+                <div class="mr-2" i18n="@@cancel">
+                    <button type="submit" [disabled]="this.inProgress"
+                            class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
+                        <div *ngIf="inProgress" class="spinner-border spinner-border-sm mr-2" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        Submit
+                    </button>
+                </div>
+                <div i18n="@@cancel">
+                    <button type="button" class="btn btn-lg btn-primary py-1 pl-4 pr-4" (click)="dialog.closeAll()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+
+            <!--<div *ngIf="inProgress" class="spinner-border spinner-border-sm prelative top-3 right-10" role="status">-->
+            <!--<span class="sr-only" i18n-placeholder="@@loading">Loading...</span>-->
+            <!--</div>-->
+            <!--<div class="m-lr-5" i18n="@@register">Register</div>-->
+        </div>
+    </form>
+    <p class="p-lr-20" *ngIf="regErrors.length > 0">
+        <ngb-alert #alert type="danger" (close)="regErrors = []">
+            <span *ngFor="let text of regErrors">{{text}}</span>
+        </ngb-alert>
+    </p>
+    <div class="dropdown-divider"></div>
+    <!--<button ngbDropdownItem (click)="formId = 1" i18n="@@signinAsk">Already have an account? Sign in</button>-->
+    <!--<button ngbDropdownItem (click)="formId = 3" i18n="@@forgotpasswordAsk">Forgot password?</button>-->
 </div>
 
 <div *ngIf="formId == 3" class="forgotpassword-form">
-  <form [formGroup]="fpForm" (ngSubmit)="forgotPassword()" class="px-4 py-3">
-    <h5 class="text-secondary font-weight-bold m-b-15" i18n="@@resporePassword">Restore password</h5>
-    <div class="form-group">
-      <input formControlName="userName" [ngClass]="{ 'is-invalid': fpSubmitted && fp.userName.errors }" type="text"
-             class="form-control round-border" id="username" i18n-placeholder="@@usernameOrEmail"
-             placeholder="Username / Email">
-      <div *ngIf="fpSubmitted && fp.userName.errors" class="invalid-feedback">
-        <div *ngIf="fp.userName.errors.required" i18n="@@usernameEmailrequired">Username or email is required</div>
-        <div *ngIf="fp.userName.errors.cannotContainSpace" i18n="@@usernameEmailNoSpace">UserName or email cannot
-          contain space
+    <form [formGroup]="fpForm" (ngSubmit)="forgotPassword()" class="px-4 py-3">
+        <h5 class="text-secondary font-weight-bold m-b-15" i18n="@@resporePassword">Restore password</h5>
+        <div class="form-group">
+            <input formControlName="userName" [ngClass]="{ 'is-invalid': fpSubmitted && fp.userName.errors }"
+                   type="text"
+                   class="form-control round-border" id="username" i18n-placeholder="@@usernameOrEmail"
+                   placeholder="Username / Email">
+            <div *ngIf="fpSubmitted && fp.userName.errors" class="invalid-feedback">
+                <div *ngIf="fp.userName.errors.required" i18n="@@usernameEmailrequired">Username or email is required
+                </div>
+                <div *ngIf="fp.userName.errors.cannotContainSpace" i18n="@@usernameEmailNoSpace">UserName or email
+                    cannot
+                    contain space
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <button type="submit" [disabled]="this.inProgress" class="btn btn-secondary clientApp-style kno m-t-10">
-      <div class="display-flex">
-        <div *ngIf="inProgress" class="spinner-border spinner-border-sm prelative top-3 right-10" role="status">
-          <span class="sr-only" i18n="@@loading">Loading...</span>
-        </div>
-        <div class="m-lr-5" i18n="@@submit">Submit</div>
-      </div>
-    </button>
-  </form>
-  <p class="p-lr-20" *ngIf="fpErrors.length > 0">
-    <ngb-alert #alert type="danger" (close)="fpErrors = []">
-      <span *ngFor="let text of fpErrors">{{text}}</span>
-    </ngb-alert>
-  </p>
-  <div class="dropdown-divider"></div>
-  <button ngbDropdownItem (click)="formId = 2" i18n="@@signUpAsk">New around here? Sign up</button>
-  <button ngbDropdownItem (click)="formId = 1" i18n="@@signinAsk">Already have an account? Sign in</button>
+        <button type="submit" [disabled]="this.inProgress" class="btn btn-secondary clientApp-style kno m-t-10">
+            <div class="display-flex">
+                <div *ngIf="inProgress" class="spinner-border spinner-border-sm prelative top-3 right-10" role="status">
+                    <span class="sr-only" i18n="@@loading">Loading...</span>
+                </div>
+                <div class="m-lr-5" i18n="@@submit">Submit</div>
+            </div>
+        </button>
+    </form>
+    <p class="p-lr-20" *ngIf="fpErrors.length > 0">
+        <ngb-alert #alert type="danger" (close)="fpErrors = []">
+            <span *ngFor="let text of fpErrors">{{text}}</span>
+        </ngb-alert>
+    </p>
+    <div class="dropdown-divider"></div>
+    <button ngbDropdownItem (click)="formId = 2" i18n="@@signUpAsk">New around here? Sign up</button>
+    <button ngbDropdownItem (click)="formId = 1" i18n="@@signinAsk">Already have an account? Sign in</button>
 </div>
 
 
