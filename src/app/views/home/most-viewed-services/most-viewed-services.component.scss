@@ -1,33 +1,30 @@
-@import '../services/services.component';
+@import "../../../../variables";
 
+::ng-deep .dcaa-most-viewed-services {
+  .ngucarousel {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
 
-/* equal card height */
-.row-equal > div[class*='col-'] {
-  display: flex;
-  flex: 1 0 auto;
-}
+  .ngucarousel-inner {
+    padding: 8px 0 18px;
+  }
 
-.row-equal .card {
-  width: 100%;
-}
+  .ngucarousel .carousel-left,
+  .ngucarousel .carousel-right {
+    position: absolute;
+    top: calc(50% - 28px);
+    background: #ffffff !important;
+    color: rgba(0, 0, 0, .87);
+  }
 
-/* ensure equal card height inside carousel */
-.carousel-inner>.row-equal.active,
-.carousel-inner>.row-equal.next,
-.carousel-inner>.row-equal.prev {
-  display: flex;
-}
+  .ngucarousel .carousel-left {
+    left: -20px;
+  }
 
-/* prevent flicker during transition */
-.carousel-inner>.row-equal.active.left,
-.carousel-inner>.row-equal.active.right {
-  opacity: 0.5;
-  display: flex;
-}
+  .ngucarousel .carousel-right {
+    right: -20px;
+  }
 
-
-/* control image height */
-.card-img-top-250 {
-  max-height: 250px;
-  overflow:hidden;
 }

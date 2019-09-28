@@ -1,9 +1,18 @@
 <div class="dcaa-partners">
-    <swiper class="swiper-container container d-flex align-items-center justify-content-center" [config]="config">
-      <div *ngFor="let partner of partners;" class="swiper-slide">
-        <div class="card-content">
-          <img [src]="partner">
-        </div>
-      </div>
-    </swiper>
+    <!--<swiper class="swiper-container container d-flex align-items-center justify-content-center" [config]="config">-->
+      <!--<div *ngFor="let partner of partners;" class="swiper-slide">-->
+        <!--<div class="card-content">-->
+          <!--<img [src]="partner">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</swiper>-->
+    <ngu-carousel
+            [inputs]="carouselOptions">
+        <ngu-item NguCarouselItem *ngFor="let partner of partners;">
+                <img [src]="partner">
+        </ngu-item>
+        <button mat-fab NguCarouselPrev class='carousel-left d-none'><i class="fa fa-chevron-left"></i></button>
+        <button mat-fab NguCarouselNext class='carousel-right d-none'><i class="fa fa-chevron-right"></i></button>
+    </ngu-carousel>
+
 </div>
