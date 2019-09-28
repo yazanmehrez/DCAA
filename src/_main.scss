@@ -2,6 +2,7 @@
 @import "icons";
 @import "bootstrap-overrides";
 @import "responsive";
+@import "rtl";
 
 $padding-extra: 100px;
 
@@ -25,13 +26,13 @@ section {
 }
 
 .dark-border {
-  border-left: $border-size solid transparent;
+  border-#{$left}: $border-size solid transparent;
 
   &:hover {
     color: $white;
     cursor: pointer;
     background-color: $primary-background;
-    border-left: $border-size solid $primary;
+    border-#{$left}: $border-size solid $primary;
   }
 }
 
@@ -40,13 +41,13 @@ section {
 }
 
 .light-border {
-  border-left: $border-size solid transparent;
+  border-#{$left}: $border-size solid transparent;
 
   &:hover {
     color: $black;
     cursor: pointer;
     background-color: $lighter-gray;
-    border-left: $border-size solid $primary;
+    border-#{$left}: $border-size solid $primary;
   }
 }
 
@@ -59,7 +60,7 @@ section {
 }
 
 .primary-color, .selected {
-  color: $primary;
+  color: $primary !important;
 }
 
 .border-radius {
@@ -173,9 +174,20 @@ section {
 }
 
 .dcaa-login-register {
-  min-width: 40vw;
+  min-width: 35vw;
 }
 
 .text-primary {
   color: $primary;
+}
+
+.mat-dialog-container {
+  border-bottom: $border-size solid $primary;
+  border-radius: 0 !important;
+}
+
+[lang="ar"] {
+  .mat-dialog-container {
+    direction: rtl;
+  }
 }

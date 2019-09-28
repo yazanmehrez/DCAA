@@ -1,3 +1,49 @@
 {
-  "_Title": "DCAA Dubai Civil Aviation Authority"
+  "_Title": "DCAA Dubai Civil Aviation Authority",
+
+  "_Forms": {
+    "_AlreadyAccount": "Already have an account? ",
+    "_Confirm": "Confirm",
+    "_Cancel": "Cancel",
+    "_CustomerLogin": "Customer Login",
+    "_CustomerSignUp": "Customer SignUp",
+    "_Email": "Email",
+    "_EmailAddress": "Email Address",
+    "_Forgot": "Forgot",
+    "_FName": "First Name",
+    "_KeepLoggedIn": "Keep me logged in",
+    "_Login": "Login",
+    "_LName": "Last Name",
+    "_NewHere": "New around here? ",
+    "_Password": "Password",
+    "_Passwords": "Passwords",
+    "_Restore": "Restore",
+    "_SelectYourCity": "Select your city",
+    "_SignUp": "Sign Up",
+    "_SignIn": "Sign In",
+    "_Submit": "Submit",
+    "_Username": "Username"
+  },
+  "_Validation": {
+    "_ContainSpace": "contain space",
+    "_Invalid": "Invalid",
+    "_Required": "is Required"
+  },
+  "_Social": {
+    "_Facebook": "Facebook",
+    "_Google": "Google"
+  },
+
+  "_AtLeast": "at least",
+  "_Be": "be",
+  "_Cannot": "cannot",
+  "_Must": "must",
+  "_Or": "or",
+  "_With": "with",
+
+  "_Characters": "Characters",
+  "_Loading": "Loading",
+  "_Matched": "matched",
+  "_Select": "Select",
+  "_UAEPass": "UAE Pass"
 }

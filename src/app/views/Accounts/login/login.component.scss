@@ -23,7 +23,7 @@
 
 .form-group input {
   border-radius: 0;
-  border-left: $border-size solid $primary;
+  border-#{$left}: $border-size solid $primary;
 
   &:focus {
     outline: 0;
@@ -46,7 +46,7 @@
     font-size: 1.5em;
   }
 
-  span {
+  .s-sm {
     font-size: 0.60em
   }
 
@@ -66,4 +66,6 @@
   }
 }
 
-
+.form-group {
+  margin-bottom: 0.5em;
+}

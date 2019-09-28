@@ -1,7 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
+@import '../../../../variables';
 
 .dcaa-xgallery {
-  padding-right: 50px;
+  padding-#{$right}: 50px;
 }
 
 .controls img {

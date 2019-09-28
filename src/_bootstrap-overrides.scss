@@ -66,9 +66,9 @@ h2, .h2 {
 .card-img-overlay {
   position: absolute;
   top: auto;
-  right: 0;
+  #{$right}: 0;
   bottom: 0;
-  left: 0;
+  #{$left}: 0;
   padding: 0.625em;
   background: $overlay;
   color: $white;
@@ -98,3 +98,12 @@ h2, .h2 {
   color: $primary !important;
   border-top: $border-size solid $primary !important;
 }
+
+.text-left {
+  text-align: #{$left} !important;
+}
+
+.text-right {
+  text-align: #{$right} !important;
+}
+

@@ -27,12 +27,12 @@
   .list-group-item {
     background: transparent;
     border: 0;
-    border-left: $border-size solid $black;
+    border-#{$left}: $border-size solid $black;
     border-radius: 0;
 
     &:hover {
       background: white;
-      border-left: $border-size solid $primary;
+      border-#{$left}: $border-size solid $primary;
       cursor: pointer;
       transition: 0.3s all;
       color: $primary;

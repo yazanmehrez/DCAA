@@ -33,12 +33,12 @@
   .carousel-indicators {
     text-align: center;
     justify-content: center !important;
-    right: -15em !important;
+    #{$right}: -15em !important;
     bottom: 1.5em;
   }
 
   .scroll-down {
-    left: 45%;
+    #{$left}: 45%;
     bottom: 1em;
   }
 

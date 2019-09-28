@@ -1,3 +1,5 @@
-.ng-l-113{
-    left: -113px !important;
+@import "../../../variables";
+
+.ng-l-113 {
+  #{$left}: -113px !important;
 }

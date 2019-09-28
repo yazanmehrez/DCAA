@@ -2,12 +2,12 @@
 .calendar-trigger{
     position: relative;
     top: -6px;
-    right: -12px;
+    #{$right}: -12px;
     .big-icon{
         font-size: 1.25rem;
     }
     .btn.btn-icon{
-        padding-left: 0px;
+        padding-#{$left}: 0px;
     }
 }
 .normal-border-less{

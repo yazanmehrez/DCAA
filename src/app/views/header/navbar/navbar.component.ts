@@ -182,6 +182,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.otherProfiles = usersData.profiles;
       this.verifyRoles();
     }
+    console.log(this.profile);
   }
 
   ngOnDestroy(): void {

@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'dcaa-icons';
-  src:  url('fonts/dcaa-icons.eot?cjlfa9');
-  src:  url('fonts/dcaa-icons.eot?cjlfa9#iefix') format('embedded-opentype'),
-  url('fonts/dcaa-icons.ttf?cjlfa9') format('truetype'),
-  url('fonts/dcaa-icons.woff?cjlfa9') format('woff'),
-  url('fonts/dcaa-icons.svg?cjlfa9#dcaa-icons') format('svg');
+  src:  url('fonts/dcaa-icons.eot?9o8c2k');
+  src:  url('fonts/dcaa-icons.eot?9o8c2k#iefix') format('embedded-opentype'),
+  url('fonts/dcaa-icons.ttf?9o8c2k') format('truetype'),
+  url('fonts/dcaa-icons.woff?9o8c2k') format('woff'),
+  url('fonts/dcaa-icons.svg?9o8c2k#dcaa-icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,38 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-eye:before {
+  content: "\e954";
+}
+.icon-original-text:before {
+  content: "\e955";
+}
+.icon-print:before {
+  content: "\e956";
+}
+.icon-text-down:before {
+  content: "\e957";
+}
+.icon-Text-up:before {
+  content: "\e958";
+}
+.icon-UAE-pass .path1:before {
+  content: "\e951";
+  color: rgb(214, 81, 79);
+}
+.icon-UAE-pass .path2:before {
+  content: "\e952";
+  margin-left: -0.9658203125em;
+  color: rgb(0, 174, 115);
+}
+.icon-UAE-pass .path3:before {
+  content: "\e953";
+  margin-left: -0.9658203125em;
+  color: rgb(255, 255, 255);
+}
+.icon-google:before {
+  content: "\e963";
+}
 .icon-facebook:before {
   content: "\e949";
 }

@@ -21,6 +21,7 @@ const routes: Routes = [
     path: 'about',
     component: AboutUsComponent,
     children: [
+      {path: '', redirectTo: 'overview', pathMatch: 'full'},
       {path: 'overview', component: OverviewComponent}
     ],
     data: {
@@ -37,7 +38,8 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: HomeComponent
+    redirectTo: 'home',
+    pathMatch: 'full'
   }
 ];
 

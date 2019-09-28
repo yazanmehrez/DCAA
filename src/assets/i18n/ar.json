@@ -1,3 +1,51 @@
 {
-  "_Title": "هيئة دبي للطيران المدني"
+  "_Title": "هيئة دبي للطيران المدني",
+
+  "_Forms": {
+    "_AlreadyAccount": "هل تملك حساب مسبقاً؟ ",
+    "_Confirm": "تأكيد",
+    "_Cancel": "إلغاء",
+    "_CustomerLogin": "تسجيل دخول المستخدم",
+    "_CustomerSignUp": "تسجيل مستخدم جديد",
+    "_Email": "البريد الالكتروني",
+    "_EmailAddress": "عنوان البريد الالكتروني",
+    "_Forgot": "نسيت",
+    "_FName": "الاسم الأول",
+    "_KeepLoggedIn": "البقاء متصلاً",
+    "_Login": "دخول",
+    "_LName": "الاسم الأخير",
+    "_NewHere": "هل أنت جديد؟ ",
+    "_Password": "كلمة المرور",
+    "_Passwords": "كلمات المرور",
+    "_Restore": "استعادة",
+    "_SelectYourCity": "اختر مدينتك",
+    "_SignUp": "تسجيل حساب",
+    "_SignIn": "تسجيل دخول",
+    "_Submit": "تأكيد",
+    "_Username": "اسم المستخدم"
+  },
+  "_Validation": {
+    "_ContainSpace": "يحوي فراغ",
+    "_Invalid": "خطأ في",
+    "_Required": "هو حقل إلزامي"
+  },
+  "_Social": {
+    "_Facebook": "Facebook",
+    "_Google": "Google"
+  },
+
+  "_AtLeast": "على الأقل",
+  "_Be": "أن تكون",
+  "_Cannot": "لا يمكن أن",
+  "_Must": "يجب",
+  "_Or": "أو",
+  "_With": "بواسطة",
+
+  "_Characters": "محارف",
+  "_Customer": "المستخدم",
+  "_Loading": "جاري التحميل",
+  "_Matched": "متطابقة",
+  "_Select": "اختر",
+  "_UAEPass": "UAE Pass"
 }
+

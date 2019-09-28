@@ -69,6 +69,7 @@ import { AboutUsComponent } from './views/pages/about-us/about-us.component';
 import { PageBannerComponent } from './views/pages/shared/page-banner/page-banner.component';
 import { PageContentComponent } from './views/pages/shared/page-content/page-content.component';
 import { OverviewComponent } from './views/pages/about-us/overview/overview.component';
+import { MostViewedServicesComponent } from './views/home/most-viewed-services/most-viewed-services.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new MultiTranslateHttpLoader(httpClient, [
@@ -126,7 +127,7 @@ export function provideSwal() {
     ErrorDialogComponent,
     ClickOutSideElementDirective,
     EmailValidatorDirective, MyFocusDirective, LoginComponent,
-    UserProfileComponent, AccountRootComponent, ChangePasswordComponent, ChangeEmailComponent, BlogShimmerComponent, MobileNavbarComponent, ClickOutSideElementDirective, AboutUsComponent, PageBannerComponent, PageContentComponent, OverviewComponent,
+    UserProfileComponent, AccountRootComponent, ChangePasswordComponent, ChangeEmailComponent, BlogShimmerComponent, MobileNavbarComponent, ClickOutSideElementDirective, AboutUsComponent, PageBannerComponent, PageContentComponent, OverviewComponent, MostViewedServicesComponent,
   ],
   providers: [ErrorDialogService, UserService, ConfigService, TransporterService, JWTService,
     XhrService, MainRestService, AccountServiceService, {

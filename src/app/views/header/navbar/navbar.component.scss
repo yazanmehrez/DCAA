@@ -2,8 +2,8 @@
 
 .main-nav {
   position: absolute;
-  left: 0;
-  right: 0;
+  #{$left}: 0;
+  #{$right}: 0;
   z-index: 1000;
   color: $light-gray;
 
@@ -15,7 +15,7 @@
     margin-top: -8px;
     padding: 0;
     border: 0;
-    border-left: $border-size solid $primary;
+    border-#{$left}: $border-size solid $primary;
 
     .dropdown-item {
       color: $white;
@@ -57,7 +57,7 @@ input[aria-label="Search"] {
   span {
     position: absolute;
     z-index: 2;
-    right: 1.25em;
+    #{$right}: 1.25em;
     pointer-events: none;
     color: $light-gray;
   }
@@ -85,12 +85,12 @@ input[aria-label="Search"] {
 
 .accessibility {
   position: absolute;
-  left: 0;
-  right: 0;
+  #{$left}: 0;
+  #{$right}: 0;
   z-index: 100;
 
   .controllers {
-    padding-right: 1.5em;
+    padding-#{$right}: 1.5em;
   }
 
   [class^="icon-"], [class*=" icon-"] {
@@ -139,7 +139,7 @@ input[aria-label="Search"] {
     height: 15px;
     border-radius: 50%;
     background: $primary;
-    right: -10px;
+    #{$right}: -10px;
     top: -6px;
     display: flex;
     justify-content: center;
@@ -149,4 +149,39 @@ input[aria-label="Search"] {
   &.mobile span {
     font-size: 1.5em;
   }
+}
+
+.icon-settings {
+  transition: all .3s linear;
+
+  &:hover {
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+
+.settings-control {
+  top: 3.5em;
+  #{$right}: 60px;
+  font-size: 0.70em;
+  background-color: $banner-background;
+  padding-top: 5px;
+  padding-bottom: 2px;
+}
+
+.home-accessibility {
+  .settings-control {
+    #{$right}: 180px;
+    top: 3px;
+    font-size: 0.70em;
+    background-color: transparent;
+    padding: 0;
+  }
+}
+
+.dropdown-menu-right {
+  top: 3.2em !important;
 }

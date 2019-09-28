@@ -17,33 +17,58 @@
               <a class="nav-link p-3" routerLink="about" routerLinkActive="active">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-3" href="#">E-Services</a>
+              <a class="nav-link p-3" href="#">Services</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link p-3" href="https://bootstrapthemes.co" id="navbarDropdownMenuLink"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown link
+                Statistics
               </a>
               <ul class="dropdown-menu ml-3 text-left" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="#">Action</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
               </ul>
             </li>
+            <li class="nav-item">
+              <a class="nav-link p-3">Most Used Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-3">NOC Verification Services</a>
+            </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <div class="language d-flex justify-content-between align-items-center">
-              <span class="selected">ENG</span>
+              <span
+                [ngClass]="_appService.currentLanguage == 'en' ? 'selected' : ''"
+                (click)="_appService.switchLanguage('en')">ENG</span>
               <div class="ml-1 mr-1">/</div>
-              <span>العربية</span>
+              <span
+                [ngClass]="_appService.currentLanguage == 'ar' ? 'selected' : ''"
+                (click)="_appService.switchLanguage('ar')">العربية</span>
             </div>
             <div class="form-group search ml-2 mr-2">
               <input class="form-control" type="text" placeholder="Search" aria-label="Search">
               <span class="icon-search"></span>
             </div>
-            <button (click)="login()" class="btn btn-primary reverse my-2 my-sm-0 d-flex align-items-center login mr-3"
+            <button *ngIf="!profile == null; else profileControl" (click)="login()" class="btn btn-primary reverse my-2 my-sm-0 d-flex align-items-center login mr-3"
                     type="submit">
               <span class="icon-login mr-1"></span>Login
             </button>
+            <ng-template #profileControl>
+<!--              <img [src]="'assets/images/1.png' | helper:'fsObjString'" alt="">-->
+<!--              <img [src]="'assets/images/1.png'" style="width: 30px">-->
+
+              <div class="dropdown show">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img [src]="'assets/images/1.png'" style="width: 30px">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </ng-template>
           </form>
         </div>
         <dcaa-mobile-navbar></dcaa-mobile-navbar>
@@ -64,8 +89,17 @@
                     <dcaa-latest-news *ngIf="!_appService.isHome"></dcaa-latest-news>
                   </div>
                   <div class="col-md-3 d-flex">
-                    <div class="d-flex align-items-center justify-content-center">
-                      <span class="icon-settings"></span>
+                    <div class="d-flex align-items-center justify-content-center position-relative">
+                      <span class="icon-settings" data-target="#settings"
+                            data-toggle="collapse">
+                      </span>
+                      <div class="position-absolute settings-control collapse fade" id="settings">
+                        <span class="icon-print"></span>
+                        <span class="icon-eye"></span>
+                        <span class="icon-text-down"></span>
+                        <span class="icon-original-text"></span>
+                        <span class="icon-Text-up"></span>
+                      </div>
                       <span class="icon-saperator mr-3 ml-2"></span>
                       <div class="live-chat">
                         <p class="m-0">Live Chat</p>
