@@ -1,11 +1,11 @@
-<div class="dcaa-service-categories" id="services-categories">
+<div class="dcaa-service-categories" id="services-categories" *ngIf="categories[0].length !== 0">
   <section>
     <div class="container">
       <div class="row">
-        <div class="services-control" [ngClass]="layoutType == 2 ? 'col-md-12': 'col-md-6'">
+        <div class="services-control" [ngClass]="(categories[0].length !== 0 && categories[1].length !== 0) ? 'col-md-12': 'col-md-6'">
           <div class="card border-0 bg-transparent">
             <div class="card-body">
-              <div class="media" [ngClass]="layoutType == 2 ? 'col-md-4': 'col-md-8'">
+              <div class="media" [ngClass]="!(categories[0].length !== 0 && categories[1].length == 0) ? 'col-md-4': 'col-md-8'">
                 <span class="icon-Building-Constructions align-self-center mr-3"></span>
                 <div class="media-body">
                   <h2 class="mt-0 mb-0">Building Construction or Elevation permits</h2>
@@ -20,34 +20,34 @@
           </div>
         </div>
 
-        <ng-container *ngIf="layoutType == 1; else twoColumns">
+        <ng-container *ngIf="(categories[0].length !== 0 && categories[1].length !== 0); else oneColumn">
           <div class="services-categories col-md-6">
             <div class="list-group">
               <a class="list-group-item d-flex align-items-center"
-                 *ngFor="let category of categories">
+                 *ngFor="let category of categories[0]">
                 <span class="icon-{{category.icon}} mr-3"></span>
-                {{category.description}}
+                {{category.translations[0].description}}
+              </a>
+            </div>
+          </div>
+          <div class="services-categories col-md-6">
+            <div class="list-group">
+              <a class="list-group-item d-flex align-items-center"
+                 *ngFor="let category of categories[1]">
+                <span class=" icon-{{category.icon}} mr-3"></span>
+                {{category.translations[0].description}}
               </a>
             </div>
           </div>
         </ng-container>
 
-        <ng-template #twoColumns>
+        <ng-template #oneColumn>
           <div class="services-categories col-md-6">
             <div class="list-group">
               <a class="list-group-item d-flex align-items-center"
-                 *ngFor="let category of categories| slice:0:slice">
+                 *ngFor="let category of categories[0]">
                 <span class="icon-{{category.icon}} mr-3"></span>
-                {{category.description}}
-              </a>
-            </div>
-          </div>
-          <div class="services-categories col-md-6">
-            <div class="list-group">
-              <a class="list-group-item d-flex align-items-center"
-                 *ngFor="let category of categories| slice:slice:categories.length">
-                <span class="icon-{{category.icon}} mr-3"></span>
-                {{category.description}}
+                {{category.translations[0].description}}
               </a>
             </div>
           </div>

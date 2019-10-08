@@ -1,87 +1,102 @@
-<div class="main-wrapper-section">
+<div class="row">
+  <div class="col-md-6">
+    <h6 class="primary-color text-uppercase" i18n="@@changeemail">Change Email</h6>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="font-weight-light m-b-20 text-center m-t-20" i18n="@@changeemail">Email Reset</h2>
-          <div *ngIf="myProfile" class="profile-holder"><img [src]="myProfile.pictureUrl | helper:'fsObjString'" alt=""></div>
-          <h5 *ngIf="false" class="font-weight-bold text-center m-t-10">{{myProfile.firstName}} {{myProfile.lastName}}</h5>
-          <p *ngIf="this.changeemailForm.value.email && sentSuccessfully" class="p-t-20 text-center">
-            <ngb-alert #alert type="success" (close)="sentSuccessfully = false">
-              <span [translate]="'emailSentTo'" [translateParams]="{email: changeemailForm.value.email}"></span>
-            </ngb-alert>
-          </p>
-          <form *ngIf="!sentSuccessfully" class="p-b-20" [formGroup]="changeemailForm" (ngSubmit)="resetEmail(formDirective)" #formDirective="ngForm">
-            <div class="row justify-content-md-center justify-content-sm-center m-t-10">
-                <div class="col-sm-12 col-md-4">
-                    <div class="form-group m-b-1 m-t-15">
-                      <label for="email" class="font-weight-bold text-primary clientApp-label" i18n="@@newEmail">New Email</label>
-                      <input formControlName="email" [ngClass]="{ 'is-invalid': changeemailSubmitted && l.email.errors }" type="email" class="form-control clientApp-input" id="email" placeholder="New email address">
-                    </div>
-                    <div *ngIf="changeemailSubmitted && l.email.errors" class="invalid-feedback always-block text-center">
-                        <div *ngIf="l.email.errors.required" i18n="@@required">This field is required</div>
-                        <div *ngIf="r.email.errors.email" i18n="@@invalidEmail">Invalid email address</div>
-                    </div>
-                </div>
-            </div>
-                  
-            <div class="display-flex no-wrap flex-valign-center flex-halign-center m-t-20">
-              <button type="submit" [disabled]="this.inProgress" class="btn btn-secondary clientApp-style">
-                  <div class="display-flex">
-                      <div *ngIf="inProgress" class="spinner-border spinner-border-sm prelative top-3 right-10" role="status">
-                        <span class="sr-only">Loading...</span>
-                      </div>
-                      <div i18n="@@submit" class="m-lr-5">Submit</div>
-                  </div>
-              </button>                
-            </div>
-            <p class="p-t-20 text-center" *ngIf="changeemailErrors.length > 0">
-              <ngb-alert #alert type="danger" (close)="changeemailErrors = []">
-                <span *ngFor="let text of changeemailErrors">{{text}}</span>
-              </ngb-alert>
-            </p>
-          </form>   
-          
-          <form *ngIf="sentSuccessfully" class="p-b-20" [formGroup]="tokenForm" (ngSubmit)="tokenRequest(formDirective)" #formDirective="ngForm">
-              <div class="row justify-content-md-center justify-content-sm-center m-t-10">
-                  <div class="col-sm-4 col-md-3">
-                      <div class="form-group m-b-1 m-t-15">
-                        <label for="email" class="font-weight-bold text-primary clientApp-label"  i18n="@@resetToken">Reset Token</label>
-                        <input formControlName="digit" [ngClass]="{ 'is-invalid': tokenSubmitted && t.digit.errors }" type="number" class="form-control clientApp-token" id="digit" placeholder="000000">
-                      </div>
-                      <div *ngIf="tokenSubmitted && t.digit.errors" class="invalid-feedback always-block text-center">
-                          <div *ngIf="t.digit.errors.required" i18n="@@required">This field is required</div>
-                      </div>
-                  </div>
-              </div>
-                    
-              <div class="display-flex no-wrap flex-valign-center flex-halign-center m-t-20">
-                <button type="submit" [disabled]="this.inProgress" class="btn btn-secondary clientApp-style">
-                    <div class="display-flex">
-                        <div *ngIf="inProgress" class="spinner-border spinner-border-sm prelative top-3 right-10" role="status">
-                          <span class="sr-only">Loading...</span>
-                        </div>
-                        <div i18n="@@submit" class="m-lr-5">Submit</div>
-                    </div>
-                </button>                
-              </div>
-              <p class="p-t-20 text-center" *ngIf="tokenErrors.length > 0">
-                <ngb-alert #alert type="danger" (close)="tokenErrors = []">
-                  <span *ngFor="let text of tokenErrors">{{text}}</span>
-                </ngb-alert>
-              </p>
-            </form> 
-            <div class="display-flex flex-halign-center">
-                <button *ngIf="!sentSuccessfully" (click)="sentSuccessfully = true"  i18n="@@alreadyhaveacode" class="btn btn-link" type="button">Already have a code?</button>
-                <button *ngIf="sentSuccessfully" (click)="sentSuccessfully = false"  i18n="@@generatecode" class="btn btn-link" type="button">Need to generate a new reset token?</button>
-            </div>
-
-        </div>
+    <div class="p-lr-20" *ngIf="this.changeemailForm.value.email && sentSuccessfully">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <span [translate]="'emailSentTo'" [translateParams]="{email: changeemailForm.value.email}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
     </div>
+
+    <form *ngIf="!sentSuccessfully" class="p-b-20" [formGroup]="changeemailForm"
+          (ngSubmit)="resetEmail(formDirective)" #formDirective="ngForm">
+      <div class="form-group  m-t-15">
+        <span i18n="@@newEmail">
+        New Email
+          <span class="text-primary">*</span>
+        </span>
+        <input formControlName="email" [ngClass]="{ 'is-invalid': changeemailSubmitted && l.email.errors }"
+               type="email" class="form-control clientApp-input" id="email" placeholder="New email address">
+        <div *ngIf="changeemailSubmitted && l.email.errors" class="always-block primary-color">
+          <div *ngIf="l.email.errors.required" i18n="@@required">This field is required</div>
+          <div *ngIf="l.email.errors.email" i18n="@@invalidEmail">Invalid email address</div>
+        </div>
+      </div>
+
+      <div class="d-flex">
+        <div class="mt-3" i18n="@@submit">
+          <button type="submit" [disabled]="this.inProgress"
+                  class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
+            <div *ngIf="inProgress" class="spinner-border spinner-border-sm mx-1" role="status">
+              <span class="sr-only"> {{'_Forms._Loading' | translate}}...</span>
+            </div>
+            Submit
+          </button>
+        </div>
+      </div>
+
+      <div class="p-lr-20 mt-3" *ngIf="changeemailErrors.length > 0">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <span *ngFor="let text of changeemailErrors">{{text}}</span>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <form *ngIf="sentSuccessfully" class="p-b-20" [formGroup]="tokenForm" (ngSubmit)="tokenRequest(formDirective)"
+          #formDirective="ngForm">
+
+      <div class="form-group  m-t-15">
+        <span i18n="@@resetToken">Token<span class="text-primary">*</span></span>
+        <input formControlName="digit" [ngClass]="{ 'is-invalid': tokenSubmitted && t.digit.errors }"
+               type="text" class="form-control clientApp-token" id="digit" placeholder="000000">
+        <div *ngIf="tokenSubmitted && t.digit.errors" class="always-block primary-color">
+          <div *ngIf="t.digit.errors.required" i18n="@@required">This field is required</div>
+        </div>
+      </div>
+
+      <div class="d-flex">
+        <div class="mt-3" i18n="@@submit">
+          <button type="submit" [disabled]="this.inProgress"
+                  class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
+            <div *ngIf="inProgress" class="spinner-border spinner-border-sm mx-1" role="status">
+              <span class="sr-only"> {{'_Forms._Loading' | translate}}...</span>
+            </div>
+            Submit
+          </button>
+        </div>
+      </div>
+
+      <div class="p-lr-20 mt-3" *ngIf="tokenErrors.length > 0">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <div *ngFor="let text of tokenErrors">{{text}}</div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="display-flex flex-halign-center">
+      <button *ngIf="!sentSuccessfully" (click)="sentSuccessfully = true" i18n="@@alreadyhaveacode"
+              class="btn btn-link p-0 py-2" type="button" [disabled]="inProgress">Already have a code?
+      </button>
+      <button *ngIf="sentSuccessfully" (click)="sentSuccessfully = false" i18n="@@generatecode" class="btn btn-link p-0 py-2"
+              type="button" [disabled]="inProgress">Need to generate a new reset token?
+      </button>
+    </div>
+
   </div>
-  
-  <swal
-  #swalComp 
+</div>
+
+<swal
+  title="Email Changed" i18n-title="@@emailChanged" i18n-html="@@emailChangedHTML"
+  html="Your email has been sent successfully"
+  #swalComp
   type="success">
-  </swal>
+</swal>

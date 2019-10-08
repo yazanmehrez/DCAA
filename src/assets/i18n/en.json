@@ -45,5 +45,11 @@
   "_Loading": "Loading",
   "_Matched": "matched",
   "_Select": "Select",
-  "_UAEPass": "UAE Pass"
+  "_UAEPass": "UAE Pass",
+  "_Notes": "Notes",
+  "_emailVerify": {
+    "emailVerifyMessage": "We sent an email to <strong><em>{{email}}</em></strong> to ensure that it is valid. Please verify your email by following the instruction sent.",
+    "emailVerifyMessage2" : "If somehow, you did not receive the verification email then",
+    "emailVerifyMessage3" : "resend the verification email"
+  }
 }

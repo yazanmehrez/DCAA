@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AppService} from '../../../app.service';
 
 @Component({
   selector: 'dcaa-latest-news',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LatestNewsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _appService: AppService) {
+  }
 
   ngOnInit() {
   }

@@ -1,22 +1,28 @@
-import { Injectable, NgZone } from '@angular/core';
+import {Injectable, NgZone} from '@angular/core';
 
 
-
-import { UserNameModel, RegistrationViewModel } from '../models/user.registration.interface';
-import { ConfigService } from '../utils/config.service';
+import {RegistrationViewModel, UserNameModel} from '../models/user.registration.interface';
+import {ConfigService} from '../utils/config.service';
 
 import {BaseService} from './base.service';
 
 
-import { BehaviorSubject } from 'rxjs';
+import {BehaviorSubject, Subject} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Credentials} from '../models/credentials.interface';
+import {IpapiResponse, Profile, SocialUserExtended} from '../models/userProfile';
+
+import {
+  ChangeEmailModel,
+  ChangePasswordViewModel,
+  ConfirmEmailPasswordModel,
+  DigitModel,
+  EmailModel
+} from 'src/app/views/Accounts/accountsmodel';
+import {LoginAnalytic} from '../models/API/Entities/Analytics';
+import {UserProfile} from '../models/API/Entities/UserProfile';
 
 // Add the RxJS Observable operators we need in this app.
-
-import { HttpClient } from '@angular/common/http';
-import { Credentials } from '../models/credentials.interface';
-import { Profile, LoginAnalytic, IpapiResponse, SocialUserExtended } from '../models/userProfile';
-
-import { ChangePasswordViewModel, EmailModel, DigitModel, ChangeEmailModel } from 'src/app/views/Accounts/accountsmodel';
 
 
 @Injectable()
@@ -25,23 +31,24 @@ export class UserService extends BaseService {
   baseUrl = '';
 
   // Observable navItem source
+  progressCount = 0;
   // tslint:disable-next-line:variable-name
   private _authNavStatusSource = new BehaviorSubject<{}>(false);
   // Observable navItem stream
   authNavStatus$ = this._authNavStatusSource.asObservable();
-
   private profilesSource = new BehaviorSubject<Profile[]>([]);
   // Observable navItem stream
   otherProfiles$ = this.profilesSource.asObservable();
-
   private activeProfileSource = new BehaviorSubject<Profile>(null);
   // Observable navItem stream
   activeProfile$ = this.activeProfileSource.asObservable();
-
+  public userProfileSource = new Subject<UserProfile>();
+  // Observable navItem stream
+  userProfile$ = this.userProfileSource.asObservable();
   private loggedIn = false;
-  progressCount = 0;
+
   constructor(public configService: ConfigService, public httpClient: HttpClient, private ngZone: NgZone) {
-    super(httpClient);
+    super(httpClient, configService);
     this.loggedIn = !!localStorage.getItem('auth_token');
     // ?? not sure if this the best way to broadcast the status but seems to resolve issue on page refresh where auth status is lost in
     // header component resulting in authed user nav links disappearing despite the fact user is still logged in
@@ -119,9 +126,9 @@ export class UserService extends BaseService {
   ipFinder() {
     return new Promise((resolver, reject) => {
       this.restRequest(null, `https://ipinfo.io?token=${this.configService.getIpInfoToken()}`, null, 'GET')
-      .then((response: any) => {
-        resolver(response);
-      }).catch(err => {
+        .then((response: any) => {
+          resolver(response);
+        }).catch(err => {
         this.restRequest(null, 'https://ipapi.co/json', null, 'GET').then((result: IpapiResponse) => {
           // Ip search option 2
           resolver(result);
@@ -142,18 +149,18 @@ export class UserService extends BaseService {
         this.loggedIn = true;
         this._authNavStatusSource.next(this.loggedIn);
         this.restRequest(null, `https://ipinfo.io?token=${this.configService.getIpInfoToken()}`, null, 'GET')
-        .then((response: any) => {
-          const result: IpapiResponse = new IpapiResponse();
-          result.city = response.city;
-          result.country = response.country;
-          result.ip = response.ip;
-          result.latitude = (response.loc as string).split(',')[0];
-          result.longitude = (response.loc as string).split(',')[1];
-          result.region = response.region;
-          // Ip search option 1
-          const loginAnalyticResponse: LoginAnalytic = this.prepareLoginAnalytic(result, res.profile.customerId);
-          this.loginAnalyticsPost(loginAnalyticResponse);
-        }).catch(err => {
+          .then((response: any) => {
+            const result: IpapiResponse = new IpapiResponse();
+            result.city = response.city;
+            result.country = response.country;
+            result.ip = response.ip;
+            result.latitude = (response.loc as string).split(',')[0];
+            result.longitude = (response.loc as string).split(',')[1];
+            result.region = response.region;
+            // Ip search option 1
+            const loginAnalyticResponse: LoginAnalytic = this.prepareLoginAnalytic(result, res.profile.customerId);
+            this.loginAnalyticsPost(loginAnalyticResponse);
+          }).catch(err => {
           this.restRequest(null, 'https://ipapi.co/json', null, 'GET').then((result: IpapiResponse) => {
             // Ip search option 2
             const loginAnalyticResponse: LoginAnalytic = this.prepareLoginAnalytic(result, res.profile.customerId);
@@ -174,18 +181,18 @@ export class UserService extends BaseService {
         this.loggedIn = true;
         this._authNavStatusSource.next(this.loggedIn);
         this.restRequest(null, `https://ipinfo.io?token=${this.configService.getIpInfoToken()}`, null, 'GET')
-        .then((response: any) => {
-          const result: IpapiResponse = new IpapiResponse();
-          result.city = response.city;
-          result.country = response.country;
-          result.ip = response.ip;
-          result.latitude = (response.loc as string).split(',')[0];
-          result.longitude = (response.loc as string).split(',')[1];
-          result.region = response.region;
-          // Ip search option 1
-          const loginAnalyticResponse: LoginAnalytic = this.prepareLoginAnalytic(result, res.profile.userProfileId);
-          this.loginAnalyticsPost(loginAnalyticResponse);
-        }).catch(err => {
+          .then((response: any) => {
+            const result: IpapiResponse = new IpapiResponse();
+            result.city = response.city;
+            result.country = response.country;
+            result.ip = response.ip;
+            result.latitude = (response.loc as string).split(',')[0];
+            result.longitude = (response.loc as string).split(',')[1];
+            result.region = response.region;
+            // Ip search option 1
+            const loginAnalyticResponse: LoginAnalytic = this.prepareLoginAnalytic(result, res.profile.userProfileId);
+            this.loginAnalyticsPost(loginAnalyticResponse);
+          }).catch(err => {
           this.restRequest(null, 'https://ipapi.co/json', null, 'GET').then((result: IpapiResponse) => {
             // Ip search option 2
             const loginAnalyticResponse: LoginAnalytic = this.prepareLoginAnalytic(result, res.profile.userProfileId);
@@ -200,15 +207,16 @@ export class UserService extends BaseService {
     });
 
   }
+
   prepareLoginAnalytic(result: IpapiResponse, userProfileId: number): LoginAnalytic {
     const loginAnalyticResponse: LoginAnalytic = result as LoginAnalytic;
     loginAnalyticResponse.userProfileId = userProfileId;
     loginAnalyticResponse.browser = 'Browser CodeName: ' + navigator.appCodeName +
-                                    ', Browser Name: ' + navigator.appName +
-                                    ', Browser Version: ' + navigator.appVersion +
-                                    ', Cookies Enabled: ' + navigator.cookieEnabled +
-                                    ', Platform: ' + navigator.platform +
-                                    ', User-agent header: ' + navigator.userAgent;
+      ', Browser Name: ' + navigator.appName +
+      ', Browser Version: ' + navigator.appVersion +
+      ', Cookies Enabled: ' + navigator.cookieEnabled +
+      ', Platform: ' + navigator.platform +
+      ', User-agent header: ' + navigator.userAgent;
     return result as LoginAnalytic;
   }
 
@@ -223,7 +231,7 @@ export class UserService extends BaseService {
     this._authNavStatusSource.next({loggedIn: this.loggedIn, selfTriggered: true});
   }
 
-  isLoggedIn(): {profile: Profile, profiles: Profile[]} {
+  isLoggedIn(): { profile: Profile, profiles: Profile[] } {
     const profiles: Profile[] = JSON.parse(localStorage.getItem('profiles'));
     const profile: Profile = JSON.parse(localStorage.getItem('profile'));
     if (profile) {
@@ -239,6 +247,14 @@ export class UserService extends BaseService {
     return this.restRequest(model, `${this.baseUrl}/api/ChangePassword`, null, type);
   }
 
+  resetPassword(model: ConfirmEmailPasswordModel, type: string = 'POST') {
+    return this.restRequest(model, `${this.baseUrl}/api/PasswordReset`, null, type);
+  }
+
+  emailConfirmation(model: any, type: string = 'POST') {
+    return this.restRequest(model, `${this.baseUrl}/api/EmailConfirmation`, null, type);
+  }
+
   changeEmail(model: EmailModel, type: string = 'POST') {
     return this.restRequest(model, `${this.baseUrl}/api/ChangeEmailRequestToken`, null, type);
   }
@@ -250,5 +266,6 @@ export class UserService extends BaseService {
   setEmail(model: ChangeEmailModel, type: string = 'POST') {
     return this.restRequest(model, `${this.baseUrl}/api/ChangeEmail`, null, type);
   }
+
 }
 

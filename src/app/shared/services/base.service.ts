@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpRequest, HttpEventType, HttpResponse, HttpHeaders, HttpParams } from '@angular/common/http';
+import {ConfigService} from '../utils/config.service';
 
 
 @Injectable()
 export abstract class BaseService {
   private progress = new BehaviorSubject('0');
   currentProgress = this.progress.asObservable();
-  constructor(public httpClient: HttpClient) { }
+  constructor(public httpClient: HttpClient, public configService: ConfigService) { }
 
   protected handleError(error: any) {
     // console.log(error);
@@ -57,7 +58,7 @@ export abstract class BaseService {
             if (data.entryDate == null || data.entryDate !== undefined) {
               console.log(data);
               alert('Stop here' + serverUrl + ' ' + data.entryDate);
-              
+
               delete data.entryDate;
             }
             if (data.translations) {

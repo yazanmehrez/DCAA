@@ -1,15 +1,12 @@
-.dcaa-partners {
-  margin-top: 4em;
-  margin-bottom: 2em;
-}
+::ng-deep .ngucarousel-items {
+  padding: 0 50px;
 
-.swiper-slide img {
-  width: 100%;
-}
+  .item {
+    vertical-align: middle;
+  }
 
-::ng-deep .swiper-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  img {
+    padding: 0 25px;
+    width: 100%;
+  }
 }

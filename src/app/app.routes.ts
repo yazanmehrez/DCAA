@@ -8,6 +8,21 @@ import {ChangePasswordComponent} from './views/Accounts/change-password/change-p
 import {ChangeEmailComponent} from './views/Accounts/change-email/change-email.component';
 import {AboutUsComponent} from './views/pages/about-us/about-us.component';
 import {OverviewComponent} from './views/pages/about-us/overview/overview.component';
+import {DcaaSectorsComponent} from './views/pages/about-us/dcaa-sectors/dcaa-sectors.component';
+import {DcaaStrategiesComponent} from './views/pages/about-us/dcaa-strategies/dcaa-strategies.component';
+import {OrganizationalStructureComponent} from './views/pages/about-us/organizational-structure/organizational-structure.component';
+import {FaqComponent} from './views/pages/faq/faq.component';
+import {FeedbackComponent} from './views/pages/feedback/feedback.component';
+import {YourFeedbackComponent} from './views/pages/feedback/your-feedback/your-feedback.component';
+import {ContactDgComponent} from './views/pages/feedback/contact-dg/contact-dg.component';
+import {StatisticsComponent} from './views/pages/statistics/statistics.component';
+import {IssuedPermitsComponent} from './views/pages/statistics/issued-permits/issued-permits.component';
+import {InspectionsComponent} from './views/pages/statistics/inspections/inspections.component';
+import {SafetyInspectionsComponent} from './views/pages/statistics/safety-inspections/safety-inspections.component';
+import {DisclaimerComponent} from './views/pages/text-pages/disclaimer/disclaimer.component';
+import {PrivacyPolicyComponent} from './views/pages/text-pages/privacy-policy/privacy-policy.component';
+import {TextPagesComponent} from './views/pages/text-pages/text-pages.component';
+import {TokenResetComponent} from './views/pages/token-reset/token-reset.component';
 
 const routes: Routes = [
   {
@@ -22,18 +37,76 @@ const routes: Routes = [
     component: AboutUsComponent,
     children: [
       {path: '', redirectTo: 'overview', pathMatch: 'full'},
-      {path: 'overview', component: OverviewComponent}
+      {path: 'overview', component: OverviewComponent},
+      {path: 'sectors', component: DcaaSectorsComponent},
+      {path: 'strategies', component: DcaaStrategiesComponent},
+      {path: 'organizational-structure', component: OrganizationalStructureComponent}
     ],
     data: {
       title: '_AboutUs'
     }
   },
   {
+    path: 'statistics',
+    component: StatisticsComponent,
+    children: [
+      {path: '', redirectTo: 'issued-permits', pathMatch: 'full'},
+      {path: 'issued-permits', component: IssuedPermitsComponent},
+      {path: 'inspections', component: InspectionsComponent},
+      {path: 'safety-inspections', component: SafetyInspectionsComponent}
+    ],
+    data: {
+      title: '_Statistics'
+    }
+  },
+  {
+    path: 'faq',
+    component: FaqComponent,
+    data: {
+      title: '_FAQ'
+    }
+  },
+  {path: 'token/:resetType/:userName/:resettoken', component: TokenResetComponent},
+  {
+    path: 'dcaa',
+    component: TextPagesComponent,
+    children: [
+      {path: '', redirectTo: 'privacy-policy', pathMatch: 'full'},
+      {
+        path: 'disclaimer', component: DisclaimerComponent, data: {
+          title: '_Disclaimer'
+        }
+      },
+      {
+        path: 'privacy-policy', component: PrivacyPolicyComponent, data: {
+          title: '_PrivacyPolicy'
+        }
+      },
+    ],
+    data: {
+      title: '_TextPages'
+    }
+  },
+
+
+  {
+    path: 'feedback',
+    component: FeedbackComponent,
+    children: [
+      {path: '', component: YourFeedbackComponent},
+      {path: 'contact-DG', component: ContactDgComponent}
+    ],
+    data: {
+      title: '_Feedback'
+    }
+  },
+  {
     path: 'account', component: AccountRootComponent, canActivate: [AuthGuard],
     children: [
+      {path: '', redirectTo: 'profile', pathMatch: 'full'},
       {path: 'profile', component: UserProfileComponent},
-      {path: 'changepassword', component: ChangePasswordComponent},
-      {path: 'changeemail', component: ChangeEmailComponent},
+      {path: 'change-password', component: ChangePasswordComponent},
+      {path: 'change-email', component: ChangeEmailComponent},
     ]
   },
   {

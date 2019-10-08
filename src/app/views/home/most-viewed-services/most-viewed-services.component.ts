@@ -24,7 +24,7 @@ export class MostViewedServicesComponent implements OnInit {
         {
             id: 1,
             layoutType: 2,
-            description: 'Issuance Permits for Aviation Safety Operations',
+            description: 'Safety Operations',
             icon: 'Aviation-Safety-Operations',
             categories: [
                 {id: 0, description: 'Commercial aircraft landing field', icon: 'Commercial-aircraft-landing-field'},
@@ -40,25 +40,25 @@ export class MostViewedServicesComponent implements OnInit {
         },
         {
             id: 2,
-            description: 'Issuance of No objection Certificate for Dangerous Goods and Fire Airs',
+            description: 'Fire Airs',
             icon: 'Dangerous-Goods',
             categories: []
         },
         {
             id: 3,
-            description: 'Permits for Aviation-related Activities',
+            description: 'Aviation-related Activities',
             icon: 'Aviation-related-Activities',
             categories: []
         },
         {
             id: 4,
-            description: 'Building Constructions or Elevation Permits',
+            description: 'Building Constructions',
             icon: 'Building-Constructions',
             categories: []
         },
         {
             id: 5,
-            description: 'Approving Landing Fields',
+            description: 'Approving Landing',
             icon: 'Approving-Landing-Fields',
             categories: []
         }
@@ -70,7 +70,7 @@ export class MostViewedServicesComponent implements OnInit {
 
     ngOnInit() {
         this.carouselOptions = {
-            grid: {xs: 1, sm: 2, md: 5, lg: 6, all: 0},
+            grid: {xs: 1, sm: 2, md: 4, lg: 5, all: 0},
             slide: 6,
             speed: 400,
             interval: 4000,

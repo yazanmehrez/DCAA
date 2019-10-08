@@ -1,4 +1,4 @@
-<div [dir]="_appService.currentLanguage == 'en' ? 'ltr' : 'rtl'">
+<div [dir]="_appService.currentLanguage == 'en' ? 'ltr' : 'rtl'"  [ngClass]="_appService.blackMode == 'on' ? 'black-mode' : ''">
   <dcaa-header></dcaa-header>
   <router-outlet></router-outlet>
   <dcaa-footer></dcaa-footer>

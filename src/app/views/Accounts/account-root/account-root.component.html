@@ -1,25 +1,28 @@
-<main role="main" class="col-xs-12 shape-back">
+<div class="dcaa-account-settings">
+  <dcaa-page-banner
+    [Title]="'About Us'"
+    [Section]="'Our Vision & Mission'"
+    [Image]="'assets/images/HEADER-IMAGE.png'"
+  >
+  </dcaa-page-banner>
+
+
   <div class="container">
     <div class="row">
-      <div class="col-sm-3 col-lg-2">
-          <ul class="unstyled-list m-t-30">
-            <li class="display-flex flex-valign-center">
-                <div class="icon-chevron-right primary-text"></div>
-              <a [routerLink]="['/account/profile']" routerLinkActive="router-link-active"  class="cursor-pointer bigger m-lr-10">View Profile</a>
-            </li>
-            <li class="display-flex flex-valign-center">
-                <div class="icon-chevron-right primary-text"></div>
-                <a [routerLink]="['/account/changeemail']" routerLinkActive="router-link-active"  class="cursor-pointer bigger m-lr-10">Change Email</a>
-            </li>
-            <li class="display-flex flex-valign-center">
-                <div class="icon-chevron-right primary-text"></div>
-              <a [routerLink]="['/account/changepassword']" routerLinkActive="router-link-active"  class="cursor-pointer bigger m-lr-10">Change Password</a>
-            </li>            
-          </ul>
+      <div class="col-md-12 b-extra">
+        <div class="row overflow-hidden">
+          <div class="col-md-2">
+            <ul class="list-group with-separator nav p-0 pt-5" id="list-tab" role="tablist">
+              <li class="nav-link light-border text-left" routerLinkActive="active" routerLink="profile">User Profile</li>
+              <li class="nav-link light-border text-left" routerLinkActive="active" routerLink="change-email">Change Email</li>
+              <li class="nav-link light-border text-left" routerLinkActive="active" routerLink="change-password">Change Password</li>
+            </ul>
+          </div>
+          <div class="col-md-10 pt-5">
+            <router-outlet></router-outlet>
+          </div>
         </div>
-        <div class="col-sm-9 col-lg-10">
-          <router-outlet></router-outlet>
-        </div>
+      </div>
     </div>
   </div>
-</main>
+</div>

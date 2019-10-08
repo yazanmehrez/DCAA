@@ -1,6 +1,22 @@
+body {
+  @include text-align(left);
+}
+
 .container {
   width: 90%;
   max-width: 1920px;
+}
+
+.form-group input, .form-group select, .form-group textarea, .form-group mat-select {
+  border-radius: 0;
+  @include border(left, $border-size, solid, $primary);
+  resize: none;
+
+  &:focus {
+    outline: 0;
+    box-shadow: none;
+    border-color: $primary;
+  }
 }
 
 .btn-primary {
@@ -66,9 +82,9 @@ h2, .h2 {
 .card-img-overlay {
   position: absolute;
   top: auto;
-  #{$right}: 0;
+  right: 0;
+  left: 0;
   bottom: 0;
-  #{$left}: 0;
   padding: 0.625em;
   background: $overlay;
   color: $white;
@@ -88,7 +104,6 @@ h2, .h2 {
 }
 
 .nav-pills .nav-link {
-  color: $primary;
   border-radius: 0;
   padding: 1.5em 2.25em;
 }
@@ -100,10 +115,9 @@ h2, .h2 {
 }
 
 .text-left {
-  text-align: #{$left} !important;
+  @include text-align(left);
 }
 
 .text-right {
-  text-align: #{$right} !important;
+  @include text-align(right);
 }
-

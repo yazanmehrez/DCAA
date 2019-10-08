@@ -12,7 +12,7 @@ export class MainRestService extends BaseService {
   baseUrl = '';
   progressCount = 0;
   constructor(public configService: ConfigService, public httpClient: HttpClient, private ngZone: NgZone) {
-    super(httpClient);
+    super(httpClient, configService);
 
     this.baseUrl = configService.getApiURI();
 
@@ -46,6 +46,10 @@ export class MainRestService extends BaseService {
 
   MyProfile() {
     return this.restRequest(null, `${this.baseUrl}/api/MyProfile`, null, 'GET');
+  }
+
+  IsEmailVerifiedAsync(sendConfirmation = false) {
+    return this.restRequest(null, `${this.baseUrl}/api/IsMyEmailVerified/?sendConfirmation=${sendConfirmation}`, null, 'GET');
   }
 
 }

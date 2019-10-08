@@ -1,48 +1,59 @@
-import { UserProfile } from 'src/app/shared/models/userProfile';
+import {UserProfile} from '../../shared/models/API/Entities/UserProfile';
 
 export enum FeatureSection {
-    none = 0,
-    passwordResetRequest,
-    emailVerification,
-    emailChange,
-    accountCreated
+  none = 0,
+  passwordResetRequest,
+  emailVerification,
+  emailChange,
+  accountCreated
 }
 
 export interface ChangePasswordViewModel {
-    oldPassword: string;
+  oldPassword: string;
 
-    newPassword: string;
+  newPassword: string;
 
-    confirmPassword: string;
+  confirmPassword: string;
+}
+
+export interface ConfirmEmailPasswordModel {
+  userName: string;
+
+  token: string;
+
+  newPassword: string;
+
+  confirmPassword: string;
+  captchaResponse: string;
 }
 
 export interface EmailModel {
-    email: string;
+  email: string;
 }
 
 export class DigitModel {
-    digit: number;
+  digit: number;
 }
 
 export class DigitToken {
-    digitTokenId: number;
-    digitCode: number;
-    token: string;
-    userName: string;
-    sentToEmail: string;
-    isSpent: boolean;
-    featureSection: FeatureSection;
-    entryDate: Date | string;
-    expires: Date | string | null;
-    spentWhen: Date | string | null;
-    userProfile: UserProfile;
+  digitTokenId: number;
+  digitCode: number;
+  token: string;
+  userName: string;
+  sentToEmail: string;
+  isSpent: boolean;
+  featureSection: FeatureSection;
+  entryDate: Date | string;
+  expires: Date | string | null;
+  spentWhen: Date | string | null;
+  userProfile: UserProfile;
 
 }
 
 export class ChangeEmailModel {
-    newEmail: string;
+  newEmail: string;
 
-    userName: string;
+  userName: string;
 
-    token: string;
+  token: string;
 }

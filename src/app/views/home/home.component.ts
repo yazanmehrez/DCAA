@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
-import {ApiService} from '../../../services/api.service';
 import {AppService} from '../../app.service';
 
 @Component({
@@ -10,7 +9,7 @@ import {AppService} from '../../app.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  constructor(private dialog: MatDialog, private api: ApiService, private _appService: AppService) {
+  constructor(private dialog: MatDialog, private _appService: AppService) {
   }
 
   ngOnInit() {

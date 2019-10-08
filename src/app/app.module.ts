@@ -70,6 +70,28 @@ import { PageBannerComponent } from './views/pages/shared/page-banner/page-banne
 import { PageContentComponent } from './views/pages/shared/page-content/page-content.component';
 import { OverviewComponent } from './views/pages/about-us/overview/overview.component';
 import { MostViewedServicesComponent } from './views/home/most-viewed-services/most-viewed-services.component';
+import { DcaaSectorsComponent } from './views/pages/about-us/dcaa-sectors/dcaa-sectors.component';
+import { DcaaStrategiesComponent } from './views/pages/about-us/dcaa-strategies/dcaa-strategies.component';
+import { FaqComponent } from './views/pages/faq/faq.component';
+import { OrganizationalStructureComponent } from './views/pages/about-us/organizational-structure/organizational-structure.component';
+import { FeedbackComponent } from './views/pages/feedback/feedback.component';
+import { ContactDgComponent } from './views/pages/feedback/contact-dg/contact-dg.component';
+import { YourFeedbackComponent } from './views/pages/feedback/your-feedback/your-feedback.component';
+import { StatisticsComponent } from './views/pages/statistics/statistics.component';
+import { IssuedPermitsComponent } from './views/pages/statistics/issued-permits/issued-permits.component';
+import { InspectionsComponent } from './views/pages/statistics/inspections/inspections.component';
+import { SafetyInspectionsComponent } from './views/pages/statistics/safety-inspections/safety-inspections.component';
+import {DateTimePickerComponent} from './components/date-time-picker/date-time-picker.component';
+import { TextPagesComponent } from './views/pages/text-pages/text-pages.component';
+import { DisclaimerComponent } from './views/pages/text-pages/disclaimer/disclaimer.component';
+import { PrivacyPolicyComponent } from './views/pages/text-pages/privacy-policy/privacy-policy.component';
+import { TermsConditionsComponent } from './views/pages/text-pages/terms-conditions/terms-conditions.component';
+import { PersonalDetailsComponent } from './views/Accounts/Forms/personal-details/personal-details.component';
+import { ContactDetailsComponent } from './views/Accounts/Forms/contact-details/contact-details.component';
+import { CompanyDetailsComponent } from './views/Accounts/Forms/company-details/company-details.component';
+import { TokenResetComponent } from './views/pages/token-reset/token-reset.component';
+import { EmailconfirmationComponent } from './Partials/emailconfirmation/emailconfirmation.component';
+import { DocumentsDetailsComponent } from './views/Accounts/Forms/documents-details/documents-details.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new MultiTranslateHttpLoader(httpClient, [
@@ -113,6 +135,7 @@ export function provideSwal() {
   declarations: [
     AppComponent,
     HomeComponent,
+    DateTimePickerComponent,
     HeaderComponent,
     FooterComponent,
     StartingComponent,
@@ -125,9 +148,9 @@ export function provideSwal() {
     PartnersComponent,
     XgalleryComponent,
     ErrorDialogComponent,
-    ClickOutSideElementDirective,
+    TokenResetComponent, EmailconfirmationComponent,
     EmailValidatorDirective, MyFocusDirective, LoginComponent,
-    UserProfileComponent, AccountRootComponent, ChangePasswordComponent, ChangeEmailComponent, BlogShimmerComponent, MobileNavbarComponent, ClickOutSideElementDirective, AboutUsComponent, PageBannerComponent, PageContentComponent, OverviewComponent, MostViewedServicesComponent,
+    UserProfileComponent, AccountRootComponent, ChangePasswordComponent, ChangeEmailComponent, BlogShimmerComponent, MobileNavbarComponent, ClickOutSideElementDirective, AboutUsComponent, PageBannerComponent, PageContentComponent, OverviewComponent, MostViewedServicesComponent, DcaaSectorsComponent, DcaaStrategiesComponent, FaqComponent, OrganizationalStructureComponent, FeedbackComponent, ContactDgComponent, YourFeedbackComponent, StatisticsComponent, IssuedPermitsComponent, InspectionsComponent, SafetyInspectionsComponent, TextPagesComponent, DisclaimerComponent, PrivacyPolicyComponent, TermsConditionsComponent, PersonalDetailsComponent, ContactDetailsComponent, CompanyDetailsComponent, DocumentsDetailsComponent,
   ],
   providers: [ErrorDialogService, UserService, ConfigService, TransporterService, JWTService,
     XhrService, MainRestService, AccountServiceService, {

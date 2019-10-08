@@ -46,6 +46,12 @@
   "_Loading": "جاري التحميل",
   "_Matched": "متطابقة",
   "_Select": "اختر",
-  "_UAEPass": "UAE Pass"
+  "_UAEPass": "UAE Pass",
+  "_Notes": "ملاحظة",
+  "_emailVerify": {
+    "emailVerifyMessage": "لقد أرسلنا بريداً الكترونياً على العنوان <strong><em>{{email}}</em></strong> للتأكد من أنه فعّال، الرجاء التحقق من البريد الالكتروني واتباع التعليمات المرسلة.",
+    "emailVerifyMessage2" : "في حال لم يصل أي بريد الكتروني، يمكنك",
+    "emailVerifyMessage3" : "إعادة طلب التحقق"
+  }
 }
 

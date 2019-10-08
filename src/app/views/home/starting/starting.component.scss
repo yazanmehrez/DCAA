@@ -2,14 +2,14 @@
 
 .carousel-caption {
   top: 25%;
-  #{$right}: 0;
-  #{$left}: 0;
+  right: 0;
+  left: 0;
   bottom: 20px;
   width: 100%;
 }
 
 .carousel-indicators {
-  #{$right}: -6em;
+  @include right(-6em);
 
   li {
     width: 8px;
@@ -22,7 +22,7 @@
 .scroll-down {
   position: absolute;
   z-index: 15;
-  #{$left}: 48.8%;
+  @include left(48.8%);
   bottom: 2em;
   border: 1px solid #fff;
   width: 2em;

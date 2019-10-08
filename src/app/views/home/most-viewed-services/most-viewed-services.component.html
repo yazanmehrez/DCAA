@@ -1,20 +1,20 @@
-<div class="dcaa-most-viewed-services">
+<div class="dcaa-most-viewed-services mb-5">
   <div class="container">
     <h2 class="card-title p-0 pr-1 col-md-2">Most Viewed Services</h2>
     <div class="services-categories">
       <ngu-carousel
-              [inputs]="carouselOptions">
+        [inputs]="carouselOptions">
         <ngu-item NguCarouselItem *ngFor="let service of services">
-          <div class="swiper-slide border-up-box">
+          <div class="swiper-slide service-card">
             <span class="icon-{{service.icon}}"></span>
-            <div class="card-body">
-              <p class="card-text">{{service.description}}</p>
+            <div class="card-body p-0 pt-1">
+              <p class="card-text d-flex justify-content-center align-items-center">{{service.description}}</p>
             </div>
           </div>
         </ngu-item>
 
-        <button mat-fab NguCarouselPrev class='carousel-left'><i class="fa fa-chevron-left"></i></button>
-        <button mat-fab NguCarouselNext class='carousel-right'><i class="fa fa-chevron-right"></i></button>
+        <button NguCarouselPrev class='carousel-left border-0'><span class="icon-left"></span></button>
+        <button NguCarouselNext class='carousel-right border-0'><span class="icon-right"></span></button>
       </ngu-carousel>
     </div>
   </div>

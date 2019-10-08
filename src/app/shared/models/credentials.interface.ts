@@ -1,5 +1,5 @@
 export interface Credentials {
-    userName: string;
-    password: string;
-    captchaResponse: string;
+  userName: string;
+  password: string;
+  captchaResponse: string;
 }

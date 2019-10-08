@@ -1,0 +1,11 @@
+@import "../variables";
+
+::ng-deep .black-mode {
+  color: #d6d6d6 !important;
+  background-color: #000 !important;
+  filter: grayscale(100%);
+
+  .dcaa-header {
+    background: $white !important;
+  }
+}

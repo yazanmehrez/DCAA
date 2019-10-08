@@ -1,96 +1,193 @@
-<div class="main-wrapper-section">
-    <div *ngIf="fetchinginProgress" class="m-t-20 display-flex flex-halign-center">
-        <div class="spinner-border spinner-border-sm prelative top-3" role="status">
-            <span class="sr-only">Loading...</span>
+<div class="row">
+  <div class="col-md-9">
+    <h6 class="primary-color text-uppercase text-left">User Profile</h6>
+    <div class="part mb-2">
+      <span>Select from below: <span class="text-primary">*</span></span>
+      <div class="d-flex mt-3">
+        <div class="service-card" [ngClass]="accountType == AccountType.Individual? 'selected' : ''"
+             (click)="accountType = AccountType.Individual">
+          <span class="icon-individual"></span>
+          <div class="card-body p-0 pt-1">
+            <p class="card-text">Individual</p>
+          </div>
         </div>
+        <div class="service-card" [ngClass]="accountType == AccountType.PrivateCompany? 'selected' : ''"
+             (click)="accountType = AccountType.PrivateCompany">
+          <span class="icon-company"></span>
+          <div class="card-body p-0 pt-1">
+            <p class="card-text">Company</p>
+          </div>
+        </div>
+        <div class="service-card" [ngClass]="accountType == AccountType.Government? 'selected' : ''"
+             (click)="accountType = AccountType.Government; openForms = true">
+          <span class="icon-government"></span>
+          <div class="card-body p-0 pt-1">
+            <p class="card-text">Government</p>
+          </div>
+        </div>
+        <div class="service-card" [ngClass]="accountType == AccountType.Agency? 'selected' : ''"
+             (click)="accountType = AccountType.Agency; openForms = true">
+          <span class="icon-agency"></span>
+          <div class="card-body p-0 pt-1">
+            <p class="card-text">Agency</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="accountType == AccountType.Individual" class="part child mb-2">
+      <span>Select from below: <span class="text-primary">*</span></span>
+      <div class="d-flex mt-3">
+        <div class="service-card" (click)="individualType = IndividualType.Resident; openForms = true"
+             [ngClass]="individualType == IndividualType.Resident? 'selected' : ''">
+          <span class="icon-resident"></span>
+          <div class="card-body p-0 pt-1">
+            <p class="card-text">
+              Resident</p>
+          </div>
+        </div>
+        <div class="service-card" (click)="individualType = IndividualType.Tourist; openForms = true"
+             [ngClass]="individualType == IndividualType.Tourist? 'selected' : ''">
+          <span class="icon-tourist"></span>
+          <div class="card-body p-0 pt-1">
+            <p class="card-text">Tourist</p>
+          </div>
+        </div>
+        <div class="service-card" (click)="individualType = IndividualType.Employee; openForms = true"
+             [ngClass]="individualType == IndividualType.Employee? 'selected' : ''">
+          <span class="icon-employee"></span>
+          <div class="card-body p-0 pt-1">
+            <p class="card-text">Employees</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="accountType == AccountType.PrivateCompany" class="part child mb-2">
+      <span>Select from below: <span class="text-primary">*</span></span>
+      <div class="d-flex mt-3">
+        <div class="service-card" (click)="companyLocation = CompanyLocation.InsideUAE"
+             [ngClass]="companyLocation == CompanyLocation.InsideUAE? 'selected' : ''">
+          <span class="icon-company"></span>
+          <div class="card-body p-0 pt-1">
+            <p class="card-text">
+              Inside UAE</p>
+          </div>
+        </div>
+        <div class="service-card" (click)="companyLocation = CompanyLocation.OutsideUAE; openForms = true"
+             [ngClass]="companyLocation == CompanyLocation.OutsideUAE? 'selected' : ''">
+          <span class="icon-use-cranes"></span>
+          <div class="card-body p-0 pt-1">
+            <p class="card-text">Outside UAE</p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="companyLocation == CompanyLocation.InsideUAE" class="part child my-5">
+        <div class="d-flex justify-content-between align-items-center">
+          <span>Trade License issued: <span class="text-primary">*</span></span>
+          <div class="d-flex">
+            <div class="form-group search-filter mx-2 my-0 position-relative">
+              <input aria-label="Search" class="form-control" placeholder="Filter by city"
+                     type="text"><span
+              class="icon-search position-absolute search-filter-icon d-flex align-items-center"></span>
+            </div>
+            <div class="form-group search-filter mx-2 my-0 position-relative">
+              <input aria-label="Search" class="form-control" placeholder="Filter by city"
+                     type="text"><span
+              class="icon-search position-absolute search-filter-icon d-flex align-items-center"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="service-card col-md-3"
+               *ngFor="let license of TradeLicense; let i = index"
+               [ngClass]="tradLicense == i ? 'selected' : ''" (click)="tradLicense = i; openForms = true">
+            <span class="icon-{{license.icon}}"></span>
+            <div class="card-body p-0 pt-1">
+              <p class="card-text">
+                {{license.name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div *ngIf="accountType" class="form-group profile-pic text-center d-flex flex-column text-break">
+      <app-file-uploader [uploadType]="'profilePhoto'" #imageFileUploadCrl
+                         [filesysteminit]="myProfile.pictureUrl"
+                         (result)="setImage($event)">
+      </app-file-uploader>
+      <input #imageInput type="hidden" class="form-control"
+             id="pictureUrl" placeholder="What image?">
+      <h5 class="text-uppercase text-center mt-3 mb-0">{{myProfile.firstName + ' ' + myProfile.lastName}}</h5>
+      <span>{{myProfile.email}}</span>
+      <a class="primary-color">{{myProfile.locale.city}}, {{myProfile.locale.altCountry}}</a>
+      <span class="text-muted mb-2">@{{myProfile.userName}}</span>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="openForms">
+  <div class="col-md-12">
+    <ul class="nav nav-pills mb-2 mt-4" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link border-up-box text-uppercase active" id="pills-home-tab" data-toggle="pill"
+           href="#personal-details"
+           role="tab" aria-controls="pills-home" aria-selected="true">Personal Details</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link border-up-box text-uppercase" id="pills-profile-tab" data-toggle="pill"
+           href="#contact-details"
+           role="tab"
+           aria-controls="pills-profile" aria-selected="false">Contact Details</a>
+      </li>
+      <li class="nav-item" *ngIf="accountType !== AccountType.Individual">
+        <a class="nav-link border-up-box text-uppercase" id="pills-contact-tab" data-toggle="pill"
+           href="#company-details"
+           role="tab"
+           aria-controls="pills-contact" aria-selected="false">Company Details</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="personal-details" role="tabpanel" aria-labelledby="pills-home-tab">
+        <dcaa-personal-details [pictureUrl]="pictureUrl" #personalDetails></dcaa-personal-details>
+        <dcaa-documents-details [individualType]="individualType" #documentsDetails></dcaa-documents-details>
+      </div>
+      <div class="tab-pane fade" id="contact-details" role="tabpanel" aria-labelledby="pills-home-tab"
+           *ngIf="accountType == AccountType.Individual || accountType == AccountType.Agency">
+        <dcaa-contact-details #contactDetails></dcaa-contact-details>
+      </div>
+      <div class="tab-pane fade" id="company-details" role="tabpanel" aria-labelledby="pills-home-tab"
+           *ngIf="accountType == AccountType.PrivateCompany || accountType == AccountType.Government">
+        <dcaa-company-details #companyDetails></dcaa-company-details>
+      </div>
     </div>
 
-  <div *ngIf="profileForm" class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="font-weight-light m-b-20 text-center m-t-20" i18n="@@profile">Profile</h2>
-        <form class="p-b-20" [formGroup]="profileForm" (ngSubmit)="updateProfile(formDirective)" #formDirective="ngForm">
-            <div class="form-group">
-              <app-file-uploader [uploadType]="'profilePhoto'" #imageFileUploadCrl [filesysteminit]="profileForm.value.pictureUrl" (result)="setImage($event)"></app-file-uploader>
-              <input #imageInput formControlName="pictureUrl" [ngClass]="{ 'is-invalid': profileSubmitted && l.pictureUrl.errors }" type="hidden" class="form-control" id="pictureUrl" placeholder="What image?">
-            </div>
-            <div class="row">
-              <div class="col-sm-4 col-md-3">
-                  <div class="form-group">
-                    <label i18n="@@firstName" for="firstName" class="font-weight-bold text-primary clientApp-label">First Name</label>
-                    <input i18n-placeholder="@@firstName" formControlName="firstName" [ngClass]="{ 'is-invalid': profileSubmitted && l.firstName.errors }" type="text" class="form-control clientApp-input" id="firstName" placeholder="First Name">
-                  </div>
-                  <div *ngIf="profileSubmitted && l.firstName.errors" class="invalid-feedback always-block text-center">
-                      <div i18n="@@required" *ngIf="l.firstName.errors.required">Field is required</div>
-                  </div>
-              </div>
-              <div class="col-sm-4 col-md-3">
-                  <div class="form-group">
-                      <label i18n="@@lastName" for="lastName" class="font-weight-bold text-primary clientApp-label">Last Name</label>
-                      <input i18n-placeholder="@@lastName" formControlName="lastName" [ngClass]="{ 'is-invalid': profileSubmitted && l.lastName.errors }" type="text" class="form-control clientApp-input" id="lastName" placeholder="Last Name">
-                  </div>
-                  <div *ngIf="profileSubmitted && l.lastName.errors" class="invalid-feedback always-block text-center">
-                      <div i18n="@@required" *ngIf="l.lastName.errors.required">Field is required</div>
-                  </div>
-              </div>
-              <div class="col-sm-4 col-md-3">
-                  <div class="form-group">
-                      <label i18n="@@city" for="localeId" class="font-weight-bold text-primary clientApp-label">City</label>
-                      <div class="custom-material-select clientApp-input white-back">
-                          <mat-select placeholder="City" formControlName="localeId" id="localeId">
-                              <mat-option [value]="item.localeId" *ngFor="let item of locales">{{item.city}}</mat-option>
-                          </mat-select>
-                      </div>
-        
-                  </div>
-                  <div *ngIf="profileSubmitted && l.localeId.errors" class="invalid-feedback always-block text-center">
-                      <div i18n="@@required" *ngIf="l.localeId.errors.required">Field is required</div>
-                  </div>
-              </div> 
-              <div class="col-sm-4 col-md-3">
-                  <div class="form-group">
-                      <label i18n="@@dob" for="dob" class="font-weight-bold text-primary clientApp-label">Date of birth</label>
-                      <div class="display-flex custom-datepicker clientApp-input">
-                          <input [matDatepicker]="picker" formControlName="dob" [ngClass]="{ 'is-invalid': profileSubmitted && l.dob.errors }" class="bigger date-inputbox" type="text" id="dob" placeholder="Date of birth">
-                          <mat-datepicker-toggle matSuffix [for]="picker">
-                              <mat-icon matDatepickerToggleIcon><i class="icon-calendar"></i></mat-icon>
-                          </mat-datepicker-toggle>
-                          <mat-datepicker #picker></mat-datepicker>
-                      </div>
 
-                  </div>
-                  <div *ngIf="l.dob.errors" class="invalid-feedback always-block text-center">
-                      <div i18n="@@required" *ngIf="profileSubmitted && l.dob.errors.required">Field is required</div>
-                      <div i18n="@@invalidDate" *ngIf="l.dob.errors.validDate">Invalid date</div>
-                      <div i18n="@@cannotBeFuture" *ngIf="l.dob.errors.todayAndPast">DOB cannot be in the future</div>
-                  </div>
-              </div>                         
-            </div>
-            <hr>
-
-            <div class="display-flex no-wrap flex-valign-center flex-halign-center m-t-10">
-                <button type="submit" [disabled]="this.inProgress" class="btn btn-primary clientApp-style">
-                    <div class="display-flex">
-                        <div *ngIf="inProgress" class="spinner-border spinner-border-sm prelative top-3 right-10" role="status">
-                          <span class="sr-only">Loading...</span>
-                        </div>
-                        <div class="m-lr-5" i18n="@@update">Update</div>
-                    </div>
-                </button>
-                
-            </div>
-            <p class="p-t-20" *ngIf="profileErrors.length > 0">
-              <ngb-alert #alert type="danger" (close)="profileErrors = []">
-                <span *ngFor="let text of profileErrors">{{text}}</span>
-              </ngb-alert>
-            </p>
-          </form>        
+    <div class="d-flex no-wrap flex-valign-center flex-halign-center m-t-10" *ngIf="openForms">
+      <div class="mt-4" i18n="@@update">
+        <button type="submit" [disabled]="this.inProgress" (click)="updateProfile()"
+                class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
+          <div *ngIf="inProgress" class="spinner-border spinner-border-sm mx-1" role="status">
+            <span class="sr-only"> {{'_Forms._Loading' | translate}}...</span>
+          </div>
+          Update
+        </button>
       </div>
+    </div>
+
+  </div>
+
+  <div class="p-lr-20" *ngIf="profileErrors.length > 0">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <div *ngFor="let text of profileErrors">{{text}}</div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
   </div>
 </div>
 
 <swal
-#swalComp 
-type="success">
+    #swalComp
+    type="success">
 </swal>

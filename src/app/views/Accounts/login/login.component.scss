@@ -21,15 +21,6 @@
   background-color: $white;
 }
 
-.form-group input {
-  border-radius: 0;
-  border-#{$left}: $border-size solid $primary;
-
-  &:focus {
-    outline: 0;
-    box-shadow: none;
-  }
-}
 
 .forget-pass {
   cursor: pointer;

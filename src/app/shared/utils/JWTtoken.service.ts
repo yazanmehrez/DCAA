@@ -17,7 +17,7 @@ export class JWTService {
 
     initialise() {
         this.myRawToken = localStorage.getItem('auth_token');
-        console.log(this.myRawToken);
+        // console.log(this.myRawToken);
         if (this.myRawToken) {
             this.decodedToken = this.helper.decodeToken(this.myRawToken);
             this.expirationDate = this.helper.getTokenExpirationDate(this.myRawToken);

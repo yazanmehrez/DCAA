@@ -30,6 +30,7 @@ import {DatetimePipe} from 'src/app/pipes/datetime.pipe';
 import {DropdownModule} from 'ngx-dropdown';
 // Social Login
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, LoginOpt, SocialLoginModule} from 'angularx-social-login';
+import {TextareaAutosizeModule} from 'ngx-textarea-autosize';
 
 
 export function tokenGetter() {
@@ -82,9 +83,10 @@ export function provideConfig() {
         MatAutocompleteModule, MatFormFieldModule, SocialLoginModule,
         MatCardModule,
         DropdownModule,
+        TextareaAutosizeModule,
         NguCarouselModule
     ],
-    exports: [FileUploaderComponent, ImgCompComponent, ChartComponent, HelperPipe, DatetimePipe, NguCarouselModule],
+    exports: [FileUploaderComponent, ImgCompComponent, ChartComponent, HelperPipe, DatetimePipe, NguCarouselModule, TextareaAutosizeModule],
     providers: [
         AuthGuard,
         {provide: HIGHCHARTS_MODULES, useFactory: () => [more, exporting, highchart3D, drilldown, cylinder]},

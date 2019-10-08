@@ -1,12 +1,31 @@
-.mat-list-base .mat-list-item .mat-list-text>*, .mat-list-base .mat-list-option .mat-list-text>* {
-    font-size: $font-size-base !important;
+.mat-list-base .mat-list-item .mat-list-text > *, .mat-list-base .mat-list-option .mat-list-text > * {
+  font-size: $font-size-base !important;
 }
 
 // gallery plugin angular material fix
 .mat-sidenav-container, .mat-sidenav-content, .mat-tab-body-content {
-    transform: none !important;
+  transform: none !important;
 }
 
-.mat-select-search-input, .mat-input-element{
-    border: none !important;
+.mat-select-search-input, .mat-input-element {
+  border: none !important;
+}
+
+.mat-datepicker-toggle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  @include right(0);
+  top: 0;
+  bottom: 0;
+}
+
+.mat-select-arrow {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid;
+  margin: 0 4px;
+  color: $primary;
 }

@@ -6,7 +6,6 @@ import {NgbDropdown} from '@ng-bootstrap/ng-bootstrap';
 import {HttpErrorResponse} from '@angular/common/http';
 import {FormControl} from '@angular/forms';
 import {LoginComponent} from '../../Accounts/login/login.component';
-import {GlobalSearchContent, LocaleInfo, Profile} from 'src/app/shared/models/userProfile';
 import {UserService} from 'src/app/shared/services/user.service';
 import {MainRestService} from 'src/app/shared/API/main.rest';
 import {TransporterService} from 'src/app/shared/transporter/transporter';
@@ -14,6 +13,10 @@ import {JWTService} from 'src/app/shared/utils/JWTtoken.service';
 import {AppService} from '../../../app.service';
 import {AuthService} from 'angularx-social-login';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {SwalComponent} from '@sweetalert2/ngx-sweetalert2';
+import {TranslateService} from '@ngx-translate/core';
+import {LocaleInfo} from '../../../shared/models/API/Entities/Admin/LocaleInfo';
+import {GlobalSearchContent, Profile} from '../../../shared/models/userProfile';
 
 @Component({
   selector: 'dcaa-navbar',
@@ -29,21 +32,25 @@ export class NavbarComponent implements OnInit, OnDestroy {
   profileSubscription: Subscription;
   otherProfileSubscription: Subscription;
   messenger: Subscription;
-
+  allowVerification = true;
+  emailIsConfirmed = true;
   adminNav = false;
   isAdmin: boolean;
   isWebMaster: boolean;
-
+  // Font size Accessibility configurations
+  fontSizeConfig = {
+    fontSize: 1, // Font Size zoom is 1 for initial
+    maxFontSize: 1.3, // Font Size zoom is 1 for initial
+    minFontSize: 0.8, // Font Size zoom is 1 for initial
+    offset: 0.1 // Font Size zoom is 1 for initial
+  };
   locale: LocaleInfo;
   navRelative: any;
   locales: LocaleInfo[];
-
   searchResult: GlobalSearchContent[] = [];
-
   searchCtrl = new FormControl();
   currentLocale: LocaleInfo;
   searchInProgress: boolean;
-
   navbar = [
     {
       name: 'Home',
@@ -58,11 +65,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
       childs: []
     },
   ];
+  @ViewChild('swalComp', {static: true}) private swalComp: SwalComponent;
 
   constructor(private userService: UserService, private restService: MainRestService,
               private transporter: TransporterService, private authService: AuthService,
               public _appService: AppService,
-              public dialog: MatDialog,
+              public dialog: MatDialog, protected translate: TranslateService,
               private router: Router, private jwtService: JWTService) {
 
     this.searchCtrl.valueChanges.subscribe((value: string) => {
@@ -87,6 +95,30 @@ export class NavbarComponent implements OnInit, OnDestroy {
       {panelClass: 'dcaa-login-register'});
   }
 
+  logout() {
+    if (this.profile.isSocialMedia) {
+      this.authService.signOut();
+    }
+    this.userService.logout();
+  }
+
+  IsEmailVerifiedAsync(sendConfirmation = false) {
+    if (this.profile) {
+      this.restService.IsEmailVerifiedAsync(sendConfirmation).then((data: boolean) => {
+        this.emailIsConfirmed = data;
+        if (sendConfirmation && !data) {
+
+          this.swalComp.title = this.translate.instant('emailConfirmationSent');
+          this.swalComp.type = 'success';
+          this.swalComp.showCancelButton = false;
+          this.swalComp.fire();
+        }
+      }).catch((err: HttpErrorResponse) => {
+        console.log(err);
+      });
+    }
+  }
+
   gotoToPath(result: GlobalSearchContent) {
     this.router.navigate([result.routeUrl]);
   }
@@ -100,16 +132,37 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   }
 
-  logout() {
-    if (this.profile.isSocialMedia) {
-      this.authService.signOut();
-    }
-    this.userService.logout();
-  }
-
   verifyRoles() {
     this.isAdmin = this.jwtService.IsAdmin();
     this.isWebMaster = this.jwtService.IsWebMaster();
+  }
+
+  print() {
+    window.print();
+  }
+
+  setBlackMode() {
+    this._appService.blackMode = this._appService.blackMode === 'on' ? 'off' : 'on';
+    localStorage.setItem('blackMode', this._appService.blackMode);
+  }
+
+  increaseFontSize() {
+    if (this.fontSizeConfig.fontSize < this.fontSizeConfig.maxFontSize) {
+      this.fontSizeConfig.fontSize += this.fontSizeConfig.offset;
+    }
+    $('body').css('zoom', this.fontSizeConfig.fontSize);
+  }
+
+  decreaseFontSize() {
+    if (this.fontSizeConfig.fontSize > this.fontSizeConfig.minFontSize) {
+      this.fontSizeConfig.fontSize -= this.fontSizeConfig.offset;
+    }
+    $('body').css('zoom', this.fontSizeConfig.fontSize);
+  }
+
+  resetFontSize() {
+    this.fontSizeConfig.fontSize = 1;
+    $('body').css('zoom', this.fontSizeConfig.fontSize);
   }
 
   preventClose(event: MouseEvent) {
@@ -128,7 +181,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.locale = localeStr ? JSON.parse(localeStr) : null;
     if (!this.locale) {
       this.userService.ipFinder().then((result: any) => {
-        console.log(result);
         this.restService.fetchLocale(result.region).then((locale: LocaleInfo) => {
           this.locale = locale;
           localStorage.setItem('locale', JSON.stringify(locale));
@@ -141,6 +193,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
     this.profileSubscription = this.userService.activeProfile$.subscribe((profile: Profile) => {
       this.profile = profile;
+      this.IsEmailVerifiedAsync(false);
       this.verifyRoles();
     });
     this.otherProfileSubscription = this.userService.otherProfiles$.subscribe((profiles: Profile[]) => {
@@ -165,6 +218,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
           this.navRelative = result.data;
         }
 
+        if (result.type === 'allowVerification') {
+          this.allowVerification = result.data;
+        }
+
         if (result.type === 'sessionExpired' && result.data === true) {
           this.logout();
           if (this.LoginDrop) {
@@ -181,8 +238,26 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.profile = usersData.profile;
       this.otherProfiles = usersData.profiles;
       this.verifyRoles();
+      this.IsEmailVerifiedAsync(false);
     }
-    console.log(this.profile);
+
+    $('.nav-item').hover(
+      function () {
+        $(this).children('.dropdown-menu').addClass('show').removeClass('hide');
+      }, function () {
+        $(this).children('.dropdown-menu').addClass('hide').removeClass('show');
+      }
+    ).click(
+      function () {
+        $(this).children('.dropdown-menu').removeClass('show');
+        console.log($(this).children);
+        window.scrollBy({
+          top: 400,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }
+    );
   }
 
   ngOnDestroy(): void {

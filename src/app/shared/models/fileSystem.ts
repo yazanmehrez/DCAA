@@ -1,30 +1,30 @@
-import { UserProfile } from './userProfile';
-
 // tslint:disable-next-line:class-name
+import {UserProfile} from './API/Entities/UserProfile';
+
 export interface FileSystem {
-    file_id: number;
+  file_id: number;
 
-    fileName: string;
+  fileName: string;
 
-    fileSizeKB: number;
+  fileSizeKB: number;
 
-    fileLocation: string;
+  fileLocation: string;
 
-    fileExtension: string;
+  fileExtension: string;
 
-    videoThumbnail: string;
+  videoThumbnail: string;
 
-    pdfImage: string;
+  pdfImage: string;
 
-    otherFileThumbnail: string;
+  otherFileThumbnail: string;
 
-    pageId: number;
+  pageId: number;
 
-    sectionId: number;
+  sectionId: number;
 
-    fileDate: Date | string;
+  fileDate: Date | string;
 
-    entryDate: Date | string;
+  entryDate: Date | string;
 
-    enteredBy: UserProfile;
+  enteredBy: UserProfile;
 }

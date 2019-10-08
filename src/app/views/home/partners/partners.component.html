@@ -1,10 +1,14 @@
-<div class="dcaa-partners">
+<div class="dcaa-partners mt-5 mb-5">
+  <div class="container">
     <ngu-carousel
-            [inputs]="carouselOptions">
-        <ngu-item NguCarouselItem *ngFor="let partner of partners;">
-                <img [src]="partner">
-        </ngu-item>
-        <button mat-fab NguCarouselPrev class='carousel-left d-none'><i class="fa fa-chevron-left"></i></button>
-        <button mat-fab NguCarouselNext class='carousel-right d-none'><i class="fa fa-chevron-right"></i></button>
+      [inputs]="carouselOptions">
+      <ngu-item NguCarouselItem *ngFor="let partner of partners;">
+       <div class="partner">
+         <img [src]="partner" class="pointer-event">
+       </div>
+      </ngu-item>
+      <button NguCarouselPrev class='carousel-left d-none'><i class="fa fa-chevron-left"></i></button>
+      <button NguCarouselNext class='carousel-right d-none'><i class="fa fa-chevron-right"></i></button>
     </ngu-carousel>
+  </div>
 </div>

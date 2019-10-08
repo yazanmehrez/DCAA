@@ -107,33 +107,32 @@
     </div>
     <div class="display-flex no-wrap m-t-10">
       <div class="d-flex">
-        <div class="d-flex">
-          <div class="mx-1" i18n="@@signin">
-            <button type="submit" [disabled]="this.inProgress"
-                    class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
-              <div *ngIf="inProgress" class="spinner-border spinner-border-sm mx-1" role="status">
-                <span class="sr-only"> {{'_Forms._Loading' | translate}}...</span>
-              </div>
-              {{'_Forms._Login' | translate}}
-            </button>
-          </div>
-          <div i18n="@@cancel">
-            <button type="button" class="btn btn-lg btn-primary py-1 pl-4 pr-4" (click)="dialog.closeAll()">
-              {{'_Forms._Cancel' | translate}}
-            </button>
-          </div>
+        <div class="mx-1" i18n="@@signin">
+          <button type="submit" [disabled]="this.inProgress"
+                  class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
+            <div *ngIf="inProgress" class="spinner-border spinner-border-sm mx-1" role="status">
+              <span class="sr-only"> {{'_Forms._Loading' | translate}}...</span>
+            </div>
+            {{'_Forms._Login' | translate}}
+          </button>
+        </div>
+        <div i18n="@@cancel">
+          <button type="button" class="btn btn-lg btn-primary py-1 pl-4 pr-4" (click)="dialog.closeAll()">
+            {{'_Forms._Cancel' | translate}}
+          </button>
         </div>
       </div>
     </div>
   </form>
-  <p class="p-lr-20" *ngIf="loginErrors.length > 0">
-    <ngb-alert #alert type="danger" (close)="loginErrors = []">
-      <span *ngFor="let text of loginErrors">{{text}}</span>
-    </ngb-alert>
-  </p>
-  <!--  <div class="dropdown-divider"></div>-->
-  <!--  <button ngbDropdownItem (click)="formId = 2" i18n="@@signUpAsk">New around here? Sign up</button>-->
-  <!--  <button ngbDropdownItem (click)="formId = 3" i18n="@@forgotpasswordAsk">Forgot password?</button>-->
+  <div class="p-lr-20" *ngIf="loginErrors.length > 0">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <div *ngFor="let text of loginErrors">{{text}}</div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+
 </div>
 
 <div *ngIf="formId == 2" class="registration-form">
@@ -189,44 +188,45 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <span> {{'_Forms._Username' | translate}} <span class="text-primary">*</span></span>
+    <div class="row">
+      <div class="col-md-6 form-group">
+        <span> {{'_Forms._Username' | translate}} <span class="text-primary">*</span></span>
 
-      <input formControlName="userName" [ngClass]="{ 'is-invalid': regSubmitted && r.userName.errors }"
-             type="text"
-             class="form-control round-border" id="username" i18n-placeholder="@@username"
-             [placeholder]="'_Forms._Username' | translate">
-      <div *ngIf="regSubmitted && r.userName.errors" class="invalid-feedback">
-        <div *ngIf="r.userName.errors.required" i18n="@@usernamerequired">
-          {{'_Forms._Username' | translate}}
-          {{'_Validation._Required' | translate}}
-        </div>
-        <div *ngIf="r.userName.errors.cannotContainSpace" i18n="@@usernameNoSpace">
-          {{'_Forms._Username' | translate}}
-          {{'_Cannot' | translate}}
-          {{'_Validation._ContainSpace' | translate}}
+        <input formControlName="userName" [ngClass]="{ 'is-invalid': regSubmitted && r.userName.errors }"
+               type="text"
+               class="form-control round-border" id="username" i18n-placeholder="@@username"
+               [placeholder]="'_Forms._Username' | translate">
+        <div *ngIf="regSubmitted && r.userName.errors" class="invalid-feedback">
+          <div *ngIf="r.userName.errors.required" i18n="@@usernamerequired">
+            {{'_Forms._Username' | translate}}
+            {{'_Validation._Required' | translate}}
+          </div>
+          <div *ngIf="r.userName.errors.cannotContainSpace" i18n="@@usernameNoSpace">
+            {{'_Forms._Username' | translate}}
+            {{'_Cannot' | translate}}
+            {{'_Validation._ContainSpace' | translate}}
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="form-group">
-      <span>{{'_Forms._Email' | translate}}<span class="text-primary">*</span></span>
-      <input formControlName="email" [ngClass]="{ 'is-invalid': regSubmitted && r.email.errors }" type="email"
-             class="form-control round-border" id="email" i18n-placeholder="@@email"
-             [placeholder]="'_Forms._EmailAddress' | translate">
-      <div *ngIf="regSubmitted && r.email.errors" class="invalid-feedback">
-        <div *ngIf="r.email.errors.required" i18n="@@emailrequired">
-          {{'_Forms._Email' | translate}}
-          {{'_Validation._Required' | translate}}
-        </div>
-        <div *ngIf="r.email.errors.cannotContainSpace" i18n="@@emailNoSpace">
-          {{'_Forms._Email' | translate}}
-          {{'_Cannot' | translate}}
-          {{'_Validation._ContainSpace' | translate}}
-        </div>
-        <div *ngIf="r.email.errors.email" i18n="@@invalidEmail">
-          {{'_Validation._Invalid' | translate}}
-          {{'_Forms._EmailAddress' | translate}}
+      <div class="col-md-6 form-group">
+        <span>{{'_Forms._Email' | translate}}<span class="text-primary">*</span></span>
+        <input formControlName="email" [ngClass]="{ 'is-invalid': regSubmitted && r.email.errors }" type="email"
+               class="form-control round-border" id="email" i18n-placeholder="@@email"
+               [placeholder]="'_Forms._EmailAddress' | translate">
+        <div *ngIf="regSubmitted && r.email.errors" class="invalid-feedback">
+          <div *ngIf="r.email.errors.required" i18n="@@emailrequired">
+            {{'_Forms._Email' | translate}}
+            {{'_Validation._Required' | translate}}
+          </div>
+          <div *ngIf="r.email.errors.cannotContainSpace" i18n="@@emailNoSpace">
+            {{'_Forms._Email' | translate}}
+            {{'_Cannot' | translate}}
+            {{'_Validation._ContainSpace' | translate}}
+          </div>
+          <div *ngIf="r.email.errors.email" i18n="@@invalidEmail">
+            {{'_Validation._Invalid' | translate}}
+            {{'_Forms._EmailAddress' | translate}}
+          </div>
         </div>
       </div>
     </div>
@@ -278,37 +278,35 @@
         </div>
       </div>
     </div>
-
-    <div class="d-flex">
-      <div class="d-flex">
-        <div class="mx-1" i18n="@@cancel">
-          <button type="submit" [disabled]="this.inProgress"
-                  class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
-            <div *ngIf="inProgress" class="spinner-border spinner-border-sm mx-1" role="status">
-              <span class="sr-only">{{'_Forms._Loading' | translate}}...</span>
-            </div>
-            {{'_Forms._Submit' | translate}}
-          </button>
-        </div>
-        <div i18n="@@cancel">
-          <button type="button" class="btn btn-lg btn-primary py-1 pl-4 pr-4" (click)="dialog.closeAll()">
-            {{'_Forms._Cancel' | translate}}
-          </button>
-        </div>
+    <div class="form-group captcha-wrapper mt-2">
+      <re-captcha formControlName="captchaResponse"></re-captcha>
+    </div>
+    <div class="d-flex mt-3">
+      <div class="mx-1" i18n="@@cancel">
+        <button type="submit" [disabled]="this.inProgress"
+                class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
+          <div *ngIf="inProgress" class="spinner-border spinner-border-sm mx-1" role="status">
+            <span class="sr-only">{{'_Forms._Loading' | translate}}...</span>
+          </div>
+          {{'_Forms._Submit' | translate}}
+        </button>
       </div>
-
-      <!--<div *ngIf="inProgress" class="spinner-border spinner-border-sm prelative top-3 right-10" role="status">-->
-      <!--<span class="sr-only" i18n-placeholder="@@loading">{{'_Forms._Loading' | translate}}...</span>-->
-      <!--</div>-->
-      <!--<div class="m-lr-5" i18n="@@register">Register</div>-->
+      <div i18n="@@cancel">
+        <button type="button" class="btn btn-lg btn-primary py-1 pl-4 pr-4" (click)="dialog.closeAll()">
+          {{'_Forms._Cancel' | translate}}
+        </button>
+      </div>
     </div>
   </form>
-  <p class="p-lr-20" *ngIf="regErrors.length > 0">
-    <ngb-alert #alert type="danger" (close)="regErrors = []">
-      <span *ngFor="let text of regErrors">{{text}}</span>
-    </ngb-alert>
-  </p>
-  <div class="dropdown-divider"></div>
+  <div class="p-lr-20" *ngIf="regErrors.length > 0">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <div *ngFor="let text of regErrors">{{text}}</div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <!--  <div class="dropdown-divider"></div>-->
   <!--<button ngbDropdownItem (click)="formId = 1" i18n="@@signinAsk">Already have an account? Sign in</button>-->
   <!--<button ngbDropdownItem (click)="formId = 3" i18n="@@forgotpasswordAsk">Forgot password?</button>-->
 </div>
@@ -347,30 +345,31 @@
         <span class="sr-only" i18n="@@loading">{{'_Forms._Loading' | translate}}...</span>
       </div>
       <div class="d-flex">
-        <div class="d-flex">
-          <div class="mx-1" i18n="@@submit">
-            <button type="submit" [disabled]="this.inProgress"
-                    class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
-              <div *ngIf="inProgress" class="spinner-border spinner-border-sm mx-1" role="status">
-                <span class="sr-only">{{'_Forms._Loading' | translate}}...</span>
-              </div>
-              {{'_Forms._Submit' | translate}}
-            </button>
-          </div>
-          <div i18n="@@cancel">
-            <button type="button" class="btn btn-lg btn-primary py-1 pl-4 pr-4" (click)="dialog.closeAll()">
-              {{'_Forms._Cancel' | translate}}
-            </button>
-          </div>
+        <div class="mx-1" i18n="@@submit">
+          <button type="submit" [disabled]="this.inProgress"
+                  class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
+            <div *ngIf="inProgress" class="spinner-border spinner-border-sm mx-1" role="status">
+              <span class="sr-only">{{'_Forms._Loading' | translate}}...</span>
+            </div>
+            {{'_Forms._Submit' | translate}}
+          </button>
+        </div>
+        <div i18n="@@cancel">
+          <button type="button" class="btn btn-lg btn-primary py-1 pl-4 pr-4" (click)="dialog.closeAll()">
+            {{'_Forms._Cancel' | translate}}
+          </button>
         </div>
       </div>
     </div>
   </form>
-  <p class="p-lr-20" *ngIf="fpErrors.length > 0">
-    <ngb-alert #alert type="danger" (close)="fpErrors = []">
-      <span *ngFor="let text of fpErrors">{{text}}</span>
-    </ngb-alert>
-  </p>
+  <div class="p-lr-20" *ngIf="fpErrors.length > 0">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <div *ngFor="let text of fpErrors">{{text}}</div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
   <div class="dropdown-divider"></div>
   <button ngbDropdownItem (click)="formId = 2" i18n="@@signUpAsk">
     {{'_Forms._NewHere' | translate}} {{'_Forms._SignUp' | translate}}

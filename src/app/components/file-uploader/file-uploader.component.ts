@@ -1,19 +1,18 @@
+import {Component, ElementRef, EventEmitter, forwardRef, Input, NgZone, OnInit, Output, ViewChild} from '@angular/core';
 
-import { Component, OnInit, Input, Output, EventEmitter, NgZone, ViewChild, ElementRef, forwardRef } from '@angular/core';
+import {SwalComponent, SweetAlert2LoaderService} from '@sweetalert2/ngx-sweetalert2';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {NgxGalleryComponent, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
 
-import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryComponent } from 'ngx-gallery';
-
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { XhrService } from 'src/app/shared/services/xhr.service';
-import { ConfigService } from 'src/app/shared/utils/config.service';
-import { FileSystem } from 'src/app/shared/models/fileSystem';
-import { Helper } from 'src/app/shared/utils/helpers';
-import { SweetAlert2LoaderService } from '@sweetalert2/ngx-sweetalert2';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {XhrService} from 'src/app/shared/services/xhr.service';
+import {ConfigService} from 'src/app/shared/utils/config.service';
+import {FileSystem} from 'src/app/shared/models/fileSystem';
+import {Helper} from 'src/app/shared/utils/helpers';
 
 
 declare var swal;
+
 @Component({
   selector: 'app-file-uploader',
   templateUrl: './file-uploader.component.html',
@@ -29,29 +28,6 @@ declare var swal;
 export class FileUploaderComponent implements OnInit, ControlValueAccessor {
 
 
-  @Input() set accesstoken(value: string) {
-    this.token = value;
-    window.localStorage.setItem('AccessToken', value);
-  }
-  @Input() set shorttokeninput(value: string) {
-    this.shortToken = value;
-    window.localStorage.setItem('shortToken', value);
-
-  }
-
-  @Input() set clear(istrue: boolean) {
-    this.clearStorage();
-  }
-  constructor(private xhr: XhrService, private ngZone: NgZone, private readonly sweetAlert2Loader: SweetAlert2LoaderService) {
-    this.xhr.currentProgress.subscribe((progress: string) => {
-      this.ngZone.run(() => {
-        this.progress = Number(progress);
-      });
-
-    });
-    this.myurl = new ConfigService().getApiURI();
-
-  }
   @Input() classNames = 'albumLike';
   @Input() isStatic = false;
   @Input() initWithfirst = false;
@@ -66,43 +42,67 @@ export class FileUploaderComponent implements OnInit, ControlValueAccessor {
   inProgress: boolean;
   @Output() result = new EventEmitter();
   @Input() myurl: string = new ConfigService().getApiURI();
-  @Input() set filesysteminit(filesysteminit: string) {
-
-    if (filesysteminit) {
-      this.clearStorage();
-      const fsAll: Array<FileSystem> = JSON.parse(filesysteminit);
-      console.log(fsAll);
-      fsAll.forEach((fs: FileSystem) => {
-        this.fileSystems.push(fs);
-      });
-
-      this.result.emit(this.fileSystems);
-      this.fileSystemsStr = JSON.stringify(this.fileSystems);
-      this.setImageGallery();
-      if (this.initWithfirst) {
-        this.previewFs = this.fileSystems[0];
-      }
-    }
-  }
-
-  @ViewChild('swalComp', { static: true }) private swalComp: SwalComponent;
   fileSystems: Array<FileSystem> = [];
   localHostfileSystems: string;
   finalResultString: string;
   progress = 0;
-
   @Input() maximumUpload = 1;
   @Input() uploadType = 'default';
   @Input() accept = 'image/*';
   @Input() smallerAdd = false;
   @Input() floatingPreview = false;
-
-  @ViewChild('previewDiv', { static: false }) previewDiv: ElementRef;
-
+  @ViewChild('previewDiv', {static: false}) previewDiv: ElementRef;
   galleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[];
-  @ViewChild('ngxGalleryComp', { static: true }) ngxGalleryComp: NgxGalleryComponent;
+  @ViewChild('ngxGalleryComp', {static: true}) ngxGalleryComp: NgxGalleryComponent;
+  @ViewChild('swalComp', {static: true}) private swalComp: SwalComponent;
 
+  constructor(private xhr: XhrService, private ngZone: NgZone, private readonly sweetAlert2Loader: SweetAlert2LoaderService) {
+    this.xhr.currentProgress.subscribe((progress: string) => {
+      this.ngZone.run(() => {
+        this.progress = Number(progress);
+      });
+
+    });
+    this.myurl = new ConfigService().getApiURI();
+
+  }
+
+  @Input() set accesstoken(value: string) {
+    this.token = value;
+    window.localStorage.setItem('AccessToken', value);
+  }
+
+  @Input() set shorttokeninput(value: string) {
+    this.shortToken = value;
+    window.localStorage.setItem('shortToken', value);
+
+  }
+
+  @Input() set clear(istrue: boolean) {
+    this.clearStorage();
+  }
+
+  @Input() set filesysteminit(filesysteminit: string) {
+    if (filesysteminit) {
+      this.clearStorage();
+      if (Helper.isJson((filesysteminit))) {
+        const fsAll: Array<FileSystem> = JSON.parse(filesysteminit);
+        fsAll.forEach((fs: FileSystem) => {
+          this.fileSystems.push(fs);
+        });
+
+        this.result.emit(this.fileSystems);
+        this.fileSystemsStr = JSON.stringify(this.fileSystems);
+        this.setImageGallery();
+        if (this.initWithfirst) {
+          this.previewFs = this.fileSystems[0];
+        }
+
+      }
+
+    }
+  }
 
   // tslint:disable-next-line:variable-name
   _fileSystemsStr = null;
@@ -111,13 +111,16 @@ export class FileUploaderComponent implements OnInit, ControlValueAccessor {
   }
 
   set fileSystemsStr(val) {
+
     this._fileSystemsStr = val;
     this.propagateChange(this._fileSystemsStr);
   }
 
   writeValue(value: string): void {
+    console.log(value);
     if (value !== undefined) {
-      this.fileSystemsStr = value;
+      // this.fileSystemsStr = value;
+      this.filesysteminit = value;
     }
 
   }
@@ -133,6 +136,7 @@ export class FileUploaderComponent implements OnInit, ControlValueAccessor {
   registerOnTouched(fn: any): void {
 
   }
+
   setDisabledState?(isDisabled: boolean): void {
 
   }
@@ -152,12 +156,13 @@ export class FileUploaderComponent implements OnInit, ControlValueAccessor {
     }*/
 
     this.galleryOptions = [
-      { image: false, thumbnails: false, width: '0px', height: '0px',
-      previewCloseOnClick: true,
-      previewCloseOnEsc: true,
-      previewZoom: true,
-      previewRotate: true
-    }
+      {
+        image: false, thumbnails: false, width: '0px', height: '0px',
+        previewCloseOnClick: true,
+        previewCloseOnEsc: true,
+        previewZoom: true,
+        previewRotate: true
+      }
     ];
 
   }
@@ -305,6 +310,7 @@ export class FileUploaderComponent implements OnInit, ControlValueAccessor {
   previewRecord(event: any) {
     this.previewThis(this.previewFs);
   }
+
   deletefile(event: any) {
     this.deleteFileEvent(this.previewFs);
   }

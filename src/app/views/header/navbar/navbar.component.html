@@ -1,116 +1,153 @@
-<div class="dcaa-navbar">
-  <div class="container">
-    <div class="main-nav border-bottom">
-      <nav class="navbar navbar-expand-md navbar-light container">
-        <button (click)="navbarConfig($event)" class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#mobileNavbar"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown" data-hover="dropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link p-3" routerLink="home" routerLinkActive="active">Home <span
-                class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link p-3" routerLink="about" routerLinkActive="active">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link p-3" href="#">Services</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link p-3" href="https://bootstrapthemes.co" id="navbarDropdownMenuLink"
-                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Statistics
-              </a>
-              <ul class="dropdown-menu ml-3 text-left" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link p-3">Most Used Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link p-3">NOC Verification Services</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <div class="language d-flex justify-content-between align-items-center">
+<div class="dcaa-header">
+  <div *ngIf="allowVerification">
+    <app-emailconfirmation (resendEmail)="IsEmailVerifiedAsync(true)"
+                           [profile]="profile"
+                           *ngIf="!emailIsConfirmed">
+    </app-emailconfirmation>
+  </div>
+
+  <div class="top-header container d-flex justify-content-between align-items-center">
+    <img src="assets/images/gov-logo.png" class="p-3 gov-logo" width="13%" title="{{'_logoTitleRight' | translate}}">
+    <img src="assets/images/dcaa-logo.png" class="p-3 dcaa-logo" width="25%" title="{{'_logoTitleRight' | translate}}">
+  </div>
+  <div class="dcaa-navbar">
+    <div class="container">
+      <div class="main-nav border-bottom">
+        <nav class="navbar navbar-expand-md navbar-light container">
+          <button (click)="navbarConfig($event)" class="navbar-toggler" type="button" data-toggle="collapse"
+                  data-target="#mobileNavbar"
+                  aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown" data-hover="dropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link p-3" routerLink="home" routerLinkActive="active">Home <span
+                  class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link p-3" routerLink="about" routerLinkActive="active"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  About Us
+                </a>
+                <ul class="dropdown-menu ml-3 text-left">
+                  <li><a class="dropdown-item" routerLink="about/overview">Overview</a></li>
+                  <li><a class="dropdown-item" routerLink="about/organizational-structure">Organizational
+                    Structure</a>
+                  </li>
+                  <li><a class="dropdown-item" routerLink="about/sectors">DCAA Sectors</a></li>
+                  <li><a class="dropdown-item" routerLink="about/strategies">DCAA Strategies</a></li>
+                  <li><a class="dropdown-item" href="#" target="_blank">Annual Book 2016</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link p-3" href="#">Services</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link p-3" routerLink="statistics" routerLinkActive="active"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Statistics
+                </a>
+                <ul class="dropdown-menu ml-3 text-left">
+                  <li><a class="dropdown-item" routerLink="statistics">Increase of issued permits numbers</a></li>
+                  <li><a class="dropdown-item" routerLink="statistics/inspections">Inspections</a></li>
+                  <li><a class="dropdown-item" routerLink="statistics/safety-inspections">Safety Inspections</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link p-3" routerLink="faq" routerLinkActive="active">FAQ</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link p-3" routerLink="feedback" routerLinkActive="active"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Feedback
+                </a>
+                <ul class="dropdown-menu ml-3 text-left">
+                  <li><a class="dropdown-item" routerLink="feedback">Feedback</a></li>
+                  <li><a class="dropdown-item" routerLink="feedback/contact-DG">Contact DG</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link p-3" href="#">Contact Us</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <div class="language d-flex justify-content-between align-items-center">
               <span
                 [ngClass]="_appService.currentLanguage == 'en' ? 'selected' : ''"
                 (click)="_appService.switchLanguage('en')">ENG</span>
-              <div class="ml-1 mr-1">/</div>
-              <span
-                [ngClass]="_appService.currentLanguage == 'ar' ? 'selected' : ''"
-                (click)="_appService.switchLanguage('ar')">العربية</span>
-            </div>
-            <div class="form-group search ml-2 mr-2">
-              <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-              <span class="icon-search"></span>
-            </div>
-            <button *ngIf="!profile == null; else profileControl" (click)="login()" class="btn btn-primary reverse my-2 my-sm-0 d-flex align-items-center login mr-3"
-                    type="submit">
-              <span class="icon-login mr-1"></span>Login
-            </button>
-            <ng-template #profileControl>
-<!--              <img [src]="'assets/images/1.png' | helper:'fsObjString'" alt="">-->
-<!--              <img [src]="'assets/images/1.png'" style="width: 30px">-->
-
-              <div class="dropdown show">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img [src]="'assets/images/1.png'" style="width: 30px">
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+                <div class="ml-1 mr-1">/</div>
+                <span
+                  [ngClass]="_appService.currentLanguage == 'ar' ? 'selected' : ''"
+                  (click)="_appService.switchLanguage('ar')">العربية</span>
               </div>
-            </ng-template>
-          </form>
-        </div>
-        <dcaa-mobile-navbar></dcaa-mobile-navbar>
-        <div class="notification mobile">
-          <div class="notifier text-white">
-            1
-          </div>
-          <span class="icon-notification"></span>
-        </div>
-      </nav>
-      <div class="accessibility">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="bar bg-banner m-0 ml-3 mr-3">
-                <div class="row">
-                  <div class="col-md-9">
-                    <dcaa-latest-news *ngIf="!_appService.isHome"></dcaa-latest-news>
+              <div class="form-group search ml-2 mr-2">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                <span class="icon-search"></span>
+              </div>
+              <button *ngIf="profile == null; else profileControl" (click)="login()"
+                      class="btn btn-primary reverse my-2 my-sm-0 d-flex align-items-center login mr-3"
+                      type="submit">
+                <span class="icon-login mr-1"></span>Login
+              </button>
+              <ng-template #profileControl>
+                <div class="dropdown show">
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false">
+                    <img  [src]="profile.pictureUrl | helper:'fsObjThumbString'"
+                         class="border-radius"
+                         style="width: 30px">
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" routerLink="account">Dashboard</a>
+                    <a class="dropdown-item" routerLink="account/profile">Account Settings</a>
+                    <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
                   </div>
-                  <div class="col-md-3 d-flex">
-                    <div class="d-flex align-items-center justify-content-center position-relative">
+                </div>
+              </ng-template>
+            </form>
+          </div>
+          <dcaa-mobile-navbar></dcaa-mobile-navbar>
+          <div class="notification mobile">
+            <div class="notifier text-white">
+              1
+            </div>
+            <span class="icon-notification"></span>
+          </div>
+        </nav>
+        <div class="accessibility">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="bar bg-banner m-0 ml-3 mr-3">
+                  <div class="row">
+                    <div class="col-md-9">
+                      <dcaa-latest-news *ngIf="!_appService.isHome"></dcaa-latest-news>
+                    </div>
+                    <div class="col-md-3 d-flex">
+                      <div class="d-flex align-items-center justify-content-center position-relative">
                       <span class="icon-settings" data-target="#settings"
                             data-toggle="collapse">
                       </span>
-                      <div class="position-absolute settings-control collapse fade" id="settings">
-                        <span class="icon-print"></span>
-                        <span class="icon-eye"></span>
-                        <span class="icon-text-down"></span>
-                        <span class="icon-original-text"></span>
-                        <span class="icon-Text-up"></span>
-                      </div>
-                      <span class="icon-saperator mr-3 ml-2"></span>
-                      <div class="live-chat">
-                        <p class="m-0">Live Chat</p>
-                        <span class="icon-chat"></span>
-                      </div>
-                      <span class="icon-sounds"></span>
-                      <div class="notification d-flex align-items-center ">
-                        <div class="notifier text-white">
-                          1
+                        <div class="position-absolute settings-control collapse fade" id="settings">
+                          <span class="icon-print" (click)="print()"></span>
+                          <span class="icon-eye" (click)="setBlackMode()"></span>
+                          <span class="icon-text-down" (click)="decreaseFontSize()"></span>
+                          <span class="icon-original-text" (click)="resetFontSize()"></span>
+                          <span class="icon-Text-up" (click)="increaseFontSize()"></span>
                         </div>
-                        <span class="icon-notification"></span>
+                        <span class="icon-saperator mr-3 ml-2"></span>
+                        <div class="live-chat">
+                          <p class="m-0">Live Chat</p>
+                          <span class="icon-chat"></span>
+                        </div>
+                        <span class="icon-sounds"></span>
+                        <div class="notification d-flex align-items-center ">
+                          <div class="notifier text-white">
+                            1
+                          </div>
+                          <span class="icon-notification"></span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -123,4 +160,7 @@
     </div>
   </div>
 </div>
-
+<swal
+    #swalComp
+    type="success">
+</swal>

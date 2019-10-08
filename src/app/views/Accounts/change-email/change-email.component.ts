@@ -1,13 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Profile } from 'src/app/shared/models/userProfile';
-import { FormGroup, FormGroupDirective, FormBuilder, Validators } from '@angular/forms';
-import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
-import { CustomValidation } from 'src/app/shared/utils/customValidator';
-import { ChangePasswordViewModel, EmailModel, DigitModel, DigitToken, ChangeEmailModel } from '../accountsmodel';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Helper } from 'src/app/shared/utils/helpers';
-import { UserService } from 'src/app/shared/services/user.service';
-import { TranslateService } from '@ngx-translate/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {Profile} from 'src/app/shared/models/userProfile';
+import {FormBuilder, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
+import {SwalComponent} from '@sweetalert2/ngx-sweetalert2';
+import {ChangeEmailModel, DigitModel, DigitToken, EmailModel} from '../accountsmodel';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Helper} from 'src/app/shared/utils/helpers';
+import {UserService} from 'src/app/shared/services/user.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-change-email',
@@ -16,20 +15,28 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ChangeEmailComponent implements OnInit {
   myProfile: Profile;
-  get l() { return this.changeemailForm.controls; }
   changeemailSubmitted = false;
   changeemailForm: FormGroup;
   inProgress = false;
   fetchinginProgress = false;
   changeemailErrors = {};
   sentSuccessfully = false;
-
-  get t() { return this.tokenForm.controls; }
   tokenSubmitted = false;
   tokenForm: FormGroup;
   tokenErrors = {};
+  @ViewChild('swalComp', {static: true}) private swalComp: SwalComponent;
 
-  @ViewChild('swalComp', { static: true }) private swalComp: SwalComponent;
+  constructor(private profileBuilder: FormBuilder, private restService: UserService, protected translate: TranslateService) {
+
+  }
+
+  get l() {
+    return this.changeemailForm.controls;
+  }
+
+  get t() {
+    return this.tokenForm.controls;
+  }
 
   prepareForm() {
     this.changeemailForm = this.profileBuilder.group({
@@ -39,9 +46,6 @@ export class ChangeEmailComponent implements OnInit {
     this.tokenForm = this.profileBuilder.group({
       digit: [null, [Validators.required]],
     });
-  }
-  constructor(private profileBuilder: FormBuilder, private restService: UserService, protected translate: TranslateService) {
-
   }
 
   tokenRequest(formDirective: FormGroupDirective) {
@@ -71,16 +75,17 @@ export class ChangeEmailComponent implements OnInit {
         this.inProgress = false;
         this.sentSuccessfully = true;
         this.successMessage(true);
-      }). catch((err: HttpErrorResponse) => {
+      }).catch((err: HttpErrorResponse) => {
         this.inProgress = false;
         this.tokenErrors = Helper.errorsArray(err);
       });
 
-    }). catch((err: HttpErrorResponse) => {
+    }).catch((err: HttpErrorResponse) => {
       this.inProgress = false;
       this.changeemailErrors = Helper.errorsArray(err);
     });
   }
+
   resetEmail(formDirective: FormGroupDirective) {
     this.changeemailSubmitted = true;
     this.inProgress = true;
@@ -103,7 +108,7 @@ export class ChangeEmailComponent implements OnInit {
       this.inProgress = false;
       this.sentSuccessfully = true;
       this.successMessage(true);
-    }). catch((err: HttpErrorResponse) => {
+    }).catch((err: HttpErrorResponse) => {
       this.inProgress = false;
       this.changeemailErrors = Helper.errorsArray(err);
     });

@@ -1,7 +1,101 @@
-.textareaInputStyle{
-    min-height: 40px !important;
-    height: 40px !important;
+@import "../../../../variables";
+
+.textareaInputStyle {
+  min-height: 40px !important;
+  height: 40px !important;
 }
-.min-width-300{
-    min-width: 300px;
+
+.min-width-300 {
+  min-width: 300px;
+}
+
+.profile-pic {
+  border: 1px solid $light-gray;
+}
+
+::ng-deep {
+
+  .profile-wrapper:hover {
+    .icon-add-image-icon {
+      opacity: 0.3;
+      transition: all 0.3s;
+    }
+  }
+
+  .icon-add-image-icon {
+    font-size: 8em !important;
+    position: absolute;
+    right: 0;
+    display: flex;
+    left: 0;
+    opacity: 0;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: $black;
+  }
+
+  .link-pointer {
+    opacity: 0;
+  }
+}
+
+
+::ng-deep .attachID {
+  .normal_fileupload_wrapper.clientApp-button {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .absolute-center {
+    left: auto;
+    right: auto;
+  }
+
+  .normal_fileupload_wrapper label span {
+    color: $primary;
+    background: $secondary_background;
+    border-radius: 20px;
+    padding: 0 1.4em !important;
+  }
+
+  .normal_fileupload_wrapper.clientApp-button label {
+    color: $primary;
+  }
+
+  .icon-attachment {
+    font-size: 1.5em;
+    @include margin(right, 20px);
+  }
+
+  .normal_fileupload_wrapper .delete-file-icon {
+    display: flex;
+    font-size: 0.650em;
+    align-items: center;
+    top: 0 !important;
+    bottom: 0;
+    @include right(7px);
+    background-color: transparent !important;
+  }
+
+  .progress-bar {
+    background-color: $primary !important;
+  }
+}
+
+.search-filter-icon {
+  top: 0;
+  bottom: 0;
+  @include right(10px);
+}
+
+.search-filter {
+  input {
+    border-radius: 25px !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: calc(1.25em + 0.75rem + 2px);
+    border-color: #abaaaa;
+  }
 }

@@ -12,5 +12,85 @@ $fix-number: 95px;
   background: $banner;
   text-align: center;
   padding: 1em;
+}
 
+
+.list-group {
+  background: $secondary-background;
+}
+
+
+.nav-item {
+  background: $secondary-background;
+
+  a {
+    color: $black;
+  }
+}
+
+ul.timeline {
+  list-style-type: none;
+  position: relative;
+}
+
+ul.timeline:before {
+  content: " ";
+  background: $primary;
+  display: inline-block;
+  position: absolute;
+  left: 17px;
+  width: 1px;
+  height: 100%;
+  z-index: 400;
+  margin-top: 8px;
+}
+
+ul.timeline > li:before {
+  content: " ";
+  background: $primary;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  left: 15px;
+  width: 6px;
+  height: 6px;
+  z-index: 400;
+  margin-top: 5px;
+}
+
+ul.gray-timeline:before {
+  content: " ";
+  background: $light-gray;
+  display: inline-block;
+  position: absolute;
+  left: 17px;
+  width: 1px;
+  height: 100%;
+  z-index: 400;
+  margin-top: 8px;
+}
+
+.card {
+  border-radius: 0;
+  border: 0;
+
+  .card-img {
+    border: 0;
+  }
+
+  a {
+    font-size: 0.900em;
+  }
+
+  p {
+    font-size: 0.850em;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    p:after {
+      width: 100%;
+    }
+  }
 }

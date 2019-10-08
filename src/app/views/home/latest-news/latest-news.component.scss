@@ -6,14 +6,13 @@
   height: auto;
 
   .container {
-    padding-#{$right}: 0;
+    @include padding(right, 0);
   }
 
   .news-item {
     padding: 5px 15px;
-    border-#{$left}: 1px solid;
-    border-#{$right}: 1px solid;
-    border-color: $transparent;
+    @include border(right, 1px, solid, $transparent);
+    @include border(left, 1px, solid, $transparent);
   }
 
   marquee a:hover {
@@ -50,8 +49,8 @@
       width: 32px;
       background-color: #ad2724;
       position: absolute;
-      #{$right}: 0;
       top: 0;
+      @include right(0);
     }
 
     .news-item {

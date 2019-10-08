@@ -33,12 +33,12 @@
   .carousel-indicators {
     text-align: center;
     justify-content: center !important;
-    #{$right}: -15em !important;
+    @include right(-15em !important);
     bottom: 1.5em;
   }
 
   .scroll-down {
-    #{$left}: 45%;
+    @include left(45%);
     bottom: 1em;
   }
 
@@ -71,10 +71,18 @@
   }
 }
 
-@include media-breakpoint-down(md) {
-
+@include media-breakpoint-between(md, lg) {
+  .navbar-expand-md .navbar-collapse {
+    flex-direction: column;
+    margin-bottom: 1em;
+  }
+  .dcaa-header {
+    flex-direction: column;
+  }
 }
 
 @include media-breakpoint-down(lg) {
-
+  .main-nav .navbar-light .navbar-nav .nav-link {
+    padding: 0.650em !important;
+  }
 }

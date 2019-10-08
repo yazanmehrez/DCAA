@@ -7,12 +7,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AboutUsComponent implements OnInit {
   NavListData = [
-    {id: 0, name: 'Overview'},
-    {id: 1, name: 'Our Vision & Mission'},
-    {id: 2, name: 'Our Roles & Responsibilities'},
-    {id: 3, name: 'Our Story'},
-    {id: 4, name: 'Organizational Structure'},
-    {id: 5, name: 'DCAA Sectors'},
+    {id: 0, name: 'Overview', link: 'overview', linkType: 'route'},
+    {id: 4, name: 'Organizational Structure', link: 'organizational-structure', linkType: 'route'},
+    {id: 5, name: 'DCAA Sectors', link: 'sectors', linkType: 'route'},
+    {id: 6, name: 'DCAA Strategies', link: 'strategies', linkType: 'route'},
+    {id: 7, name: 'Annual Book 2016', link: 'pdf', linkType: 'tab'}
   ];
 
   constructor() {

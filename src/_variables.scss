@@ -10,6 +10,8 @@ $banner-background: #5f5f5f7d;
 
 $banner: rgba(214, 81, 79, 0.75);
 
+$visited-link: #968585;
+
 $primary-shadow: #dae5ef;
 $transparent: #ffffff3b;
 
@@ -25,9 +27,8 @@ $overlay: #000000cc;
 $separate-line: #a0a0a030;
 $separate-light: #e8e8e8;
 
-// Directions
-$left: left;
-$right: right;
+// ltr to rtl
+@import "rtl";
 
 // Shadows
 $gray-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.25);

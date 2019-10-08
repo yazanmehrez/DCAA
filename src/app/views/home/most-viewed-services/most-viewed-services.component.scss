@@ -1,22 +1,27 @@
 @import "../../../../variables";
 
 ::ng-deep .dcaa-most-viewed-services {
-  .ngucarousel {
-    position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
 
-  .ngucarousel-inner {
-    padding: 8px 0 18px;
+  .ngucarousel-items {
+    padding: 0 80px;
+
+    .card-text {
+      height: 50px;
+    }
   }
 
   .ngucarousel .carousel-left,
   .ngucarousel .carousel-right {
     position: absolute;
-    top: calc(50% - 28px);
-    background: #ffffff !important;
-    color: rgba(0, 0, 0, .87);
+    display: flex !important;
+    top: 0;
+    height: 100%;
+    background: $white !important;
+    color: $light-gray;
+
+    &:focus {
+      outline: 0;
+    }
   }
 
   .ngucarousel .carousel-left {
@@ -26,5 +31,14 @@
   .ngucarousel .carousel-right {
     right: -20px;
   }
+
+  button {
+    font-size: 2.5em;
+
+    &:hover span {
+      color: $black;
+    }
+  }
+
 
 }

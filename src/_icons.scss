@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'dcaa-icons';
-  src:  url('fonts/dcaa-icons.eot?9o8c2k');
-  src:  url('fonts/dcaa-icons.eot?9o8c2k#iefix') format('embedded-opentype'),
-  url('fonts/dcaa-icons.ttf?9o8c2k') format('truetype'),
-  url('fonts/dcaa-icons.woff?9o8c2k') format('woff'),
-  url('fonts/dcaa-icons.svg?9o8c2k#dcaa-icons') format('svg');
+  src:  url('fonts/dcaa-icons.eot?7ibtag');
+  src:  url('fonts/dcaa-icons.eot?7ibtag#iefix') format('embedded-opentype'),
+  url('fonts/dcaa-icons.ttf?7ibtag') format('truetype'),
+  url('fonts/dcaa-icons.woff?7ibtag') format('woff'),
+  url('fonts/dcaa-icons.svg?7ibtag#dcaa-icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,43 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-agency:before {
+  content: "\e97b";
+}
+.icon-employee:before {
+  content: "\e97c";
+}
+.icon-resident:before {
+  content: "\e95c";
+}
+.icon-tourist:before {
+  content: "\e962";
+}
+.icon-add-image-icon:before {
+  content: "\e959";
+  color: #fff;
+}
+.icon-DED:before {
+  content: "\e95a";
+}
+.icon-individual:before {
+  content: "\e95b";
+}
+.icon-company:before {
+  content: "\e95d";
+}
+.icon-government:before {
+  content: "\e95e";
+}
+.icon-inUAE:before {
+  content: "\e95f";
+}
+.icon-OutsideUAE:before {
+  content: "\e960";
+}
+.icon-pvtcompany:before {
+  content: "\e961";
+}
 .icon-eye:before {
   content: "\e954";
 }
@@ -245,6 +282,119 @@
 }
 .icon-Landing-Permits:before {
   content: "\e914";
+}
+.icon-attachment:before {
+  content: "\e979";
+}
+.icon-close:before {
+  content: "\e97a";
+  color: #d6514f;
+}
+.icon-board .path1:before {
+  content: "\e964";
+  color: rgb(152, 136, 102);
+}
+.icon-board .path2:before {
+  content: "\e965";
+  margin-left: -0.677734375em;
+  color: rgb(244, 244, 244);
+}
+.icon-board .path3:before {
+  content: "\e966";
+  margin-left: -0.677734375em;
+  color: rgb(255, 255, 255);
+}
+.icon-board .path4:before {
+  content: "\e967";
+  margin-left: -0.677734375em;
+  color: rgb(67, 54, 193);
+  opacity: 0.65;
+}
+.icon-board .path5:before {
+  content: "\e968";
+  margin-left: -0.677734375em;
+  color: rgb(152, 136, 102);
+  opacity: 0.71;
+}
+.icon-board .path6:before {
+  content: "\e969";
+  margin-left: -0.677734375em;
+  color: rgb(152, 136, 102);
+}
+.icon-board .path7:before {
+  content: "\e96a";
+  margin-left: -0.677734375em;
+  color: rgb(244, 244, 244);
+}
+.icon-board .path8:before {
+  content: "\e96b";
+  margin-left: -0.677734375em;
+  color: rgb(244, 244, 244);
+}
+.icon-board .path9:before {
+  content: "\e96c";
+  margin-left: -0.677734375em;
+  color: rgb(244, 244, 244);
+}
+.icon-board .path10:before {
+  content: "\e96d";
+  margin-left: -0.677734375em;
+  color: rgb(152, 136, 102);
+}
+.icon-board .path11:before {
+  content: "\e96e";
+  margin-left: -0.677734375em;
+  color: rgb(244, 244, 244);
+}
+.icon-board .path12:before {
+  content: "\e96f";
+  margin-left: -0.677734375em;
+  color: rgb(244, 244, 244);
+}
+.icon-board .path13:before {
+  content: "\e970";
+  margin-left: -0.677734375em;
+  color: rgb(244, 244, 244);
+}
+.icon-board .path14:before {
+  content: "\e971";
+  margin-left: -0.677734375em;
+  color: rgb(152, 136, 102);
+}
+.icon-board .path15:before {
+  content: "\e972";
+  margin-left: -0.677734375em;
+  color: rgb(244, 244, 244);
+}
+.icon-board .path16:before {
+  content: "\e973";
+  margin-left: -0.677734375em;
+  color: rgb(244, 244, 244);
+}
+.icon-board .path17:before {
+  content: "\e974";
+  margin-left: -0.677734375em;
+  color: rgb(244, 244, 244);
+}
+.icon-board .path18:before {
+  content: "\e975";
+  margin-left: -0.677734375em;
+  color: rgb(244, 244, 244);
+}
+.icon-board .path19:before {
+  content: "\e976";
+  margin-left: -0.677734375em;
+  color: rgb(152, 136, 102);
+}
+.icon-board .path20:before {
+  content: "\e977";
+  margin-left: -0.677734375em;
+  color: rgb(244, 244, 244);
+}
+.icon-board .path21:before {
+  content: "\e978";
+  margin-left: -0.677734375em;
+  color: rgb(152, 136, 102);
 }
 .icon-pointer .path1:before {
   content: "\e94f";

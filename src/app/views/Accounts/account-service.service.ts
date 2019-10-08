@@ -1,8 +1,9 @@
-import { Injectable, NgZone } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ConfigService } from 'src/app/shared/utils/config.service';
-import { BaseService } from 'src/app/shared/services/base.service';
-import { UserProfile } from 'src/app/shared/models/userProfile';
+import {Injectable, NgZone} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {ConfigService} from 'src/app/shared/utils/config.service';
+import {BaseService} from 'src/app/shared/services/base.service';
+import {UserProfile} from '../../shared/models/API/Entities/UserProfile';
+import {ContactDetails, IndividualDetails} from '../../shared/models/API/Entities/UserProfileDetails';
 
 
 @Injectable({
@@ -11,8 +12,9 @@ import { UserProfile } from 'src/app/shared/models/userProfile';
 export class AccountServiceService extends BaseService {
   baseUrl = '';
   progressCount = 0;
+
   constructor(public configService: ConfigService, public httpClient: HttpClient, private ngZone: NgZone) {
-    super(httpClient);
+    super(httpClient, configService);
 
     this.baseUrl = configService.getApiURI();
 
@@ -35,5 +37,24 @@ export class AccountServiceService extends BaseService {
     return this.restRequest(model, `${this.baseUrl}/api/MyProfile/${model.id}`, null, type);
   }
 
+  editIndividual(model: IndividualDetails, type: string = 'PUT') {
+    return this.restRequest(model, `${this.baseUrl}/api/IndividualDetails/${model.id}`, null, type);
+  }
+
+  addIndividual(model: IndividualDetails, type: string = 'POST') {
+    return this.restRequest(model, `${this.baseUrl}/api/IndividualDetails`, null, type);
+  }
+
+  getIndividual() {
+    return this.restRequest(null, `${this.baseUrl}/api/IndividualDetails`, null, 'GET');
+  }
+
+  addAccountDetails(model: ContactDetails[], type: string = 'POST') {
+    return this.restRequest(model, `${this.baseUrl}/api/ContactDetails`, null, type);
+  }
+
+  getAccountDetails() {
+    return this.restRequest(null, `${this.baseUrl}/api/ContactDetails`, null, 'GET');
+  }
 
 }

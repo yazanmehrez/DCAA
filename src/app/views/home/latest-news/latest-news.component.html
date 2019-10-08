@@ -5,7 +5,9 @@
         <span class="news-head">Latest News:</span>
       </div>
       <div class="col-md-10 border-right border-left border-transparent">
-        <marquee onmouseover="this.stop();" onmouseout="this.start();" class="pt-2" direction="right">
+        <marquee onmouseover="this.stop();" onmouseout="this.start();" class="pt-2 pb-2 d-flex"
+                 [direction]="_appService.currentLanguage == 'en' ? 'left' : 'right'"
+        >
           <span class="icon-pointer">
               <span class="path1"></span>
               <span class="path2"></span>

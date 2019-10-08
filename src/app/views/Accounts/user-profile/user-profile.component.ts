@@ -1,99 +1,124 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormGroupDirective} from '@angular/forms';
-import { AccountServiceService } from '../account-service.service';
-
-import { HttpErrorResponse } from '@angular/common/http';
-import { CustomValidation } from 'src/app/shared/utils/customValidator';
-import { UserProfile, Profile, LocaleInfo } from 'src/app/shared/models/userProfile';
-import { Helper } from 'src/app/shared/utils/helpers';
-import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
-import { FileSystem } from 'src/app/shared/models/fileSystem';
-import { FileUploaderComponent } from 'src/app/components/file-uploader/file-uploader.component';
-import { TranslateService } from '@ngx-translate/core';
-
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {AccountServiceService} from '../account-service.service';
+import {Profile} from 'src/app/shared/models/userProfile';
+import {SwalComponent} from '@sweetalert2/ngx-sweetalert2';
+import {FileSystem} from 'src/app/shared/models/fileSystem';
+import {FileUploaderComponent} from 'src/app/components/file-uploader/file-uploader.component';
+import {TranslateService} from '@ngx-translate/core';
+import {PersonalDetailsComponent} from '../Forms/personal-details/personal-details.component';
+import {ContactDetailsComponent} from '../Forms/contact-details/contact-details.component';
+import {CompanyDetailsComponent} from '../Forms/company-details/company-details.component';
+import {UserService} from '../../../shared/services/user.service';
+import {AccountType, CompanyLocation, IndividualType} from '../../../shared/models/API/Enums/AccountEnums';
+import {DocumentsDetailsComponent} from '../Forms/documents-details/documents-details.component';
 
 @Component({
-  selector: 'app-user-profile',
+  selector: 'dcaa-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
+
 export class UserProfileComponent implements OnInit {
   myProfile: Profile = new Profile();
-  get l() { return this.profileForm.controls; }
-  @ViewChild('imageFileUploadCrl', { static: true }) imageFileUploadCrl: FileUploaderComponent;
-  constructor(private profileBuilder: FormBuilder, private restService: AccountServiceService, protected translate: TranslateService) {
+  @ViewChild('imageFileUploadCrl', {static: true}) imageFileUploadCrl: FileUploaderComponent;
+  profileForm: FormGroup;
+  profileErrors = {};
+
+  pictureUrl: string;
+  inProgress = false;
+  openForms = false;
+
+  AccountType = AccountType;
+  accountType: AccountType;
+
+  IndividualType = IndividualType;
+  individualType: IndividualType;
+
+  CompanyLocation = CompanyLocation;
+  companyLocation: CompanyLocation = CompanyLocation.InsideUAE;
+
+  tradLicense = 0;
+
+  TradeLicense = [
+    {
+      icon: 'company',
+      name: 'Dubai Airport'
+    }, {
+      icon: 'company',
+      name: 'Dubai Airport'
+    }, {
+      icon: 'company',
+      name: 'Dubai Airport'
+    }, {
+      icon: 'company',
+      name: 'Dubai Airport'
+    }, {
+      icon: 'company',
+      name: 'Dubai Airport'
+    }, {
+      icon: 'company',
+      name: 'Dubai Airport'
+    }, {
+      icon: 'company',
+      name: 'Dubai Airport'
+    }, {
+      icon: 'company',
+      name: 'Dubai Airport'
+    },
+  ];
+  @ViewChild('swalComp', {static: true}) private swalComp: SwalComponent;
+
+  @ViewChild('personalDetails', {static: false}) private personalDetails: PersonalDetailsComponent;
+  @ViewChild('documentsDetails', {static: false}) private documentsDetails: DocumentsDetailsComponent;
+  @ViewChild('contactDetails', {static: false}) private contactDetails: ContactDetailsComponent;
+  @ViewChild('companyDetails', {static: false}) private companyDetails: CompanyDetailsComponent;
+
+  constructor(private profileBuilder: FormBuilder,
+              private restService: AccountServiceService,
+              private userService: UserService,
+              protected translate: TranslateService) {
     this.myProfile = JSON.parse(localStorage.getItem('profile')) as Profile;
   }
 
-  profileSubmitted = false;
-  profileForm: FormGroup;
-  inProgress = false;
-  fetchinginProgress = false;
-  profileErrors = {};
 
-  locales: LocaleInfo[] = [];
-
-  @ViewChild('swalComp', { static: true }) private swalComp: SwalComponent;
-
-  prepareForm() {
-    this.profileForm = this.profileBuilder.group({
-      id: [0, Validators.required],
-      identityId: [null, Validators.required],
-      identity: [null],
-      firstName: ['', Validators.required],
-      pictureUrl: [null],
-      lastName: ['', Validators.required],
-      localeId: [null, Validators.required],
-      locale: [null],
-      supplierInfo: [null],
-      gender: [null],
-      entryDate: [null],
-      dob: [null, Validators.compose([CustomValidation.validDate, CustomValidation.todayAndPast])]
-    });
-  }
-
-
-
-  updateProfile(formDirective: FormGroupDirective) {
-
-    this.profileSubmitted = true;
-    this.inProgress = true;
-
-    // stop here if form is invalid
-    if (this.profileForm.invalid) {
-      this.inProgress = false;
-      // this.localeErrors = Helper.errorsArray(err.error);
-      return;
+  updateProfile() {
+    if (this.accountType === AccountType.Individual) {
+      this.personalDetails.onSubmit();
+      this.documentsDetails.onSubmit();
+      this.contactDetails.onSubmit();
+      this.updateServer(
+        this.personalDetails.personalForm.value,
+        this.contactDetails.contactForm.value,
+        null);
+    }
+    if (this.accountType === AccountType.PrivateCompany) {
+      this.personalDetails.onSubmit();
+      this.companyDetails.onSubmit();
+      this.updateServer(
+        this.personalDetails.personalForm.value,
+        null, this.companyDetails.companyForm.value);
     }
 
-    this.updateServer(formDirective);
-
+    // this.inProgress = true;
   }
 
-  updateLocalProfile(userProfile: UserProfile) {
+  updateLocalProfile(userProfile) {
     this.myProfile.firstName = userProfile.firstName;
     this.myProfile.lastName = userProfile.lastName;
+    this.myProfile.pictureUrl = userProfile.pictureUrl;
 
     localStorage.setItem('profile', JSON.stringify(this.myProfile));
   }
 
-  updateServer(formDirective: FormGroupDirective) {
-    // tslint:disable-next-line:prefer-const
-    let model: UserProfile = this.profileForm.value as UserProfile;
-
-    this.restService.editProfile(model).then((noContent: any) => {
-      this.profileErrors = [];
-      this.inProgress = false;
-      this.updateLocalProfile(model);
-
-      this.successMessage(true);
-      this.fetchUserProfile();
-    }). catch((err: HttpErrorResponse) => {
-      this.inProgress = false;
-      this.profileErrors = Helper.errorsArray(err);
-    });
+  updateServer(personalDetails, contactDetails, companyDetails) {
+    // console.log('Personal Details');
+    // console.log(personalDetails);
+    // console.log('Contact Details');
+    // console.log(contactDetails);
+    // console.log('Company Details');
+    // console.log(companyDetails);
   }
-
 
   successMessage(refresh: boolean = false) {
     this.swalComp.title = 'Processed successfully';
@@ -102,50 +127,17 @@ export class UserProfileComponent implements OnInit {
     this.swalComp.fire();
   }
 
-  fetchLocalesInfo() {
-    this.restService.fetchLocales().then((res: LocaleInfo[]) => {
-      this.locales = res;
-    }). catch((err: HttpErrorResponse) => {
-
-    });
-  }
-
-  fetchUserProfile() {
-    this.fetchinginProgress = true;
-    this.restService.fetchUserProfile().then((me: UserProfile) => {
-      this.prepareRecord(me);
-      this.fetchinginProgress = false;
-    }). catch((err: HttpErrorResponse) => {
-      this.fetchinginProgress = false;
-    });
-  }
-
   setImage(fileSystem: FileSystem[]) {
-
-    if (fileSystem) {
-      // imageInput.value = JSON.stringify(fileSystem);
-      this.profileForm.patchValue({
-        pictureUrl: JSON.stringify(fileSystem)
-      });
-    }
-
+    this.pictureUrl = JSON.stringify(fileSystem);
   }
-
-  prepareRecord(element: UserProfile) {
-
-    this.prepareForm();
-
-    this.profileForm.patchValue(element);
-  }
-
 
   ngOnInit() {
-    this.prepareForm();
-    this.fetchLocalesInfo();
-    this.fetchUserProfile();
     if (this.imageFileUploadCrl) {
       this.imageFileUploadCrl.clearStorage();
     }
+    this.userService.userProfile$.subscribe((userProfile) => {
+      this.updateLocalProfile(userProfile);
+    });
   }
 
 }

@@ -7,13 +7,12 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ServiceCategoriesComponent implements OnInit {
   @Input() categories;
-  @Input() layoutType;
-  @Input() slice;
 
   constructor() {
   }
 
   ngOnInit() {
+
   }
 
 }

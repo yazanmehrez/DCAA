@@ -6,7 +6,7 @@
   position: relative;
 }
 
-.copy#{$right} {
+.copyright {
   margin-top: 30px;
 
   .footer-container {
@@ -37,7 +37,7 @@
     height: 25px;
 
     &:not(:first-child) {
-      margin-#{$left}: 5px;
+      @include margin(left, 5px);
     }
   }
 
@@ -76,7 +76,7 @@
   width: 1.5em;
   height: 1.5em;
   position: absolute;
-  #{$right}: 0;
+  @include right(0);
   bottom: 125px;
   display: flex;
   justify-content: center;

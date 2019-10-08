@@ -2,7 +2,7 @@
 @import '../../../../variables';
 
 .dcaa-xgallery {
-  padding-#{$right}: 50px;
+  @include padding(right, 50px);
 }
 
 .controls img {

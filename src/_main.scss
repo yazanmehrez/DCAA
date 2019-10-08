@@ -2,9 +2,12 @@
 @import "icons";
 @import "bootstrap-overrides";
 @import "responsive";
-@import "rtl";
 
 $padding-extra: 100px;
+
+*:focus {
+  outline: 0;
+}
 
 .btn-primary.reverse {
   background-color: $primary;
@@ -14,7 +17,6 @@ $padding-extra: 100px;
 .bg-banner {
   background-color: $banner-background;
 }
-
 
 button {
   font-family: $font-family-base;
@@ -26,13 +28,13 @@ section {
 }
 
 .dark-border {
-  border-#{$left}: $border-size solid transparent;
+  @include border(left, $border-size, solid, transparent);
 
   &:hover {
     color: $white;
     cursor: pointer;
     background-color: $primary-background;
-    border-#{$left}: $border-size solid $primary;
+    @include border(left, $border-size, solid, $primary);
   }
 }
 
@@ -41,13 +43,13 @@ section {
 }
 
 .light-border {
-  border-#{$left}: $border-size solid transparent;
+  @include border(left, $border-size, solid, transparent);
 
-  &:hover {
+  &:hover, &.active {
     color: $black;
     cursor: pointer;
     background-color: $lighter-gray;
-    border-#{$left}: $border-size solid $primary;
+    @include border(left, $border-size, solid, $primary);
   }
 }
 
@@ -164,7 +166,7 @@ section {
   border-color: transparent !important;
   color: $black;
 
-  &:hover {
+  &:hover, &.active {
     background: $white !important;
     border-color: $primary !important;
     cursor: pointer;
@@ -184,10 +186,48 @@ section {
 .mat-dialog-container {
   border-bottom: $border-size solid $primary;
   border-radius: 0 !important;
+  min-width: 25vw;
 }
 
 [lang="ar"] {
   .mat-dialog-container {
     direction: rtl;
   }
+}
+
+.service-card {
+  text-align: center;
+  border: ($border-size - 1) solid transparent;
+  padding: 15px 35px;
+
+  span {
+    font-size: 3em;
+  }
+
+  &:hover, &.selected {
+    border: ($border-size - 1) solid $primary;
+    cursor: pointer;
+    color: $primary;
+  }
+
+  &.border {
+    border: ($border-size - 1) solid $light-gray;
+  }
+
+}
+
+.icon-lg {
+  font-size: 5em;
+}
+
+.icon-md {
+  font-size: 4em;
+}
+
+.icon-sm {
+  font-size: 3em;
+}
+
+.pointer {
+  cursor: pointer;
 }

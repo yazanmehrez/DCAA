@@ -1,10 +1,2 @@
-@import "../../../../../variables";
+@import "../about-us.component";
 
-.nav-item {
-  background: $secondary-background;
-  border-#{$right}: 1px solid $white;
-
-  a {
-    color: $black;
-  }
-}
