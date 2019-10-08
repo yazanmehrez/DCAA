@@ -1,0 +1,256 @@
+<div class="row">
+  <div class="col-md-8">
+    <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()" class="px-4 pt-0 pb-3">
+      <h6 class="primary-color text-uppercase">Your Feedback</h6>
+      <div class="form-group">
+        <span>Name <span class="text-primary">*</span></span>
+        <input formControlName="name" [ngClass]="{ 'is-invalid': feedbackSubmitted && f.name.errors }"
+               type="text"
+               class="form-control round-border" id="name" i18n-placeholder="@@name"
+               [placeholder]="'Enter Your Name Here'">
+        <div *ngIf="feedbackSubmitted && f.name.errors" class="invalid-feedback">
+          <div *ngIf="f.name.errors.required" i18n="@@nameRequired">
+            Name Required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <span>Email <span class="text-primary">*</span></span>
+        <input formControlName="emailAddress" [ngClass]="{ 'is-invalid': feedbackSubmitted && f.emailAddress.errors }"
+               type="text"
+               class="form-control round-border" id="email" i18n-placeholder="@@email"
+               [placeholder]="'Enter Your Email Here'">
+        <div *ngIf="feedbackSubmitted && f.emailAddress.errors" class="invalid-feedback">
+          <div *ngIf="f.emailAddress.errors.required" i18n="@@emailRequired">
+            Email Required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <span>Select Reason <span class="text-primary">*</span></span>
+        <mat-select placeholder="Choose Reason" formControlName="reason" id="localeId"
+                    class="form-control round-border">
+          <mat-option value="1"> Inquire</mat-option>
+          <mat-option value="2"> Another Choice</mat-option>
+        </mat-select>
+        <div *ngIf="feedbackSubmitted && f.reason.errors" class="invalid-feedback">
+          <div *ngIf="f.reason.errors.required" i18n="@@reasonRequired">
+            Reason Required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <span>Feedback <span class="text-primary">*</span></span>
+        <textarea autosize formControlName="message"
+                  [ngClass]="{ 'is-invalid': feedbackSubmitted && f.message.errors }"
+                  class="form-control round-border" id="feedback" i18n-placeholder="@@name"
+                  [placeholder]="'Enter Your Feedback Here'">
+            </textarea>
+        <div *ngIf="feedbackSubmitted && f.message.errors" class="invalid-feedback">
+          <div *ngIf="f.message.errors.required" i18n="@@feedbackRequired">
+            Feedback Required
+          </div>
+        </div>
+      </div>
+      <div class="form-group captcha-wrapper d-flex justify-content-between align-items-center">
+        <re-captcha formControlName="captchaResponse"></re-captcha>
+      </div>
+      <div class="p-lr-20" *ngIf="feedbackErrors.length > 0">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <div *ngFor="let text of feedbackErrors">{{text}}</div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <div class="display-flex no-wrap m-t-10">
+        <div class="d-flex">
+          <div class="d-flex">
+            <div class="mx-1" i18n="@@feedback">
+              <button type="submit" [disabled]="this.inProgress"
+                      class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
+                <div *ngIf="inProgress" class="spinner-border spinner-border-sm mx-1" role="status">
+                  <span class="sr-only"> {{'_Forms._Loading' | translate}}...</span>
+                </div>
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 435.99 454.06">
+      <defs>
+        <style>.cls-1, .cls-3 {
+          isolation: isolate;
+        }
+
+        .cls-2 {
+          fill: #988866;
+        }
+
+        .cls-3 {
+          opacity: 0.1;
+        }
+
+        .cls-4 {
+          fill: #f4f4f4;
+        }
+
+        .cls-5 {
+          fill: none;
+          stroke: #3f3d56;
+          stroke-miterlimit: 10;
+        }
+
+        .cls-6 {
+          fill: #fff;
+        }
+
+        .cls-7 {
+          fill: #e0e0e0;
+        }
+
+        .cls-8 {
+          fill: #f7c3a9;
+        }
+
+        .cls-9 {
+          fill: #f7f8f9;
+        }
+
+        .cls-10 {
+          fill: #eaeaea;
+        }
+
+        .cls-11, .cls-12 {
+          fill: #333;
+        }
+
+        .cls-12 {
+          opacity: 0.38;
+          mix-blend-mode: multiply;
+        }
+
+        .cls-13 {
+          fill: url(#linear-gradient);
+        }
+
+        .cls-14 {
+          fill: #14161c;
+        }
+
+        .cls-15 {
+          fill: #e89f8e;
+        }
+
+        .cls-16 {
+          fill: #efb5a3;
+        }</style>
+        <linearGradient id="linear-gradient" x1="351.96" y1="335.54" x2="351.96" y2="447.47"
+                        gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#171921"/>
+          <stop offset="1" stop-color="#131215"/>
+        </linearGradient>
+      </defs>
+      <title>Feedback</title>
+      <g class="cls-1">
+        <g id="Layer_2" data-name="Layer 2">
+          <g id="Layer_1-2" data-name="Layer 1">
+            <path class="cls-2"
+                  d="M296.23,453.89H42a31.43,31.43,0,0,1-31.43-31.43h0V306a12.45,12.45,0,0,1,3.88-9L149.18,169.27a29,29,0,0,1,39.89,0L317.5,291a32.54,32.54,0,0,1,10.16,23.63V422.46a31.43,31.43,0,0,1-31.43,31.43Z"/>
+            <path class="cls-3" d="M10.59,307.91H325v127a19,19,0,0,1-19,19H29.57a19,19,0,0,1-19-19h0v-127Z"/>
+            <rect class="cls-4" x="51.87" y="207.83" width="233.84" height="233.84" rx="17.29"/>
+            <polygon class="cls-3"
+                     points="285.71 313.16 285.71 441.67 51.87 441.67 51.87 313.16 168.79 369.67 285.71 313.16"/>
+            <path class="cls-2"
+                  d="M168.79,376.94,19,304.53A6.07,6.07,0,0,0,10.26,310V434.58a19,19,0,0,0,19,19H308.35a19,19,0,0,0,19-19h0V312.14a7.42,7.42,0,0,0-10.65-6.68Z"/>
+            <rect class="cls-2" x="72.02" y="229.3" width="65.4" height="9.25"/>
+            <rect class="cls-2" x="66.73" y="262.99" width="194.21" height="5.28"/>
+            <rect class="cls-2" x="66.73" y="280.83" width="194.21" height="5.28"/>
+            <rect class="cls-2" x="66.73" y="298.66" width="194.21" height="5.28"/>
+            <line class="cls-5" y1="453.56" x2="435.99" y2="453.56"/>
+            <ellipse class="cls-6" cx="61.45" cy="211.52" rx="27.08" ry="27.13"/>
+            <path class="cls-2"
+                  d="M61.45,179.76a32.37,32.37,0,1,0,32.37,32.37A32.37,32.37,0,0,0,61.45,179.76Zm-6.64,49.62L38.22,212.8l4.65-4.66,12,12,25.23-25.22,4.65,4.65L54.81,229.38Z"/>
+            <path class="cls-7" d="M308.63,114.8s66.32,16.14,89-7.24L386.88,53l-60.76,3.65L310.52,70.3Z"/>
+            <path class="cls-8"
+                  d="M297.88,271.94a3.46,3.46,0,0,0,2.17,2.47c1.94.85,1.82.12,4.38,0a8.36,8.36,0,0,0,4.2,1.16c2-.17,2.44-1.28,5.77-1.53,0,0,3.36-4,1.23-8.16,0,0,.86.13,1.22-1.46s-2.14-13.49-5.82-13.55l-8.91,12Z"/>
+            <path class="cls-8" d="M297.85,250.66s-.4,12.7,0,21.28c0,0,10.91.35,16.52-.63,0,0-1-16.42-3.37-20.44Z"/>
+            <path class="cls-8"
+                  d="M314.16,131.51c-6.24,5-11.34,35.64-13.88,64.73-2.43,27.92-2.43,54.42-2.43,54.42l13.18.21c3.13-28,6.55-43,7.54-52.45.6-5.71.81-9.45.84-11.89Z"/>
+            <path class="cls-9"
+                  d="M319.24,110s-10.7,5.13-16.15,32.9c-6.39,32.51-9.27,84.62-9.06,112.25,0,0,13,5,24,2.13C318.06,257.26,323,119.47,319.24,110Z"/>
+            <path class="cls-10"
+                  d="M318.06,257.26S323,119.47,319.24,110c0,0-6.72,3.24-12.22,18.4h0a16.17,16.17,0,0,1,3.5,12.17c-3.19,28.88-10.18,97.89-8.49,116.74C306.64,258.17,312.58,258.68,318.06,257.26Z"/>
+            <path class="cls-11" d="M391.8,422.89s2.1,21.49,1.35,30.51h-25s-.15-5.71,1.21-7.21,6.31-9.77,6.16-21.8Z"/>
+            <path class="cls-11"
+                  d="M344.59,427.25s2.41,14.13,2,26.15H306.71s-1.51-4.66,0-6.46,12.14-4.88,16.38-8.79a32.08,32.08,0,0,0,7.22-10.9Z"/>
+            <path class="cls-12"
+                  d="M344.59,427.25H330.31a32.08,32.08,0,0,1-7.22,10.9,18.94,18.94,0,0,1-3.44,2.38c7.46.67,20,3.26,26.89,12.87C347,441.38,344.59,427.25,344.59,427.25Z"/>
+            <path class="cls-12"
+                  d="M391.8,422.89l-16.24,1.5a41.25,41.25,0,0,1-3,16c6.47.49,18.09,2.8,20.57,13C393.9,444.38,391.8,422.89,391.8,422.89Z"/>
+            <path class="cls-13"
+                  d="M310.76,240.53A1710.31,1710.31,0,0,0,328.2,428.15s10.23,3,17.44,0c0,0-.06-141.52.54-148.13,0,0,6.32-1.5,7.82.6,0,0,16,129.19,20.51,144.82,0,0,10.22,3.61,18.64-.6,0,0-3.31-173.19-6-187.62Z"/>
+            <path class="cls-14"
+                  d="M340.77,277.55s4,119,2.52,151.35a15.33,15.33,0,0,0,2.35-.75s-.06-141.52.54-148.13c0,0,5.06-1.2,7.2.05C352.12,279.09,346.2,277.09,340.77,277.55Z"/>
+            <path class="cls-15" d="M325.55,58.15c-.8-8.55-5.88-11-10.91-8.87-6.82,2.91-6.54,21.6,11.48,18.31Z"/>
+            <path class="cls-14"
+                  d="M310.76,240.53s.06,2,.21,5.83c7.38,2.27,30.61,8.3,68.55,8.3,0,0,14,138.56,11.54,171.06a19.76,19.76,0,0,0,2.09-.88s-3.31-173.19-6-187.62Z"/>
+            <path class="cls-9"
+                  d="M389.07,110.41a8.49,8.49,0,0,0-1.18-.66c-8.53-3.8-26.59-6.55-38-6.48-8.39,0-22.24,2.52-30.61,6.71-27.11,107.47-8.48,324.78-8.48,324.78,4,2.75,35,9.5,61.91,2.46,13.7-3.58,33.82-.63,33.82-.63C406.69,422.16,386.36,127.15,389.07,110.41Z"/>
+            <path class="cls-10"
+                  d="M383.8,184.06s-6.5,59.3-8,66.6l3.88,5.83s3.11,122.66-4.8,180.22c13.55-2.76,31.59-.12,31.59-.12.16-11.65-13.05-206-16.73-289.39l-11.26,3S381.55,171.54,383.8,184.06Z"/>
+            <path class="cls-10"
+                  d="M389.07,110.41a8.49,8.49,0,0,0-1.18-.66c-8.53-3.8-26.59-6.55-38-6.48-8.39,0-22.24,2.52-30.61,6.71-.77,3-1.5,6.2-2.2,9.43,10.31,3,32.58,9.83,54.25.44,0,0-.45,15.46-1.67,20.7,0,0,11.67-1.61,19.57-7.49C388.76,120.9,388.68,112.8,389.07,110.41Z"/>
+            <path class="cls-16"
+                  d="M347.05,119.85c16.66-.1,14.27-14.83,14.27-15.91V82.32H341l-.21,21.46C340.78,104.49,330.94,120,347.05,119.85Z"/>
+            <path class="cls-10"
+                  d="M347.67,103.87s11.41-.61,13.65-7.21a17.48,17.48,0,0,1,5.72,8s.9,18-17.27,18c-11,0-16-6.21-16-11.51a14.1,14.1,0,0,1,1.73-6.21,43.3,43.3,0,0,1,5.33-6.67A8.2,8.2,0,0,0,347.67,103.87Z"/>
+            <path class="cls-8"
+                  d="M317.18,21.88c-2.25,3.39-4.41,17.65-3.61,28.47s-.34,23.93,1.72,28.06C318.38,84.62,339,93.84,344,95.05s26.86-10,29.87-16,12.22-34.28,8.82-48.11-16-25.36-34.29-25.25C327.16,5.77,320.22,17.29,317.18,21.88Z"/>
+            <path class="cls-11"
+                  d="M377.5,58.07c-1.21,6.78-8.4,18.92-14.6,13.79S351.68,69.8,345.47,71a43.86,43.86,0,0,1-11.5.71c-5.3.73-5.43,3.66-13,2.07a10.81,10.81,0,0,1-7-5.45c.1,4.48-.26,9.94.67,11.8,3.09,6.21,14.55,19.11,30.92,19.11,16.86,0,26.24-14,29.24-20,1.46-2.91,3.47-11.31,5.7-20.52C379.09,56.67,377.9,55.89,377.5,58.07ZM352.86,81.42c-1.18,3.24-5.15,5.52-10.37,5.65s-8.78-1.81-9-4c-.65-6.14,6.33-3.3,12.44-5.12C350.58,76.54,353.61,79.36,352.86,81.42Z"/>
+            <path class="cls-8"
+                  d="M352.86,81.42c-1.18,3.24-5.15,5.52-10.37,5.65s-8.78-1.81-9-4c-.65-6.14,6.33-3.3,12.44-5.12C350.58,76.54,353.61,79.36,352.86,81.42Z"/>
+            <path class="cls-10" d="M314.33,133.27a28.21,28.21,0,0,0,5.08,1.81s-1.23-11.7,0-15.23l-5.08-3-2,5.79Z"/>
+            <path class="cls-8" d="M378.67,58.15c.8-8.55,5.87-11,10.91-8.87,6.81,2.91,6.54,21.6-11.49,18.31Z"/>
+            <path class="cls-15"
+                  d="M390.24,55.07s-7.48-3.69-8.72,6.64c0,0,4.89-4.17,7.55-1,0,0-.73-2.94-4.62-2.08A5,5,0,0,1,390.24,55.07Z"/>
+            <path class="cls-8"
+                  d="M410.34,180.05l-8.29-42.31s-22.3-6-22.35-5.45,10.78,53,10.78,53c-3.59,17.67-5.43,62-5.43,62l13.14,1c4.81-27.77,9.13-42.57,10.68-51.9C411.31,181.73,410.34,180.05,410.34,180.05Z"/>
+            <path class="cls-16"
+                  d="M388.12,173.81c.3,1.42.57,2.76.82,4,4.21,1.38,11.4.16,17.38-2.24a66.75,66.75,0,0,1,.85,14.7c-1.17,13.95-4.78,35.26-6.58,44.94h0c3.8-19.57,7-31.1,8.28-38.85,2.44-14.61,1.47-16.29,1.47-16.29l-7.61-38.83-4-2.85Z"/>
+            <path class="cls-8"
+                  d="M383.8,268.48s.19,2.28,1.46,2.65,1.74-.28,3.84,0c0,0,.62.78,4.6.11,0,0,2.53,1,3.62.71s1.65.36,3-.37,2-3.1,2-3.1.45-6.12-.55-6.66a3.22,3.22,0,0,0-3.75.63C397.23,263.54,383.8,268.48,383.8,268.48Z"/>
+            <path class="cls-15"
+                  d="M401.14,264.12s-.13.41-.43,1.19a2.82,2.82,0,0,1-.73.82v.61a4,4,0,0,1,1.89,1.34,1.25,1.25,0,0,0-.17-.64c-.22-.39-.71-.52-1-.7S401.2,265.12,401.14,264.12Z"/>
+            <path class="cls-16"
+                  d="M400.27,264.91c.71-2.6,1.88-2.49,1.88-2.49a1,1,0,0,0-.35-.6,3.22,3.22,0,0,0-3.75.63l-.1.08Z"/>
+            <path class="cls-8" d="M385.05,247.24s-1.16,12.65-1.25,21.24c0,0,10.87,1,16.54.36,0,0,0-16.44-2.15-20.6Z"/>
+            <path class="cls-9"
+                  d="M387.89,109.75s7.83,3.45,18.05,38.79c6.71,23.2,7.86,36.72,6.4,44s-7.68,58.52-7.68,58.52-15.57,5.32-25-2.85c0,0,6.92-52,7.43-63.71,0,0-5.78-19-9.7-39.81C373.44,123.51,376.7,111.24,387.89,109.75Z"/>
+            <path class="cls-9"
+                  d="M387.89,109.75s7.83,3.45,18.05,38.79c6.71,23.2,7.86,36.72,6.4,44s-7.68,58.52-7.68,58.52-15.57,5.32-25-2.85c0,0,6.92-52,7.43-63.71,0,0-5.78-19-9.7-39.81C373.44,123.51,376.7,111.24,387.89,109.75Z"/>
+            <path class="cls-10"
+                  d="M387.89,109.75c-10.1,1.35-13.72,11.5-11.4,29.06,4.44-1.22,7.07-4,11-7.3,2.63-2.23,8.59-2.65,11.64-3.23C392.43,111.76,387.89,109.75,387.89,109.75Z"/>
+            <path class="cls-9"
+                  d="M372,35.7s4.78,79.92.39,100.46c0,0,7.12-7.48,16.1-9.55s15.32-9.67,15.32-9.67-10.15-55.89-10.14-75S374.46-4.49,342.06.63s-34.15,35.8-34.73,51.64-.34,58.33-5.21,70.33c0,0,1,6.57,15.1,9.65,0,0-4-71.28-1.76-94.72,0,0,4.59-4.58,23.27-5.15S357.65,37.41,372,35.7Z"/>
+            <path class="cls-11"
+                  d="M393.09,33.27a2.12,2.12,0,0,1-1-.25c-47.75-24.55-80.65-3.5-81-3.28a2.19,2.19,0,1,1-2.42-3.66c1.42-.94,35.38-22.68,85.4,3.05a2.19,2.19,0,0,1-1,4.14Z"/>
+            <path class="cls-10"
+                  d="M405.94,148.54a192.64,192.64,0,0,0-8.3-23.73l-2.52,4.11s11.72,25.39,16.11,41.46A224.23,224.23,0,0,0,405.94,148.54Z"/>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+</div>
+<swal
+    #feedbackSwal
+    title="Feedback completed" i18n-title="@@feedbackCompleted" i18n-html="@@feedbackCompletedHtml"
+    html="Your feedback has been sent successfully"
+    type="success">
+</swal>

@@ -1,0 +1,28 @@
+@import "../../../../../variables";
+
+[class^="icon-"], [class*=" icon-"] {
+  font-size: 2.5em;
+}
+
+[class^="col-"] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+table, tr, th, thead {
+  border: none !important;
+}
+
+td {
+  border-top: 0 !important;
+}
+
+.new {
+  border-right: $border-size solid $primary;
+}
+
+.old {
+  background-color: $secondary-background;
+  border-right: $border-size solid $black;
+}

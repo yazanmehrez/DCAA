@@ -1,0 +1,30 @@
+<div class="dcaa-text-pages">
+  <dcaa-page-banner
+    [Title]="'Our DCAA'"
+    [Section]="''"
+    [Image]="'assets/images/HEADER-IMAGE.png'"
+  >
+  </dcaa-page-banner>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 b-extra">
+        <div class="row overflow-hidden">
+          <div class="col-md-2">
+            <ul class="list-group with-separator nav p-0 pt-5 text-left" id="list-tab" role="tablist">
+              <li class="nav-link light-border" routerLink="privacy-policy" routerLinkActive="active">Privacy Policy
+              </li>
+              <li class="nav-link light-border" routerLink="disclaimer" routerLinkActive="active">Disclaimer</li>
+              <li class="nav-link light-border" routerLink="terms-conditions" routerLinkActive="active">Terms &
+                Conditions
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-10 pt-5">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

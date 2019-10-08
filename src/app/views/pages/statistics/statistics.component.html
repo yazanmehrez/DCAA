@@ -1,0 +1,71 @@
+<div class="dcaa-statistics">
+  <dcaa-page-banner
+    [Title]="'Statistics'"
+    [Section]="''"
+    [Image]="'assets/images/HEADER-IMAGE.png'"
+  >
+  </dcaa-page-banner>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 b-extra">
+        <div class="row overflow-hidden">
+          <div class="col-md-2">
+            <ul class="list-group with-separator nav p-0 pt-5 text-left" id="list-tab" role="tablist">
+              <li class="nav-link light-border" routerLink="/statistics/issued-permits" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Increase of issued permits numbers</li>
+              <li class="nav-link light-border" routerLink="/statistics/inspections" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inspections</li>
+              <li class="nav-link light-border" routerLink="/statistics/safety-inspections" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Safety inspection</li>
+            </ul>
+          </div>
+          <div class="col-md-10 pt-5">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+        <div class="row pt-5">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="card bg-inverse">
+                  <img class="card-img" src="assets/images/LINKS IMAGE.png">
+                  <div class="card-img-overlay d-flex flex-column justify-content-end">
+                    <a class="font-weight-bold m-0">Mission and Vision</a>
+                    <p class="card-title m-0">The World Airport, Dubai</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card bg-inverse">
+                  <img class="card-img" src="assets/images/LINKS IMAGE.png">
+                  <div class="card-img-overlay d-flex flex-column justify-content-end">
+                    <a class="font-weight-bold m-0">Mission and Vision</a>
+                    <p class="card-title m-0">The World Airport, Dubai</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card bg-inverse">
+                  <img class="card-img" src="assets/images/LINKS IMAGE.png">
+                  <div class="card-img-overlay d-flex flex-column justify-content-end">
+                    <a class="font-weight-bold m-0">Mission and Vision</a>
+                    <p class="card-title m-0">The World Airport, Dubai</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card bg-inverse">
+                  <img class="card-img" src="assets/images/LINKS IMAGE.png">
+                  <div class="card-img-overlay d-flex flex-column justify-content-end">
+                    <a class="font-weight-bold m-0">Mission and Vision</a>
+                    <p class="card-title m-0">The World Airport, Dubai</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

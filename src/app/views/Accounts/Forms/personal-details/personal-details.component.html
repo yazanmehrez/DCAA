@@ -1,0 +1,65 @@
+<div class="pt-3" id="personal-tab-content">
+  <form class="pb-3 border-bottom tab-content" [formGroup]="personalForm" (ngSubmit)="onSubmit()">
+    <h6 class="primary-color mb-2">Personal Details:</h6>
+    <div class="row">
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@firstName">First Name <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@firstName" formControlName="firstName"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.firstName.errors }" type="text"
+                 class="form-control clientApp-input" id="firstName" placeholder="First Name">
+          <div *ngIf="formSubmitted && p.firstName.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.firstName.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@lastName">Last Name <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@lastName" formControlName="lastName"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.lastName.errors }" type="text"
+                 class="form-control clientApp-input" id="lastName" placeholder="Last Name">
+          <div *ngIf="formSubmitted && p.lastName.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.lastName.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@city">City <span class="text-primary">*</span></span>
+          <div class="custom-material-select clientApp-input white-back">
+            <mat-select placeholder="City" formControlName="localeId" id="localeId" class="form-control">
+              <mat-option [value]="item.localeId" *ngFor="let item of locales">{{item.city}}</mat-option>
+            </mat-select>
+          </div>
+          <div *ngIf="formSubmitted && p.localeId.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.localeId.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@dob">Date of birth <span class="text-primary">*</span></span>
+
+          <div class="display-flex custom-datepicker clientApp-input position-relative">
+            <input [matDatepicker]="picker" formControlName="dob"
+                   [ngClass]="{ 'is-invalid': formSubmitted && p.dob.errors }"
+                   class="bigger date-inputbox form-control"
+                   type="text" id="dob" placeholder="Date of birth">
+            <mat-datepicker-toggle matSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon><i class="fa fa-calendar"></i></mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </div>
+          <div *ngIf="p.dob.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="formSubmitted && p.dob.errors.required">Field is required</div>
+            <div i18n="@@invalidDate" *ngIf="p.dob.errors.validDate">Invalid date</div>
+            <div i18n="@@cannotBeFuture" *ngIf="p.dob.errors.todayAndPast">DOB cannot be in the future</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+

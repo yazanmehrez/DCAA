@@ -1,0 +1,17 @@
+@import "../../../../../variables";
+@import "../about-us.component";
+
+
+
+ul.gray-timeline > li:before {
+  content: " ";
+  background: $gray;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  left: 15px;
+  width: 6px;
+  height: 6px;
+  z-index: 400;
+  margin-top: 5px;
+}
