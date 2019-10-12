@@ -4,6 +4,8 @@ import {ConfigService} from 'src/app/shared/utils/config.service';
 import {BaseService} from 'src/app/shared/services/base.service';
 import {UserProfile} from '../../shared/models/API/Entities/UserProfile';
 import {ContactDetails, IndividualDetails} from '../../shared/models/API/Entities/UserProfileDetails';
+import {CompanyDetails} from '../../shared/models/API/Entities/CompanyDetails';
+import {GlobalSearch} from '../../shared/models/autocomplete';
 
 
 @Injectable({
@@ -29,6 +31,10 @@ export class AccountServiceService extends BaseService {
     return this.restRequest(null, `${this.baseUrl}/api/LocaleInfoes`, null, 'GET');
   }
 
+  fetchAutoComplete(model: GlobalSearch) {
+    return this.restRequest(model, `${this.baseUrl}/api/GlobalSearchAutocomplete`, null, 'POST');
+  }
+
   fetchUserProfile() {
     return this.restRequest(null, `${this.baseUrl}/api/MyProfile`, null, 'GET');
   }
@@ -38,7 +44,7 @@ export class AccountServiceService extends BaseService {
   }
 
   editIndividual(model: IndividualDetails, type: string = 'PUT') {
-    return this.restRequest(model, `${this.baseUrl}/api/IndividualDetails/${model.id}`, null, type);
+    return this.restRequest(model, `${this.baseUrl}/api/IndividualDetails`, null, type);
   }
 
   addIndividual(model: IndividualDetails, type: string = 'POST') {
@@ -49,12 +55,24 @@ export class AccountServiceService extends BaseService {
     return this.restRequest(null, `${this.baseUrl}/api/IndividualDetails`, null, 'GET');
   }
 
-  addAccountDetails(model: ContactDetails[], type: string = 'POST') {
-    return this.restRequest(model, `${this.baseUrl}/api/ContactDetails`, null, type);
+  addContactDetails(model: ContactDetails[], type: string = 'POST') {
+    return this.restRequest(model, `${this.baseUrl}/api/ContactDetails/api/ContactsDetailsUpdates`, null, type);
   }
 
-  getAccountDetails() {
+  getContactDetails() {
     return this.restRequest(null, `${this.baseUrl}/api/ContactDetails`, null, 'GET');
+  }
+
+  deleteContactDetails(model: ContactDetails, type: string = 'DELETE') {
+    return this.restRequest(null, `${this.baseUrl}/api/ContactDetails/${model.id}`, null, type);
+  }
+
+  addCompanyDetails(model: CompanyDetails, type: string = 'POST') {
+    return this.restRequest(model, `${this.baseUrl}/api/CompanyDetails`, null, type);
+  }
+
+  editCompanyDetails(model: CompanyDetails, type: string = 'PUT') {
+    return this.restRequest(model, `${this.baseUrl}/api/CompanyDetails/${model.id}`, null, type);
   }
 
 }

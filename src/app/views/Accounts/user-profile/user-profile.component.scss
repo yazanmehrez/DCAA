@@ -55,7 +55,7 @@
 
   .normal_fileupload_wrapper label span {
     color: $primary;
-    background: $secondary_background;
+    background: #fff4f4;
     border-radius: 20px;
     padding: 0 1.4em !important;
   }
@@ -91,7 +91,7 @@
 }
 
 .search-filter {
-  input {
+  input, select {
     border-radius: 25px !important;
     padding-top: 0;
     padding-bottom: 0;

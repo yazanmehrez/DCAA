@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'dcaa-icons';
-  src:  url('fonts/dcaa-icons.eot?7ibtag');
-  src:  url('fonts/dcaa-icons.eot?7ibtag#iefix') format('embedded-opentype'),
-  url('fonts/dcaa-icons.ttf?7ibtag') format('truetype'),
-  url('fonts/dcaa-icons.woff?7ibtag') format('woff'),
-  url('fonts/dcaa-icons.svg?7ibtag#dcaa-icons') format('svg');
+  src:  url('fonts/dcaa-icons.eot?87rav5');
+  src:  url('fonts/dcaa-icons.eot?87rav5#iefix') format('embedded-opentype'),
+  url('fonts/dcaa-icons.ttf?87rav5') format('truetype'),
+  url('fonts/dcaa-icons.woff?87rav5') format('woff'),
+  url('fonts/dcaa-icons.svg?87rav5#dcaa-icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-air-cargo:before {
+  content: "\e97d";
+}
+.icon-Airlines:before {
+  content: "\e982";
+}
+.icon-aviation-Maintenance:before {
+  content: "\e983";
+}
+.icon-Engineering:before {
+  content: "\e984";
+}
+.icon-Entertainment:before {
+  content: "\e985";
+}
+.icon-General:before {
+  content: "\e986";
+}
+.icon-Tourism-and-travel:before {
+  content: "\e987";
+}
 .icon-agency:before {
   content: "\e97b";
 }

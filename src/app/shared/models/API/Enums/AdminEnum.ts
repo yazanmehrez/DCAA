@@ -44,3 +44,9 @@
         RefundRejected = 20,
         RefundProceed = 21
     }
+
+  export enum NewsType
+        {
+            PreRelease=1,
+            Event
+        }

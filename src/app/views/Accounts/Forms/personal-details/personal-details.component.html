@@ -24,19 +24,22 @@
           </div>
         </div>
       </div>
+
       <div class="col-md-6 col-sm-3">
         <div class="form-group">
           <span i18n="@@city">City <span class="text-primary">*</span></span>
           <div class="custom-material-select clientApp-input white-back">
-            <mat-select placeholder="City" formControlName="localeId" id="localeId" class="form-control">
-              <mat-option [value]="item.localeId" *ngFor="let item of locales">{{item.city}}</mat-option>
-            </mat-select>
+<!--            <mat-select placeholder="City" formControlName="localeId" id="localeId" class="form-control">-->
+<!--              <mat-option [value]="item.localeId" *ngFor="let item of locales">{{item.city}}</mat-option>-->
+<!--            </mat-select>-->
+            <dcaa-autocomplete-search [api]="AutoCompleteEnum.LocaleInfo" formControlName="localeId" id="localeId"></dcaa-autocomplete-search>
           </div>
           <div *ngIf="formSubmitted && p.localeId.errors" class="invalid-feedback always-block text-left">
             <div i18n="@@required" *ngIf="p.localeId.errors.required">Field is required</div>
           </div>
         </div>
       </div>
+
       <div class="col-md-6 col-sm-3">
         <div class="form-group">
           <span i18n="@@dob">Date of birth <span class="text-primary">*</span></span>

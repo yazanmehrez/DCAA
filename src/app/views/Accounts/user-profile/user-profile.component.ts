@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {AccountServiceService} from '../account-service.service';
 import {Profile} from 'src/app/shared/models/userProfile';
 import {SwalComponent} from '@sweetalert2/ngx-sweetalert2';
@@ -12,6 +12,9 @@ import {CompanyDetailsComponent} from '../Forms/company-details/company-details.
 import {UserService} from '../../../shared/services/user.service';
 import {AccountType, CompanyLocation, IndividualType} from '../../../shared/models/API/Enums/AccountEnums';
 import {DocumentsDetailsComponent} from '../Forms/documents-details/documents-details.component';
+import {UserProfile} from '../../../shared/models/API/Entities/UserProfile';
+import {HttpErrorResponse} from '@angular/common/http';
+import {LocaleInfo} from '../../../shared/models/API/Entities/Admin/LocaleInfo';
 
 @Component({
   selector: 'dcaa-user-profile',
@@ -22,9 +25,9 @@ import {DocumentsDetailsComponent} from '../Forms/documents-details/documents-de
 export class UserProfileComponent implements OnInit {
   myProfile: Profile = new Profile();
   @ViewChild('imageFileUploadCrl', {static: true}) imageFileUploadCrl: FileUploaderComponent;
-  profileForm: FormGroup;
   profileErrors = {};
-
+  locales: LocaleInfo[] = [];
+  validationResult = true;
   pictureUrl: string;
   inProgress = false;
   openForms = false;
@@ -38,7 +41,7 @@ export class UserProfileComponent implements OnInit {
   CompanyLocation = CompanyLocation;
   companyLocation: CompanyLocation = CompanyLocation.InsideUAE;
 
-  tradLicense = 0;
+  tradLicense;
 
   TradeLicense = [
     {
@@ -67,12 +70,15 @@ export class UserProfileComponent implements OnInit {
       name: 'Dubai Airport'
     },
   ];
+
+  userProfileDetails: UserProfile;
+
   @ViewChild('swalComp', {static: true}) private swalComp: SwalComponent;
 
-  @ViewChild('personalDetails', {static: false}) private personalDetails: PersonalDetailsComponent;
-  @ViewChild('documentsDetails', {static: false}) private documentsDetails: DocumentsDetailsComponent;
-  @ViewChild('contactDetails', {static: false}) private contactDetails: ContactDetailsComponent;
-  @ViewChild('companyDetails', {static: false}) private companyDetails: CompanyDetailsComponent;
+  @ViewChild('personalDetailsComponent', {static: false}) private personalDetailsComponent: PersonalDetailsComponent;
+  @ViewChild('documentsDetailsComponent', {static: false}) private documentsDetailsComponent: DocumentsDetailsComponent;
+  @ViewChild('contactDetailsComponent', {static: false}) private contactDetailsComponent: ContactDetailsComponent;
+  @ViewChild('companyDetailsComponent', {static: false}) private companyDetailsComponent: CompanyDetailsComponent;
 
   constructor(private profileBuilder: FormBuilder,
               private restService: AccountServiceService,
@@ -83,25 +89,37 @@ export class UserProfileComponent implements OnInit {
 
 
   updateProfile() {
+    this.validationResult = true;
     if (this.accountType === AccountType.Individual) {
-      this.personalDetails.onSubmit();
-      this.documentsDetails.onSubmit();
-      this.contactDetails.onSubmit();
-      this.updateServer(
-        this.personalDetails.personalForm.value,
-        this.contactDetails.contactForm.value,
-        null);
+      this.personalDetailsComponent.onSubmit();
+      this.contactDetailsComponent.onSubmit();
+      this.documentsDetailsComponent.onSubmit();
+
+      if (this.validationResult) {
+        this.swalComp.fire();
+      }
+
     }
     if (this.accountType === AccountType.PrivateCompany) {
-      this.personalDetails.onSubmit();
-      this.companyDetails.onSubmit();
-      this.updateServer(
-        this.personalDetails.personalForm.value,
-        null, this.companyDetails.companyForm.value);
+      this.personalDetailsComponent.onSubmit();
+      this.contactDetailsComponent.onSubmit();
+      this.companyDetailsComponent.onSubmit();
+
+      if (this.validationResult) {
+        this.swalComp.fire();
+      }
     }
 
-    // this.inProgress = true;
   }
+
+  validationErrors(formInformation: any) {
+    this.goToInvalidForm(formInformation.name);
+    this.validationResult = formInformation.form.valid;
+  }
+
+  goToInvalidForm(formName: string) {
+    (<any>$('.nav-item a[href="#' + formName + '"]')).tab('show');
+  };
 
   updateLocalProfile(userProfile) {
     this.myProfile.firstName = userProfile.firstName;
@@ -111,27 +129,40 @@ export class UserProfileComponent implements OnInit {
     localStorage.setItem('profile', JSON.stringify(this.myProfile));
   }
 
-  updateServer(personalDetails, contactDetails, companyDetails) {
-    // console.log('Personal Details');
-    // console.log(personalDetails);
-    // console.log('Contact Details');
-    // console.log(contactDetails);
-    // console.log('Company Details');
-    // console.log(companyDetails);
-  }
-
-  successMessage(refresh: boolean = false) {
-    this.swalComp.title = 'Processed successfully';
-    this.swalComp.type = 'success';
-    this.swalComp.showCancelButton = false;
-    this.swalComp.fire();
-  }
 
   setImage(fileSystem: FileSystem[]) {
     this.pictureUrl = JSON.stringify(fileSystem);
   }
 
+  fetchUserProfile() {
+    this.inProgress = true;
+    this.restService.fetchUserProfile().then((me: UserProfile) => {
+      this.userProfileDetails = me;
+      this.accountType = this.userProfileDetails.accountType;
+
+      this.inProgress = false;
+      this.individualType = this.userProfileDetails.individualDetails.individualType;
+
+      if (this.accountType) {
+        this.openForms = true;
+      }
+
+    }).catch((err: HttpErrorResponse) => {
+    });
+  }
+
+  fetchLocalesInfo() {
+    this.restService.fetchLocales().then((res: LocaleInfo[]) => {
+      this.locales = res;
+    }).catch((err: HttpErrorResponse) => {
+
+    });
+  }
+
   ngOnInit() {
+    this.fetchUserProfile();
+    this.fetchLocalesInfo();
+
     if (this.imageFileUploadCrl) {
       this.imageFileUploadCrl.clearStorage();
     }

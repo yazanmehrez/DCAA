@@ -47,8 +47,9 @@ import {DCAAHeader} from './Admin/AboutUs/DCAAHeader';
 import {ContactInfoData, ContactInfoTranslation} from './Admin/AboutUs/ContactInfoData';
 import {Session} from 'protractor';
 import {Chatter} from './Admin/AboutUs/Session';
-import {CompanyDetailsUserProfile} from './CompanyDetails';
+import {CompanyDetails, CompanyDetailsUserProfile} from './CompanyDetails';
 import {LocaleInfo} from './Admin/LocaleInfo';
+import {AccountType} from '../Enums/AccountEnums';
 
 export interface UserProfile {
   id: number;
@@ -60,6 +61,8 @@ export interface UserProfile {
   gender: string;
   dOB?: string;
   entryDate: string;
+  accountType: AccountType;
+
   connectionId: string;
   localeId?: number;
   locale: LocaleInfo;
@@ -122,6 +125,7 @@ export interface UserProfile {
   subServicePricingTranslation: SubServicePricingTranslation[];
   sessions: Session[];
   chatters: Chatter[];
+  companyDetails: CompanyDetails;
   companyDetailsUserProfile: CompanyDetailsUserProfile[];
   contactDetails: ContactDetails[];
   individualDetails: IndividualDetails;

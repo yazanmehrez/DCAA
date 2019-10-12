@@ -3,65 +3,177 @@
     <div class="row">
       <div class="col-md-6 col-sm-3">
         <div class="form-group">
-          <span i18n="@@firstName">First Name <span class="text-primary">*</span></span>
-          <input i18n-placeholder="@@firstName" formControlName="firstName"
-                 [ngClass]="{ 'is-invalid': formSubmitted && p.firstName.errors }" type="text"
-                 class="form-control clientApp-input" id="firstName" placeholder="First Name">
+          <span i18n="@@companyName">Company Name <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@companyName" formControlName="companyName"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.companyName.errors }" type="text"
+                 class="form-control clientApp-input" id="companyName" placeholder="Company Name">
         </div>
-        <div *ngIf="formSubmitted && p.firstName.errors" class="invalid-feedback always-block text-center">
-          <div i18n="@@required" *ngIf="p.firstName.errors.required">Field is required</div>
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-3">
-        <div class="form-group">
-          <span i18n="@@lastName">Last Name <span class="text-primary">*</span></span>
-          <input i18n-placeholder="@@lastName" formControlName="lastName"
-                 [ngClass]="{ 'is-invalid': formSubmitted && p.lastName.errors }" type="text"
-                 class="form-control clientApp-input" id="lastName" placeholder="Last Name">
-        </div>
-        <div *ngIf="formSubmitted && p.lastName.errors" class="invalid-feedback always-block text-center">
-          <div i18n="@@required" *ngIf="p.lastName.errors.required">Field is required</div>
+        <div *ngIf="formSubmitted && p.companyName.errors" class="invalid-feedback always-block text-center">
+          <div i18n="@@required" *ngIf="p.companyName.errors.required">Field is required</div>
         </div>
       </div>
       <div class="col-md-6 col-sm-3">
         <div class="form-group">
-          <span i18n="@@dob">Date of birth <span class="text-primary">*</span></span>
+          <span i18n="@@city">City <span class="text-primary">*</span></span>
+          <div class="custom-material-select clientApp-input white-back">
+            <mat-select placeholder="City" formControlName="localeId" id="localeId" class="form-control">
+              <mat-option [value]="item.localeId" *ngFor="let item of locales">{{item.city}}</mat-option>
+            </mat-select>
+          </div>
+          <div *ngIf="formSubmitted && p.localeId.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.localeId.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@tradeLicenseNo">Trade License Number <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@tradeLicenseNo" formControlName="tradeLicenseNo"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.tradeLicenseNo.errors }" type="text"
+                 class="form-control clientApp-input" id="tradeLicenseNo" placeholder="Trade License Number">
+        </div>
+      </div>
 
-          <div class="display-flex custom-datepicker clientApp-input position-relative">
-            <input [matDatepicker]="picker" formControlName="dob"
-                   [ngClass]="{ 'is-invalid': formSubmitted && p.dob.errors }"
-                   class="bigger date-inputbox form-control"
-                   type="text" id="dob" placeholder="Date of birth">
-            <mat-datepicker-toggle matSuffix [for]="picker">
-              <mat-icon matDatepickerToggleIcon><i class="fa fa-calendar"></i></mat-icon>
-            </mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@address">Address <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@address" formControlName="address"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.address.errors }" type="text"
+                 class="form-control clientApp-input" id="address" placeholder="Your Address">
+          <div *ngIf="formSubmitted && p.address.errors" class="invalid-feedback always-block text-left">
+            <div *ngIf="p.address.errors.required" i18n="@@addressRequired">
+              Address
+              {{'_Validation._Required' | translate}}
+            </div>
           </div>
 
         </div>
-        <div *ngIf="p.dob.errors" class="invalid-feedback always-block text-center">
-          <div i18n="@@required" *ngIf="formSubmitted && p.dob.errors.required">Field is required</div>
-          <div i18n="@@invalidDate" *ngIf="p.dob.errors.validDate">Invalid date</div>
-          <div i18n="@@cannotBeFuture" *ngIf="p.dob.errors.todayAndPast">DOB cannot be in the future</div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@companyEmail">Company Email <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@companyEmail" formControlName="companyEmail"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.companyEmail.errors }" type="email"
+                 class="form-control clientApp-input" id="companyEmail" placeholder="Company Email">
+          <div *ngIf="formSubmitted && p.companyEmail.errors" class="invalid-feedback">
+            <div *ngIf="p.companyEmail.errors.required" i18n="@@emailrequired">
+              {{'_Forms._Email' | translate}}
+              {{'_Validation._Required' | translate}}
+            </div>
+            <div *ngIf="p.companyEmail.errors.cannotContainSpace" i18n="@@emailNoSpace">
+              {{'_Forms._Email' | translate}}
+              {{'_Cannot' | translate}}
+              {{'_Validation._ContainSpace' | translate}}
+            </div>
+            <div *ngIf="p.companyEmail.errors.email" i18n="@@invalidEmail">
+              {{'_Validation._Invalid' | translate}}
+              {{'_Forms._EmailAddress' | translate}}
+            </div>
+            <div *ngIf="p.companyEmail.errors.isPublicEmail" i18n="@@invalidEmail">
+              Please enter your company email.
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-md-6 col-sm-3">
         <div class="form-group">
-          <span i18n="@@identityId">Attach Emirates ID <span class="text-primary">*</span></span>
+          <span i18n="@@companyPOBox">Company POBox <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@companyPOBox" formControlName="companyPOBox"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.companyPOBox.errors }" type="text"
+                 class="form-control clientApp-input" id="companyPOBox" placeholder="Company POBox">
+          <div *ngIf="formSubmitted && p.companyPOBox.errors" class="invalid-feedback always-block text-left">
+            <div *ngIf="p.companyPOBox.errors.required" i18n="@@POBoxrequired">
+              POBox
+              {{'_Validation._Required' | translate}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@contactNo">Contact Number <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@contactNo" formControlName="contactNo"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.contactNo.errors }" type="text"
+                 class="form-control clientApp-input" id="contactNo" placeholder="Contact Number">
+          <div *ngIf="formSubmitted && p.contactNo.errors" class="invalid-feedback always-block text-left">
+            <div *ngIf="p.contactNo.errors.required" i18n="@@contactrequired">
+              Contact Number
+              {{'_Validation._Required' | translate}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@officeNo">Office Number <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@officeNo" formControlName="officeNo"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.officeNo.errors }" type="text"
+                 class="form-control clientApp-input" id="officeNo" placeholder="Office Number">
+          <div *ngIf="formSubmitted && p.contactNo.errors" class="invalid-feedback always-block text-left">
+            <div *ngIf="p.contactNo.errors.required" i18n="@@contactrequired">
+              Office Number
+              {{'_Validation._Required' | translate}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@tradeLicenseCopy">Attach Emirates ID <span class="text-primary">*</span></span>
 
           <div class="d-flex custom-datepicker attachID position-relative">
             <span class="icon-attachment"></span>
-            <app-file-uploader [uploadType]="'default_inline'" #imageFileUploadCrl></app-file-uploader>
+            <app-file-uploader [formControl]="companyForm.controls['tradeLicenseCopy']" [uploadType]="'default_inline'"
+                               #imageFileUploadCrl></app-file-uploader>
           </div>
-
+          <div *ngIf="p.tradeLicenseCopy.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="formSubmitted && p.tradeLicenseCopy.errors.required">Field is required</div>
+          </div>
         </div>
-        <div *ngIf="p.dob.errors" class="invalid-feedback always-block text-center">
-          <div i18n="@@required" *ngIf="formSubmitted && p.dob.errors.required">Field is required</div>
-          <div i18n="@@invalidDate" *ngIf="p.dob.errors.validDate">Invalid date</div>
-          <div i18n="@@cannotBeFuture" *ngIf="p.dob.errors.todayAndPast">DOB cannot be in the future</div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@issueDate">Issue Date <span class="text-primary">*</span></span>
+
+          <div class="display-flex custom-datepicker clientApp-input position-relative">
+            <input [matDatepicker]="issueDate" formControlName="tradeIssueDate"
+                   [ngClass]="{ 'is-invalid': formSubmitted && p.tradeIssueDate.errors }"
+                   class="bigger date-inputbox form-control"
+                   type="text" id="tradeIssueDate" placeholder="Select date">
+            <mat-datepicker-toggle matSuffix [for]="issueDate">
+              <mat-icon matDatepickerToggleIcon><i class="fa fa-calendar"></i></mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #issueDate></mat-datepicker>
+          </div>
+          <div *ngIf="p.tradeIssueDate.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="formSubmitted && p.tradeIssueDate.errors.required">Field is required</div>
+            <div i18n="@@invalidDate" *ngIf="p.tradeIssueDate.errors.validDate">Invalid date</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@expiryDate">Expiry Date <span class="text-primary">*</span></span>
+
+          <div class="display-flex custom-datepicker clientApp-input position-relative">
+            <input [matDatepicker]="expiryDate" formControlName="tradeExpiryDate"
+                   [ngClass]="{ 'is-invalid': formSubmitted && p.tradeExpiryDate.errors }"
+                   class="bigger date-inputbox form-control"
+                   type="text" id="tradeExpiryDate" placeholder="Select date">
+            <mat-datepicker-toggle matSuffix [for]="expiryDate">
+              <mat-icon matDatepickerToggleIcon><i class="fa fa-calendar"></i></mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #expiryDate></mat-datepicker>
+          </div>
+          <div *ngIf="p.tradeIssueDate.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="formSubmitted && p.tradeIssueDate.errors.required">Field is required</div>
+            <div i18n="@@invalidDate" *ngIf="p.tradeIssueDate.errors.validDate">Invalid date</div>
+          </div>
         </div>
       </div>
     </div>
   </form>
 </div>
 
+<swal #swalComp></swal>

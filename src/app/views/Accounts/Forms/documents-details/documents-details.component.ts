@@ -1,4 +1,4 @@
-import {Component, Input, NgZone, OnChanges, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, NgZone, OnChanges, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserProfile} from '../../../../shared/models/API/Entities/UserProfile';
 import {Profile} from '../../../../shared/models/userProfile';
@@ -25,16 +25,9 @@ export class DocumentsDetailsComponent implements OnInit, OnChanges {
 
   IndividualType = IndividualType;
   @Input() individualType;
+  @Output() validationErrors = new EventEmitter();
 
   individualDetails: IndividualDetails;
-  @Input() set _individualDetails(val: IndividualDetails) {
-    this.individualDetails = val;
-    if (val) {
-      this.prepareForm(val);
-      this.documentsForm.addControl('id', new FormControl(val.id, Validators.required));
-      this.prepareRecord(val);
-    }
-  };
 
   constructor(private fb: FormBuilder,
               private userService: UserService,
@@ -43,6 +36,14 @@ export class DocumentsDetailsComponent implements OnInit, OnChanges {
     this.myProfile = JSON.parse(localStorage.getItem('profile')) as Profile;
 
   }
+
+  @Input() set _individualDetails(val: IndividualDetails) {
+    this.individualDetails = val;
+    if (val) {
+      this.prepareForm(val);
+      this.prepareRecord(val);
+    }
+  };
 
   get p() {
     return this.documentsForm.controls;
@@ -54,9 +55,12 @@ export class DocumentsDetailsComponent implements OnInit, OnChanges {
       emiratesID: [item ? item.emiratesID : null],
       passportVisaCopy: [item ? item.passportVisaCopy : null],
       passportVisa: [item ? item.passportVisa : null],
-      userProfileId: [this.myProfile.profileId, Validators.required],
+      userProfileID: [this.myProfile.profileId, Validators.required],
       individualType: [this.individualType, Validators.required]
     });
+    if (item) {
+      this.documentsForm.addControl('id', new FormControl(item.id, Validators.required));
+    }
     if (this.individualType === IndividualType.Resident) {
       this.documentsForm.controls['emiratesID'].setValidators([Validators.required]);
       this.documentsForm.controls['emiratesIDCopy'].setValidators([Validators.required]);
@@ -76,37 +80,49 @@ export class DocumentsDetailsComponent implements OnInit, OnChanges {
 
 
   onSubmit() {
-    // tslint:disable-next-line:prefer-const
-    let model: IndividualDetails = this.documentsForm.value as IndividualDetails;
-    if (this.documentsForm.value.id === 0) {
-      this.restService.addIndividual(model).then((noContent: any) => {
-        this.formErrors = [];
-        this.inProgress = false;
-      }).catch((err: HttpErrorResponse) => {
-        this.inProgress = false;
-        this.formErrors = Helper.errorsArray(err);
-      });
+    this.formSubmitted = true;
+    if (this.documentsForm.valid) {
+      // tslint:disable-next-line:prefer-const
+      let model: IndividualDetails = this.documentsForm.value as IndividualDetails;
+      if (this.documentsForm.value.id === 0) {
+        this.restService.addIndividual(model).then((noContent: any) => {
+          this.formErrors = [];
+          this.inProgress = false;
+          this.formSubmitted = false;
+        }).catch((err: HttpErrorResponse) => {
+          this.inProgress = false;
+          this.formErrors = Helper.errorsArray(err);
+        });
+      } else {
+        this.restService.editIndividual(model).then((noContent: any) => {
+          this.formErrors = [];
+          this.inProgress = false;
+        }).catch((err: HttpErrorResponse) => {
+          this.inProgress = false;
+          this.formErrors = Helper.errorsArray(err);
+        });
+      }
     } else {
-      this.restService.editIndividual(model).then((noContent: any) => {
-        this.formErrors = [];
-        this.inProgress = false;
-      }).catch((err: HttpErrorResponse) => {
-        this.inProgress = false;
-        this.formErrors = Helper.errorsArray(err);
-      });
+      const formTabName = 'personal-details';
+      const formInformation = {form: this.documentsForm, name: formTabName};
+      this.validationErrors.emit(formInformation);
     }
-
   }
 
-  prepareRecord(element: IndividualDetails) {
+
+  prepareRecord(element
+                  :
+                  IndividualDetails
+  ) {
     this.documentsForm.patchValue(element);
   }
 
   ngOnInit() {
-
   }
 
-  ngOnChanges(): void {
+  ngOnChanges()
+    :
+    void {
     this.prepareForm(this.individualDetails);
   }
 

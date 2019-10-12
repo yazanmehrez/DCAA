@@ -228,6 +228,48 @@ section {
   font-size: 3em;
 }
 
+.icon-xm {
+  font-size: 1em;
+}
+
 .pointer {
   cursor: pointer;
+}
+
+.dcaa-dropdown {
+  .dcaa-dropdown-menu {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    z-index: 0;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    padding-top: 25px;
+    border-radius: 15px;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    li {
+      margin: 0 10px;
+      border-top: 1px solid $lighter-gray;
+      cursor: pointer;
+    }
+  }
+
+  i {
+    z-index: 100;
+    position: absolute;
+    right: 15px;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 }

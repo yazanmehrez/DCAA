@@ -23,6 +23,9 @@ import {DisclaimerComponent} from './views/pages/text-pages/disclaimer/disclaime
 import {PrivacyPolicyComponent} from './views/pages/text-pages/privacy-policy/privacy-policy.component';
 import {TextPagesComponent} from './views/pages/text-pages/text-pages.component';
 import {TokenResetComponent} from './views/pages/token-reset/token-reset.component';
+import {NatureOfBusinessComponent} from './views/Accounts/nature-of-business/nature-of-business.component';
+import {ViewRegisterAircraftComponent} from './views/Accounts/view-register-aircraft/view-register-aircraft.component';
+import {CompanyAssociationComponent} from './views/Accounts/company-association/company-association.component';
 
 const routes: Routes = [
   {
@@ -107,6 +110,9 @@ const routes: Routes = [
       {path: 'profile', component: UserProfileComponent},
       {path: 'change-password', component: ChangePasswordComponent},
       {path: 'change-email', component: ChangeEmailComponent},
+      {path: 'company-association', component: CompanyAssociationComponent},
+      {path: 'view-register-aircraft', component: ViewRegisterAircraftComponent},
+      {path: 'nature-of-business', component: NatureOfBusinessComponent},
     ]
   },
   {

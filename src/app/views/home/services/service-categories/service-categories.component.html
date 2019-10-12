@@ -1,59 +1,104 @@
-<div class="dcaa-service-categories" id="services-categories" *ngIf="categories[0].length !== 0">
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="services-control" [ngClass]="(categories[0].length !== 0 && categories[1].length !== 0) ? 'col-md-12': 'col-md-6'">
-          <div class="card border-0 bg-transparent">
-            <div class="card-body">
-              <div class="media" [ngClass]="!(categories[0].length !== 0 && categories[1].length == 0) ? 'col-md-4': 'col-md-8'">
-                <span class="icon-Building-Constructions align-self-center mr-3"></span>
-                <div class="media-body">
-                  <h2 class="mt-0 mb-0">Building Construction or Elevation permits</h2>
+<div *ngIf="type == 'dynamic' && categories[0].length !== 0" class="dcaa-service-categories" id="services-categories">
+    <section class="dynamic">
+        <div class="container">
+            <div class="row">
+                <div class="services-control"
+                     [ngClass]="(categories[0].length !== 0 && categories[1].length !== 0) ? 'col-md-12': 'col-md-6'">
+                    <div class="card border-0 bg-transparent">
+                        <div class="card-body">
+                            <div class="media"
+                                 [ngClass]="!(categories[0].length !== 0 && categories[1].length == 0) ? 'col-md-4': 'col-md-8'">
+                                <span class="icon-Building-Constructions align-self-center mr-3"></span>
+                                <div class="media-body">
+                                    <h2 class="mt-0 mb-0">Building Construction or Elevation permits</h2>
+                                </div>
+                            </div>
+                            <h5 class="card-subtitle mb-5 text-muted">Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Accusamus adipisci amet autem ea eius eos facilis, fugiat incidunt
+                                labore, molestias non porro quaerat rem rerum sapiente sequi tempora veritatis
+                                voluptatibus!</h5>
+                            <button class="btn btn-lg btn-primary"> View All Services</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <h5 class="card-subtitle mb-5 text-muted">Lorem ipsum dolor sit amet, consectetur
-                adipisicing elit. Accusamus adipisci amet autem ea eius eos facilis, fugiat incidunt
-                labore, molestias non porro quaerat rem rerum sapiente sequi tempora veritatis
-                voluptatibus!</h5>
-              <button class="btn btn-lg btn-primary"> View All Services</button>
+
+                <ng-container *ngIf="(categories[0].length !== 0 && categories[1].length !== 0); else oneColumn">
+                    <div class="services-categories col-md-6">
+                        <div class="list-group">
+                            <a class="list-group-item d-flex align-items-center"
+                               *ngFor="let category of categories[0]">
+                                <span class="icon-{{category.icon}} mr-3"></span>
+                                {{category.translations[0].description}}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="services-categories col-md-6">
+                        <div class="list-group">
+                            <a class="list-group-item d-flex align-items-center"
+                               *ngFor="let category of categories[1]">
+                                <span class=" icon-{{category.icon}} mr-3"></span>
+                                {{category.translations[0].description}}
+                            </a>
+                        </div>
+                    </div>
+                </ng-container>
+
+                <ng-template #oneColumn>
+                    <div class="services-categories col-md-6">
+                        <div class="list-group">
+                            <a class="list-group-item d-flex align-items-center"
+                               *ngFor="let category of categories[0]">
+                                <span class="icon-{{category.icon}} mr-3"></span>
+                                {{category.translations[0].description}}
+                            </a>
+                        </div>
+                    </div>
+                </ng-template>
+
             </div>
-          </div>
         </div>
+    </section>
+</div>
 
-        <ng-container *ngIf="(categories[0].length !== 0 && categories[1].length !== 0); else oneColumn">
-          <div class="services-categories col-md-6">
-            <div class="list-group">
-              <a class="list-group-item d-flex align-items-center"
-                 *ngFor="let category of categories[0]">
-                <span class="icon-{{category.icon}} mr-3"></span>
-                {{category.translations[0].description}}
-              </a>
-            </div>
+<div *ngIf="type == 'static' && categories[0].length !== 0" class="dcaa-services mt-5" id="services">
+   <section class="static">
+      <div class="container">
+          <div class="row">
+              <div class="services-control col-md-4">
+                  <div class="card border-0 bg-transparent">
+                      <div class="card-body">
+                          <div class="media">
+                              <span class="icon-Building-Constructions align-self-center mr-3"></span>
+                              <div class="media-body">
+                                  <h2 class="mt-0 mb-0">Airlines</h2>
+                              </div>
+                          </div>
+                          <h6 class="card-subtitle mb-5 text-muted mt-n2">Lorem ipsum dolor sit amet, consectetur
+                              adipisicing elit. Accusamus adipisci amet autem ea eius eos facilis, fugiat incidunt
+                              labore, molestias non porro quaerat rem rerum sapiente sequi tempora veritatis
+                              voluptatibus!</h6>
+                      </div>
+                  </div>
+              </div>
+              <div class="services-categories col-md-4">
+                  <div class="list-group">
+                      <a class="list-group-item d-flex"
+                         *ngFor="let category of categories[0]">
+                          <span class="icon-{{category.icon}} mr-3"></span>
+                          {{category.translations[0].description}}
+                      </a>
+                  </div>
+              </div>
+              <div class="services-categories col-md-4">
+                  <div class="list-group">
+                      <a class="list-group-item d-flex"
+                         *ngFor="let category of categories[1]">
+                          <span class=" icon-{{category.icon}} mr-3"></span>
+                          {{category.translations[0].description}}
+                      </a>
+                  </div>
+              </div>
           </div>
-          <div class="services-categories col-md-6">
-            <div class="list-group">
-              <a class="list-group-item d-flex align-items-center"
-                 *ngFor="let category of categories[1]">
-                <span class=" icon-{{category.icon}} mr-3"></span>
-                {{category.translations[0].description}}
-              </a>
-            </div>
-          </div>
-        </ng-container>
-
-        <ng-template #oneColumn>
-          <div class="services-categories col-md-6">
-            <div class="list-group">
-              <a class="list-group-item d-flex align-items-center"
-                 *ngFor="let category of categories[0]">
-                <span class="icon-{{category.icon}} mr-3"></span>
-                {{category.translations[0].description}}
-              </a>
-            </div>
-          </div>
-        </ng-template>
-
       </div>
-    </div>
-  </section>
+   </section>
 </div>

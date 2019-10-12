@@ -485,7 +485,7 @@ $border-radius2x: 20px;
     border: none;
     @include right(10px);
     top: 6px;
-    z-index: 100000;
+    z-index: 100;
   }
 
   &.clientApp-button {

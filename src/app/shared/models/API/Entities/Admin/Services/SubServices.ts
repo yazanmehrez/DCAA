@@ -1,14 +1,19 @@
 ﻿import { UserProfile } from '../../UserProfile';
 import { Services } from './Services';
+import { NatureOfBusiness } from '../../CompanyDetails';
+import{ApproverPersonnel} from 'C:/DCAA-Website/FrontEnd/DCAAWebsite/src/app/shared/models/API/Entities/Admin/Services/ApproverPersonnel';
 
 
 export interface SubServices {
     subServiceId: number;
     icon: string;
     link: string;
+    isDeleted:boolean;
     translations: SubServiceTranslation[];
     subServiceInformation: SubServiceInformation[];
     subServicePricing: SubServicePricing[];
+    natureOfBusiness:NatureOfBusiness[];
+    approverPersonnel:ApproverPersonnel[];
     entryDate: string;
     userProfileId: number;
     enteredBy: UserProfile;

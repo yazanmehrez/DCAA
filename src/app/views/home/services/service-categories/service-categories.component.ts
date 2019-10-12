@@ -7,6 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ServiceCategoriesComponent implements OnInit {
   @Input() categories;
+  @Input() type;
 
   constructor() {
   }

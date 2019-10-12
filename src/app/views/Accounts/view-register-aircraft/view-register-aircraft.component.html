@@ -1,0 +1,131 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row align-items-center">
+      <ul class="nav nav-pills mb-2 mt-2 col-md-7" id="pills-tab" role="tablist">
+        <div class="d-flex align-items-center">
+          <li class="nav-item">
+            <a class="nav-link border-up-box text-uppercase active" id="pills-aircraft-tab" data-toggle="tab"
+               href="#registered-aircrafts"
+               role="tab" aria-controls="pills-aircraft" aria-selected="true">View Registered Aircrafts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-up-box text-uppercase" id="pills-new-tab" data-toggle="tab"
+               href="#new-aircraft"
+               role="tab"
+               aria-controls="pills-new" aria-selected="false">Register an Aircraft</a>
+          </li>
+        </div>
+      </ul>
+      <div class="control col-md-5">
+        <div class="d-flex align-items-center">
+          <div class="form-group search-filter mx-2 my-0 position-relative"><input class="form-control"
+                                                                                   placeholder="Filter by zone"
+                                                                                   type="text"><span
+            class="icon-search position-absolute search-filter-icon d-flex align-items-center"></span>
+          </div>
+          <div class="form-group search-filter mx-2 my-0 position-relative"><input class="form-control"
+                                                                                   placeholder="Filter by zone"
+                                                                                   type="text"><span
+            class="icon-search position-absolute search-filter-icon d-flex align-items-center"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex no-wrap justify-content-end">
+  <div class="mb-4" i18n="@@submit">
+    <button type="submit"
+            class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
+      Register an Aircraft
+    </button>
+  </div>
+</div>
+
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="registered-aircrafts" role="tabpanel" aria-labelledby="pills-aircraft-tab">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row registered-card">
+          <div class="col-md-6" *ngFor="let card of airCraftData; let i = index">
+            <div class="d-flex align-items-center justify-content-between bg-lighter py-1 position-relative">
+              <div class="title d-flex align-items-center">
+                <span class="icon-{{card.icon}} icon-xm mx-2"></span>
+                <h6 class="my-0 mx-2">{{card.name}}</h6>
+              </div>
+              <div class="dcaa-dropdown">
+                <i class="fa fa-ellipsis-h mx-2 pointer" data-toggle="collapse" [attr.data-target]="'#card-' + i"></i>
+                <ul class="dcaa-dropdown-menu collapse" id="card-{{i}}">
+                  <li>Action</li>
+                  <li>Another action</li>
+                  <li>Something else here</li>
+                </ul>
+              </div>
+            </div>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td>Airline Name</td>
+                <td>Russian Airways</td>
+              </tr>
+              <tr>
+                <td>Airline Name</td>
+                <td>Russian Airways</td>
+              </tr>
+              <tr>
+                <td>Airline Name</td>
+                <td>Russian Airways</td>
+              </tr>
+              <tr>
+                <td>Airline Name</td>
+                <td>Russian Airways</td>
+              </tr>
+              <tr>
+                <td>Airline Name</td>
+                <td>Russian Airways</td>
+              </tr>
+              <tr>
+                <td>Airline Name</td>
+                <td>Russian Airways</td>
+              </tr>
+              <tr>
+                <td>Airline Name</td>
+                <td>Russian Airways</td>
+              </tr>
+              <tr>
+                <td>Airline Name</td>
+                <td>Russian Airways</td>
+              </tr>
+              <tr>
+                <td>Airline Name</td>
+                <td>Russian Airways</td>
+              </tr>
+              <tr>
+                <td>Airline Name</td>
+                <td>Russian Airways</td>
+              </tr>
+              <tr>
+                <td>Airline Name</td>
+                <td>Russian Airways</td>
+              </tr>
+              <tr>
+                <td>Airline Name</td>
+                <td>Russian Airways</td>
+              </tr>
+              <tr>
+                <td>Airline Name</td>
+                <td>Russian Airways</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="new-aircraft" role="tabpanel" aria-labelledby="pills-new-tab">
+    <dcaa-register-aircraft></dcaa-register-aircraft>
+  </div>
+</div>
+

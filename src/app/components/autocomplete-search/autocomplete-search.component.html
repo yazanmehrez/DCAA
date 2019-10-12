@@ -1,0 +1,12 @@
+<input autocomplete="new-nothing" type="text" i18n-placeholder="@@selectLocale" #key
+       [placeholder]="'_Forms._SelectYourCity' | translate" [matAutocomplete]="auto"
+       class="form-control round-border" [formControl]="autoCompleteControl">
+<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)">
+  <mat-option (onSelectionChange)="valueSelected(item)" *ngFor="let item of response"
+              [value]="item.id">
+    <i class="icon-map"></i>
+    <span class="small-text m-lr-7 font-weight-bold">
+        <img src="{{item.imageUrl}}" style="width:25px" class="mx-1">
+      {{item.caption}}</span>
+  </mat-option>
+</mat-autocomplete>

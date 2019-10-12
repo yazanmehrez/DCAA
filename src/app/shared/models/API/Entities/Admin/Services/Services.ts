@@ -5,6 +5,7 @@ export interface Services {
     icon: string;
     link: string;
     isPopular: boolean;
+    isDeleted: boolean;
     translations: ServiceTranslation[];
     entryDate: string;
     userProfileId: number;

@@ -1,23 +1,23 @@
 ﻿export enum AccountType {
-    Individual = 1,
-    PrivateCompany = 2,
-    Government = 3,
-    Agency = 4
+  Individual = 'Individual',
+  PrivateCompany = 'PrivateCompany',
+  Government = 'Government',
+  Agency = 'Agency'
 }
 
 export enum CompanyLocation {
-    InsideUAE = 1,
-    OutsideUAE = 2
+  InsideUAE = 'InsideUAE',
+  OutsideUAE = 'OutsideUAE'
 }
 
 export enum IndividualType {
-    Resident = 1,
-    Tourist = 2,
-    Employee = 3
+  Resident = 'Resident',
+  Tourist = 'Tourist',
+  Employee = 'Employee'
 }
 
 export enum ProfileType {
-    Administrator = 1,
-    Employee = 2,
-    Agent = 3
+  Administrator = 'Administrator',
+  Employee = 'Employee',
+  Agent = 'Agent'
 }

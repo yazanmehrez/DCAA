@@ -1,0 +1,13 @@
+{
+  "id": 0,
+  "companyName": "DCAA",
+  "accountType": 2,
+  "address": "string",
+  "contactNo": "string",
+  "officeNo": "string",
+  "companyFax": "string",
+  "companyPOBox": "string",
+  "companyEmail": "string",
+  "companyLocation": "InsideUAE",
+  "localeId": 0
+}

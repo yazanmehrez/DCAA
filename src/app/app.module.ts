@@ -92,6 +92,13 @@ import { CompanyDetailsComponent } from './views/Accounts/Forms/company-details/
 import { TokenResetComponent } from './views/pages/token-reset/token-reset.component';
 import { EmailconfirmationComponent } from './Partials/emailconfirmation/emailconfirmation.component';
 import { DocumentsDetailsComponent } from './views/Accounts/Forms/documents-details/documents-details.component';
+import { ConfirmationModalComponent } from './modals/confirmation-modal/confirmation-modal.component';
+import {NatureOfBusinessComponent} from './views/Accounts/nature-of-business/nature-of-business.component';
+import { ViewRegisterAircraftComponent } from './views/Accounts/view-register-aircraft/view-register-aircraft.component';
+import { RegisterAircraftComponent } from './views/Accounts/nature-of-business/register-aircraft/register-aircraft.component';
+import { CompanyAssociationComponent } from './views/Accounts/company-association/company-association.component';
+import { RegisterAgencyComponent } from './modals/register-agency/register-agency.component';
+import { AutocompleteSearchComponent } from './components/autocomplete-search/autocomplete-search.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new MultiTranslateHttpLoader(httpClient, [
@@ -150,7 +157,7 @@ export function provideSwal() {
     ErrorDialogComponent,
     TokenResetComponent, EmailconfirmationComponent,
     EmailValidatorDirective, MyFocusDirective, LoginComponent,
-    UserProfileComponent, AccountRootComponent, ChangePasswordComponent, ChangeEmailComponent, BlogShimmerComponent, MobileNavbarComponent, ClickOutSideElementDirective, AboutUsComponent, PageBannerComponent, PageContentComponent, OverviewComponent, MostViewedServicesComponent, DcaaSectorsComponent, DcaaStrategiesComponent, FaqComponent, OrganizationalStructureComponent, FeedbackComponent, ContactDgComponent, YourFeedbackComponent, StatisticsComponent, IssuedPermitsComponent, InspectionsComponent, SafetyInspectionsComponent, TextPagesComponent, DisclaimerComponent, PrivacyPolicyComponent, TermsConditionsComponent, PersonalDetailsComponent, ContactDetailsComponent, CompanyDetailsComponent, DocumentsDetailsComponent,
+    UserProfileComponent, AccountRootComponent, ChangePasswordComponent, ChangeEmailComponent, NatureOfBusinessComponent, BlogShimmerComponent, MobileNavbarComponent, ClickOutSideElementDirective, AboutUsComponent, PageBannerComponent, PageContentComponent, OverviewComponent, MostViewedServicesComponent, DcaaSectorsComponent, DcaaStrategiesComponent, FaqComponent, OrganizationalStructureComponent, FeedbackComponent, ContactDgComponent, YourFeedbackComponent, StatisticsComponent, IssuedPermitsComponent, InspectionsComponent, SafetyInspectionsComponent, TextPagesComponent, DisclaimerComponent, PrivacyPolicyComponent, TermsConditionsComponent, PersonalDetailsComponent, ContactDetailsComponent, CompanyDetailsComponent, DocumentsDetailsComponent, ConfirmationModalComponent, ViewRegisterAircraftComponent, RegisterAircraftComponent, CompanyAssociationComponent, RegisterAgencyComponent, AutocompleteSearchComponent,
   ],
   providers: [ErrorDialogService, UserService, ConfigService, TransporterService, JWTService,
     XhrService, MainRestService, AccountServiceService, {

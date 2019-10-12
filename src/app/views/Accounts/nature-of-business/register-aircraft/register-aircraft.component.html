@@ -1,0 +1,264 @@
+<div class="aircraft-registration mt-5">
+  <form class="pb-3 border-bottom tab-content" [formGroup]="airCraftForm" (ngSubmit)="onSubmit()">
+    <h6 class="primary-color mb-2 text-uppercase">Aircraft Registration:</h6>
+    <div class="row">
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@airlineName">Airline Name <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@airlineName" formControlName="airlineName"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.airlineName.errors }" type="text"
+                 class="form-control clientApp-input" id="airlineName" placeholder="Company Name Here">
+          <div *ngIf="formSubmitted && p.airlineName.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.airlineName.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@nature">Nature of Operation <span class="text-primary">*</span></span>
+          <div class="custom-material-select clientApp-input white-back">
+            <mat-select placeholder=""  id="natureOfOperation" class="form-control">
+              <mat-option [value]="0" [attr.selected]="'selected'">Commercial Air Operation (charter)</mat-option>
+              <mat-option [value]="1">Commercial Air Operation (charter)</mat-option>
+              <mat-option [value]="2">Commercial Air Operation (charter)</mat-option>
+            </mat-select>
+          </div>
+          <!--            <div *ngIf="formSubmitted && p.localeId.errors" class="invalid-feedback always-block text-left">-->
+          <!--              <div i18n="@@required" *ngIf="p.localeId.errors.required">Field is required</div>-->
+          <!--            </div>-->
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@airCraftSerialNumer">Aircraft Serial Number <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@airCraftSerialNumer" formControlName="airCraftSerialNumer"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.airCraftSerialNumer.errors }" type="text"
+                 class="form-control clientApp-input" id="airCraftSerialNumer" placeholder="Serial Number here">
+          <div *ngIf="formSubmitted && p.airCraftSerialNumer.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.airCraftSerialNumer.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@airCraftManufacturer">Aircraft Manufacturer <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@airCraftManufacturer" formControlName="airCraftManufacturer"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.airCraftManufacturer.errors }" type="text"
+                 class="form-control clientApp-input" id="airCraftManufacturer" placeholder="Manufacturer Name here">
+          <div *ngIf="formSubmitted && p.airCraftManufacturer.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.airCraftManufacturer.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@airCraftRegistration">Aircraft Registration <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@airCraftRegistration" formControlName="airCraftRegistration"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.airCraftRegistration.errors }" type="text"
+                 class="form-control clientApp-input" id="airCraftRegistration" placeholder="First Name">
+          <div *ngIf="formSubmitted && p.airCraftRegistration.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.airCraftRegistration.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@airCraftRegistrationDocument">Aircraft Registration Document <span class="text-primary">*</span></span>
+
+          <div class="d-flex custom-datepicker attachID position-relative">
+            <span class="icon-attachment"></span>
+            <app-file-uploader  [uploadType]="'default_inline'" #imageFileUploadCrl></app-file-uploader>
+          </div>
+          <!--            <div *ngIf="p.passportVisa.errors" class="invalid-feedback always-block text-left">-->
+          <!--              <div i18n="@@required" *ngIf="formSubmitted && p.passportVisa.errors.required">Field is required</div>-->
+          <!--            </div>-->
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@manufacturerDesignationType">Manufacturer's Designation/Type <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@manufacturerDesignationType" formControlName="manufacturerDesignationType"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.manufacturerDesignationType.errors }" type="text"
+                 class="form-control clientApp-input" id="manufacturerDesignationType" placeholder="Text here">
+          <div *ngIf="formSubmitted && p.manufacturerDesignationType.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.manufacturerDesignationType.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@nationalityResgistrationMark">Nationality Registration Mark <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@nationalityResgistrationMark" formControlName="nationalityResgistrationMark"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.nationalityResgistrationMark.errors }" type="text"
+                 class="form-control clientApp-input" id="nationalityResgistrationMark" placeholder="Text here">
+          <div *ngIf="formSubmitted && p.nationalityResgistrationMark.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.nationalityResgistrationMark.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@airworthinessCertificateReference">Airworthiness Certificate Reference <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@airworthinessCertificateReference" formControlName="airworthinessCertificateReference"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.airworthinessCertificateReference.errors }" type="text"
+                 class="form-control clientApp-input" id="airworthinessCertificateReference" placeholder="Certificate Reference Number here">
+          <div *ngIf="formSubmitted && p.airworthinessCertificateReference.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.airworthinessCertificateReference.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@airCraftRegistrationDocument">Airworthiness Certificate Document <span class="text-primary">*</span></span>
+
+          <div class="d-flex custom-datepicker attachID position-relative">
+            <span class="icon-attachment"></span>
+            <app-file-uploader  [uploadType]="'default_inline'" #imageFileUploadCrl></app-file-uploader>
+          </div>
+          <!--            <div *ngIf="p.passportVisa.errors" class="invalid-feedback always-block text-left">-->
+          <!--              <div i18n="@@required" *ngIf="formSubmitted && p.passportVisa.errors.required">Field is required</div>-->
+          <!--            </div>-->
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@airworthinessCertificateExpiry">Date of Expiry <span class="text-primary">*</span></span>
+
+          <div class="display-flex custom-datepicker clientApp-input position-relative">
+            <input [matDatepicker]="airworthinessCertificateExpiry" formControlName="airworthinessCertificateExpiry"
+                   [ngClass]="{ 'is-invalid': formSubmitted && p.dob.errors }"
+                   class="bigger date-inputbox form-control"
+                   type="text" id="airworthinessCertificateExpiry" placeholder="Airworthiness Certificate Expiry Date">
+            <mat-datepicker-toggle matSuffix [for]="airworthinessCertificateExpiry">
+              <mat-icon matDatepickerToggleIcon><i class="fa fa-calendar"></i></mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #airworthinessCertificateExpiry></mat-datepicker>
+          </div>
+          <div *ngIf="p.airworthinessCertificateExpiry.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="formSubmitted && p.airworthinessCertificateExpiry.errors.required">Field is required</div>
+            <div i18n="@@invalidDate" *ngIf="p.airworthinessCertificateExpiry.errors.validDate">Invalid date</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@engine">Engine <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@engine" formControlName="engine"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.engine.errors }" type="text"
+                 class="form-control clientApp-input" id="engine" placeholder="Text here">
+          <div *ngIf="formSubmitted && p.engine.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.engine.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@insurancePolicyNumber">Insurance Policy Number <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@insurancePolicyNumber" formControlName="insurancePolicyNumber"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.insurancePolicyNumber.errors }" type="text"
+                 class="form-control clientApp-input" id="insurancePolicyNumber" placeholder="Insurance Policy Number here">
+          <div *ngIf="formSubmitted && p.insurancePolicyNumber.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.insurancePolicyNumber.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@airCraftRegistrationDocument">Insurance Policy Document <span class="text-primary">*</span></span>
+
+          <div class="d-flex custom-datepicker attachID position-relative">
+            <span class="icon-attachment"></span>
+            <app-file-uploader  [uploadType]="'default_inline'" #imageFileUploadCrl></app-file-uploader>
+          </div>
+          <!--            <div *ngIf="p.passportVisa.errors" class="invalid-feedback always-block text-left">-->
+          <!--              <div i18n="@@required" *ngIf="formSubmitted && p.passportVisa.errors.required">Field is required</div>-->
+          <!--            </div>-->
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@dob">Insurance Policy Expiry Date<span class="text-primary">*</span></span>
+
+          <div class="display-flex custom-datepicker clientApp-input position-relative">
+            <input [matDatepicker]="insurancePolicyExpiry" formControlName="insurancePolicyExpiry"
+                   [ngClass]="{ 'is-invalid': formSubmitted && p.insurancePolicyExpiry.errors }"
+                   class="bigger date-inputbox form-control"
+                   type="text" id="insurancePolicyExpiry" placeholder="Insurance Policy Expiry Date">
+            <mat-datepicker-toggle matSuffix [for]="insurancePolicyExpiry">
+              <mat-icon matDatepickerToggleIcon><i class="fa fa-calendar"></i></mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #insurancePolicyExpiry></mat-datepicker>
+          </div>
+          <div *ngIf="p.insurancePolicyExpiry.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="formSubmitted && p.insurancePolicyExpiry.errors.required">Field is required</div>
+            <div i18n="@@invalidDate" *ngIf="p.insurancePolicyExpiry.errors.validDate">Invalid date</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@MTOW">MTOW (Kgs) <span class="text-primary">*</span></span>
+          <input i18n-placeholder="@@MTOW" formControlName="MTOW"
+                 [ngClass]="{ 'is-invalid': formSubmitted && p.MTOW.errors }" type="number"
+                 class="form-control clientApp-input" id="MTOW" placeholder="MTOW in Kgs">
+          <div *ngIf="formSubmitted && p.MTOW.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.MTOW.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@noiseCertificationStandard">Noise Certification Standard <span class="text-primary">*</span></span>
+          <div class="custom-material-select clientApp-input white-back">
+            <mat-select placeholder="City" formControlName="noiseCertificationStandard" id="noiseCertificationStandard" class="form-control">
+              <mat-option [value]="0" [attr.selected]="'selected'">Chap.1</mat-option>
+              <mat-option [value]="1">Chap.1</mat-option>
+              <mat-option [value]="2">Chap.1</mat-option>
+            </mat-select>
+          </div>
+          <div *ngIf="formSubmitted && p.noiseCertificationStandard.errors" class="invalid-feedback always-block text-left">
+            <div i18n="@@required" *ngIf="p.noiseCertificationStandard.errors.required">Field is required</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-3">
+        <div class="form-group">
+          <span i18n="@@noiseCertificationDocument">Noise Certification <span class="text-primary">*</span></span>
+
+          <div class="d-flex custom-datepicker attachID position-relative">
+            <span class="icon-attachment"></span>
+            <app-file-uploader  [uploadType]="'default_inline'" #imageFileUploadCrl></app-file-uploader>
+          </div>
+          <!--            <div *ngIf="p.passportVisa.errors" class="invalid-feedback always-block text-left">-->
+          <!--              <div i18n="@@required" *ngIf="formSubmitted && p.passportVisa.errors.required">Field is required</div>-->
+          <!--            </div>-->
+        </div>
+      </div>
+
+      <div class="d-flex no-wrap flex-valign-center flex-halign-center m-t-10">
+        <div class="mt-4" i18n="@@submit">
+          <button type="submit" [disabled]="this.inProgress"
+                  class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
+            <div *ngIf="inProgress" class="spinner-border spinner-border-sm mx-1" role="status">
+              <span class="sr-only"> {{'_Forms._Loading' | translate}}...</span>
+            </div>
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

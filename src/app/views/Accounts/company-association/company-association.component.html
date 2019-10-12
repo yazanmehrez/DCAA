@@ -1,0 +1,127 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="d-flex justify-content-between align-items-center">
+      <h6 class="primary-color text-uppercase">Association Requests</h6>
+      <div class="d-flex no-wrap flex-valign-center flex-halign-center m-t-10">
+        <div class="mt-4" i18n="@@submit">
+          <button
+            (click)="addAgency(null)"
+            type="submit" class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
+            Add Agency
+          </button>
+        </div>
+      </div>
+    </div>
+    <span>Select from below: <span class="text-primary">*</span></span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 mt-3">
+    <div class="card-group">
+      <div class="card mx-1 border-left border-primary align-items-center">
+        <img class="card-img-top p-1 bg-transparent border-0 object-fit" src="assets/images/1.png" style="width: 75px">
+        <div class="card-body text-center align-items-center justify-content-center d-flex flex-column w-100 px-1 py-0">
+          <h5 class="card-title m-0">Yazan</h5>
+          <p class="card-text text-muted m-0">Agency</p>
+        </div>
+        <div class="card-footer border-0 bg-transparent">
+          <button class="btn btn-primary my-2 my-sm-0 py-1 px-4 d-flex align-items-center login mx-0 text-center"
+                  type="submit">Add
+          </button>
+        </div>
+      </div>
+      <div class="card mx-1 border-left border-primary align-items-center">
+        <img class="card-img-top p-1 bg-transparent border-0 object-fit" src="assets/images/1.png" style="width: 75px">
+        <div class="card-body text-center align-items-center justify-content-center d-flex flex-column w-100 px-1 py-0">
+          <h5 class="card-title m-0">Yazan</h5>
+          <p class="card-text text-muted m-0">Agency</p>
+        </div>
+        <div class="card-footer border-0 bg-transparent">
+          <button class="btn btn-primary my-2 my-sm-0 py-1 px-4 d-flex align-items-center login mx-0 text-center"
+                  type="submit">Add
+          </button>
+        </div>
+      </div>
+      <div class="card mx-1 border-left border-primary align-items-center">
+        <img class="card-img-top p-1 bg-transparent border-0 object-fit" src="assets/images/1.png" style="width: 75px">
+        <div class="card-body text-center align-items-center justify-content-center d-flex flex-column w-100 px-1 py-0">
+          <h5 class="card-title m-0">Yazan</h5>
+          <p class="card-text text-muted m-0">Agency</p>
+        </div>
+        <div class="card-footer border-0 bg-transparent">
+          <button class="btn btn-primary my-2 my-sm-0 py-1 px-4 d-flex align-items-center login mx-0 text-center"
+                  type="submit">Add
+          </button>
+        </div>
+      </div>
+      <div class="card mx-1 border-left border-primary align-items-center">
+        <img class="card-img-top p-1 bg-transparent border-0 object-fit" src="assets/images/1.png" style="width: 75px">
+        <div class="card-body text-center align-items-center justify-content-center d-flex flex-column w-100 px-1 py-0">
+          <h5 class="card-title m-0">Yazan</h5>
+          <p class="card-text text-muted m-0">Agency</p>
+        </div>
+        <div class="card-footer border-0 bg-transparent">
+          <button class="btn btn-primary my-2 my-sm-0 py-1 px-4 d-flex align-items-center login mx-0 text-center"
+                  type="submit">Add
+          </button>
+        </div>
+      </div>
+      <div class="card mx-1 border-left border-primary align-items-center">
+        <img class="card-img-top p-1 bg-transparent border-0 object-fit" src="assets/images/1.png" style="width: 75px">
+        <div class="card-body text-center align-items-center justify-content-center d-flex flex-column w-100 px-1 py-0">
+          <h5 class="card-title m-0">Yazan</h5>
+          <p class="card-text text-muted m-0">Agency</p>
+        </div>
+        <div class="card-footer border-0 bg-transparent">
+          <button class="btn btn-primary my-2 my-sm-0 py-1 px-4 d-flex align-items-center login mx-0 text-center"
+                  type="submit">Add
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 align-items-center mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+      <h6 class="primary-color text-uppercase">Associations</h6>
+      <div class="d-flex">
+        <div class="form-group search-filter mx-2 my-0 position-relative">
+          <input aria-label="Search" class="form-control" placeholder="Filter by city"
+                 type="text"><span
+          class="icon-search position-absolute search-filter-icon d-flex align-items-center"></span>
+        </div>
+        <div class="form-group search-filter mx-2 my-0 position-relative">
+          <input aria-label="Search" class="form-control" placeholder="Filter by zone"
+                 type="text"><span
+          class="icon-search position-absolute search-filter-icon d-flex align-items-center"></span>
+        </div>
+      </div>
+    </div>
+    <span>List of Affiliated People and companies</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card-group justify-content-start associations">
+      <div *ngFor="let association of assosiations; let i = index" class="card mx-2 border-left align-items-center position-relative">
+        <div class="dcaa-dropdown position-absolute">
+          <i class="fa fa-ellipsis-h mx-2 pointer" data-toggle="collapse" [attr.data-target]="'#card-' + i"></i>
+          <ul class="dcaa-dropdown-menu collapse" id="card-{{i}}">
+            <li>Action</li>
+            <li>Another action</li>
+            <li>Something else here</li>
+          </ul>
+        </div>
+        <img class="card-img-top p-1 bg-transparent border-0 object-fit" src="assets/images/1.png"
+             style="width: 75px">
+        <div
+          class="card-body text-center align-items-center justify-content-center d-flex flex-column w-100 px-1 py-0">
+          <h5 class="card-title m-0">Yazan</h5>
+          <p class="card-text text-muted m-0">Agency</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

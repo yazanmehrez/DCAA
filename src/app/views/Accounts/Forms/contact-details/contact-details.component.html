@@ -1,31 +1,29 @@
 <div class="pt-3" id="contact-tab-content">
-  <form class="p-b-20 tab-content" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <form class="p-b-20 tab-content" *ngIf="contactForm" [formGroup]="contactForm"  (ngSubmit)="onSubmit()">
 
     <div *ngFor="let contact of d.controls; let i = index" class="list-group list-group-flush mb-4">
 
-      <div class="row border-bottom" [formGroup]="contact">
+      <div class="row border-bottom" [formGroup]="contact" id="contact-{{contact.value.id}}">
         <div class="col-md-6">
           <div class="form-group">
             <span i18n="@@firstName">First Name <span class="text-primary">*</span></span>
             <input i18n-placeholder="@@firstName" formControlName="firstName"
-                   [ngClass]="{ 'is-invalid': formSubmitted && c.firstName.errors }" type="text"
+                   [ngClass]="{ 'is-invalid': formSubmitted &&  d.controls[i].get('firstName').errors }" type="text"
                    class="form-control clientApp-input" id="firstName" placeholder="First Name">
+            <div *ngIf="formSubmitted && d.controls[i].get('firstName').errors" class="invalid-feedback always-block text-left">
+              <div i18n="@@required" *ngIf="d.controls[i].get('firstName').errors.required">Field is required</div>
+            </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <span i18n="@@lastName">Last Name <span class="text-primary">*</span></span>
             <input i18n-placeholder="@@lastName" formControlName="lastName"
-                   [ngClass]="{ 'is-invalid': formSubmitted && c.lastName.errors }" type="text"
+                   [ngClass]="{ 'is-invalid': formSubmitted && d.controls[i].get('lastName').errors }" type="text"
                    class="form-control clientApp-input" id="lastName" placeholder="Last Name">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <span i18n="@@mobileNumber">Mobile Number <span class="text-primary">*</span></span>
-            <input i18n-placeholder="@@mobilenumber" formControlName="mobileNumber"
-                   [ngClass]="{ 'is-invalid': formSubmitted && c.mobileNumber.errors }" type="text"
-                   class="form-control clientApp-input" id="mobileNumber" placeholder="Mobile Number">
+            <div *ngIf="formSubmitted && d.controls[i].get('lastName').errors" class="invalid-feedback always-block text-left">
+              <div i18n="@@required" *ngIf="d.controls[i].get('lastName').errors.required">Field is required</div>
+            </div>
           </div>
         </div>
         <div class="col-md-6">
@@ -36,15 +34,60 @@
                 <mat-option [value]="item.localeId" *ngFor="let item of locales">{{item.city}}</mat-option>
               </mat-select>
             </div>
-            <div *ngIf="formSubmitted && c.localeId.errors" class="invalid-feedback always-block text-left">
-              <div i18n="@@required" *ngIf="c.localeId.errors.required">Field is required</div>
+            <div *ngIf="formSubmitted && d.controls[i].get('localeId').errors" class="invalid-feedback always-block text-left">
+              <div i18n="@@required" *ngIf="d.controls[i].get('localeId').errors.required">Field is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <span i18n="@@mobileNumber">Mobile Number <span class="text-primary">*</span></span>
+            <input i18n-placeholder="@@mobilenumber" formControlName="mobileNumber"
+                   [ngClass]="{ 'is-invalid': formSubmitted && d.controls[i].get('mobileNumber').errors }" type="text"
+                   class="form-control clientApp-input" id="mobileNumber" placeholder="Mobile Number">
+            <div *ngIf="formSubmitted && d.controls[i].get('mobileNumber').errors" class="invalid-feedback always-block text-left">
+              <div i18n="@@required" *ngIf="d.controls[i].get('mobileNumber').errors.required">Field is required</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <span i18n="@@poBox">P.O box <span class="text-primary">*</span></span>
+            <input i18n-placeholder="@@poBox" formControlName="poBox"
+                   [ngClass]="{ 'is-invalid': formSubmitted && d.controls[i].get('poBox').errors }" type="text"
+                   class="form-control clientApp-input" id="poBox" placeholder="Po Box Number">
+            <div *ngIf="formSubmitted && d.controls[i].get('poBox').errors" class="invalid-feedback always-block text-left">
+              <div i18n="@@required" *ngIf="d.controls[i].get('poBox').errors.required">Field is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <span i18n="@@fax">Fax <span class="text-primary">*</span></span>
+            <input i18n-placeholder="@@fax" formControlName="fax"
+                   [ngClass]="{ 'is-invalid': formSubmitted && d.controls[i].get('fax').errors }" type="text"
+                   class="form-control clientApp-input" id="fax" placeholder="Fax Number">
+            <div *ngIf="formSubmitted && d.controls[i].get('fax').errors" class="invalid-feedback always-block text-left">
+              <div i18n="@@required" *ngIf="d.controls[i].get('fax').errors.required">Field is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <span i18n="@@address">Address <span class="text-primary">*</span></span>
+            <input i18n-placeholder="@@address" formControlName="address"
+                   [ngClass]="{ 'is-invalid': formSubmitted && d.controls[i].get('address').errors }" type="text"
+                   class="form-control clientApp-input" id="address" placeholder="Your Address">
+            <div *ngIf="formSubmitted && d.controls[i].get('address').errors" class="invalid-feedback always-block text-left">
+              <div i18n="@@required" *ngIf="d.controls[i].get('address').errors.required">Field is required</div>
             </div>
           </div>
         </div>
         <div class="col-md-12">
           <div class="d-flex no-wrap justify-content-end w-100 mb-3">
             <div i18n="@@delete">
-              <button type="submit" class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4">
+              <button *ngIf="contact.value.id" (click)="confirmDeleting(contact.value)" type="submit" class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4">
                 Delete
               </button>
             </div>
@@ -54,17 +97,15 @@
 
 
 
-      <div *ngIf="formSubmitted && c.firstName.errors" class="invalid-feedback always-block text-center">
-        <div i18n="@@required" *ngIf="c.firstName.errors.required">Field is required</div>
-      </div>
+
 
     </div>
 
     <div class="d-flex">
-      <a *ngIf="d.controls.length == 0" (click)="onAddContacts(null)" class="primary-color pointer mx-3">
+      <a *ngIf="d.controls.length == 0" (click)="onAddContacts()" class="primary-color pointer mx-3">
         Start Adding Contacts
       </a>
-      <a *ngIf="d.controls.length > 0" (click)="onAddContacts(null)" class="primary-color pointer mx-3">
+      <a *ngIf="d.controls.length > 0" (click)="onAddContacts()" class="primary-color pointer mx-3">
         Add More Contacts
       </a>
     </div>

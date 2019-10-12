@@ -1,6 +1,7 @@
 ﻿import { UserProfile } from '../../UserProfile';
+import { NewsType } from '../../../Enums/AdminEnum';
 
-export interface LatestNews {
+declare interface LatestNews {
     latestNewsId: number;
     translations: LatestNewsTranslation[];
     entryDate: string;
@@ -8,11 +9,13 @@ export interface LatestNews {
     enteredBy: UserProfile;
 }
 
-export interface LatestNewsTranslation {
+declare interface LatestNewsTranslation {
     translationId: number;
     newsTitle: string;
     newsURL: string;
+    newsType: NewsType;
     newsDescription: string;
+    newsContent: string;
     newsAttachments: string;
     language: string;
     entryDate: string;

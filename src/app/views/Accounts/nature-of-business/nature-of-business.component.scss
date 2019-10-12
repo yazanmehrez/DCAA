@@ -1,0 +1,19 @@
+@import "../../../../variables";
+
+.service-card {
+  text-align: center;
+  border: 1px solid transparent;
+  padding: 5px 30px;
+  background: $secondary-background;
+  margin: 0 3px;
+}
+
+.service-card:hover, .service-card.selected {
+  border: 1px solid $primary;
+  cursor: pointer;
+  color: $primary;
+}
+
+.selected {
+  background: $white;
+}

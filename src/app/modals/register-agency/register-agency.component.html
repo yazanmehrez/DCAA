@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h6 class="primary-color text-uppercase mt-2 mb-3">Register an agency</h6>
+      <div class="form-group">
+           <span>
+         Username/Email
+        <span class="text-primary">*</span>
+        </span>
+        <input i18n-placeholder="@@email"  type="text"
+               class="form-control clientApp-input" id="firstName" placeholder="Add Agent Username/Email">
+<!--        <div *ngIf="formSubmitted && p.firstName.errors" class="invalid-feedback always-block text-left">-->
+<!--          <div i18n="@@required" *ngIf="p.firstName.errors.required">Field is required</div>-->
+<!--        </div>-->
+      </div>
+      <div class="d-flex">
+        <div class="mx-1" i18n="@@submit">
+          <button type="submit" [disabled]="this.inProgress"
+                  class="btn btn-lg btn-primary d-flex align-items-center py-1 pl-4 pr-4 reverse">
+            <div *ngIf="inProgress" class="spinner-border spinner-border-sm mx-1" role="status">
+              <span class="sr-only">{{'_Forms._Loading' | translate}}...</span>
+            </div>
+           Invite
+          </button>
+        </div>
+        <div i18n="@@cancel">
+          <button type="button" class="btn btn-lg btn-primary py-1 pl-4 pr-4" (click)="dialog.closeAll()">
+            {{'_Forms._Cancel' | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

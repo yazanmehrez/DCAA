@@ -250,7 +250,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     ).click(
       function () {
         $(this).children('.dropdown-menu').removeClass('show');
-        console.log($(this).children);
         window.scrollBy({
           top: 400,
           left: 0,

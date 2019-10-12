@@ -1,46 +1,92 @@
 @import '../../../../../variables';
 
-.dcaa-service-categories {
-  margin-top: 6em;
-  margin-bottom: 3em;
-}
-
-.media {
-  background: $primary-background;
-  position: relative;
-  top: -2em;
-  padding: 1em;
-  color: $white;
-
-  [class^="icon-"], [class*=" icon-"] {
-    font-size: 4em;
+.dynamic {
+  .dcaa-service-categories {
+    margin-top: 6em;
+    margin-bottom: 3em;
   }
 
-}
-
-.services-control .card {
-  top: -4em;
-}
-
-.list-group {
-
-  .list-group-item {
-    background: transparent;
-    border: 0;
-    @include border(left, $border-size, solid, $black);
-    border-radius: 0;
-
-    &:hover {
-      background: white;
-      @include border(left, $border-size, solid, $primary);
-      cursor: pointer;
-      transition: 0.3s all;
-      color: $primary;
-    }
+  .media {
+    background: $primary-background;
+    position: relative;
+    top: -2em;
+    padding: 1em;
+    color: $white;
 
     [class^="icon-"], [class*=" icon-"] {
-      font-size: 3em;
+      font-size: 4em;
     }
 
+  }
+
+  .services-control .card {
+    top: -4em;
+  }
+
+  .list-group {
+
+    .list-group-item {
+      background: transparent;
+      border: 0;
+      @include border(left, $border-size, solid, $black);
+      border-radius: 0;
+
+      &:hover {
+        background: white;
+        @include border(left, $border-size, solid, $primary);
+        cursor: pointer;
+        transition: 0.3s all;
+        color: $primary;
+      }
+
+      [class^="icon-"], [class*=" icon-"] {
+        font-size: 3em;
+      }
+
+    }
+  }
+}
+
+.static {
+  padding: 1em 0.5em;
+
+  .media {
+    background: $primary-background;
+    position: relative;
+    top: -4em;
+    padding: 0.750em 2em;
+    color: $white;
+    display: flex;
+    align-items: center;
+  }
+
+  .media [class^=icon-], .media [class*=" icon-"] {
+    font-size: 2.5em;
+  }
+
+  .media-body h2 {
+    font-size: 1em;
+  }
+
+  .card-body {
+    padding: 0;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    font-size: 2em;
+  }
+
+  .list-group {
+    @include border(left, $border-size, solid, $gray);
+    .list-group-item {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0.5em;
+    }
   }
 }

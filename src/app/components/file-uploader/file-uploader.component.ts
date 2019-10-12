@@ -84,6 +84,11 @@ export class FileUploaderComponent implements OnInit, ControlValueAccessor {
   }
 
   @Input() set filesysteminit(filesysteminit: string) {
+    console.log(filesysteminit);
+    if (filesysteminit === '[]') {
+      filesysteminit = null;
+      this.fileSystemsStr = null;
+    }
     if (filesysteminit) {
       this.clearStorage();
       if (Helper.isJson((filesysteminit))) {
@@ -117,12 +122,9 @@ export class FileUploaderComponent implements OnInit, ControlValueAccessor {
   }
 
   writeValue(value: string): void {
-    console.log(value);
     if (value !== undefined) {
-      // this.fileSystemsStr = value;
       this.filesysteminit = value;
     }
-
   }
 
   registerOnChange(fn: any): void {
@@ -209,6 +211,9 @@ export class FileUploaderComponent implements OnInit, ControlValueAccessor {
     this.result.emit(this.fileSystems);
     this.setImageGallery();
     this.finalResultString = JSON.stringify(this.fileSystems);
+    if (this.finalResultString === '[]') {
+      this.finalResultString = null;
+    }
     this.fileSystemsStr = this.finalResultString;
     window.localStorage.setItem('fileSystems', this.finalResultString);
     if (this.initWithfirst) {

@@ -1,0 +1,20 @@
+@import "../user-profile/user-profile.component";
+
+.associations {
+  .card {
+    flex: 0 1 18%;
+    margin: 10px 0;
+  }
+}
+
+.dcaa-dropdown {
+  right: 0;
+  top: 10px;
+
+  i {
+    right: 0;
+  }
+}
+select::-ms-expand {
+  display: none;
+}
