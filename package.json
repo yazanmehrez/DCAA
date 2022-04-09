@@ -50,7 +50,7 @@
     "highcharts": "^7.2.0",
     "jquery": "^3.4.1",
     "luxon": "^1.19.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ng-recaptcha": "^5.0.0",
     "ng5-slider": "^1.2.4",
     "ngx-autosize": "^1.6.4",
